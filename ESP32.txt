@@ -1,0 +1,136 @@
+$IDF_PATH
+
+D:\software\Espressif\frameworks\esp-idf-v5.3.2
+
+idf.py menuconfig
+
+------------------------------------
+
+idf.py build
+
+idf.py -p COMx flash
+idf.py -p COM3 flash
+
+------------------------------------
+
+idf.py -p COMx monitor
+idf.py -p COM3 monitor
+
+
+#include "driver/gpio.h"
+#include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#define LED_GPIO_PIN 2 // Most ESP32 boards have an onboard LED connected to GPIO2, but check your board
+void app_main() {    // Configure the LED GPIO pin as output    gpio_set_direction(LED_GPIO_PIN, GPIO_MODE_OUTPUT);    while (1) {        // Turn the LED on        gpio_set_level(LED_GPIO_PIN, 1);        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1 second        // Turn the LED off        gpio_set_level(LED_GPIO_PIN, 0);        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1 second    }}
+
+------------------------------------
+
+git remote set-url origin git@github.com:BexelOJ/ESP32.git
+
+git checkout master
+
+------------------------------------
+std::atomic<int> shared_var(0); // stack allocation
+
+std::atomic<int>* shared_var = new std::atomic<int>(0);  // Heap allocation
+
+------------------------------------
+declare a std::vector as a local variable in a function, it is allocated on the stack.
+
+void function() 
+{
+    std::vector<int> vec = {1, 2, 3};  // `vec` is on the stack
+}  
+
+// `vec` is destroyed when the function exits
+
+------------------------------------
+dynamically allocate a std::vector using new, it will be stored on the heap.
+ 
+void function() 
+{
+    std::vector<int>* vec = new std::vector<int>{1, 2, 3};  // `vec` is on the heap
+    delete vec;  // Don't forget to free the memory
+}
+
+------------------------------------
+declare a fixed-size array inside a function, it is allocated on the stack.
+
+void function() 
+{
+    int arr[5] = {1, 2, 3, 4, 5};  // Array is allocated on the stack
+}  // Array is destroyed when the function exits
+
+------------------------------------
+dynamically allocate an array using new (or malloc in C) the array is allocated on the heap.
+
+void function() {
+    int* arr = new int[5]{1, 2, 3, 4, 5};  // Array is allocated on the heap
+    delete[] arr;  // Don't forget to free the memory
+}
+
+------------------------------------
+std::atomic<int> counter(0);  // Atomic variable of type int
+
+means that counter is an atomic variable of type int, and it is initialized with the value 0.
+
+std::atomic<int> provides methods like 
+fetch_add(), load(), and store() to safely perform operations like 
+increments, reading, and writing without the need for locks.
+
+------------------------------------
+echo $IDF_PATH
+D:\software\Espressif\frameworks\esp-idf-v5.3.2 
+ 
+------------------------------------
+sockfd : socket file descriptor
+POSIX : Portable Operating System Interface
+SUS : Single UNIX Specification
+
+AF_INET : Address Family - IPv4
+
+
+------------------------------------
+creating, binding, listening, accepting, connecting, and communicating
+
+socket(), bind(), listen(), accept()
+
+cblacc
+
+------------------------------------
+<sys/socket.h> : socket is a directory inside sys directory
+
+sys part in <sys/socket.h> refers to the system-level programming library
+The sys directory typically contains low-level system interfaces, system calls, and related definitions. 
+socket.h is placed under this directory to indicate that it provides interfaces for socket-related functionality at the system level, 
+allowing you to create and manage network sockets on Unix-based systems.
+
+When you use #include <sys/socket.h>, it means you are including the header file that contains:
+
+Definitions of socket types (e.g., SOCK_STREAM, SOCK_DGRAM),
+Constants and macros used in socket programming (e.g., AF_INET, INADDR_ANY),
+Function declarations for creating and managing sockets (e.g., socket(), bind(), accept(), etc.).
+
+------------------------------------
+inet_ntoa() (Internet Network Address to ASCII)
+inet_pton() (Presentation to Network)
+
+------------------------------------
+exin
+
+exin-desktop
+
+git push --set-upstream origin master
+
+https://github.com/BexelOJ/R.git
+
+
+
+
+
+
+
+
+
+

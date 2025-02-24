@@ -1,0 +1,105 @@
+------------------------------------
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "bexelo.j@outlook.com"
+
+ssh-add C:\Users\HP\.ssh\id_rsa
+
+------------------------------------
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEolUXYeMZEFG/qGoAY3vQ6dBCacpyDpfAdjb+EE90uxIFrfRAGFupV5tCr5vzhxLp2hptpMTjFaNfvXb1IBsap3mmeNiiBrf6me+2fDbe4BP7y+PCkJLQIETyng0TB5mABLzo/3E/hmIN9E5BO+taYEhhfTUuv88iuNoiCRo6GmM/AY0u2NOSAuo9nXtLdC3gpe+/0COET1d0RGh+DqzdpjeZpb8incH1yWy60v0duzo7movI2xsofYP3lCRM+IWBgyBi41XiiLIUqWOqBmCkGQZe7hex+ZXv6UOlEQEGQ9nyFw52TzEn2xRB9X/doOg9CQercbxlBPBIIUx5exwt4dMJ33Kg+gOAmWjSrNlhwYxt5ol+QZgyUDKWS31D/i5PzE0qto1Ybg/ZuEGcKJp6jLzecSCp51RDjw4xAbOvsF9z3gvmfChmsuRkXctdQqAer/ADx2xB1SXBCH4n6vm1W0dJS1cIww+GQxvaylp+yGGYBIYen0FXrLjmwSf8Je8GvHPcNEyZRNzpCzrlS0DaUb/2eb7/XP9+yEcoVneq7zenLYeXCqF2VJvmSQsaa5If1Y+mZtd+T1Gq02IvtuxeldkEYJPJTuZkGcRB+4HgThoAdJbS2rdCBTiyi8JJ9P6/jOQvX6nanQPeEktiO4SCZgRoS7cA3bOsmYaRGtvuLQ== bexelo.j@outlook.com
+
+------------------------------------
+
+https://github.com/BexelOJ/ESP32
+eArduino_Led_Blink
+
+
+------------------------------------
+(for SSH): to make the GitHub Repo as the Remote for push
+
+git remote add origin git@github.com:BexelOJ/Cpp_Notes.git
+git remote add origin git@github.com:BexelOJ/Python_Notes.git
+git remote add origin git@github.com:BexelOJ/Java_Notes.git
+
+https://github.com/BexelOJ/Python_Notes
+
+git remote set-url origin git@github.com:BexelOJ/ESP32.git
+git remote set-url origin git@github.com:BexelOJ/R_Programming.git
+git remote set-url origin git@github.com:BexelOJ/Python_Programming.git
+
+git remote -v
+
+origin  git@github.com:BexelOJ/ESP32.git (fetch)
+origin  git@github.com:BexelOJ/ESP32.git (push)
+
+git push --set-upstream origin master
+
+------------------------------------
+(for HTTPS): to make the GitHub Repo as the Remote for push
+
+git remote add origin https://github.com/BexelOJ/ESP32.git
+
+git remote -v
+
+origin  https://github.com/BexelOJ/ESP32.git (fetch)
+origin  https://github.com/BexelOJ/ESP32.git (push)
+
+------------------------------------
+
+git push --set-upstream origin master
+
+------------------------------------
+
+https://github.com/BexelOJ/C_Programming.git
+
+git remote set-url origin git@github.com:BexelOJ/ESP32/eArduino_Led_Blink.git
+git remote set-url origin git@github.com:BexelOJ/Cpp_Programming.git
+git remote add origin https://github.com/BexelOJ/C_Programming.git
+
+
+https://github.com/BexelOJ/Cpp_Programming
+
+git remote set-url origin git@github.com:BexelOJ/Cpp_Programming.git
+git remote add origin https://github.com/BexelOJ/Cpp_Programming.git
+
+https://github.com/BexelOJ/C_Programming
+
+git remote set-url origin git@github.com:BexelOJ/C_Programming.git
+git remote add origin https://github.com/BexelOJ/C_Programming.git
+
+------------------------------------
+warning: adding embedded git repository: C++_02_2025
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:   git submodule add <url> C++_02_2025
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:   git rm --cached C++_02_2025
+hint: 
+hint: See "git help submodule" for more information.
+
+------------------------------------
+
+
+------------------------------------
+
+
+------------------------------------
+
+
+------------------------------------
+
+
+------------------------------------
+
+
+------------------------------------
+
+
+------------------------------------
