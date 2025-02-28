@@ -1,9 +1,11 @@
 ------------------------------------------------------------
-Sure! Here is a comprehensive list of functions from the headers <string> (for C++ std::string) and <cstring> (for C-style strings in both C and C++), along with a short description of each.
+Here is a comprehensive list of functions from the headers <string> (for C++ std::string) and <cstring> (for C-style strings in both C and C++), along with a short description of each.
 
+------------------------------------------------------------
 Functions in <string> (C++ Standard Library)
 The functions in <string> pertain to std::string, a C++ class used for string manipulation.
 
+------------------------------
 Constructors:
 std::string()
 
@@ -20,6 +22,8 @@ Constructor that creates a string of size n, filled with the character c.
 std::string(std::string&& str)
 
 Move constructor. Transfers ownership of the contents of another string.
+
+------------------------------
 Member Functions:
 append()
 
@@ -87,9 +91,12 @@ Returns a pointer to the underlying character array (not necessarily null-termin
 reserve()
 
 Requests that the string capacity be at least enough to store the specified number of characters.
+
+------------------------------------------------------------
 Functions in <cstring> (C-style String Functions)
 The functions in <cstring> are used for working with C-style strings, i.e., arrays of characters (char arrays) terminated by a null character ('\0').
 
+------------------------------
 String Manipulation:
 strcat()
 
@@ -118,6 +125,8 @@ Copies the first n characters of one string to another.
 strtok()
 
 Breaks a string into tokens based on a delimiter.
+
+------------------------------
 String Length and Size:
 strlen()
 
@@ -125,6 +134,8 @@ Returns the length of a null-terminated C string, excluding the null terminator.
 strnlen()
 
 Returns the length of a string, but limits the number of characters to check (useful for avoiding buffer overruns).
+
+------------------------------
 String Search and Character Manipulation:
 strstr()
 
@@ -147,6 +158,8 @@ Compares two strings according to the current locale.
 strxfrm()
 
 Transforms a string for comparison purposes according to the current locale.
+
+------------------------------
 Memory and Copying:
 memcpy()
 
@@ -166,3 +179,6 @@ Searches for the first occurrence of a byte in a block of memory.
 bzero()
 
 Clears a block of memory by setting all bytes to zero (not part of the C++ standard, but supported in some environments).
+
+------------------------------------------------------------
+
