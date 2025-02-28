@@ -1,0 +1,5 @@
+ls -1 /path/to/directory | wc -l
+
+// in current directory:
+ls -1 | wc -l
+
