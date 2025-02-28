@@ -1,0 +1,78 @@
+Here is a list of functions provided by the string.h header along with brief definitions:
+
+memchr()
+Searches for the first occurrence of a specific character in a block of memory.
+
+memcmp()
+Compares two blocks of memory byte by byte.
+
+memcpy()
+Copies a specified number of bytes from one memory block to another.
+
+memmove()
+Copies a specified number of bytes from one memory block to another, handling overlapping regions.
+
+memset()
+Sets a specified number of bytes in a memory block to a given value.
+
+strcat()
+Appends a null-terminated string to the end of another string.
+
+strchr()
+Searches for the first occurrence of a character in a string.
+
+strcmp()
+Compares two strings lexicographically.
+
+strcoll()
+Compares two strings using the current locale’s collation rules.
+
+strcpy()
+Copies a null-terminated string from one to another.
+
+strcspn()
+Returns the length of the initial segment of a string that does not contain any of the characters in another string.
+
+strdup()
+Allocates memory and copies a string into that memory (not in all implementations).
+
+strpbrk()
+Searches for the first occurrence of any of a set of characters in a string.
+
+strrchr()
+Searches for the last occurrence of a character in a string.
+
+strspn()
+Returns the length of the initial segment of a string that contains only characters from another string.
+
+strstr()
+Searches for the first occurrence of a substring in a string.
+
+strtok()
+Splits a string into tokens based on delimiters.
+
+strncpy()
+Copies a specified number of characters from one string to another, stopping early if the null terminator is found.
+
+strncat()
+Appends a specified number of characters from one string to another.
+
+strncmp()
+Compares the first n characters of two strings lexicographically.
+
+strncpy() (listed again due to earlier mention)
+
+strnlen()
+Returns the length of a string, but not exceeding a specified maximum length.
+
+strerror()
+Returns a pointer to the textual description of an error code.
+
+strtok_r()
+A reentrant version of strtok(), which allows tokenizing a string in a thread-safe way.
+
+These functions are used for various string manipulation tasks, such as searching, comparing, copying, and tokenizing strings, along with memory management.
+
+
+
+
