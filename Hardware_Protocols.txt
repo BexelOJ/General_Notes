@@ -1,4 +1,4 @@
-------------------------
+------------------------------------------------------------
 
 PCI (Peripheral Component Interconnect) is a hardware protocol. 
 It defines a standard for connecting peripheral devices (like network cards, graphics cards, and storage controllers) to a computer's motherboard. 
@@ -10,7 +10,7 @@ There are various versions of PCI, including the original PCI, PCI-X, and PCI Ex
 
 In short, PCI is both a hardware interface and a protocol for communication between components in a computer system.
 
-------------------------
+------------------------------------------------------------
 
 AXI (Advanced eXtensible Interface) is a hardware protocol. 
 It is part of the ARM AMBA (Advanced Microcontroller Bus Architecture) specification, specifically designed to facilitate high-performance communication between different components within a system-on-chip (SoC) architecture.
@@ -37,7 +37,7 @@ This version of AXI was designed to improve upon previous versions like AHB (Adv
 support for out-of-order transactions, and a more flexible bus structure suitable for modern SoCs (System-on-Chips). 
 The AXI4 version, which is widely used today, was introduced later as part of the AMBA 4 specification in 2010.
 
-------------------------
+------------------------------------------------------------
 
 List of Protocols in AMBA:
 
@@ -71,7 +71,8 @@ AHB-Lite is a simpler version of the AHB protocol, designed for systems that do 
 It’s often used in simpler designs where only a single master communicates with the peripherals or memory.
 These protocols are part of ARM's AMBA specification, and each one is designed for different purposes, ranging from simple peripheral connections to high-performance, multi-core data transfers.
 
-------------------------
+------------------------------------------------------------
+
 NVMe is a hardware protocol ?
 
 No, NVMe (Non-Volatile Memory Express) is not a hardware protocol, but rather a communication protocol or software interface designed to enable high-performance data transfer between a host system (such as a computer or server) and non-volatile memory storage devices, specifically solid-state drives (SSDs) that use NAND flash or other non-volatile memory technologies.
@@ -86,10 +87,17 @@ Interface: It uses the PCIe bus to communicate with the host, which allows for m
 Performance: NVMe enables faster read/write speeds and lower latency, taking advantage of the parallelism of modern SSDs, which can support many more queues and commands than older protocols.
 
 In summary, NVMe is a software protocol designed to interact with hardware (such as SSDs), enabling faster data transfer speeds, rather than being a hardware protocol itself.
-------------------------
 
-------------------------
+------------------------------------------------------------
 
-------------------------
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
 
 

@@ -1,3 +1,4 @@
+------------------------------------------------------------
 Here is a list of functions provided by the string.h header along with brief definitions:
 
 memchr()
@@ -71,7 +72,19 @@ Returns a pointer to the textual description of an error code.
 strtok_r()
 A reentrant version of strtok(), which allows tokenizing a string in a thread-safe way.
 
+------------------------------------------------------------
+
 These functions are used for various string manipulation tasks, such as searching, comparing, copying, and tokenizing strings, along with memory management.
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
 
 
 
