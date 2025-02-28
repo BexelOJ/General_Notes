@@ -1,4 +1,4 @@
--------------------------------------------------
+------------------------------------------------------------
 Sure! Here is a comprehensive list of functions from the headers <string> (for C++ std::string) and <cstring> (for C-style strings in both C and C++), along with a short description of each.
 
 Functions in <string> (C++ Standard Library)
