@@ -1,0 +1,92 @@
+------------------------------------------------------------
+ls -1 /path/to/directory | wc -l
+
+------------------------------------------------------------
+// in current directory:  
+ls -1 | wc -l
+
+------------------------------------------------------------
+// wc - word count
+wc [options] [file(s)]
+Common Options for wc:
+-l: Count the number of lines.
+-w: Count the number of words.
+-c: Count the number of characters.
+-m: Count the number of characters (same as -c, but it’s better with multi-byte characters).
+-L: Show the length of the longest line.
+------------------------------------------------------------
+// ls - list
+ls [options] [directory]
+Without options, it simply lists the names of files and directories in the current directory.
+
+Common Options for ls:
+-l: Lists files in long format, showing more details like file permissions, ownership, size, and modification time.
+
+ls -l
+-a: Includes hidden files (those starting with a dot .).
+
+ls -a
+-h: In conjunction with -l, it displays file sizes in human-readable format (e.g., KB, MB).
+
+ls -lh
+-R: Lists files recursively in all subdirectories.
+
+ls -R
+-1: Lists each entry on a new line (useful for piping).
+
+ls -1
+-t: Sorts files by modification time, with the most recently modified files appearing first.
+
+ls -lt
+Example Usage:
+List files in the current directory:
+
+ls
+List all files, including hidden ones:
+
+ls -a
+List files in long format with human-readable file sizes:
+
+ls -lh
+List files in a specific directory:
+
+ls /path/to/directory
+The ls command is one of the most commonly used commands for navigating and inspecting the contents of directories in Linux.
+
+------------------------------------------------------------
+the | (pipe) symbol in Linux is used to pipe the output of one command to another command. It allows you to take the output of one command and use it as the input for the next command, effectively "chaining" commands together.
+
+How the Pipe (|) Works:
+The command on the left side of the pipe generates output.
+The command on the right side of the pipe takes the output from the left command as its input and processes it.
+Example:
+
+ls -l | grep "test"
+ls -l: Lists files in long format.
+|: Pipes the output of ls -l to the next command.
+grep "test": Filters the results, showing only lines that contain the word "test".
+In this example, the ls -l command lists all the files and their details, and the grep "test" command filters that output to show only files that include the string "test."
+
+Another Example:
+
+ps aux | grep "firefox"
+ps aux: Shows all running processes.
+|: Pipes the output to the next command.
+grep "firefox": Filters the list of processes to show only those related to "firefox".
+Use Case of Piping:
+Pipes are very powerful for combining commands to create more complex workflows. You can chain multiple commands together:
+
+cat file.txt | grep "error" | sort | uniq
+cat file.txt: Displays the contents of file.txt.
+grep "error": Filters out lines containing "error."
+sort: Sorts the filtered lines.
+uniq: Removes duplicate lines from the sorted list.
+
+Summary:
+The pipe (|) symbol is used to send the output of one command into another command, allowing you to perform multiple operations in sequence.
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
