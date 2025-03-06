@@ -1,0 +1,51 @@
+----------------------------
+
+EI Labs 34 Inch - LG34WQ60C
+Dell - C3422WE
+LG32QN600
+
+LG UltraGear 32GS60QC
+
+2K typically refers to resolutions around 2560 x 1440 (QHD), and 3440 x 1440 
+
+4K
+
+LG 34WK95U-W
+
+34WR50QK-B : QHD 21:9
+
+----------------------------
+
+# Given values
+width = 3440  # in pixels
+height = 1440  # in pixels
+diagonal = 34  # in inches
+
+# Calculating PPI
+ppi = math.sqrt(width**2 + height**2) / diagonal
+ppi
+
+
+----------------------------
+
+3840 * 2160  UHD 4k - 27 Inch 16:9   19.5k
+
+3440 * 1440  QHD 2k - 34 Inch
+
+2560 * 1440  QHD 2k - 27 Inch  G5    18   16:9
+
+2560 * 1080  FHD 1k  - 29 Inch   LG    15   21:9
+
+----------------------------
+LG 29WQ600
+LG 29WQ500 
+LG 29WK600-W (29-inch, 21:9, 2560x1080) 
+Samsung LU28R550UQNXZA (28-inch, 21:9, 2560x1080)
+
+----------------------------
+
+----------------------------
+
+----------------------------
+
+----------------------------
