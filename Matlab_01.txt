@@ -1,0 +1,228 @@
+------------------------------------------------------------
+Windows in Matlab:
+
+Editor - files will be opened here
+Workspace - stores the variable values
+Command Window - to type commands
+
+------------------------------
+Current Folder - list the directory hierarchy
+Command History - list the previously used commands
+
+------------------------------------------------------------
+% - commenting in Matlab
+
+; - suppress the output, but executes
+
+In MATLAB, indexing always starts at 1, not 0.
+
+A = [10, 20, 30];
+
+A(1)    % Returns 10
+A(2)    % Returns 20
+A(3)    % Returns 30
+
+------------------------------------------------------------
+Command History
+
+Up Arrow (↑) – previous commands
+Down Arrow (↓) – forward in history
+
+------------------------------
+Command History panel
+>> commandhistory  % run this command in the cmd
+
+------------------------------
+read the history file manually:
+
+historyFile = fullfile(prefdir, 'history.m');
+type(historyFile)
+
+This shows the contents of the history.m file, 
+where MATLAB stores recent commands.
+
+------------------------------------------------------------
+To run a .mlx (Live Script) file from the MATLAB cmd:
+
+>> run('filename.mlx')
+
+Make sure the file is in current folder or on MATLAB path.
+
+------------------------------
+Do not include the full path unless needed:
+
+>> run('/full/path/to/your/file.mlx')
+
+------------------------------
+Call the .mlx like a function (if it doesn’t require input)
+
+>> filename
+
+------------------------------
+Run with matlab command from system terminal (optional)
+
+matlab -batch "run('filename.mlx')"
+
+------------------------------
+Or if you're using a MATLAB function/script:
+
+matlab -batch filename
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+Short Color Names (most common)
+
+>> % plot(x, 'r')
+
+These are single-character codes:
+
+Code	Color Name	Example
+
+'r'	 	Red			plot(x, 'r')
+'g'		Green		plot(x, 'g')
+'b'		Blue		plot(x, 'b')
+
+'c'		Cyan		plot(x, 'c')
+'m'		Magenta		plot(x, 'm')
+'y'		Yellow		plot(x, 'y')
+
+'k'		Black		plot(x, 'k')
+'w'		White		plot(x, 'w')
+
+------------------------------
+>> plot(x, 'Color', [1, 0.5, 0])  % Orange
+
+Each value ranges from 0 to 1
+
+------------------------------
+Named Colors (since R2019b)
+You can use full color names (case-insensitive):
+
+>> plot(x, 'Color', 'red')
+>> plot(x, 'Color', 'turquoise')
+
+------------------------------
+Some named colors:
+
+'red', 'green', 'blue'
+
+'cyan', 'magenta', 'yellow', 'black', 'white'
+
+Extended colors like 
+'orange', 'purple', 'turquoise', etc.
+
+------------------------------
+Run this to see all named colors available:
+web(fullfile(docroot, 'matlab/ref/colorspec.html'))
+
+------------------------------------------------------------
+Line Styles
+You can modify the style of the line using:
+
+Symbol		Line Style		Example
+
+'-'			Solid			plot(x, y, '-')
+'--'		Dashed			plot(x, y, '--')
+':'			Dotted			plot(x, y, ':')
+'-.'		Dash-dot		plot(x, y, '-.')
+
+------------------------------------------------------------
+Markers
+Markers show up at data points:
+
+Symbol		Marker			Example
+
+'.'			Point			plot(x, y, '.')
+'o'			Circle			plot(x, y, 'o')
+'x'			Cross			plot(x, y, 'x')
+
+'+'			Plus			plot(x, y, '+')
+'*'			Star			plot(x, y, '*')
+'s'			Square			plot(x, y, 's')
+
+'d'			Diamond			plot(x, y, 'd')
+'^'			Up triangle		plot(x, y, '^')
+'v'			Down triangle	plot(x, y, 'v')
+
+------------------------------------------------------------
+Combine Line Style, Marker, and Color
+You can mix them in a single string:
+
+>> plot(x, y, 'r--o')  % Red dashed line with circleMarkers
+
+General format:
+'color linestyle marker'
+
+Examples:
+plot(x, y, 'b:*')   % Blue dotted line with star markers
+plot(x, y, 'k-.s')  % Black dash-dot line with square 
+					  markers
+
+------------------------------------------------------------
+Full Customization with Name-Value Pairs
+For even more control:
+
+>> plot(x, y, 'LineStyle', '--', 'Marker', 'o', 'Color', 
+   [0.5, 0, 0.5], 'LineWidth', 2)
+
+------------------------------------------------------------
+What Is a Legend in MATLAB?
+In MATLAB, a legend is the labeled key that describes which 
+plotted line or data series corresponds to which label. 
+It’s not the same as the line style + marker + color combo.
+
+------------------------------
+✅ Example: Legend in Use
+
+x = 1:10;
+y1 = x;
+y2 = x.^2;
+
+plot(x, y1, 'r--o', x, y2, 'b:*')
+legend('Linear', 'Quadratic')
+
+---------------
+'Linear' and 'Quadratic' are legend entries.
+
+'r--o' and 'b:*' are the style definitions for each line.
+
+The legend will automatically display red dashed line with 
+circles labeled as "Linear", and the blue dotted line with 
+stars labeled as "Quadratic".
+
+------------------------------
+🧠 Summary
+Term		Meaning
+'r--o'	    Style: red, dashed line with circle markers
+legend()	MATLAB function to create a label box 
+			explaining plotted data
+
+------------------------------
+🛠️ Add or Customize a Legend
+
+legend('sin(x)', 'cos(x)', 'Location', 'northeast')
+Location options: 'northwest', 'northeast', 'south', 
+				  'west', etc.
+
+You can also modify legend font, color, box, etc.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

@@ -1,0 +1,67 @@
+------------------------------------------------------------
+Copy Assignment Operator (custom):
+
+Mylcass& operator=(const MyClass& other){
+	if(this != &other){
+		delete data;
+		data = new int(*other.data);
+	}
+	return *this;
+}
+
+------------------------------------------------------------
+
+MyClass(const MyClass& other);            
+// copy constructor
+
+Myclass& operator=(const MyClass& other); 
+// copy Assignment Operator
+
+MyClass(MyClass&& other);            
+// move constructor
+
+MyClass& operator=(MyClass&& other); 
+// Move Assignment Operator
+
+------------------------------------------------------------
+Move Assignment Operator (custom):
+
+MyClass& operator=(MyClass&& other) noexcept {
+    if (this != &other) {
+        delete data;         // clean up existing resource
+        data = other.data;   // steal resource
+        other.data = nullptr;
+    }
+    return *this;
+}
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+

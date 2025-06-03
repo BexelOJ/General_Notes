@@ -1,0 +1,204 @@
+------------------------------------------------------------
+Ada.Text_IO is part of the Ada standard library, 
+which is rich and modular — organized into packages, 
+and designed with reliability and maintainability in mind.
+
+Below is a list of standard Ada libraries, 
+grouped by category. 
+These are part of the Ada 95/2005/2012+ standard and are 
+typically available in any modern Ada compiler like GNAT.
+
+------------------------------------------------------------
+1. Core Language Support
+
+These are essential Ada packages always available.
+
+Ada — Root package
+
+	Ada.Calendar – Date and time support
+
+	Ada.Command_Line – Access to command-line arguments
+
+	Ada.Environment_Variables – Access environment 
+								variables
+
+	Ada.Exceptions – Exception handling support
+
+	Ada.Finalization – Controlled types 
+					   (for resource management)
+
+	Ada.Strings – String manipulation (see below)
+
+	Ada.Tags – Runtime type information
+
+	Ada.Real_Time – High-precision time 
+					(for real-time systems)
+
+------------------------------------------------------------
+2. Input/Output
+
+Ada.Text_IO – Text-based I/O (files, console)
+
+	Ada.Text_IO.Integer_IO, Float_IO, etc. – 
+	Type-specific I/O
+
+Ada.Sequential_IO – Binary I/O for sequential access
+
+Ada.Direct_IO – Binary I/O with random access
+
+Ada.Streams – Low-level stream I/O
+
+	Ada.Streams.Stream_IO – File-based stream access
+
+	Ada.Streams.Storage_IO – Memory buffer I/O
+
+------------------------------------------------------------
+3. String Handling
+
+Ada.Strings – Root string package
+
+	Ada.Strings.Fixed – Operations on fixed-length strings
+
+	Ada.Strings.Bounded – Bounded dynamic-length strings
+
+	Ada.Strings.Unbounded – Fully dynamic-length strings
+
+------------------------------------------------------------
+4. Containers (Ada 2005+)
+
+Think of these like the C++ STL or Java collections.
+
+Ada.Containers – Root for containers
+
+	Ada.Containers.Vectors
+
+	Ada.Containers.Doubly_Linked_Lists
+
+	Ada.Containers.Hashed_Maps
+
+	Ada.Containers.Hashed_Sets
+
+	Ada.Containers.Ordered_Maps
+
+	Ada.Containers.Ordered_Sets
+
+	Ada.Containers.Bounded_... – Bounded versions
+
+------------------------------------------------------------
+5. Time and Real-Time
+
+Ada.Calendar – Calendar date/time
+
+Ada.Real_Time – Precise real-time support
+
+	Ada.Real_Time.Timing_Events
+
+Ada.Execution_Time – Measure CPU execution time 
+					 (real-time tasks)
+
+------------------------------------------------------------
+6. System and Memory
+
+System – Low-level support
+
+	System.Address, System.Storage_Elements, etc.
+
+	System.Machine_Code – Inline assembly (optional)
+
+	System.Atomic – Atomic variables (for concurrency)
+
+------------------------------------------------------------
+7. Concurrency and Tasking
+
+Ada.Task_Identification – Introspection of tasks
+
+Ada.Synchronous_Task_Control – Event-style task sync
+
+Ada.Protected_Objects – Data-safe locking mechanisms
+
+Ada.Real_Time.Timing_Events – Schedule task actions
+
+------------------------------------------------------------
+8. Safety-Critical & Restricted Profiles (subset libraries)
+
+For SPARK/Ada in high-integrity systems:
+
+System.RPC – Remote Procedure Calls 
+			 (for Ravenscar, Distributed Systems)
+
+System.Restrictions – Enforce restrictions 
+					  (e.g., no dynamic memory)
+
+Ada.Synchronous_Barriers – Sync barriers for Ravenscar
+
+------------------------------------------------------------
+9. Generic Packages
+
+Most container and I/O packages are generic, 
+so you instantiate them with types, e.g.:
+
+ada code:
+
+package Int_IO is new Ada.Text_IO.Integer_IO(Integer);
+
+------------------------------------------------------------
+Other Notable Utility Libraries
+
+Interfaces – Interfacing with other languages
+
+	Interfaces.C – Interop with C
+
+	Interfaces.Fortran – Interop with Fortran
+
+Ada.Locales – Locale and cultural settings (Ada 2012+)
+
+Ada.Numerics – Math support
+
+	Ada.Numerics.Elementary_Functions – sin, cos, log, etc.
+
+	Ada.Numerics.Long_Elementary_Functions, etc.
+
+------------------------------------------------------------
+Summary (Group-wise)
+
+Category		Example Packages
+
+Core			Ada, Ada.Calendar, Ada.Command_Line
+
+I/O				Ada.Text_IO, Ada.Streams
+
+Strings			Ada.Strings.Fixed, Unbounded
+
+Containers		Ada.Containers.Vectors, Maps, Sets
+
+Time			Ada.Calendar, Ada.Real_Time
+
+Concurrency		Ada.Task_Identification, Protected_Objects
+
+System-level	System, System.Machine_Code
+
+Interfacing		Interfaces.C, Interfaces.Fortran
+
+Numerics		Ada.Numerics.Elementary_Functions
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------

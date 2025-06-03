@@ -1,0 +1,87 @@
+------------------------------------------------------------
+23 Design Patterns:
+
+GoF : CSB
+
+------------------------------------------------------------
+Creational (5)
+1.) Singleton
+2.) Factory Method
+3.) Abstract Factory
+4.) Builder
+5.) Prototype
+
+SFi ABvP
+SF ABP
+
+------------------------------------------------------------
+Strucutural (7)
+1.) Adapter
+2.) Bridge
+3.) Ccomposite
+4.) Decorator
+5.) Facade
+6.) Flyweight
+7.) Proxy
+
+ABCD FFP
+
+------------------------------------------------------------
+Behavioral (11)
+1.) Chain of Responsibility
+2.) Command
+3.) Iterator
+4.) Interpreter
+5.) Memento
+6.) Modirator
+7.) Observer
+8.) State
+9.) Strategy
+10.) Template Method
+11.) Visitor
+
+CM OS TV
+
+CIM OS TV
+CIM  S
+
+------------------------------------------------------------
+SOLID Design Principles
+
+Single Responsibility Principles -
+Composite, Observer, Strategy
+
+Open / closed Principle -
+Decorator, Abstract Factory, Strategy 
+
+Liskov Substitution Principle -
+Factory Method, Template Method, Composite
+
+Interface Segregation Principle -
+Adapter, Bridge, Facade
+
+Dependency Inversion Principle -
+Abstract Factory, Strategy
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------

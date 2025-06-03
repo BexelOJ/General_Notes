@@ -1,0 +1,159 @@
+------------------------------------------------------------
+Safety-critical design patterns are proven solutions to 
+recurring problems in systems where failure could result 
+in loss of life, significant property damage, or 
+environmental harm. 
+These patterns are commonly applied in domains like 
+aerospace, automotive, industrial control, 
+medical devices, and nuclear systems.
+
+Here’s a categorized list of safety-critical 
+design patterns, their purpose, 
+and examples of where they’re used:
+
+------------------------------------------------------------
+🛡️ 1. Fault Detection and Isolation Patterns
+✔️ Watchdog Timer Pattern
+Purpose: Detect if the system or a task hangs or becomes 
+unresponsive.
+
+Example: Restarting a stuck control loop in an automotive 
+ECU.
+
+✔️ Heartbeat Pattern
+Purpose: A component periodically signals it is alive.
+
+Example: One microcontroller sends a signal to another 
+in a redundant system to confirm it’s operational.
+
+✔️ Ping/Ack Pattern
+Purpose: Check communication integrity between components.
+
+Example: RTOS task pinging another and expecting 
+acknowledgment.
+
+------------------------------------------------------------
+🔁 2. Fault Tolerance and Recovery Patterns
+✔️ Triple Modular Redundancy (TMR)
+Purpose: Vote among three modules to mask a faulty one.
+
+Example: Flight control systems in commercial aircraft.
+
+✔️ Rollback/Rollforward Pattern
+Purpose: Recover from errors by reverting to a known 
+safe state (rollback) or moving to a predefined 
+new state (rollforward).
+
+Example: Data logging system in a space probe.
+
+✔️ Graceful Degradation
+Purpose: Maintain partial functionality 
+under fault conditions.
+
+Example: A car's ABS fallback to normal braking if 
+ABS fails.
+
+------------------------------------------------------------
+🧩 3. Redundancy and Replication Patterns
+✔️ Hot/Cold Standby
+Purpose: Have a backup component ready to take over.
+
+Example: Hot standby communication processors in 
+railway signaling.
+
+✔️ N-Version Programming
+Purpose: Independently developed software versions reduce 
+common mode failures.
+
+Example: Avionics software from different teams for the 
+same logic.
+
+------------------------------------------------------------
+🔒 4. Safety Monitoring and Enforcement Patterns
+✔️ Safety Kernel / Safety Monitor Pattern
+Purpose: A small, verified core ensures safety even if 
+other parts fail.
+
+Example: Safety kernel in AUTOSAR Adaptive Platform.
+
+✔️ Execution Timeout Pattern
+Purpose: Limit the execution time of a task.
+
+Example: Real-time tasks in pacemakers.
+
+✔️ Safe State Pattern
+Purpose: Move system to predefined safe state under fault.
+
+Example: Reactor shutdown in case of sensor failure.
+
+------------------------------------------------------------
+📶 5. Communication Integrity Patterns
+✔️ CRC/Error Detection & Correction
+Purpose: Ensure message integrity.
+
+Example: CAN bus with CRC checks.
+
+✔️ Time-Triggered Communication
+Purpose: Deterministic message exchange.
+
+Example: Time-Triggered Ethernet (TTE) in aerospace.
+
+------------------------------------------------------------
+🧠 6. Design Assurance & Development Process Patterns
+✔️ Separation of Concerns
+Purpose: Isolate safety-critical from non-safety-critical 
+components.
+
+Example: Infotainment and brake control on separate CPUs.
+
+✔️ Formal Verification Pattern
+Purpose: Use mathematical proof for correctness.
+
+Example: Critical logic in avionics software verified using 
+model checking.
+
+✔️ Safe Subset Programming
+Purpose: Restrict language features to avoid 
+unsafe constructs.
+
+Example: Using MISRA C guidelines in automotive code.
+
+------------------------------------------------------------
+📊 7. Data and Control Flow Patterns
+✔️ Control Loop Pattern
+Purpose: Monitor and control system based on sensor data.
+
+Example: PID loops in autopilot systems.
+
+✔️ Checkpoints and Audits
+Purpose: Periodically verify system health and correctness.
+
+Example: Audit logs in train control systems.
+
+📦 Recommended Use in Architectures
+AUTOSAR – uses safety patterns like watchdogs, 
+partitioning, and diagnostic monitoring.
+
+ARINC 653 – applies separation, health monitoring, 
+and time partitioning.
+
+IEC 61508, ISO 26262, DO-178C – standards that mandate 
+these patterns.
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------

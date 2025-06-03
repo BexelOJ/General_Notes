@@ -1,0 +1,85 @@
+------------------------------------------------------------
+List of pthread_mutex_ Functions
+
+Function Name	Description
+
+pthread_mutex_init				
+Initializes a mutex with specified attributes.
+
+pthread_mutex_destroy			
+Destroys a previously initialized mutex.
+
+pthread_mutex_lock				
+Locks the mutex; blocks if already locked.
+
+pthread_mutex_trylock			
+Attempts to lock the mutex; does not block if already locked.
+
+pthread_mutex_timedlock			
+Attempts to lock the mutex within a specified time limit.
+
+pthread_mutex_unlock			
+Unlocks the mutex.
+
+pthread_mutexattr_init			
+Initializes a mutex attribute object.
+
+pthread_mutexattr_destroy		
+Destroys a mutex attribute object.
+
+pthread_mutexattr_settype		
+Sets the mutex type (e.g., normal, recursive).
+
+pthread_mutexattr_gettype		
+Gets the current mutex type.
+
+pthread_mutexattr_setpshared	
+Sets whether the mutex is shared between processes.
+
+pthread_mutexattr_getpshared	
+Gets whether the mutex is shared between processes.
+
+------------------------------------------------------------
+futexes (fast userspace mutexes) 
+
+
+------------------------------------------------------------
+kernel code (e.g., Linux device drivers), 
+you use completely different primitives:
+
+Purpose	Kernel-Space Primitive
+
+Mutex			struct mutex, spinlock_t
+Semaphore		struct semaphore
+Completion		struct completion
+Condition wait	wait_event, wait_queue_head_t
+
+
+------------------------------------------------------------
+56vi7yAY>*wH.Y5[
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

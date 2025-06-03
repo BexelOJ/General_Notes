@@ -1,0 +1,186 @@
+------------------------------------------------------------
+Four C++ cast operators:
+✅ dynamic_cast
+✅ static_cast
+✅ const_cast
+✅ reinterpret_cast
+
+Each serves a different purpose, and knowing when to use
+which is essential for safe and correct type conversions.
+
+------------------------------------------------------------
+1. dynamic_cast
+
+✅ Used for:
+Safe downcasting in polymorphic inheritance.
+
+✅ Requires:
+	The base class must have at least one virtual
+	function (i.e., be polymorphic).
+
+	It checks at runtime if the cast is valid.
+
+------------------------------
+✅ Example:
+
+class Base {
+public:
+    virtual ~Base() {}  // Required
+};
+
+class Derived : public Base {
+public:
+    void hello() { std::cout << "Hello from Derived\n"; }
+};
+
+Base* b = new Derived();
+
+Derived* d = dynamic_cast<Derived*>(b);
+if (d) {
+    d->hello();  // ✅ Safe
+} else {
+    std::cout << "Cast failed\n";
+}
+
+------------------------------
+Use when:
+
+You need type safety in complex class hierarchies.
+
+You want to ensure the conversion is safe at runtime.
+
+------------------------------------------------------------
+2. static_cast
+
+✅ Used for:
+Compile-time conversions between related types.
+	
+	No runtime check — you must be sure the cast is valid.
+
+	Can be used for:
+
+		Upcasting and safe downcasting
+		(when you're certain).
+
+		Converting between primitive types
+		(int to float, etc).
+
+		Removing void* ambiguity.
+
+------------------------------
+✅ Example:
+
+float f = 3.14;
+int i = static_cast<int>(f);  // ✅ OK
+
+Base* b = new Derived();
+Derived* d = static_cast<Derived*>(b);
+// ✅ OK if b actually points to Derived
+
+------------------------------
+Dangerous if:
+
+You're downcasting and the actual object isn’t of the
+derived type — this leads to undefined behavior.
+
+------------------------------------------------------------
+const_cast
+
+✅ Used to:
+Add or remove const/volatile qualifiers
+
+------------------------------
+✅ Example:
+
+void print(int* x) { std::cout << *x << "\n"; }
+
+void foo(const int* y) {
+    print(const_cast<int*>(y));
+	// ✅ OK if you don't actually modify *y
+}
+
+------------------------------
+Modifying a const object after
+const_cast = undefined behavior
+
+const int x = 5;
+int* ptr = const_cast<int*>(&x);
+*ptr = 10;  // ❌ UB
+
+------------------------------------------------------------
+4. reinterpret_cast
+
+❗ Most low-level, dangerous, and non-portable
+
+✅ Used to:
+Convert between unrelated types, like:
+
+	int* ↔ char*
+
+	Pointers ↔ integers
+
+	Function pointers ↔ data pointers
+
+------------------------------
+✅ Example:
+
+int x = 65;
+char* c = reinterpret_cast<char*>(&x);
+std::cout << *c << "\n";  // Might print 'A'
+
+------------------------------
+Avoid unless:
+
+You're doing low-level bit manipulation
+
+You're interfacing with hardware or system APIs
+
+------------------------------------------------------------
+Summary Table
+
+Cast
+
+dynamic_cast
+Purpose:        Safe downcasting in polymorphic hierarchies
+Runtime Check:    ✅ Yes
+Safe?: 		      ✅ Yes
+Use Case Example: Base* → Derived*
+
+static_cast
+Purpose:          Compile-time cast between related types
+Runtime Check:    ❌ No
+Safe?:            ⚠️ If you're sure
+Use Case Example: int ↔ float, up/downcasting when safe
+
+const_cast
+Purpose:          Remove/add const/volatile qualifiers
+Runtime Check:    ❌ No
+Safe?: 			  ❌ UB if misused
+Use Case Example: const int* → int*
+
+reinterpret_cast
+Purpose:          Bitwise reinterpretation of types
+Runtime Check:    ❌ No
+Safe?:            ❌ Dangerous
+Use Case Example: int* ↔ char*, void* ↔ func*
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+

@@ -1,0 +1,179 @@
+------------------------------------------------------------
+$IDF_PATH
+D:\software\Espressif\frameworks\esp-idf-v5.3.2
+D:\software\Espressif\frameworks\esp-idf-v5.4.1
+
+------------------------------------------------------------
+
+idf.py --version
+ESP-IDF v5.3.1-889-g44a95046be-dirty
+ESP-IDF v5.3.1-dirty
+ESP-IDF v5.4.1-dirty
+
+------------------------------------------------------------
+
+idf.py menuconfig
+
+idf.py fullclean
+
+------------------------------------------------------------
+
+idf.py build
+
+idf.py -p COMx flash
+idf.py -p COM3 flash
+
+-p means Port
+
+------------------------------------------------------------
+
+idf.py -p COMx monitor
+idf.py -p COM3 monitor
+
+------------------------------------------------------------
+
+idf.py --version
+ESP-IDF v5.3.1-dirty
+
+#include "driver/gpio.h"
+#include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#define LED_GPIO_PIN 2 
+// Most ESP32 boards have an onboard LED connected to GPIO2 
+// but check your board
+void app_main() {    
+// Configure the LED GPIO pin as output    
+gpio_set_direction(LED_GPIO_PIN, GPIO_MODE_OUTPUT);    
+while (1) {        // Turn the LED on        
+gpio_set_level(LED_GPIO_PIN, 1);        
+vTaskDelay(1000 / portTICK_PERIOD_MS); 
+// Wait for 1 second        
+// Turn the LED off        
+gpio_set_level(LED_GPIO_PIN, 0);        
+vTaskDelay(1000 / portTICK_PERIOD_MS); 
+// Wait for 1 second    
+}
+}
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+echo $IDF_PATH
+D:\software\Espressif\frameworks\esp-idf-v5.3.2 
+ 
+------------------------------------------------------------
+sockfd : socket file descriptor
+POSIX : Portable Operating System Interface
+SUS : Single UNIX Specification
+
+AF_INET : Address Family - IPv4
+
+
+------------------------------------------------------------
+creating, binding, listening, accepting, connecting, 
+and communicating
+
+socket(), bind(), listen(), accept()
+
+cblacc
+
+------------------------------------------------------------
+<sys/socket.h> : socket is a directory inside sys directory
+
+sys part in <sys/socket.h> refers to the system-level 
+programming library.
+The sys directory typically contains low-level 
+system interfaces, system calls, and related definitions. 
+socket.h is placed under this directory to indicate 
+that it provides interfaces for socket-related 
+functionality at the system level, 
+allowing you to create and manage network sockets on 
+Unix-based systems.
+
+When you use #include <sys/socket.h>, 
+it means you are including the header file that contains:
+
+Definitions of socket types 
+(e.g., SOCK_STREAM, SOCK_DGRAM),
+
+Constants and macros used in socket programming 
+(e.g., AF_INET, INADDR_ANY),
+
+Function declarations for creating and managing sockets
+(e.g., socket(), bind(), accept(), etc.).
+
+------------------------------------------------------------
+inet_ntoa() (Internet Network Address to ASCII)
+inet_pton() (Presentation to Network)
+
+------------------------------------------------------------
+Running a New ESP-IDF Project:
+
+S1.) Open ESP-IDF and navigate to the folder
+S2.) idf.py create-project PROJECT_NAME
+     cd PROJECT_NAME
+
+Example:
+idf.py create-project my_7seg_display
+cd my_7seg_display
+
+This creats a Project Structure:
+my_7seg_display/
+├── CMakeLists.txt
+├── components/
+├── main/
+│   └── main.c
+├── sdkconfig
+└── build/
+
+add content to main.c and run 
+
+S3.) Running IDF Project:
+
+idf.py build
+
+idf.py -p COM3 flash
+
+------------------------------------------------------------
+
+0x70. However, some 7-segment displays use different 
+addresses 
+(e.g., 0x38, 0x3F, 0x7F).
+
+------------------------------------------------------------
+#define LED1_PIN GPIO_NUM_15  
+// LED1 connected to GPIO15 
+// (on-board LED for most ESP32 boards)
+
+#define LED2_PIN GPIO_NUM_2   
+// LED2 connected to GPIO2 (or you can use any other pin)
+
+#define LED3_PIN GPIO_NUM_17  
+// LED2 connected to GPIO15 (or you can use any other pin)
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+idf.py create-project Task_simple
+
+
+------------------------------------------------------------
+idf.py -p COM3 monitor
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+
+
+

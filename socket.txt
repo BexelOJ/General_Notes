@@ -1,0 +1,59 @@
+sockfd : socket file descriptor
+POSIX : Portable Operating System Interface
+SUS : Single UNIX Specification
+
+AF_INET : Address Family - IPv4
+
+
+------------------------------------
+creating, binding, listening, accepting, connecting, and communicating
+
+socket(), bind(), listen(), accept()
+
+cblacc
+
+------------------------------------
+<sys/socket.h> : socket is a directory inside sys directory
+
+sys part in <sys/socket.h> refers to the system-level programming library
+The sys directory typically contains low-level system interfaces, system calls, and related definitions. 
+socket.h is placed under this directory to indicate that it provides interfaces for socket-related functionality at the system level, 
+allowing you to create and manage network sockets on Unix-based systems.
+
+When you use #include <sys/socket.h>, it means you are including the header file that contains:
+
+Definitions of socket types (e.g., SOCK_STREAM, SOCK_DGRAM),
+Constants and macros used in socket programming (e.g., AF_INET, INADDR_ANY),
+Function declarations for creating and managing sockets (e.g., socket(), bind(), accept(), etc.).
+
+------------------------------------
+inet_ntoa() (Internet Network Address to ASCII)
+inet_pton() (Presentation to Network)
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------
+
+------------------------------------

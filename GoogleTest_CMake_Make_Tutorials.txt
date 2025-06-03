@@ -1,0 +1,62 @@
+------------------------------------------------------------
+Here are some great YouTube channels that can help you learn Google Test, CMake, and Make:
+------------------------------------------------------------
+1. Google Test:
+
+TheCherno: TheCherno’s channel is excellent for learning about C++ in general, and although it focuses mostly on C++ tutorials, it covers topics like Google Test in the context of testing and building C++ applications.
+
+YouTube Channel: TheCherno
+CppCon: CppCon is an annual C++ conference where industry experts present tutorials and talks on various C++ topics, including Google Test. Their videos on unit testing with Google Test are really insightful.
+
+YouTube Channel: CppCon
+ProgrammingKnowledge: Although not strictly focused on Google Test, the channel covers software testing in C++ and related topics. You might find useful tutorials on the testing framework and related tools.
+
+YouTube Channel: ProgrammingKnowledge
+
+------------------------------------------------------------
+2. CMake (Google CMake):
+
+TheCherno: This channel also covers CMake for building C++ projects and frequently features tutorials explaining how to set up and configure CMake in your projects.
+
+YouTube Channel: TheCherno
+CppCon: CppCon talks often dive into topics related to CMake, how to use it effectively in C++ projects, and some best practices for managing larger C++ builds.
+
+YouTube Channel: CppCon
+JetBrainsTV: JetBrains has some amazing tutorials and resources related to CMake, and their YouTube channel also features useful tutorials on how to use CMake in modern C++ development.
+
+YouTube Channel: JetBrainsTV
+
+------------------------------------------------------------
+3. Make (GNU Make):
+
+TheLinuxFoundation: The Linux Foundation provides a variety of tutorials, including some focused on using Make and automating builds. You'll find useful content related to makefiles and building automation.
+
+YouTube Channel: TheLinuxFoundation
+Tech With Tim: Tech With Tim occasionally delves into topics related to Make, including building automation tools in C++. While it's more general programming, it occasionally features content about using Make and automating projects.
+
+YouTube Channel: Tech With Tim
+CppCon: You’ll also find relevant content about Makefiles and automation in C++ projects on the CppCon channel. Look for talks related to optimizing build systems or structuring large-scale projects.
+
+YouTube Channel: CppCon
+Bonus Channels:
+Ben Eater: For deeper insights into low-level programming and related tools (including Make and CMake), Ben Eater's channel provides a wealth of knowledge, especially around system-level programming.
+
+YouTube Channel: Ben Eater
+Academind: While focused more on web development, Academind covers a lot of C++ and general software development topics and sometimes includes helpful tools related to build systems and testing.
+
+YouTube Channel: Academind
+
+------------------------------------------------------------
+How to Make the Most of These Resources:
+Start by watching introductory tutorials on Google Test, CMake, and Make to get familiar with basic concepts.
+Gradually move to more advanced topics like best practices in testing, optimizing CMake configurations, and creating complex Makefiles.
+Don’t hesitate to pause and experiment with the code snippets provided in tutorials to reinforce your understanding.
+Good luck with your learning!
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------

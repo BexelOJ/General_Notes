@@ -1,0 +1,619 @@
+------------------------------------------------------------
+vim fileName.sh        # to create/edit the script
+chmod 755 fileName.sh  # to make it executable
+./fileName.sh          # You can execute it like this
+
+If the script has a proper shebang 
+(e.g., #!/bin/bash at the top), 
+it will run using the specified interpreter. 
+
+Otherwise, you can run it explicitly with an interpreter:
+
+bash 1.sh
+
+or
+
+sh 1.sh
+
+------------------------------------------------------------
+# A line starting with # is a comment.
+
+The shebang (#!) at the top of a script is a 
+special kind of comment that specifies the interpreter.
+
+------------------------------------------------------------
+test operator keyword:
+
+Full List of Integer Comparison Operators in [ ]:
+
+Operator	Meaning
+
+-eq		Equal to
+-ne		Not equal to
+-gt		Greater than
+-lt		Less than
+-ge		Greater than or equal
+-le		Less than or equal
+
+------------------------------------------------------------
+[ condition ]
+
+Categories of Expressions Inside [ ]
+
+------------------------------
+1. Integer Comparisons
+
+[ $x -eq 5 ]     # Equal
+[ $x -ne 5 ]     # Not equal
+[ $x -gt 5 ]     # Greater than
+[ $x -lt 5 ]     # Less than
+[ $x -ge 5 ]     # Greater than or equal
+[ $x -le 5 ]     # Less than or equal
+
+------------------------------
+2. String Comparisons
+
+[ "$name" = "Manu" ]     # Equal
+[ "$name" != "Kumar" ]   # Not equal
+[ -z "$name" ]           # Empty string
+[ -n "$name" ]           # Non-empty string
+
+------------------------------
+3. File Checks
+
+[ -f file.txt ]     # Is a regular file
+[ -d /home/user ]   # Is a directory
+[ -e file.txt ]     # File exists
+[ -r file.txt ]     # File is readable
+[ -w file.txt ]     # File is writable
+[ -x file.sh ]      # File is executable
+
+------------------------------
+4. Logical Operators
+
+[ $x -gt 5 ] && [ $x -lt 10 ]   # AND condition
+[ $x -lt 5 ] || [ $x -gt 10 ]   # OR condition
+
+---------------
+You can also group expressions:
+
+if [ $x -gt 5 ] && [ $x -lt 10 ]; then
+  echo "x is between 6 and 9"
+fi
+
+------------------------------
+Bonus: Alternative with [[ ... ]] (Advanced Bash)
+
+[[ $x -eq 5 ]]     # More robust
+[[ $name == M* ]]  # Supports pattern matching
+
+
+------------------------------------------------------------
+&& is Logical AND
+
+It executes the second command only if the first succeeds 
+(exit status 0)
+
+[ $x -eq 5 ] && echo "x is 5"
+
+If $x equals 5, it prints "x is 5".
+If not, the echo command is skipped.
+
+Operator	Meaning	        Behavior
+&&	        Logical AND	    Run second command only if 
+                            first succeeds
+
+------------------------------------------------------------
+|| is Logical OR
+
+It executes the second command only if the first fails 
+(non-zero exit status).
+
+[ $x -eq 5 ] || echo "x is not 5"
+
+If $x equals 5, nothing is printed.
+If not, it prints "x is not 5".
+
+------------------------------------------------------------
+Combine Both
+
+[ $x -eq 5 ] && echo "Yes" || echo "No"
+
+Acts like a ternary operator, but:
+
+Use with caution, because if echo "Yes" fails, 
+it will still run echo "No".
+
+------------------------------------------------------------
+In Bash, blocks are often closed using backward keywords:
+
+if ➝ fi
+
+case ➝ esac
+
+for, while, until ➝ done
+
+------------------------------------------------------------
+Ternary Operator in Shell ?
+
+Shell doesn’t have a built-in ternary (? :), but you can emulate it:
+
+✅ Using && and ||:
+
+[ $x -eq 10 ] && echo "x is 10" || echo "x is not 10"
+
+Note: 
+This behaves like a ternary only when the first  command 
+returns true — use with care.
+ 
+------------------------------------------------------------
+Conditional Expressions in Shell:
+
+1. if-elif-else
+
+x=10
+if [ $x -eq 10 ]; then
+  echo "x is 10"
+elif [ $x -gt 5 ]; then
+  echo "x is greater than 5"
+else
+  echo "x is something else"
+fi
+
+------------------------------
+2. Test Expressions (Common Conditions)
+
+Test			Meaning
+
+[ $a -eq $b ]	Equal (integers)
+[ $a -ne $b ]	Not equal
+[ $a -lt $b ]	Less than
+[ $a -gt $b ]	Greater than
+[ -f file ]		File exists and is a regular file
+[ -d dir ]		Directory exists
+[ -z str ]		Empty string
+[ -n str ]		Non-empty string
+
+------------------------------------------------------------
+Loop Control:
+
+break: 
+Exit the loop
+
+continue: 
+Skip to next iteration
+
+------------------------------------------------------------
+Types of Loops in Shell (Bash)
+
+------------------------------
+1. for loop (C-style or list-based)
+
+# List-based
+for item in 1 2 3; do
+  echo $item
+done
+---------------
+# C-style
+for ((i=0; i<5; i++)); do
+  echo $i
+done
+
+------------------------------
+2. while loop
+
+count=1
+while [ $count -le 5 ]; do
+  echo $count
+  ((count++))
+done
+
+------------------------------
+3. until loop
+
+count=1
+until [ $count -gt 5 ]; do
+  echo $count
+  ((count++))
+done
+
+------------------------------------------------------------
+name="Manu Kumar"
+echo "Hello $name"   # Outputs: Hello Manu Kumar
+echo 'Hello $name'   # Outputs: Hello $name (no expansion)
+
+------------------------------------------------------------
+Let’s explore string manipulation and variables in Bash 
+with simple examples.
+
+------------------------------
+1. Defining and Using Variables
+
+name="Manu Kumar"
+echo "Hello $name"     # Variable expands
+echo 'Hello $name'     # Treated as literal string
+
+------------------------------
+2. Concatenating Strings
+
+greeting="Hello"
+name="Manu"
+echo "$greeting, $name!"    # Output: Hello, Manu!
+
+------------------------------
+3. Getting String Length
+
+name="Manu Kumar"
+echo ${#name}   # Output: 10
+
+------------------------------
+4. Substring Extraction
+
+text="Manu Kumar"
+echo ${text:0:4}   # Output: Manu (start at 0, length 4)
+echo ${text:5}     # Output: Kumar (start at 5 to end)
+
+------------------------------
+5. Replacing Text
+
+text="Hello Manu"
+echo ${text/Manu/Kumar}   # Output: Hello Kumar
+
+------------------------------
+6. User Input Example
+
+echo "Enter your name:"
+read name
+echo "Welcome, $name!"
+
+------------------------------------------------------------
+read is the most common way to accept user input in Bash, 
+but there are variations and alternatives depending on what 
+you're trying to do. 
+
+Here's a breakdown:
+
+------------------------------
+1. Standard Input with read
+
+read name
+echo "Hello $name"
+
+You can also prompt inline:
+
+read -p "Enter your name: " name
+
+------------------------------
+2. Using read with Multiple Variables
+
+read first last
+echo "First: $first, Last: $last"
+
+------------------------------
+3. Using read -s for Silent Input (e.g., passwords)
+
+read -sp "Enter your password: " password
+echo
+echo "Password entered"
+
+------------------------------
+4. Reading from a File
+
+while read line; do
+  echo "Line: $line"
+done < filename.txt
+
+------------------------------
+5. Using IFS (Internal Field Separator)
+
+IFS=',' read name age city <<< "Manu,34,Bangalore"
+echo "$name - $age - $city"
+
+------------------------------
+6. Reading Input via Command-Line Arguments
+
+#!/bin/bash
+echo "First arg: $1"
+echo "Second arg: $2"
+
+Run it like:
+./script.sh Manu Kumar
+
+------------------------------
+7. Using select for Menus
+
+select option in "Start" "Stop" "Exit"
+do
+  echo "You selected: $option"
+  break
+done
+
+------------------------------------------------------------
+Summary: Where is ; used?
+
+Use Case						Why it's used
+Between two commands		Separate them on the same line
+After if condition (inline)	To separate from then
+Before do (inline loops)	To separate from loop block
+In case blocks (;;)			Ends each pattern match
+
+------------------------------------------------------------
+where all else ; is used in shell scripting ?
+
+In shell scripting, especially in Bash, the ; (semicolon) 
+is used as a command separator. It tells the shell that one 
+command has ended and another begins, 
+even if they're on the same line.
+------------------------------
+1. Separating Commands on the Same Line
+
+echo "Hello"; echo "World"
+
+Output:
+Hello
+World
+
+------------------------------
+2. In if, while, for, until, etc.
+After a condition before then (on the same line):
+
+if [ $x -eq 5 ]; then
+  echo "x is 5"
+fi
+
+The ; is mandatory if then is on the same line as the if.
+
+---------------
+Without ; (multiline form):
+
+if [ $x -eq 5 ]
+then
+  echo "x is 5"
+fi
+
+------------------------------
+3. In case Statements
+
+case $fruit in
+  apple)
+    echo "Red fruit"
+    ;;
+  banana)
+    echo "Yellow fruit"
+    ;;
+esac
+
+;; ends each case clause — 
+it's effectively a double semicolon.
+
+------------------------------
+4. Before do in Loops (if on same line)
+
+for i in 1 2 3; do
+  echo $i
+done
+
+---------------
+Same for while and until:
+
+while [ $x -le 5 ]; do
+  echo $x
+  ((x++))
+done
+
+------------------------------
+5. Command Grouping / Inline if-else
+
+[ $x -eq 5 ] && echo "Five" || echo "Not five"
+
+or
+
+if [ $x -eq 5 ]; then echo "Yes"; else echo "No"; fi
+
+------------------------------------------------------------
+unset — Remove Variables or Functions
+
+Purpose: 
+Deletes a variable or function from the shell.
+
+Usage:
+
+x=10
+unset x
+echo $x   # Output will be empty
+
+For functions:
+
+myfunc() { echo "hi"; }
+unset -f myfunc
+
+
+------------------------------------------------------------
+2. alias — Create Shortcuts for Commands
+
+Purpose: 
+Define a custom shorthand for long or frequent commands.
+
+Create an alias:
+
+alias ll='ls -la'
+alias gs='git status'
+
+View aliases:
+alias
+
+Remove an alias:
+unalias ll
+
+Make aliases permanent:
+Add to ~/.bashrc:
+
+alias cls='clear'
+
+Then:
+source ~/.bashrc
+
+------------------------------------------------------------
+case — Like switch in other languages
+Yes, Shell has case, similar to switch-case in C/C++/Java.
+
+case $variable in
+  pattern1)
+    command1
+    ;;
+  pattern2)
+    command2
+    ;;
+  *)
+    default_command
+    ;;
+esac
+
+Example:
+read -p "Enter a number: " num
+case $num in
+  1)
+    echo "You entered one"
+    ;;
+  2)
+    echo "You entered two"
+    ;;
+  *)
+    echo "Invalid number"
+    ;;
+esac
+
+------------------------------------------------------------
+Summary
+
+Command		Purpose
+
+unset		Removes a variable or function
+alias		Creates a shortcut command
+unalias		Removes a defined alias
+case		Pattern-matching control structure
+
+------------------------------------------------------------
+Function Syntax in Shell (Bash)
+
+Basic Form:
+
+function_name() {
+  commands
+}
+
+or
+
+function function_name {
+  commands
+}
+
+Both are valid in Bash.
+
+---------------
+Example:
+
+greet() {
+  echo "Hello, $1!"
+}
+
+$1 is the first argument passed to the function.
+
+------------------------------
+Call the function:
+
+greet Manu
+# Output: Hello, Manu!
+
+------------------------------
+Handling Multiple Arguments
+ 
+sum() {
+  echo "Sum is: $(($1 + $2))"
+}
+
+sum 4 5
+# Output: Sum is: 9
+
+------------------------------
+Returning Values
+
+Shell functions don't return values like in Python or C, but they can:
+
+Print values to be captured with $(...)
+
+Use return for exit status codes (0 = success, non-zero = error)
+
+get_name() {
+  echo "Manu Kumar"
+}
+
+name=$(get_name)
+echo "Hello, $name"
+
+------------------------------
+Return with status:
+
+check_even() {
+  if (( $1 % 2 == 0 )); then
+    return 0  # success
+  else
+    return 1  # failure
+  fi
+}
+
+check_even 4
+if [ $? -eq 0 ]; then
+  echo "Even"
+else
+  echo "Odd"
+fi
+
+------------------------------
+Declaring in .bashrc for global use
+To make a function always available:
+Add it to ~/.bashrc:
+
+greet() {
+  echo "Hi, $1"
+}
+
+Then run:
+
+source ~/.bashrc
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

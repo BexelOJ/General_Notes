@@ -1,0 +1,108 @@
+------------------------------------------------------------
+What is a Wrapper Class?
+A wrapper class (or wrapper function) is a helper that 
+adapts or encapsulates one interface to match another.
+
+In your context:
+You are asking about calling C++ code (especially inside 
+a class) from a C program.
+
+Normally, C cannot directly understand C++ features like 
+classes, function overloading, namespaces, etc. But you 
+can use a C-compatible wrapper to expose just the parts 
+you need.
+
+------------------------------------------------------------
+So yes:
+A wrapper function is used to call a C++ class method 
+from C code by providing a C-style interface.
+
+------------------------------------------------------------
+How it works
+
+C++ class does the real work.
+
+Wrapper function (written in C++) exposes C-style functions 
+(extern "C").
+
+C code calls the wrapper function.
+
+------------------------------------------------------------
+C++ Class (myclass.cpp):
+
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    void sayHello() {
+        cout << "Hello from C++ class!" << endl;
+    }
+};
+
+// C-compatible wrapper
+extern "C" void call_sayHello() {
+    MyClass obj;
+    obj.sayHello();
+}
+
+------------------------------------------------------------
+C Code (main.c):
+
+// Declare the wrapper function
+extern void call_sayHello();
+
+int main() {
+    call_sayHello();  // This calls the C++ class method
+    return 0;
+}
+
+------------------------------------------------------------
+Compile and Link:
+
+g++ -c myclass.cpp       # Compile C++ file
+gcc -c main.c            # Compile C file
+g++ myclass.o main.o -o runme   # Link everything with g++
+./runme
+
+------------------------------------------------------------
+Summary
+
+Term				
+
+Wrapper function	
+Meaning: A function that hides C++ complexity and exposes 
+a clean C-compatible interface
+
+Term
+
+extern "C"			
+Meaning: Tells the compiler: “Don’t mangle this function 
+name” so C can find it
+
+Term
+
+Why needed			
+Meaning: C can’t directly use C++ features like classes, 
+so a wrapper acts as a bridge
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+
+
+

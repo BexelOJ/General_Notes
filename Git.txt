@@ -1,0 +1,219 @@
+------------------------------------------------------------
+// to config git for Current repository:
+git config user.name "Your Name"
+git config user.email "your.email@example.com"
+
+// to config git in Global repository:
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+git config --global user.name "BexelOJ"
+git config --global user.email "bexelo.j@outlook.com"
+
+//To verify your configuration:
+git config --list
+
+------------------------------------------------------------
+// to generate ssh for a new system:
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+Enter file in which to save the key (/home/your_username/.ssh/id_rsa):
+
+// key generated in the file .ssh/id_rsa.pub
+cat .ssh/id_rsa.pub
+
+// open github and add this key, provide a name, verify
+
+// testing the connection with ssh key
+ssh -T git@github.com
+
+------------------------------------------------------------
+To Remove a exited git repo:
+
+git remote remove origin
+
+------------------------------------------------------------
+(for SSH): to make the GitHub Repo as the Remote for push
+
+git remote add origin git@github.com:BexelOJ/Ada_Programming.git
+git remote add origin git@github.com:BexelOJ/General_Notes.git
+
+https://github.com/BexelOJ/General_Notes
+
+git remote set-url origin git@github.com:BexelOJ/Ada_Programming.git
+git remote set-url origin git@github.com:BexelOJ/General_Notes.git
+
+------------------------------------------------------------
+
+// verify the remote repository
+git remote -v 
+
+------------------------------------------------------------
+Workaround:
+
+https://github.com/BexelOJ/Linux_Device_Driver
+
+git remote add origin git@github.com:BexelOJ/General_Notes_AG.git
+git remote add origin git@github.com:BexelOJ/General_Notes.git
+
+https://github.com/BexelOJ/General_Notes
+https://github.com/BexelOJ/Python_Notes
+
+git remote set-url origin git@github.com:BexelOJ/General_Notes_AG.git
+https://github.com/BexelOJ/FreeRTOS
+https://github.com/BexelOJ/General_Notes_Ann
+git remote set-url origin git@github.com:BexelOJ/ESP32_FreeRTOS.git
+git remote set-url origin git@github.com:BexelOJ/Python_Programming.git
+
+
+------------------------------------------------------------
+
+git remote -v  // displays below content
+
+origin  git@github.com:BexelOJ/ESP32.git (fetch)
+origin  git@github.com:BexelOJ/ESP32.git (push)
+
+------------------------------------------------------------
+
+git push --set-upstream origin master
+git push --set-upstream origin master
+
+------------------------------------------------------------
+
+(for HTTPS): to make the GitHub Repo as the Remote for push
+
+git remote add origin https://github.com/BexelOJ/ESP32.git
+
+git remote -v
+
+origin  https://github.com/BexelOJ/ESP32.git (fetch)
+origin  https://github.com/BexelOJ/ESP32.git (push)
+
+------------------------------------------------------------
+
+git push --set-upstream origin master
+
+------------------------------------------------------------
+
+https://github.com/BexelOJ/C_Programming.git
+
+git remote set-url origin git@github.com:BexelOJ/ESP32/eArduino_Led_Blink.git
+git remote set-url origin git@github.com:BexelOJ/Cpp_Programming.git
+git remote add origin https://github.com/BexelOJ/C_Programming.git
+
+
+https://github.com/BexelOJ/Cpp_Programming
+
+git remote set-url origin git@github.com:BexelOJ/Cpp_Programming.git
+git remote add origin https://github.com/BexelOJ/Cpp_Programming.git
+
+https://github.com/BexelOJ/C_Programming
+
+git remote set-url origin git@github.com:BexelOJ/C_Programming.git
+git remote add origin https://github.com/BexelOJ/C_Programming.git
+
+------------------------------------------------------------
+warning: adding embedded git repository: C++_02_2025
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:   git submodule add <url> C++_02_2025
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:   git rm --cached C++_02_2025
+hint: 
+hint: See "git help submodule" for more information.
+
+------------------------------------------------------------
+
+git remote set-url origin git@github.com:BexelOJ/ESP32.git
+
+git checkout master
+
+------------------------------------------------------------
+exin
+
+exin-desktop
+
+git push --set-upstream origin master
+
+https://github.com/BexelOJ/R.git
+
+------------------------------------------------------------
+Create a new Branch:
+git branch BRANCH_NAME
+
+------------------------------------------------------------
+Switch to the new branch:
+git checkout BRANCH_NAME
+git checkout s1
+
+git checkout -b BRANCH_NAME
+// 2 step in one line
+
+------------------------------------------------------------
+Confirm the current branch:
+git branch
+
+// Lists local branches:
+git branch
+
+// Lists remote branches:
+git branch -r
+
+// Lists both local and remote branches:
+git branch -a
+
+// Lists branches with detailed information about 
+// the latest commits
+git branch -vv
+
+------------------------------------------------------------
+Push the new branch to the remote repository (optional):
+git push -u origin BRANCH_NAME
+
+
+------------------------------------------------------------
+
+git push -u origin s1
+
+-u flag stands for "set upstream
+
+------------------------------------------------------------
+Remove as a git repo 
+
+rm -rf .git
+
+
+------------------------------------------------------------
+git branch  // shows the current branch
+
+git checkout -b branchName // create a new branch with 
+// name branchName
+
+git push -u origin branchName // to push to the branch
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------

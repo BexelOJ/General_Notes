@@ -1,0 +1,150 @@
+In C++, you can overload a wide range of operators to work with user-defined types. Here's a list of all the operators that can be overloaded in C++:
+
+--------------------------------------------
+1. Arithmetic Operators:
+
++ (Addition)
+- (Subtraction)
+* (Multiplication)
+/ (Division)
+% (Modulus)
+
+--------------------------------------------
+2. Relational Operators:
+
+== (Equal to)
+!= (Not equal to)
+< (Less than)
+> (Greater than)
+<= (Less than or equal to)
+>= (Greater than or equal to)
+
+--------------------------------------------
+3. Logical Operators:
+
+&& (Logical AND)
+|| (Logical OR)
+! (Logical NOT)
+
+--------------------------------------------
+4. Bitwise Operators:
+
+& (Bitwise AND)
+| (Bitwise OR)
+^ (Bitwise XOR)
+~ (Bitwise NOT)
+<< (Left shift)
+>> (Right shift)
+
+--------------------------------------------
+5. Assignment Operators:
+
+= (Assignment)
++= (Add and assign)
+-= (Subtract and assign)
+*= (Multiply and assign)
+/= (Divide and assign)
+%= (Modulus and assign)
+&= (Bitwise AND and assign)
+|= (Bitwise OR and assign)
+^= (Bitwise XOR and assign)
+<<= (Left shift and assign)
+>>= (Right shift and assign)
+
+--------------------------------------------
+6. Increment and Decrement Operators:
+
+++ (Increment)
+-- (Decrement)
+
+--------------------------------------------
+7. Array Subscript Operator:
+
+[] (Array subscript)
+
+--------------------------------------------
+8. Function Call Operator:
+
+() (Function call)
+
+--------------------------------------------
+9. Pointer to Member Operator:
+
+-> (Pointer to member)
+.* (Pointer to member function)
+
+--------------------------------------------
+10. Type Conversion Operator:
+
+type(), e.g., operator int()
+
+--------------------------------------------
+11. Comma Operator:
+
+, (Comma operator)
+
+--------------------------------------------
+12. Typeid Operator:
+
+typeid (Can be overloaded as part of a class, but not globally)
+
+--------------------------------------------
+13. New and Delete Operators:
+
+new (Memory allocation)
+new[] (Array memory allocation)
+delete (Memory deallocation)
+delete[] (Array memory deallocation)
+
+--------------------------------------------
+
+
+--------------------------------------------
+15. Stream Insertion and Extraction Operators:
+
+<< (Stream insertion)
+>> (Stream extraction)
+
+--------------------------------------------
+
+
+--------------------------------------------
+17. Other Operators:
+
+[] (Array subscript)
+& (Address-of operator)
+* (Dereference operator)
+-> (Member selection operator)
+
+--------------------------------------------
+
+14. Class and Object-specific Operators:
+
+:: (Scope resolution operator) — Cannot be overloaded
+. (Dot operator)               — Cannot be overloaded
+.* (Pointer-to-member operator) — Can be overloaded
+->* (Pointer-to-member operator) — Can be overloaded
+
+16. Conditional Operator (Ternary):
+
+? : (Ternary conditional operator) — Cannot be overloaded
+
+sizeof (Size of operator) — Cannot be overloaded
+alignof (Align of operator) — Cannot be overloaded
+alignas (Align as operator) — Cannot be overloaded
+
+--------------------------------------------
+Important Notes:
+Some operators cannot be overloaded (e.g., ::, .*, sizeof, typeid, etc.).
+While you can overload most operators, it's important to overload them in a way that preserves the logical consistency of your program. 
+For example, overloading the + operator for a class should logically make sense as an addition operation.
+
+--------------------------------------------
+
+
+
+--------------------------------------------
+
+
+
+--------------------------------------------

@@ -1,0 +1,97 @@
+------------------------------------------------------------
+systemctl status ssh
+systemctl status ufw
+systemctl daemon-reload
+
+------------------------------------------------------------
+// number of files in a directory
+find /path/to/directory -type f | wc -l
+
+// number of directories in a directory
+find /path/to/directory -type d | wc -l
+
+
+------------------------------------------------------------
+ufw : uncomplicated firewall
+
+//Check UFW Status:To see if UFW is active or inactive
+sudo ufw status
+
+//Enable UFW:To enable UFW and start filtering traffic
+sudo ufw enable
+
+//Disable UFW:To disable the firewall:
+sudo ufw disable
+
+//Allow a Port:To allow incoming traffic on a specific port, for example, port 22 (SSH):
+sudo ufw allow 22
+
+// Or, for a specific service:
+sudo ufw allow ssh
+
+//Deny a Port:To deny a port, for example, port 80 (HTTP):
+sudo ufw deny 80
+
+//Allow/Block by IP Address:Allow or block a specific IP address. To allow an IP:sudo ufw allow from 192.168.1.100
+
+//To block an IP:
+sudo ufw deny from 192.168.1.100
+
+//Check Detailed UFW Status:For more detailed information, including rules and the policy:
+sudo ufw status verbose
+//To see the available application profiles:
+sudo ufw app list
+
+// Reset UFW:To reset UFW to its default settings:
+sudo ufw reset
+
+//If you want to enable logging:
+sudo ufw logging on
+
+------------------------------------------------------------
+sudo apt-get install build-essential // 198 MB
+sudo apt-get install make //
+sudo apt-get install cmake // 47 MB
+sudo apt install snap && snap install --classic code //
+
+sudo apt-get install valgrind // 150 MB
+sudo apt-get install cppcheck // 8 MB
+sudo apt-get install libgtest-dev // 9 MB
+sudo apt-get install doxygen // 92 MB
+sudo apt-get install gcov //
+sudo apt-get install clang   // 642 MB
+
+sudo apt-get install coreutils   // 
+sudo apt-get install curl
+
+------------------------------------------------------------
+// to install zstd
+sudo apt install zstd
+
+// to uncompress a file xilinx-selectmap.ko
+zstd -d xilinx-selectmap.ko.zst
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
