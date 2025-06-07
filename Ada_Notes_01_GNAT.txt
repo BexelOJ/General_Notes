@@ -1,0 +1,433 @@
+------------------------------------------------------------
+To compile Ada code on Linux, you typically use the 
+GNAT (GNU NYU Ada Translator) compiler, which is part of 
+the GCC (GNU Compiler Collection)
+
+GNAT - GNU NYU Ada Translator (Ada compiler)
+NYU - New York University
+GPR - GNAT Project
+
+GPR file - GNAT Project file 
+(similar to a .make or .cmake file
+
+
+------------------------------
+GPRbuild - GNAT Project Build
+
+Tool that reads .gpr files and builds the 
+project accordingly.
+
+It is the build tool provided by AdaCore to manage and 
+compile Ada (and mixed-language) projects 
+using .gpr project files.
+
+------------------------------
+Install GNAT (Ada Compiler)
+sudo apt update
+sudo apt install gnat
+
+sudo dnf install gcc-gnat # On Fedora/RHEL:
+
+sudo pacman -S gnat       # On Arch Linux:
+
+------------------------------------------------------------
+hello.adb
+
+with Ada.Text_IO; 
+use Ada.Text_IO;
+
+procedure Hello is
+begin
+   Put_Line("Hello, Ada World!");
+end Hello;
+
+------------------------------
+# Compile the Ada Program
+gnatmake hello.adb 
+
+# Run the Program
+./hello
+
+------------------------------
+# Optional: Compile Manually (Step-by-Step)
+
+gnat compile hello.adb   # Compile
+gnat bind hello          # Bind
+gnat link hello          # Link
+
+------------------------------
+# to run it:
+./hello
+
+------------------------------------------------------------
+# Check GNAT Version
+gnat --version
+
+------------------------------------------------------------
+Problems With Just gnatmake in Multi-File Projects:
+
+ - No automatic dependency tracking
+
+ - Manual ordering can be required
+
+ - Easily confused with separate compilation units
+
+ - Linking and binding steps become cumbersome
+
+------------------------------------------------------------
+The Right Way: Use Ada Project Files (.gpr) with gprbuild
+
+This is the Ada equivalent of a Makefile or CMake in C++. 
+It makes managing large projects much cleaner and 
+more scalable.
+
+my_project/
+├── src/
+│   ├── main.adb
+│   ├── utils.adb
+│   └── utils.ads
+└── my_project.gpr
+
+------------------------------
+my_project.gpr (Ada project file)
+
+project My_Project is
+   for Main use ("main.adb");
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+end My_Project;
+
+------------------------------
+Build the Project with gprbuild
+
+gprbuild -P my_project.gpr
+gprbuild -P hello.gpr
+
+
+-P stands for Project.
+
+------------------------------
+Output:
+
+Object files go to obj/
+
+Executable goes to bin/
+------------------------------------------------------------
+Why Use .gpr Files?
+
+Feature	    Without Project File	With .gpr Project
+
+Dependency  
+management	❌ Manual	            ✅ Automatic
+
+Build directory 
+layout		❌ Flat					✅ Structured
+
+Multiple 
+executables	❌ Tedious				✅ Easy
+
+Reusable 
+libraries	❌ Hard					✅ Supported
+
+------------------------------------------------------------
+Tools That Support .gpr Projects
+
+gprbuild – official build tool
+
+GPS (GNAT Programming Studio)
+
+AdaCore GNAT Studio
+
+VSCode with Ada plugins
+
+
+------------------------------------------------------------
+Recommended Ways to Keep Ada Projects Organized
+
+✅ 1. Use a Dedicated obj or build Directory
+Tell GNAT to put all generated files 
+(.o, .ali, etc.) into a separate directory.
+
+Using gnatmake:
+
+gnatmake -D obj HelloWorld.adb
+
+-D obj tells GNAT to place all intermediate 
+files into the obj/ directory.
+
+This keeps your source directory clean.
+
+------------------------------
+Result:
+
+project/
+├── HelloWorld.adb       # source
+├── obj/
+│   ├── HelloWorld.o     # object file
+│   └── HelloWorld.ali   # library info
+├── HelloWorld           # final executable
+
+------------------------------------------------------------
+✅ 2. Use a GNAT Project File (.gpr)
+
+For more serious projects, use GNAT’s project management 
+system with .gpr files.
+
+Example project.gpr:
+
+project HelloWorld is
+   for Main use ("HelloWorld.adb");
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Exec_Dir use ".";
+end HelloWorld;
+
+------------------------------
+Build with:
+
+gprbuild -P project.gpr
+
+This puts .ali and .o into obj/ automatically.
+
+------------------------------------------------------------
+✅ 3. Ignore Intermediate Files in Version Control
+If you're using git, add these to your .gitignore:
+
+markdown
+
+*.ali
+*.o
+obj/
+Keep only .adb, .ads, .gpr, and executables in 
+version control.
+
+------------------------------------------------------------
+✅ 4. Name Your Files Consistently
+Use lowercase or CamelCase consistently:
+
+main.adb, utils.ads, utils.adb
+
+MyApp.adb, MyApp.ads
+
+Avoid mixing HelloWorld.adb and helloworld.ads — 
+GNAT is case-insensitive, but readability matters.
+
+------------------------------------------------------------
+✅ 5. Optional: Use an IDE
+Tools like GNAT Studio or VS Code with Ada extensions:
+
+Provide project views
+
+Automatically manage build folders
+
+Help navigate .ali dependencies and structure
+
+------------------------------------------------------------
+🧼 Clean Up
+
+To remove intermediate files, run:
+
+gnatclean -P project.gpr
+
+Or manually:
+
+rm *.o *.ali HelloWorld
+
+------------------------------------------------------------
+✅ Summary
+
+Tip	Benefit
+
+-D obj or Object_Dir	Moves .o, .ali to obj/
+.gpr project file	Centralized build config
+.gitignore setup	Clean version control
+Consistent naming	Better readability & organization
+Use gnatclean		Easy cleanup of build artifacts
+
+
+------------------------------------------------------------
+mkdir Hello_World  -- create a directory for the project
+cd hello_world  -- move into the directory
+
+mkdir src -- for main.adb
+cd src
+vim main.adb -- write the main ada code
+
+vim hello_world.gpr -- inside Hello_World directory
+give the corresponding data inside .gpr file
+
+------------------------------
+project Hello_World is
+
+   for Source_Dirs use ("src");
+   for Main use ("main.adb");
+   for Object_Dir use "obj";
+   for Exec_Dir use ".";
+
+end Hello_World;
+
+------------------------------
+gprbuild -P hello_world.gpr -- Build command
+
+This will compile main.adb, 
+place object files in obj/, 
+and the output binary (likely named main) 
+in the current directory.
+
+------------------------------
+./main  -- run program command
+
+------------------------------
+GPR File Anatomy (Project Files)
+
+------------------------------
+project Project_Name is
+
+   for Attribute_Name use Value;
+
+end Project_Name;
+
+------------------------------
+Are Source_Dirs, Main, Exec_Dir, Object_Dir keywords?
+✅ Yes — these are predefined project attributes, 
+   not arbitrary names.
+
+They are recognized and interpreted by gprbuild.
+
+------------------------------
+Attribute	 Meaning
+
+Source_Dirs	 List of directories containing 
+			 source files (.adb, .ads, etc.)
+			 
+Main	 	 Name(s) of the main source file(s) 
+			 i.e., the file(s) with procedure entry point
+			 
+Object_Dir	 Directory to put generated 
+			 object files (.o, .ali)
+			 
+Exec_Dir	 Directory where the final executable(s) 
+			 will be placed
+
+------------------------------
+You cannot rename these attribute names.
+You can change the values, like folder names or filenames, 
+but not the attribute names themselves.
+
+------------------------------
+Example with renamed folders:
+
+project Hello_World is
+
+   for Source_Dirs use ("source");
+   for Main use ("main.adb");
+   for Object_Dir use "build";
+   for Exec_Dir use "bin";
+
+end Hello_World;
+
+------------------------------
+In this example:
+
+Source code goes in source/
+
+Object files go in build/
+
+Final executable goes in bin/
+
+------------------------------
+All while using fixed attribute names: 
+Source_Dirs, Main, Object_Dir, Exec_Dir
+
+
+------------------------------------------------------------
+Final Directory Structure for Hello_World
+
+Hello_World/
+├── hello_world.gpr       ← The GPR build file
+├── obj/                  ← (auto-generated) compiled 
+							object files
+├── main                  ← (auto-generated) executable 
+							binary
+└── src/                  ← Source code folder
+    └── main.adb          ← Your main Ada program
+
+
+------------------------------------------------------------
+Item			 Description
+
+hello_world.gpr	 GPR project file describing build settings
+src/main.adb	 Your main Ada source file
+obj/			 Created by GPRbuild to store object files
+main			 The compiled executable 
+				 (placed in project root)
+
+------------------------------------------------------------
+Key Features of gprbuild as a Build System:
+
+Feature						Description
+✅ Project Description 
+   Files				Uses .gpr files to define 
+						source dirs, main files, 
+						output, dependencies
+
+✅ Multi-language 
+   Support				Supports Ada, C, C++, and Fortran
+
+✅ Dependency Tracking	Automatically tracks and rebuilds 
+						only what's needed
+
+✅ Build Modes 
+   & Custom Flags		Supports different build modes, 
+						compiler/linker switches
+
+✅ Cross-compilation 
+   Support				Can be used with cross-compilers 
+						for embedded targets
+
+✅ Modular Projects	  	Supports libraries, 
+						reusable components, and 
+						nested projects
+
+
+------------------------------------------------------------
+for Source_Dirs use ("source", "extra_src");
+
+Here, Source_Dirs expects a list of directory names, 
+so parentheses group them, and each string is quoted.
+
+------------------------------
+If the attribute expects a single string, 
+you just use quotes without parentheses:
+
+for Main use "main.adb";
+for Object_Dir use "build";
+
+------------------------------------------------------------
+Parentheses indicate an array (a list of values).
+
+Quotes are string delimiters.
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
