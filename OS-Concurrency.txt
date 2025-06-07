@@ -1,0 +1,127 @@
+------------------------------------------------------------
+<std::thread> 
+│
+├── std                      ← Main namespace
+│   ├── thread               ← Class to manage threads
+│   │    ├── id              ← Type for thread identifiers
+│   │    └── hardware_concurrency() ← Static function
+│   └── this_thread          ← Sub-namespace
+│        ├── get_id()        ← Gets ID of current thread
+│        ├── yield()         ← Yields execution
+│        ├── sleep_for()     ← Sleep for duration
+│        └── sleep_until()   ← Sleep until time point
+
+------------------------------------------------------------
+Component			        Description
+
+std::thread			
+Class to create and control new threads
+
+std::thread::id		
+Unique identifier for a thread
+
+std::thread::hardware_concurrency()		
+Returns number of hardware threads (cores)
+
+std::this_thread::get_id()	   
+Gets the current thread’s ID
+
+std::this_thread::sleep_for()  
+Sleeps for a duration
+
+std::this_thread::sleep_until()	
+Sleeps until a specific time point
+
+std::this_thread::yield()			
+Lets other threads run temporarily
+
+------------------------------------------------------------
+ Key Namespaces & Types inside <chrono>
+ 
+std::chrono
+│
+├── duration<Rep, Period>          
+	← Represents a time duration (e.g., 5 seconds, 200 ms)
+│
+├── time_point<Clock, Duration>    
+		← Represents a point in time according to a clock
+├── clocks                         ← Predefined clocks:
+│    ├── system_clock             
+			← Wall-clock time (real world time)
+│    ├── steady_clock             
+			← Monotonic clock, steady 
+			(not affected by system clock changes)
+│    └── high_resolution_clock   
+			← Most precise clock available
+├── literals                      
+		← User-defined literals for easy duration 
+		specification (C++14+)
+│    ├── operator""s             
+			← seconds literal, e.g. `5s`
+│    ├── operator""ms            
+			← milliseconds literal, e.g. `500ms`
+│    ├── operator""us            
+			← microseconds literal
+│    └── operator""ns            
+			← nanoseconds literal
+
+------------------------------------------------------------
+Type	Meaning
+
+std::chrono::duration	
+	Represents a span of time (e.g. 3 seconds)
+
+std::chrono::time_point	
+	Represents a specific point in time
+
+std::chrono::system_clock	
+	Real-world clock; time since epoch
+
+std::chrono::steady_clock	
+	Monotonic clock; guaranteed not to go backward
+
+std::chrono::high_resolution_clock
+	Highest precision clock available
+	
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
