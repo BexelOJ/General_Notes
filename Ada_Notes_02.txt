@@ -8,7 +8,8 @@ Ada (root namespace)
 ├── Strings
 │   ├── Fixed
 │   ├── Bounded
-│   └── Unbounded
+│   └── Unbounded   -- Ada.Strings.Unbounded
+					-- U : Unbounded_String;
 └── Calendar
     └── Formatting
 
@@ -28,7 +29,6 @@ Get				Reads a character or string
 Get_Line		Reads a full line into a string
 
 New_Line		Inserts one or more line breaks
-
 Skip_Line		Skips input lines
 
 End_Of_Line		Checks if input has reached newline
@@ -51,7 +51,207 @@ Name			Gets the name of the file
 Is_Open			Checks if file is open
 
 ------------------------------------------------------------
+Similar attributes:
 
+Attribute		Description
+
+'Image(X)		Converts to string with leading space
+'Value(Str)		Converts a string back to the value
+'Pos / 'Val		Gets position in enumeration / value at pos
+'First / 'Last	Bounds of a type or array
+
+------------------------------------------------------------
+'Image attributes are defined for all scalar types.
+
+Integer'Image(-5)  -- Integer types
+Float'Image(3.14)  -- Float types
+Boolean'Image(True)  -- Boolean
+Character'Image('A')  -- Character
+Color'Image(Red)  -- Enumeration types
+Byte'Image(255)  -- Modular types
+
+------------------------------------------------------------
+T'Value(S) is the inverse of T'Image(X).
+
+It converts a string back into a value of type T.
+
+------------------------------------------------------------
+Why is there a space?
+
+It's part of the Ada standard — 'Image always includes a 
+leading space (or - sign for negative numbers), 
+to maintain alignment and fixed-width formatting
+
+------------------------------------------------------------
+Ada Class Summary
+
+Feature	 		Ada Keyword			Similar to (C++/Java)
+
+Class			tagged record		class / struct
+
+Inheritance		new T with record	extends / :
+
+Abstract class	abstract			abstract class
+
+Virtual method	procedure is abstract	virtual
+
+Overriding		overriding			override
+
+Polymorphism	'Class and dynamic  runtime  	
+				dispatch		    polymorphism
+
+
+------------------------------------------------------------
+Yes! ✅ Ada 95 introduced full support for 
+Object-Oriented Programming (OOP) concepts — including:
+
+Tagged types (equivalent to classes)
+
+Inheritance
+
+Polymorphism
+
+Dynamic dispatch (via class-wide types and 'Class)
+
+Abstract types and interfaces (from Ada 2005)
+
+
+------------------------------------------------------------
+What is a “class” in Ada?
+
+In Ada, a class is represented using a tagged record.
+
+You define a class-like structure using tagged, 
+and use type extension for inheritance.
+
+------------------------------------------------------------
+Q.) What is a subtype exactly?
+A subtype defines a subset of values of an 
+existing (base) type with optional constraints.
+
+Q.) the use of subtype in ada ? just for name aliasing ?
+
+In Ada, subtype is more than just a name alias,
+
+it’s a way to create a new type view that can:
+
+1.) Restrict the range or values allowed from an existing 
+	type
+
+2.) Add constraints like ranges, discrete sets, or modular 
+	ranges
+
+3.) Improve code readability and intent clarity
+
+4.) Help the compiler catch invalid values early by 
+	enforcing these constraints
+
+subtype Age_Type is Integer range 0 .. 150;
+
+Here, Age_Type is a subtype of Integer but restricted 
+to values between 0 and 150.
+
+------------------------------------------------------------
+range 0 .. 150
+is inclusive of both ends—that means it allows all values 
+from 0 through 150, including 0 and 150.
+
+------------------------------------------------------------
+record is a composite data type used to group related 
+values (called components or fields) under a single 
+name—similar to a struct in C/C++.
+
+type Person is record
+   Name  : String(1 .. 50);
+   Age   : Integer;
+   Alive : Boolean;
+end record;
+
+This defines a type Person with three fields:
+
+Name of type String
+
+Age of type Integer
+
+Alive of type Boolean
+
+
+------------------------------------------------------------
+&	Concatenates strings
+
+Put_Line("Name: " & P.Name);
+
+This joins the string "Name: " with the value of P.Name, 
+which is a fixed-length String.
+
+------------------------------------------------------------
+Heap allocation:
+
+P : Person := (others => <>);      -- on stack
+Ptr : access Person := new Person; -- on heap
+Ptr.Age := Ptr.Age + 1;
+
+So you control stack vs heap using new and 
+access types (Ada's version of pointers).
+
+------------------------------------------------------------
+Deallocating memory manually:
+
+You need the Unchecked_Deallocation generic:
+
+with Ada.Unchecked_Deallocation;
+procedure Free is new Ada.
+			Unchecked_Deallocation(Person, Person_Access);
+
+Free(Ptr);  -- Frees memory
+
+------------------------------------------------------------
+"unbounded" means not fixed in size at compile time.
+
+------------------------------------------------------------
+Ada automatically dereferences access types for you. 
+So you don't need -> or *.
+
+Ada uses the same dot (.) notation for both direct objects 
+and access (pointer) types.
+
+access declares a pointer type; 
+new allocates heap memory
+
+------------------------------------------------------------
+controlled types (like in Ada.Finalization) 
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+'Image attributes Not supported for:
+
+Records
+
+Arrays (unless you write your own conversion)
+
+Access types (pointers)
+
+Strings (already strings — just use them directly)
+
+------------------------------------------------------------
+rendezvous refers to a synchronized communication between 
+two tasks (lightweight threads), specifically:
+
+✅ When a calling task invokes an entry on another task, 
+and that task accepts the call — they meet at a rendezvous.
+
+Think of it as a meeting point between tasks for:
+
+Data exchange
+Synchronization
+Controlled task interaction
+
+------------------------------------------------------------
+access
+access all
+access const
 
 ------------------------------------------------------------
 
@@ -77,3 +277,16 @@ Is_Open			Checks if file is open
 ------------------------------------------------------------
 
 
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------

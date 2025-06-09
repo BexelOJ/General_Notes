@@ -7,8 +7,8 @@ GNAT - GNU NYU Ada Translator (Ada compiler)
 NYU - New York University
 GPR - GNAT Project
 
-GPR file - GNAT Project file 
-(similar to a .make or .cmake file
+GPR file - GNAT Project file
+(similar to a .make or .cmake file)
 
 
 ------------------------------
