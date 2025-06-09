@@ -1,0 +1,116 @@
+------------------------------------------------------------
+Yes, coroutines were introduced as a major new feature 
+in C++20! 
+Beyond coroutines, C++20 brought a whole bunch of 
+powerful features and improvements. 
+
+Here’s a quick rundown of some key ones:
+
+------------------------------------------------------------
+Major Features Added in C++20 (Besides Coroutines)
+
+------------------------------
+1. Concepts
+A way to specify template requirements in a readable, 
+expressive way.
+
+Helps catch template errors at compile-time with 
+clear messages.
+
+------------------------------
+2. Ranges Library
+New library for working with sequences of elements 
+(like views, actions, and range adaptors).
+
+Works nicely with algorithms and lazy evaluation.
+
+------------------------------
+3. Modules
+Alternative to header files for better compile times 
+and encapsulation.
+
+Provides a new way to import code, improving 
+build efficiency.
+
+------------------------------
+4. Constexpr Enhancements
+More functions and operations can be evaluated at 
+compile-time (including dynamic allocation and 
+virtual calls inside constexpr).
+
+------------------------------
+5. std::span
+A lightweight view over a contiguous sequence of 
+elements (like an array or vector), 
+without owning the data.
+
+------------------------------
+6. std::format
+Type-safe, Python-like string formatting.
+
+------------------------------
+7. New and improved lambdas
+Lambdas can now have template parameters 
+(generic lambdas improved).
+
+Lambdas can use constexpr and consteval.
+
+------------------------------
+8. Calendar and time zone library
+Standardized date/time utilities.
+
+------------------------------
+9. [[likely]] and [[unlikely]] attributes
+Hints for branch prediction.
+
+------------------------------
+10. Three-way comparison operator (<=>) — 
+“spaceship operator”
+
+Simplifies writing comparison operators.
+
+------------------------------------------------------------
+Summary
+
+Feature				Description
+
+Coroutines			Asynchronous code with suspend/resume
+Concepts			Type constraints for templates
+Ranges				Range-based lazy algorithms
+Modules				Improved code modularization
+Constexpr improvements	More compile-time computations
+
+std::span			Non-owning array views
+std::format			Safe and flexible formatting
+Lambdas				Generic and constexpr lambdas
+Calendar & Timezone	Date/time utilities
+Branch Prediction	[[likely]] and [[unlikely]] hints
+
+Spaceship Operator	Simplifies comparisons
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+

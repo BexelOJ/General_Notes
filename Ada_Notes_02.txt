@@ -1,0 +1,79 @@
+------------------------------------------------------------
+Ada (root namespace)
+│
+├── Text_IO              ← Handles text input/output
+│   └── Complex_IO       ← Handles complex number I/O
+├── Integer_Text_IO      ← I/O for Integer types
+├── Float_Text_IO        ← I/O for Float types
+├── Strings
+│   ├── Fixed
+│   ├── Bounded
+│   └── Unbounded
+└── Calendar
+    └── Formatting
+
+
+------------------------------------------------------------
+🔍 Now, the complete list of important subprograms 
+in Ada.Text_IO:
+
+📘 Main Procedures & Functions in Ada.Text_IO:
+
+Name			Description
+
+Put				Outputs a string or character
+Put_Line		Outputs a string followed by newline
+
+Get				Reads a character or string
+Get_Line		Reads a full line into a string
+
+New_Line		Inserts one or more line breaks
+
+Skip_Line		Skips input lines
+
+End_Of_Line		Checks if input has reached newline
+End_Of_File		Checks if input has reached file end
+
+Set_Input		Sets current input file
+Set_Output		Sets current output file
+Set_Error		Sets error output file
+
+Current_Input	Gets current input file
+Current_Output	Gets current output file
+Current_Error	Gets current error output file
+
+Open, Close		Open/Close files
+
+Create, Delete	File operations
+
+Name			Gets the name of the file
+
+Is_Open			Checks if file is open
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
