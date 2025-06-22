@@ -1,0 +1,164 @@
+------------------------------------------------------------
+#include <stdio.h>      // printf(), scanf()
+#include <stdlib.h>     // exit()
+#include <errno.h>      // perror()
+#include <unistd.h>     // fork(), getpid(), getppid()
+#include <sys/types.h>  // pid_t
+#include <sys/wait.h>   // wait(), WEXITSTATUS()
+
+------------------------------------------------------------
+The <unistd.h> header is part of the POSIX standard and 
+provides access to the POSIX operating system API, 
+mostly for Unix/Linux systems. 
+It contains function declarations for many system calls and 
+standard library functions related to process control, 
+file operations, and other low-level system tasks.
+
+Here’s a categorized list of commonly used functions 
+provided by <unistd.h>:
+
+------------------------------------------------------------
+🧵 Process Control
+------------------------------
+fork() – Create a new process
+
+exec*() – Replace process image 
+(e.g., execl, execv, execle, execve, execlp, execvp)
+
+getpid() – Get current process ID
+
+getppid() – Get parent process ID
+
+getuid() – Get real user ID
+
+geteuid() – Get effective user ID
+
+getgid() – Get real group ID
+
+getegid() – Get effective group ID
+
+setuid(uid_t) – Set user ID
+
+setgid(gid_t) – Set group ID
+
+setpgid(pid_t pid, pid_t pgid) – Set process group ID
+
+getpgrp() – Get process group ID
+
+setsid() – Create new session and set session ID
+
+getsid(pid_t) – Get session ID
+
+_exit(int) – Exit the process without cleanup
+
+------------------------------
+📁 File and Directory Operations
+------------------------------
+read(int fd, void *buf, size_t count) 
+– Read from a file descriptor
+
+write(int fd, const void *buf, size_t count) 
+– Write to a file descriptor
+
+close(int fd) – Close a file descriptor
+
+lseek(int fd, off_t offset, int whence) 
+– Move file pointer
+
+access(const char *pathname, int mode) 
+– Check user's permissions
+
+unlink(const char *pathname) – Delete a file
+
+rmdir(const char *pathname) – Remove a directory
+
+chdir(const char *path) – Change working directory
+
+getcwd(char *buf, size_t size) 
+– Get current working directory
+
+ftruncate(int fd, off_t length) – Truncate open file
+
+------------------------------
+🕒 Sleep and Timing
+------------------------------
+sleep(unsigned int seconds) – Sleep for seconds
+
+usleep(useconds_t usec) – Sleep for microseconds
+
+alarm(unsigned int seconds) – Set an alarm clock
+
+pause() – Wait for a signal
+
+------------------------------
+📡 I/O and Pipe
+------------------------------
+pipe(int pipefd[2]) – Create a pipe
+
+dup(int oldfd) – Duplicate file descriptor
+
+dup2(int oldfd, int newfd) – Duplicate to specified fd
+
+isatty(int fd) – Check if fd refers to a terminal
+
+ttyname(int fd) – Get terminal name
+
+------------------------------
+🛠️ System Configuration
+------------------------------
+sysconf(int name) – Get configuration value at runtime
+
+pathconf(const char *path, int name) 
+– Get config value for a path
+
+fpathconf(int fd, int name) 
+– Config for a file descriptor
+
+------------------------------
+🧠 Memory and Environment
+------------------------------
+brk(void *end_data_segment) – Set end of data segment
+
+sbrk(intptr_t increment) – Change data segment size
+
+_environ – Access environment variables 
+(non-standard on some platforms)
+
+------------------------------
+🧪 Miscellaneous
+------------------------------
+chown(const char *path, uid_t owner, gid_t group) 
+– Change owner and group
+
+sync() – Flush file system buffers
+
+gethostname(char *name, size_t len) – Get host name
+
+------------------------------------------------------------
+pstree	Visual tree of processes
+ps		List running processes and PIDs
+strace	Watch system calls and signals
+
+------------------------------------------------------------
+strace — (System Trace) System call tracer
+Full form: System Trace
+
+What it does: Traces system calls made by a program and 
+the signals it receives.
+
+Use it to see:
+
+fork(), execve(), read(), write(), open(), etc.
+
+Kernel-level interactions.
+
+------------------------------------------------------------
+ltrace — (Library Trace) Library call tracer
+Full form: Library Trace
+
+What it does: Traces library function calls, especially 
+from libc or other shared libraries 
+(like printf, malloc, free, etc.)
+
+It shows user-space function calls to shared libraries 
+(not system calls).
