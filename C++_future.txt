@@ -1,0 +1,174 @@
+------------------------------------------------------------
+future and promise are the only way for async communication 
+between two threads ?
+
+While std::future and std::promise are a standard and 
+type-safe way to perform asynchronous communication 
+between threads in C++, they are not the only way.
+
+------------------------------------------------------------
+1. std::future & std::promise
+
+These are part of the <future> header and are used 
+for one-way communication between threads.
+
+Use Case: Return a value from one thread to another.
+
+------------------------------
+2. std::condition_variable (CV)
+
+Used with std::mutex to synchronize or signal between 
+threads.
+
+Use Case: Signaling (e.g. “I’m done” / “You can proceed”).
+
+------------------------------
+3. Message Queues (Producer-Consumer)
+
+You can use std::queue with mutex and condition_variable 
+to implement thread-safe queues between threads.
+
+Use Case: Streaming data between producer and 
+consumer threads.
+
+------------------------------
+4. std::atomic & std::atomic_flag
+
+For low-level lock-free communication. Example: flags, 
+counters, spinlocks.
+
+Use Case: Simple signals or counters 
+(no blocking behavior).
+
+------------------------------------------------------------
+Summary Table:
+
+Method - Direction - Blocking - Complexity - Use Case
+
+std::promise/future - One-way (value) - Yes - Low - 
+Async result passing
+
+condition_variable - Bidirectional - Yes - Medium - 
+Signaling and synchronization
+
+atomic, atomic_flag - Bidirectional - No - Low - 
+Simple status flags
+
+Message Queue (custom) - Bidirectional - Optional - Medium
+- Continuous data communication
+
+------------------------------------------------------------
+So, to answer your question:
+
+❓ Are future and promise the only way for 
+async communication?
+
+🔴 No. They're one of several tools — 
+choose based on your communication pattern 
+(result passing, signaling, streaming, etc.).
+
+------------------------------------------------------------
+std::promise<T> – Sender of the value
+
+#include <future>
+std::promise<int> prom;
+
+Member Functions:
+
+Function - Description
+
+------------------------------
+1.) get_future() - 
+Returns the std::future<T> associated with this promise. 
+Only call this once.
+
+------------------------------
+2.) set_value(const T& val) - 
+Sends the value to the future. 
+The future's get() will receive this.
+
+3.) set_value(T&& val) - 
+Same as above but for rvalue/move types.
+
+4.) set_exception(std::exception_ptr e) - 
+Sends an exception to the future. 
+The future’s get() will throw this.
+
+5.) set_value_at_thread_exit(const T& val) - 
+Delivers the value after the current thread exits.
+
+6.) set_exception_at_thread_exit(std::exception_ptr e) - 
+Sends an exception after the thread exits.
+
+------------------------------
+7.) promise() - Constructor. 
+Creates an empty promise.
+
+8.) ~promise() - Destructor. 
+Automatically destroys the promise object.
+
+
+------------------------------------------------------------
+std::future<T> – Receiver of the value
+
+std::future<int> fut = prom.get_future();
+
+Member Functions:
+Function - Description
+
+------------------------------
+1.) get() - 
+Waits (if needed) and returns the value sent by set_value() 
+Can be called only once.
+
+------------------------------
+2.) wait() - 	
+Blocks until value or exception is ready.
+
+3.) wait_for(duration) - 
+Waits for a specific duration. 
+Returns status: timeout, ready, or deferred.
+
+4.) wait_until(time_point) - 
+Waits until a specific clock time.
+
+------------------------------
+5.) valid() - 
+Returns true if the future still has a value 
+(before get() is called).
+
+6.) share() - 
+Converts future<T> into shared_future<T> 
+that can be copied and accessed multiple times.
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

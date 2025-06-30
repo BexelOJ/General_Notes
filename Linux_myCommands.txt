@@ -417,6 +417,14 @@ Summary Table
 |  .bz2  |  bzip2       |  bzip2    |  bunzip2   |
 |  .xz   |  xz          |  xz       |  unxz      |
 
+-c = create: it tells tar to create a new archive.
+
+-x = extract: it tells tar to extract files from an 
+archive.
+
+-f = file: it tells tar that the next argument is the name 
+of the archive file to create or extract from.
+
 ------------------------------------------------------------
 time ls -l
 ------------------------------

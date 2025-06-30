@@ -60,7 +60,8 @@ read(int fd, void *buf, size_t count)
 write(int fd, const void *buf, size_t count) 
 – Write to a file descriptor
 
-close(int fd) – Close a file descriptor
+close(int fd) 
+– Close a file descriptor
 
 lseek(int fd, off_t offset, int whence) 
 – Move file pointer
@@ -68,45 +69,59 @@ lseek(int fd, off_t offset, int whence)
 access(const char *pathname, int mode) 
 – Check user's permissions
 
-unlink(const char *pathname) – Delete a file
+unlink(const char *pathname) 
+– Delete a file
 
-rmdir(const char *pathname) – Remove a directory
+rmdir(const char *pathname) 
+– Remove a directory
 
-chdir(const char *path) – Change working directory
+chdir(const char *path) 
+– Change working directory
 
 getcwd(char *buf, size_t size) 
 – Get current working directory
 
-ftruncate(int fd, off_t length) – Truncate open file
+ftruncate(int fd, off_t length) 
+– Truncate open file
 
 ------------------------------
 🕒 Sleep and Timing
 ------------------------------
-sleep(unsigned int seconds) – Sleep for seconds
+sleep(unsigned int seconds) 
+– Sleep for seconds
 
-usleep(useconds_t usec) – Sleep for microseconds
+usleep(useconds_t usec) 
+– Sleep for microseconds
 
-alarm(unsigned int seconds) – Set an alarm clock
+alarm(unsigned int seconds) 
+– Set an alarm clock
 
-pause() – Wait for a signal
+pause() 
+– Wait for a signal
 
 ------------------------------
 📡 I/O and Pipe
 ------------------------------
-pipe(int pipefd[2]) – Create a pipe
+pipe(int pipefd[2]) 
+– Create a pipe
 
-dup(int oldfd) – Duplicate file descriptor
+dup(int oldfd) 
+– Duplicate file descriptor
 
-dup2(int oldfd, int newfd) – Duplicate to specified fd
+dup2(int oldfd, int newfd) 
+– Duplicate to specified fd
 
-isatty(int fd) – Check if fd refers to a terminal
+isatty(int fd) 
+– Check if fd refers to a terminal
 
-ttyname(int fd) – Get terminal name
+ttyname(int fd) 
+– Get terminal name
 
 ------------------------------
 🛠️ System Configuration
 ------------------------------
-sysconf(int name) – Get configuration value at runtime
+sysconf(int name) 
+– Get configuration value at runtime
 
 pathconf(const char *path, int name) 
 – Get config value for a path
@@ -117,11 +132,14 @@ fpathconf(int fd, int name)
 ------------------------------
 🧠 Memory and Environment
 ------------------------------
-brk(void *end_data_segment) – Set end of data segment
+brk(void *end_data_segment) 
+– Set end of data segment
 
-sbrk(intptr_t increment) – Change data segment size
+sbrk(intptr_t increment) 
+– Change data segment size
 
-_environ – Access environment variables 
+_environ 
+– Access environment variables 
 (non-standard on some platforms)
 
 ------------------------------
@@ -130,9 +148,11 @@ _environ – Access environment variables
 chown(const char *path, uid_t owner, gid_t group) 
 – Change owner and group
 
-sync() – Flush file system buffers
+sync() 
+– Flush file system buffers
 
-gethostname(char *name, size_t len) – Get host name
+gethostname(char *name, size_t len) 
+– Get host name
 
 ------------------------------------------------------------
 pstree	Visual tree of processes
@@ -140,7 +160,8 @@ ps		List running processes and PIDs
 strace	Watch system calls and signals
 
 ------------------------------------------------------------
-strace — (System Trace) System call tracer
+strace 
+— (System Trace) System call tracer
 Full form: System Trace
 
 What it does: Traces system calls made by a program and 
@@ -153,7 +174,8 @@ fork(), execve(), read(), write(), open(), etc.
 Kernel-level interactions.
 
 ------------------------------------------------------------
-ltrace — (Library Trace) Library call tracer
+ltrace — (Library Trace) 
+- Library call tracer
 Full form: Library Trace
 
 What it does: Traces library function calls, especially 
@@ -162,3 +184,198 @@ from libc or other shared libraries
 
 It shows user-space function calls to shared libraries 
 (not system calls).
+
+------------------------------------------------------------
+cfsetispeed()
+- Control Function Set Input Speed
+
+
+
+------------------------------------------------------------
+SIGCHLD
+SIGCLD
+SIGSTOP
+SIGCONT
+SIGINT
+SIGKILL
+
+getpid()
+getppid()
+getcpid()
+perror()
+printf()
+
+WEXITSTATUS() - Wait Exit Status
+
+fork()
+wait()
+waitpid()
+
+raise()
+
+------------------------------------------------------------
+exec → Stands for execute
+
+l → Stands for list
+
+Related exec family functions:
+
+Function	Meaning
+
+execl	- exec + list of args
+execv	- exec + vector of args (char* argv[])
+execlp	- exec + list + path search
+execvp	- exec + vector + path search
+execve	- exec + vector + environment
+
+------------------------------------------------------------
+Primary Process Management Signals
+------------------------------
+Signal	Description
+
+SIGCHLD	- Sent to parent when child stops or terminates
+
+SIGSTOP	- Stops (pauses) the process — cannot be caught 
+or ignored
+
+SIGCONT	- Resumes a stopped process
+
+SIGINT	- Interrupt from keyboard (Ctrl+C)
+
+SIGKILL	- Kill the process immediately — cannot be caught 
+or ignored
+
+SIGTERM	- Termination request — can be handled for 
+graceful shutdown
+
+SIGTSTP	- Stop typed at terminal (Ctrl+Z)
+
+SIGTTIN	- Background process attempting to read 
+from terminal
+
+SIGTTOU	- Background process attempting to write 
+to terminal
+
+SIGQUIT	- Quit from keyboard (Ctrl+\), 
+includes core dump
+
+SIGABRT	- Abort signal (used by abort() function) — 
+causes core dump
+
+SIGUSR1	- User-defined signal 1
+
+SIGUSR2	- User-defined signal 2
+
+------------------------------
+Less Common but Process-Related Signals
+------------------------------
+Signal	Description
+
+SIGHUP	- Hangup — often used to signal a process 
+to reload configuration
+
+SIGALRM	- Timer signal from alarm()
+
+SIGPIPE	- Write to a pipe with no reader
+
+SIGTRAP	- Used by debuggers to trap to debugger
+
+SIGBUS	- Bus error — invalid memory access
+
+SIGFPE	- Floating-point exception 
+(e.g., division by zero)
+
+SIGILL	- Illegal instruction
+
+SIGSEGV	- Segmentation fault (invalid memory access)
+
+SIGSYS	- Bad system call
+
+SIGXCPU	- CPU time limit exceeded
+
+SIGXFSZ	- File size limit exceeded
+
+------------------------------
+Signal Handling Summary
+------------------------------
+Category			Examples				Catchable?
+
+Non-catchable		SIGKILL, SIGSTOP			❌ No
+Terminal Signals	SIGINT, SIGTSTP, SIGQUIT	✅ Yes
+Termination Signals	SIGTERM, SIGCHLD, SIGABRT	✅ Yes
+User-defined		SIGUSR1, SIGUSR2			✅ Yes
+Resource/Limit		SIGXCPU, SIGXFSZ, SIGPIPE	✅ Yes
+
+------------------------------------------------------------
+SIGABRT 	- Process abort signal
+SIGALRM 	- Alarm clock
+SIGFPE 		- Erroneous arithmetic operation
+SIGHUP 		- Hangup
+SIGILL 		- Illegal instruction
+
+SIGINT 		- Terminal interrupt signal
+SIGKILL 	- Kill (cannot be caught or ignored)
+SIGPIPE 	- Write on a pipe with no one to read it
+SIGQUIT 	- Terminal quit signal
+SIGSEGV 	- Invalid memory reference
+
+SIGTERM 	- Termination signal
+SIGUSR1 	- User-defined signal 1
+SIGUSR2 	- User-defined signal 2
+SIGCHLD 	- Child process terminated or stopped
+SIGCONT 	- Continue executing, if stopped
+
+SIGSTOP 	- Stop executing (cannot be caught or ignored)
+SIGTSTP 	- Terminal stop signal
+SIGTTIN 	- Background process attempting read
+SIGTTOU 	- Background process attempting write
+SIGBUS 		- Bus error
+
+SIGPOLL 	- Pollable event
+SIGPROF 	- Profiling timer expired
+SIGSYS 		- Bad system call
+SIGTRAP 	- Trace/breakpoint trap
+SIGURG 		- High bandwidth data is available at a socket
+
+SIGVTALRM 	- Virtual timer expired
+SIGXCPU 	- CPU time limit exceeded
+SIGXFSZ 	- File size limit exceeded
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
