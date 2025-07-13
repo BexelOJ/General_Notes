@@ -97,9 +97,14 @@ Coroutines (co_await) [C++20]
 ------------------------------
 std::packaged_task<int()> task;
 std::unique_lock<std::mutex> lock(mtx);
-std::lock_guard<mutex> lock(mtx);  // Automatically locks and unlocks
+std::lock_guard<mutex> lock(mtx);  
+// Automatically locks and unlocks
 
 ------------------------------------------------------------
+Thread t1 = new Thread(() -> 
+{ System.out.println("This is thread t1"); } );
+
+
 
 
 ------------------------------------------------------------

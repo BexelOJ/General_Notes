@@ -1,42 +1,64 @@
 ------------------------------------------------------------
-ssh
+RTTI - Run Time Type Information
 
-Remove the Offending Key:
-C:\Users\HP\.ssh\known_hosts
+RAII - Resource Acquicition Is Initialization
 
-You can either edit this file manually and delete the line 
-containing the old key, or you can use the following 
-command to remove the offending key:
+------------------------------
+TLS - Thread Local Storage
 
-ssh-keygen -R exin-desktop  // remove host
+CLR - Common Language Runtime
 
-ssh-keygen -R 192.168.1.104 // remove host
+Futex - Fast user Space Mutex
 
-Reconnect to the Server:
-ssh exin@exin-desktop
+ELF - Executable and Linkable Format
 
-------------------------------------------------------------
-ssh remote_username@remote_host
+QEMU - Quick EMUlator
 
-------------------------------------------------------------
-ssh-keygen -f "/home/anareen/.ssh/known_hosts" -R "192.168.1.104"
 
 
 ------------------------------------------------------------
+nm - name mangling
+
+rc - release candidate
+
+------------------------------------------------------------
+aarch - Advanced ARM Architecture
+
+aarch32 - ARM 32-bit architecture (like ARMv7)
+
+aarch64 - ARM 64-bit architecture (like ARMv8)
+
+armhf - ARM hard-float (32-bit) – uses hardware FPU
+
+arm64 - 	Another name for aarch64 (64-bit)
+
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
+
 ------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+------------------------------
+
 

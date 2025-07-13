@@ -1,0 +1,94 @@
+------------------------------------------------------------
+Graphics Driver:
+DRM / KMS
+OpenGL
+OpenCL
+Vulkan
+Mesa
+
+------------------------------------------------------------
+Multi Media Video Driver:
+Vaapi
+Vdpau
+gstreamer
+v4l2
+
+------------------------------------------------------------
+Power Management:
+System to RAM
+S0ix3
+
+------------------------------------------------------------
+Display Driver Development:
+X
+Wayland
+Weston
+Display Driver Development with Audio Subsystem
+Audio Driver Frameworks
+ALSA SOC(ASOC)
+
+------------------------------------------------------------
+Virtualization:
+Xen
+KVM
+QNX Hypervisor
+RTOS
+
+------------------------------------------------------------
+Ethernet Driver:
+Network Driver Development
+IPC
+DMA Driver Development
+Kernel Mode Driver Programming
+
+------------------------------------------------------------
+Audio Protocol:
+I2S / TDM
+
+------------------------------------------------------------
+
++-------------------------+
+| Applications            |
+| (e.g., games, X11, GUI) |
++-------------------------+
+          ↓
++-------------------------+
+| Mesa / OpenGL / Vulkan |
++-------------------------+
+          ↓
++-------------------------+
+| libdrm (user-space API)|
++-------------------------+
+          ↓
++-------------------------+
+| DRM/KMS (Kernel Space) |
++-------------------------+
+          ↓
++-------------------------+
+| GPU Hardware           |
++-------------------------+
+
+
+------------------------------------------------------------
+DRM - Direct Rendering Manager
+KMS - Kernel Mode Setting
+GEM - Graphics Execution Manager
+TTM - Translation Table Maps
+
+
+------------------------------------------------------------
+0000 0000 0000 0000 0000 0000 0000 0101  // 32 bits
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+

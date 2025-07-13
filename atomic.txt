@@ -1,42 +1,49 @@
 ------------------------------------------------------------
-ssh
+Common std::memory_order Types:
 
-Remove the Offending Key:
-C:\Users\HP\.ssh\known_hosts
+Memory Order	Description
 
-You can either edit this file manually and delete the line 
-containing the old key, or you can use the following 
-command to remove the offending key:
+memory_order_relaxed - 
+No ordering guarantees, fastest
 
-ssh-keygen -R exin-desktop  // remove host
+memory_order_acquire - 
+Load barrier — subsequent reads/writes won’t move before 
+this
 
-ssh-keygen -R 192.168.1.104 // remove host
+memory_order_release - 
+Store barrier — previous reads/writes won’t move after 
+this
 
-Reconnect to the Server:
-ssh exin@exin-desktop
+memory_order_acq_rel - 
+Both acquire and release semantics
 
-------------------------------------------------------------
-ssh remote_username@remote_host
-
-------------------------------------------------------------
-ssh-keygen -f "/home/anareen/.ssh/known_hosts" -R "192.168.1.104"
-
+memory_order_seq_cst - 
+Strongest: sequential consistency across threads
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
 

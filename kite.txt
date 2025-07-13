@@ -1,42 +1,57 @@
 ------------------------------------------------------------
-ssh
-
-Remove the Offending Key:
-C:\Users\HP\.ssh\known_hosts
-
-You can either edit this file manually and delete the line 
-containing the old key, or you can use the following 
-command to remove the offending key:
-
-ssh-keygen -R exin-desktop  // remove host
-
-ssh-keygen -R 192.168.1.104 // remove host
-
-Reconnect to the Server:
-ssh exin@exin-desktop
+EMA crossover, RSI filter, price breakout
 
 ------------------------------------------------------------
-ssh remote_username@remote_host
+Zerodha Kite Connect API is a REST API
 
 ------------------------------------------------------------
-ssh-keygen -f "/home/anareen/.ssh/known_hosts" -R "192.168.1.104"
+You can build a Python middleware that:
 
+Talks to Zerodha API (fetches prices, places orders)
 
-------------------------------------------------------------
+Communicates with MQL5 EA via:
 
-------------------------------------------------------------
+TCP socket
 
-------------------------------------------------------------
+Local REST server
 
-------------------------------------------------------------
+File-based communication
+
+SQLite / CSV file sync
+
+------------------------------
+[MQL5 Expert Advisor] EA
+      ⇅ (via file/socket)
+[Python Bridge Server]
+      ⇅
+[Zerodha Kite Connect API]
+
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
 
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------

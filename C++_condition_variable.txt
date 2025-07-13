@@ -7,6 +7,7 @@ notify_one() - Wakes up one waiting thread.
 
 notify_all() - Wakes up all waiting threads.
 
+------------------------------
 wait(lock) - Waits for a notification. Automatically 
 releases the lock and reacquires it after waking up.
 
@@ -29,15 +30,14 @@ but waits only if the predicate is false.
 ------------------------------------------------------------
 Notes:
 
-All these methods require a std::unique_lock<std::mutex> 
+All these methods require a std::unique_lock<std::mutex>
 as an argument.
 
 The wait() family of functions release the mutex 
-while waiting, and reacquire it before returning.
+while waiting, and re-acquire it before returning.
 
 Predicate-based waits help prevent spurious wakeups 
 (where a thread wakes up without a real notification).
-
 
 
 ------------------------------------------------------------
