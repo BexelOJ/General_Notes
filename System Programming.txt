@@ -1,0 +1,85 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Computer Systems: A Programmer's Perspective
+by Randal E. Bryant and David R. O'Hallaron
+
+------------------------------------------------------------
+The Linux Programming Interface: A Linux and UNIX System Programming Handbook
+by Michael Kerrisk
+
+------------------------------------------------------------
+Systems Programming
+by Donovan
+
+------------------------------------------------------------
+System Software: An Introduction to Systems Programming
+by Leland Beck
+
+
+------------------------------------------------------------
+Systems Programming and Operating Systems
+by Dhananjay Dhamdhere
+
+
+------------------------------------------------------------
+Modern Operating Systems
+by Andrew S. Tanenbaum
+
+
+------------------------------------------------------------
+System Programming and Compiler Construction
+by R. K. Maurya and Anand A. Godbole
+
+
+------------------------------------------------------------
+Systems Programming (Oxford Higher Education)
+by Srimanta Pal
+
+
+------------------------------------------------------------
+Systems Programming Essentials with Go (For modern system programming using Go, networking, and security)
+
+
+------------------------------------------------------------
+Systems Programming: Designing and Developing Distributed Applications
+by Suzanne J. Matthews et al.
+
+
+------------------------------------------------------------
+Linux System Programming by Robert Love
+
+
+------------------------------------------------------------
+Programming from the Ground Up by Jonathan Bartlett
+
+
+------------------------------------------------------------
+Professional Linux Kernel Architecture by Wolfgang Mauerer
+
+
+------------------------------------------------------------
+Unix Systems Programming: Communication, Concurrency, and Threads by Kay A. Robbins and Steven Robbins
+
+
+------------------------------------------------------------
+Understanding the Linux Kernel by Daniel P. Bovet and Marco Cesati
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

@@ -1,0 +1,832 @@
+------------------------------------------------------------
+
+------------------------------
+container_name: mysql_db
+container_name: django_app
+container_name: nginx_server
+
+------------------------------------------------------------
+To list running containers:
+
+docker ps
+
+------------------------------
+To list all containers (including stopped ones):
+
+docker ps -a
+
+------------------------------------------------------------
+sudo usermod -aG docker $USER
+
+sudo usermod -aG docker exin
+
+------------------------------------------------------------
+
+arturo.ns.cloudflare.com
+
+kami.ns.cloudflare.com
+
+------------------------------------------------------------
+
+your-tunnel-id.trycloudflare.com
+
+Created tunnel aushadha-tunnel with id 0af84ed3-f601-4b74-aa6a-c198e59f5ce6
+
+cloudflared tunnel run aushadha-tunnel
+
+------------------------------------------------------------
+
+tail -f tunnel.log
+
+------------------------------------------------------------
+Your MySQL container name is mysql_db
+
+Check logs:
+docker logs mysql_db
+
+Enter the container shell:
+docker exec -it mysql_db bash
+
+Restart the container:
+docker restart mysql_db
+
+------------------------------------------------------------
+Access MySQL inside the container
+docker exec -it mysql_db mysql -u root -p
+
+root password
+rootpass
+
+Show databases:
+SHOW DATABASES;
+
+Exit:
+exit;
+
+------------------------------------------------------------
+172.19.145.244
+rootpass
+------------------------------------------------------------
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS                                                    NAMES
+96fa1ec36913   mysql:8   "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql_db
+
+------------------------------------------------------------
+django-admin startproject aushadha
+
+------------------------------------------------------------
+sudo apt update
+sudo apt install python3-pip
+pip3 install django
+
+------------------------------------------------------------
+docker compose up --build -d
+
+Check logs to troubleshoot:
+
+docker logs django_app
+docker logs nginx_server
+
+docker logs <container_id_or_name>
+
+django_app 2ff42ef5d7cf
+nginx_server 2ade01f37b85
+
+------------------------------------------------------------
+docker rm aa7f1783ede1 0f32d1c4a563 63d641e0888f
+
+------------------------------------------------------------
+docker compose build --no-cache
+docker compose up -d
+
+------------------------------------------------------------
+
+0928856074e1
+2ade01f37b85
+96fa1ec36913
+
+remove dangling images, volumes, and networks to fully clean up, you can run:
+docker system prune -a --volumes
+
+------------------------------------------------------------
+To check the installed Docker version on your system, just run this command in your terminal:
+docker --version
+Docker version 28.3.3, build 980b856
+
+If you want more detailed info about both Docker Engine and Docker Client, you can run:
+docker version
+
+Client: Docker Engine - Community
+ Version:           28.3.3
+ API version:       1.51
+ Go version:        go1.24.5
+ Git commit:        980b856
+ Built:             Fri Jul 25 11:35:18 2025
+ OS/Arch:           linux/arm64
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          28.3.3
+  API version:      1.51 (minimum version 1.24)
+  Go version:       go1.24.5
+  Git commit:       bea959c
+  Built:            Fri Jul 25 11:35:18 2025
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.7.27
+  GitCommit:        05044ec0a9a75232cad458027ca83437aae3f4da
+ runc:
+  Version:          1.2.5
+  GitCommit:        v1.2.5-0-g59923ef
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+  
+If you want to check Docker Compose version (if installed separately), use:
+docker compose version
+
+Docker Compose version v2.39.1
+
+------------------------------------------------------------
+docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+ad1b8ecbb113   bridge    bridge    local
+6b74066c0fd1   host      host      local
+287acb2ab08a   none      null      local
+
+
+------------------------------------------------------------
+docker volume ls
+
+------------------------------------------------------------
+mysql --version
+mysql  Ver 8.0.42-0ubuntu0.24.04.2 for Linux on aarch64 ((Ubuntu))
+
+------------------------------------------------------------
+python3 --version
+Python 3.12.3
+
+------------------------------------------------------------
+Docker cleanup commands:
+
+Stop all running containers:
+docker stop $(docker ps -q)
+
+Remove all containers (both stopped and running):
+docker rm $(docker ps -a -q)
+
+Remove all images
+docker rmi $(docker images -q)
+
+Remove all volumes
+docker volume rm $(docker volume ls -q)
+
+Remove all networks (except default ones)
+docker network rm $(docker network ls -q)
+
+One-shot total cleanup
+docker system prune -a --volumes
+
+If you just want to nuke everything and be 100% sure nothing is left:
+docker stop $(docker ps -q) 2>/dev/null
+docker system prune -a --volumes -f
+
+------------------------------------------------------------
+docker compose down --volumes --remove-orphans
+rm -rf mysql-data
+
+------------------------------------------------------------
+# Inside your microservice folder
+python3 -m venv venv
+
+# Activate virtual environment:
+source venv/bin/activate   # Linux/macOS
+# On Windows use: venv\Scripts\activate
+
+# Install Django inside venv
+pip install django
+
+django-admin startproject user_login_proj .
+
+django-admin startproject user_registration_proj .
+
+django-admin startproject patient_add_proj .
+
+django-admin startproject medicine_add_proj .
+
+django-admin startproject intake_time_proj .
+
+------------------------------------------------------------
+mysql_db
+
+Runs the official MySQL database container image.
+It’s just the database server, no Django code or project inside.
+You do NOT develop or add code here.
+
+------------------------------
+nginx_server
+
+Runs the Nginx reverse proxy container.
+Its job is to route HTTP requests to your Django microservices.
+It uses only configuration files (like nginx.conf), no Django projects inside.
+
+------------------------------------------------------------
+To stop running containers later, use:
+docker-compose down
+
+------------------------------------------------------------
+exin@exin-desktop:~$ docker ps
+CONTAINER ID   IMAGE                                       COMMAND                  CREATED          STATUS          PORTS                                                    NAMES
+29bf51e9c579   nginx:latest                                "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   0.0.0.0:80->80/tcp, [::]:80->80/tcp                      nginx_server
+e3f0149c733c   aushadha-server_user_registration_service   "python manage.py ru…"   12 minutes ago   Up 12 minutes   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp              user_registration_service
+17bc9b9e8074   aushadha-server_intake_time_service         "python manage.py ru…"   12 minutes ago   Up 12 minutes   0.0.0.0:8005->8000/tcp, [::]:8005->8000/tcp              intake_time_service
+2625e1a45ff8   aushadha-server_user_login_service          "python manage.py ru…"   12 minutes ago   Up 12 minutes   0.0.0.0:8002->8000/tcp, [::]:8002->8000/tcp              user_login_service
+a809aa867ce1   aushadha-server_medicine_add_service        "python manage.py ru…"   12 minutes ago   Up 12 minutes   0.0.0.0:8004->8000/tcp, [::]:8004->8000/tcp              medicine_add_service
+0f31368e8c51   aushadha-server_patient_add_service         "python manage.py ru…"   12 minutes ago   Up 12 minutes   0.0.0.0:8003->8000/tcp, [::]:8003->8000/tcp              patient_add_service
+3bce6b9bdb4e   mysql:8.0                                   "docker-entrypoint.s…"   12 minutes ago   Up 11 minutes   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql_db
+
+------------------------------------------------------------
+Stop all running containers:
+docker-compose down
+
+------------------------------------------------------------
+To fully restart everything fresh (stop, remove, recreate containers):
+docker-compose down
+docker-compose up -d
+
+------------------------------------------------------------
+To just restart running containers:
+docker-compose restart
+
+------------------------------------------------------------
+Alternative: restart all running containers without stopping volumes or networks:
+docker-compose restart
+
+------------------------------------------------------------
+CONTAINER ID   IMAGE                                       COMMAND                  CREATED        STATUS        PORTS                                                    NAMES
+69653065505a   nginx:latest                                "/docker-entrypoint.…"   16 hours ago   Up 16 hours   0.0.0.0:80->80/tcp, [::]:80->80/tcp                      nginx_server
+1805924f3460   aushadha-server_patient_add_service         "python manage.py ru…"   16 hours ago   Up 16 hours   0.0.0.0:8003->8000/tcp, [::]:8003->8000/tcp              patient_add_service
+df18e2d762e9   aushadha-server_user_registration_service   "python manage.py ru…"   16 hours ago   Up 16 hours   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp              user_registration_service
+877e775c765c   aushadha-server_intake_time_service         "python manage.py ru…"   16 hours ago   Up 16 hours   0.0.0.0:8005->8000/tcp, [::]:8005->8000/tcp              intake_time_service
+4b166f5c6b66   aushadha-server_medicine_add_service        "python manage.py ru…"   16 hours ago   Up 16 hours   0.0.0.0:8004->8000/tcp, [::]:8004->8000/tcp              medicine_add_service
+ad7a7c929ad0   aushadha-server_user_login_service          "python manage.py ru…"   16 hours ago   Up 16 hours   0.0.0.0:8002->8000/tcp, [::]:8002->8000/tcp              user_login_service
+3fcd5adf6fa0   mysql:8.0                                   "docker-entrypoint.s…"   16 hours ago   Up 16 hours   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql_db
+
+------------------------------------------------------------
+exin@exin-desktop:~/aushadha-server$ ifconfig
+br-eefbe77f5e24: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.18.0.1  netmask 255.255.0.0  broadcast 172.18.255.255
+        inet6 fe80::f824:4dff:fe8c:8d9e  prefixlen 64  scopeid 0x20<link>
+        ether fa:24:4d:8c:8d:9e  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::f013:9eff:fef1:9dc1  prefixlen 64  scopeid 0x20<link>
+        ether f2:13:9e:f1:9d:c1  txqueuelen 0  (Ethernet)
+        RX packets 136858  bytes 7692692 (7.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 335058  bytes 476560552 (476.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.19.145.244  netmask 255.255.255.0  broadcast 172.19.145.255
+        inet6 fe80::dea6:32ff:fe51:9e51  prefixlen 64  scopeid 0x20<link>
+        inet6 2401:4900:9004:eec:dea6:32ff:fe51:9e51  prefixlen 64  scopeid 0x0<global>
+        ether dc:a6:32:51:9e:51  txqueuelen 1000  (Ethernet)
+        RX packets 2658839  bytes 2540011095 (2.5 GB)
+        RX errors 0  dropped 354833  overruns 0  frame 0
+        TX packets 1367889  bytes 169827230 (169.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 57729  bytes 6378214 (6.3 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 57729  bytes 6378214 (6.3 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth09b38e3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::50d5:1ff:fe42:3350  prefixlen 64  scopeid 0x20<link>
+        ether 52:d5:01:42:33:50  txqueuelen 0  (Ethernet)
+        RX packets 3  bytes 126 (126.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 321  bytes 61579 (61.5 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth26f075b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::3cdf:63ff:fed4:9c4  prefixlen 64  scopeid 0x20<link>
+        ether 3e:df:63:d4:09:c4  txqueuelen 0  (Ethernet)
+        RX packets 3  bytes 126 (126.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 306  bytes 60402 (60.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth2d88ed2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::dc52:23ff:fe51:d684  prefixlen 64  scopeid 0x20<link>
+        ether de:52:23:51:d6:84  txqueuelen 0  (Ethernet)
+        RX packets 3  bytes 126 (126.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 327  bytes 62182 (62.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth6005de5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::40c8:dbff:fe43:8793  prefixlen 64  scopeid 0x20<link>
+        ether 42:c8:db:43:87:93  txqueuelen 0  (Ethernet)
+        RX packets 3  bytes 126 (126.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 326  bytes 62140 (62.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth6b68f42: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::54f2:71ff:fea6:89e8  prefixlen 64  scopeid 0x20<link>
+        ether 56:f2:71:a6:89:e8  txqueuelen 0  (Ethernet)
+        RX packets 112  bytes 60809 (60.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 496  bytes 79478 (79.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth814ed26: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::3447:f5ff:fe2e:baaa  prefixlen 64  scopeid 0x20<link>
+        ether 36:47:f5:2e:ba:aa  txqueuelen 0  (Ethernet)
+        ether 36:47:f5:2e:ba:aa  txqueuelen 0  (Ethernet)
+        RX packets 3  bytes 126 (126.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 325  bytes 62098 (62.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+vethff3f954: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::3c41:47ff:fe19:a9b6  prefixlen 64  scopeid 0x20<link>
+        ether 3e:41:47:19:a9:b6  txqueuelen 0  (Ethernet)
+        RX packets 3  bytes 126 (126.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 320  bytes 61537 (61.5 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+------------------------------------------------------------
+django-admin startprojec
+
+python manage.py runserver 0.0.0.0:8001
+
+
+------------------------------------------------------------
+python3 manage.py startapp user_api
+
+(venv) exin@exin-desktop:~/aushadha-server/user_registration_service$ tree
+.
+├── Dockerfile
+├── manage.py
+├── requirements.txt
+├── user_api
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+└── user_registration_proj
+    ├── __init__.py
+    ├── __pycache__
+    │   ├── __init__.cpython-312.pyc
+    │   └── settings.cpython-312.pyc
+    ├── asgi.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+
+------------------------------------------------------------
+CONTAINER ID   IMAGE                                       COMMAND                  CREATED        STATUS        PORTS                                                    NAMES
+69653065505a   nginx:latest                                "/docker-entrypoint.…"   21 hours ago   Up 21 hours   0.0.0.0:80->80/tcp, [::]:80->80/tcp                      nginx_server
+1805924f3460   aushadha-server_patient_add_service         "python manage.py ru…"   21 hours ago   Up 21 hours   0.0.0.0:8003->8000/tcp, [::]:8003->8000/tcp              patient_add_service
+df18e2d762e9   aushadha-server_user_registration_service   "python manage.py ru…"   21 hours ago   Up 21 hours   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp              user_registration_service
+877e775c765c   aushadha-server_intake_time_service         "python manage.py ru…"   21 hours ago   Up 21 hours   0.0.0.0:8005->8000/tcp, [::]:8005->8000/tcp              intake_time_service
+4b166f5c6b66   aushadha-server_medicine_add_service        "python manage.py ru…"   21 hours ago   Up 21 hours   0.0.0.0:8004->8000/tcp, [::]:8004->8000/tcp              medicine_add_service
+ad7a7c929ad0   aushadha-server_user_login_service          "python manage.py ru…"   21 hours ago   Up 21 hours   0.0.0.0:8002->8000/tcp, [::]:8002->8000/tcp              user_login_service
+3fcd5adf6fa0   mysql:8.0                                   "docker-entrypoint.s…"   21 hours ago   Up 21 hours   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql_db
+
+------------------------------------------------------------
+sudo ufw status
+sudo ufw allow 8001/tcp
+sudo ufw reload
+sudo ufw enable
+
+------------------------------------------------------------
+Invoke-WebRequest http://172.19.145.244:8001
+
+http://172.19.145.244:8001
+ 
+------------------------------------------------------------
+sudo systemctl restart aushadha.service
+sudo systemctl status aushadha.service
+
+sudo journalctl -u aushadha.service -f
+
+------------------------------------------------------------
+nginx_server
+mysql_db
+user_login_service
+user_registration_service
+patient_add_service
+intake_time_service
+medicine_add_service
+
+
+docker restart user_registration_service
+docker exec -it mysql_db bash
+
+------------------------------------------------------------
+Run migrations inside the container
+docker exec -it user_registration_service python manage.py migrate
+
+Create the superuser
+docker exec -it user_registration_service python manage.py createsuperuser
+
+
+------------------------------------------------------------
+Then rebuild your container:
+docker-compose build user_registration_service
+
+------------------------------------------------------------
+Rebuild the Django container so the new library is installed:
+docker-compose build user_registration_service
+
+docker-compose build user_registration_service
+docker-compose build user_login_service
+docker-compose build patient_add_service
+docker-compose build intake_time_service
+docker-compose build medicine_add_service
+
+
+Run migrations to create tables in MySQL:
+Run migrations inside each service:
+
+docker exec -it user_registration_service python manage.py migrate
+docker exec -it user_login_service python manage.py migrate
+docker exec -it patient_add_service python manage.py migrate
+docker exec -it intake_time_service python manage.py migrate
+docker exec -it medicine_add_service python manage.py migrate
+
+
+Create the superuser in MySQL:
+docker exec -it user_registration_service python manage.py createsuperuser
+
+
+------------------------------------------------------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'aushadha_jnapaka',
+        'USER': 'user',
+        'PASSWORD': 'aushadhapass',
+        'HOST': 'mysql_db',
+        'PORT': '3306',
+    }
+}
+
+------------------------------------------------------------
+exinser
+
+docker exec -it user_registration_service python manage.py createsuperuser
+
+docker exec -it user_login_service python manage.py createsuperuser
+
+docker exec -it patient_add_service python manage.py createsuperuser
+
+docker exec -it medicine_add_service python manage.py createsuperuser
+
+docker exec -it intake_time_service python manage.py createsuperuser
+
+
+------------------------------------------------------------
+http://172.19.145.244:8001/
+
+http://172.19.145.244:8002/
+
+http://172.19.145.244:8001/user/register
+
+http://172.19.145.244:8002/user/login
+
+
+------------------------------------------------------------
+Run Django command to create a new app:
+python manage.py startapp user_api
+
+------------------------------------------------------------
+to create app folder (user_api):
+containing the specific views, models, and logic related to that service.
+
+Each service is an independent Django project.
+The user_api app inside each service holds the API endpoints relevant to that service.
+They can share the same database but have separate codebases and responsibilities.
+
+------------------------------------------------------------
+Create migration files for your app (if not created yet):
+python manage.py makemigrations user_api
+
+Apply migrations to the MySQL database:
+python manage.py migrate
+
+------------------------------------------------------------
+If you want to run migrations inside the container:
+
+docker exec -it user_registration_service bash
+python manage.py makemigrations user_api
+python manage.py migrate
+
+------------------------------------------------------------
+SHOW DATABASES;
+
+SELECT * FROM users;
+
+SHOW DATABASES;
+
+USE aushadha_jnapaka;
+
+SHOW TABLES;
+
+------------------------------------------------------------
+
+docker restart user_registration_service
+
+------------------------------------------------------------
+sudo journalctl -u user_registration_service -e
+
+# Show logs for a specific service from docker-compose
+docker-compose logs user_registration_service
+
+# Or for MySQL service
+docker-compose logs mysql_db
+
+# Follow live logs
+docker-compose logs -f user_registration_service
+
+
+------------------------------------------------------------
+Stop the existing container (optional but recommended for clean restart):
+docker compose stop user_login_service
+
+Rebuild the Docker image so the dependency is installed:
+
+docker compose build --no-cache user_registration_service
+
+But after building, you still need to run the container (or restart it) to see the changes live:
+
+docker compose up -d user_registration_service
+
+
+------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------
+# Remove all dangling images (untagged)
+docker image prune -f
+
+------------------------------------------------------------
+list all images:
+docker images
+
+Clean up dangling images to save disk space:
+docker image prune
+
+docker image prune -f
+
+
+------------------------------------------------------------
+(venv) exin@exin-desktop:~/aushadha-server$ docker ps
+CONTAINER ID   IMAGE                                              COMMAND                  CREATED         STATUS         PORTS                                                    NAMES
+6a117d902c1d   nginx:latest                                       "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   0.0.0.0:80->80/tcp, [::]:80->80/tcp                      nginx_server
+865f1842bf4b   aushadha-server_medicine_add_service:latest        "python manage.py ru…"   5 minutes ago   Up 5 minutes   0.0.0.0:8004->8000/tcp, [::]:8004->8000/tcp              medicine_add_service
+9498a7760e61   aushadha-server_intake_time_service:latest         "python manage.py ru…"   5 minutes ago   Up 5 minutes   0.0.0.0:8005->8000/tcp, [::]:8005->8000/tcp              intake_time_service
+c1be4945decb   aushadha-server_user_login_service:latest          "python manage.py ru…"   5 minutes ago   Up 5 minutes   0.0.0.0:8002->8000/tcp, [::]:8002->8000/tcp              user_login_service
+b426a6d78926   aushadha-server_user_registration_service:latest   "python manage.py ru…"   5 minutes ago   Up 5 minutes   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp              user_registration_service
+28b043d18a63   aushadha-server_patient_add_service:latest         "python manage.py ru…"   5 minutes ago   Up 5 minutes   0.0.0.0:8003->8000/tcp, [::]:8003->8000/tcp              patient_add_service
+b575a609a7de   mysql:8.0                                          "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql_db
+
+------------------------------------------------------------
+(venv) exin@exin-desktop:~/aushadha-server$ docker images
+REPOSITORY                                  TAG       IMAGE ID       CREATED       SIZE
+aushadha-server_user_registration_service   latest    43c79c1142b7   2 hours ago   540MB
+aushadha-server_user_login_service          latest    501385058dd5   2 hours ago   585MB
+aushadha-server_patient_add_service         latest    b9b3ecbbdc5f   2 hours ago   540MB
+aushadha-server_medicine_add_service        latest    c58ca294f61b   2 hours ago   540MB
+aushadha-server_intake_time_service         latest    f835010e3686   2 hours ago   540MB
+mysql                                       8.0       219daf4d91a4   2 weeks ago   777MB
+nginx                                       latest    f1d0ee1e24a1   3 weeks ago   198MB
+
+------------------------------------------------------------
+To get an interactive shell inside your user_registration_service container, you should run:
+docker exec -it user_registration_service /bin/sh
+
+if your container has bash available:
+docker exec -it user_registration_service /bin/bash
+
+------------------------------------------------------------
+apt update && apt install -y netcat-openbsd
+	
+nc -zv mysql_db 3306
+
+apt update && apt install -y iputils-ping
+
+ping mysql_db
+
+ping -c 5 mysql_db
+
+------------------------------------------------------------
+nginx_server
+mysql_db
+user_login_service
+user_registration_service
+patient_add_service
+intake_time_service
+medicine_add_service
+
+------------------------------------------------------------
+All containers defined in your docker-compose.yml are stopped:
+docker compose down
+
+docker compose up -d --build
+
+Docker will re-create the containers from your images or build context:
+docker compose up
+
+start the container using docker-compose:
+docker compose up -d user_registration_service
+
+------------------------------------------------------------
+If you want to just stop one container manually:
+docker stop mysql_db
+
+By default, docker compose down keeps volumes and networks. But you can remove them too:
+docker compose down --volumes    # removes all associated volumes
+docker compose down --rmi all    # removes all images built by compose
+docker compose down --remove-orphans  # removes containers not in current yml
+
+------------------------------------------------------------
+“build” → image
+
+“up” → container
+
+The -d flag stands for “detached mode/daemon mode”
+No -d → foreground/logs mode
+
+------------------------------------------------------------
+Install client inside container (if it uses Debian/Ubuntu base)
+(inside container)
+
+apt-get update
+apt-get install default-mysql-client -y
+
+------------------------------------------------------------
+Logs can be checked later using:
+docker compose logs          # view logs for all services
+docker compose logs <service>  # view logs for a specific service
+
+------------------------------------------------------------
+Reload nginx after saving your changes in nginx.conf:
+
+------------------------------------------------------------
+aushadha jnapaka
+
+------------------------------------------------------------
+Rebuilds the Docker image:
+docker compose build user_registration_service
+
+After rebuilding, restart the service:
+docker compose up -d user_registration_service
+
+------------------------------------------------------------
+cat ~/.config/ngrok/ngrok.yml
+
+ngrok start aushadha
+
+Forwarding  https://casual-abnormally-pony.ngrok-free.app -> http://localhost:80
+
+------------------------------------------------------------
+sudo systemctl daemon-reload
+sudo systemctl enable ngrok
+sudo systemctl start ngrok
+
+View logs anytime:
+journalctl -u ngrok -f
+
+------------------------------------------------------------
+Django server reloads: (If you modify settings.py or urls.py, restart the server inside the container)
+docker exec -it user_login_service python manage.py runserver 0.0.0.0:8000
+
+------------------------------------------------------------
+Check nginx container logs:
+docker logs -f nginx_server
+
+------------------------------------------------------------
+# Stop and remove all containers (optional but safe)
+docker compose down
+
+# Rebuild all images with the updated Dockerfiles
+docker compose build
+
+# Start all containers in detached mode
+docker compose up -d
+
+------------------------------------------------------------
+docker logs user_registration_service
+docker logs user_login_service
+docker logs patient_add_service
+docker logs medicine_add_service
+docker logs intake_time_service
+
+
+------------------------------------------------------------
+curl http://localhost/register/
+curl http://localhost/login/
+curl http://localhost/patient/
+curl http://localhost/medicine/
+curl http://localhost/intake/
+
+------------------------------------------------------------
+If you want to forcefully remove old images, you can use:
+docker compose down --rmi all
+docker compose up -d
+
+------------------------------------------------------------
+docker compose restart user_registration_service
+
+
+------------------------------------------------------------
+from django.contrib.auth.models import User
+
+User.objects.filter(username="hariyadav").exists()
+
+------------------------------------------------------------
+Create a migration
+From your project root (where manage.py is):
+
+python manage.py makemigrations user_api
+
+Apply the migration:
+	
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

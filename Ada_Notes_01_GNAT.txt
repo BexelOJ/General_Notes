@@ -89,6 +89,12 @@ my_project/
 └── my_project.gpr
 
 ------------------------------
+create my_project directory.
+inside create src and my_project.gpr directory.
+inside src, create main.adb and other ada files.
+inside my_project.gpr, fill below contents.
+
+------------------------------
 my_project.gpr (Ada project file)
 
 project My_Project is
@@ -104,7 +110,6 @@ Build the Project with gprbuild
 gprbuild -P my_project.gpr
 gprbuild -P hello.gpr
 
-
 -P stands for Project.
 
 ------------------------------
@@ -113,6 +118,7 @@ Output:
 Object files go to obj/
 
 Executable goes to bin/
+
 ------------------------------------------------------------
 Why Use .gpr Files?
 
@@ -199,7 +205,7 @@ markdown
 *.ali
 *.o
 obj/
-Keep only .adb, .ads, .gpr, and executables in 
+Keep only .adb, .ads, .gpr, and executables in
 version control.
 
 ------------------------------------------------------------
@@ -244,7 +250,6 @@ Tip	Benefit
 .gitignore setup	Clean version control
 Consistent naming	Better readability & organization
 Use gnatclean		Easy cleanup of build artifacts
-
 
 ------------------------------------------------------------
 mkdir Hello_World  -- create a directory for the project

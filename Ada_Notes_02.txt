@@ -254,7 +254,38 @@ access all
 access const
 
 ------------------------------------------------------------
+General Purpose of 'Image
+It is used to convert strongly-typed values into String.
 
+Examples:
+
+Value Type			'Image Output
+
+Integer'Image(42)	" 42"
+Float'Image(3.14)	" 3.14000E+00"
+Boolean'Image(True)	"TRUE"
+Day'Image(Monday)	"MONDAY" (Enum)
+
+Note: There's usually a leading space in numeric outputs 
+(for sign alignment).
+
+Typical Usage
+Mostly used with:
+
+Put_Line(Some_Type'Image(Value));
+
+Put_Line only accepts String
+'Image gives you a String representation
+
+
+------------------------------------------------------------
+Alternative to 'Image: Typed I/O Packages
+If you want more control or direct output without 
+converting to String, use:
+
+Type		Package					Procedure Example
+
+Integer		Ada.Integer_Text_IO		Put(123)
 
 ------------------------------------------------------------
 
@@ -289,4 +320,4 @@ access const
 ------------------------------------------------------------
 
 
-------------------------------------------------------------
+

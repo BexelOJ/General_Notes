@@ -1,0 +1,86 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+#include <thread>  
+// header to use thread in C++
+
+std::thread t1(function_one); 
+// t1 is the name of the thread object, and this statement 
+starts a new thread running function_one
+
+
+------------------------------------------------------------
+join()
+// Waits for the thread to finish.
+
+detach()
+// Separates the thread from the std::thread object, 
+allowing the thread to run independently.
+
+joinable()
+// Checks if the thread is joinable 
+(i.e., represents an active thread).
+
+get_id()
+// Returns the thread's ID.
+
+native_handle()
+// Provides access to the underlying native thread handle.
+
+swap()
+// Swaps the contents of two std::thread objects.
+
+------------------------------------------------------------
+a parameter to thread is always passed by value
+
+------------------------------------------------------------
+oversubscrioption : creating more threat than the core 
+can support.
+
+------------------------------------------------------------
+Before C++11, threading and synchronization were 
+platform-dependent or required third-party libraries.
+
+------------------------------------------------------------
+std::mutex feature was introduced in C++11.
+
+std::mutex and related synchronization primitives 
+(std::lock_guard, std::unique_lock, etc.) 
+for thread-safe locking.
+
+lock_guard
+unique_lock
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+
+

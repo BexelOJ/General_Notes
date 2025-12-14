@@ -1,0 +1,102 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Here is a list of major operator categories available in Python:
+
+------------------------------------------------------------
+1. Comparison Operators (Relational)
+
+== Equal to
+
+!= Not equal to
+
+> Greater than
+
+< Less than
+
+>= Greater than or equal to
+
+<= Less than or equal to
+
+------------------------------------------------------------
+2. Arithmetic Operators
+
++ Addition
+
+- Subtraction
+
+* Multiplication
+
+/ Division (floating point)
+
+// Floor division (integer division)
+
+% Modulus (remainder)
+
+** Exponentiation (power)
+
+------------------------------------------------------------
+3. Logical Operators
+
+and Logical AND
+
+or Logical OR
+
+not Logical NOT
+
+------------------------------------------------------------
+4. Bitwise Operators
+
+& Bitwise AND
+
+| Bitwise OR
+
+^ Bitwise XOR
+
+~ Bitwise NOT
+
+<< Left shift
+
+>> Right shift
+
+------------------------------------------------------------
+5. Assignment Operators
+
+= Assignment
+
++= Add and assign
+
+-= Subtract and assign
+
+*= Multiply and assign
+
+/= Divide and assign
+
+//= Floor divide and assign
+
+%= Modulus and assign
+
+**= Exponentiate and assign
+
+&=, |=, ^=, <<=, >>= Bitwise assignment variants
+
+------------------------------------------------------------
+6. Identity Operators
+
+is True if two references point to the same object
+
+is not True if two references do not point to the same object
+
+------------------------------------------------------------
+7. Membership Operators
+
+in True if a value is found in a sequence
+
+not in True if a value is not found in a sequence
+
+------------------------------------------------------------
+
+
+

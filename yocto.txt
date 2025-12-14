@@ -1,0 +1,205 @@
+------------------------------------------------------------
+wsl -d kali-linux
+
+wsl -d Ubuntu
+
+------------------------------------------------------------
+Poky is like scaffolding for building an embedded Linux system with Yocto.
+
+Think of it this way:
+
+Yocto Project → The entire framework / toolbox.
+
+BitBake → The build engine (the "make" of Yocto).
+
+OpenEmbedded-Core (OE-Core) → The essential metadata and recipes (like the foundation bricks).
+
+Poky → A ready-made scaffolding / starter distro that puts all of the above together so you don’t start from zero.
+
+------------------------------------------------------------
+With Poky you can:
+
+Build a minimal Linux image immediately.
+
+Use it as a template to extend for your board (Raspberry Pi, BeagleBone, custom SoC, etc.).
+
+Replace bits (like adding meta-raspberrypi, meta-qt5, or your own meta-myproject) on top of it.
+
+So yes — Poky = Yocto’s reference scaffolding.
+Once you’re comfortable, you can either:
+
+keep Poky as your base, or
+
+drop it and create your own custom distro layer.
+
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+bzip2, zstd, lz4 → compression tools.
+
+chrpath → fixes library paths in binaries.
+
+cpp, gcc, g++, make → compilers/toolchain.
+
+diffstat → build logs parsing.
+
+rpcgen (comes from rpcsvc-proto).
+
+unzstd, pzstd → compression tools (installed with zstd).
+
+------------------------------------------------------------
+bitbake core-image-minimal
+
+------------------------------------------------------------
+BitBake will show you a progress display.
+
+Each task (e.g., 
+
+do_fetch, 
+do_unpack, 
+do_patch, 
+do_compile, 
+do_install, 
+do_rootfs, 
+
+…) will be printed.
+
+------------------------------------------------------------
+sudo apt update
+sudo apt install gawk wget git-core diffstat unzip texinfo \
+     gcc build-essential chrpath socat cpio python3 python3-pip \
+     python3-pexpect xz-utils debianutils iputils-ping \
+     python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
+     pylint3 xterm bzip2 lz4 zstd rpcsvc-proto
+
+
+------------------------------------------------------------
+Create a new user (example: yocto):
+adduser yocto
+
+Give it sudo rights:
+usermod -aG sudo yocto
+
+Switch to that user:
+su - yocto
+
+Fix permissions on your Yocto folders 
+(since they are owned by root now):
+sudo chown -R yocto:yocto ~/yocto
+
+Enter your build directory and set up env again:
+cd ~/yocto/poky/build
+source ../oe-init-build-env
+
+------------------------------------------------------------
+Build Configuration:
+BB_VERSION           = "2.0.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-22.04"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "4.0.29"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+bexeloj@syrk.org
+
+2176662316134515
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

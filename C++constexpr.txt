@@ -39,8 +39,25 @@ Virtual functions can be constexpr.
 Exception handling (try/catch) is allowed in constexpr.
 
 ------------------------------------------------------------
+constexpr is a 'specifier' in c++
+
+constexpr can be used with both variables and functions in
+C++
+
+constexpr variable:
+is a constant whose value is evaluated 
+and known at Compile time.
+
+constexpr function: 
+is a function that can be evaluated at 
+compile time when called with constant expresions 
+as arguments, 
+if evaluated with non-consdtant inputs or in runtime 
+context, it behgaves like a normal function, but enables 
+compile-time optimization when possible.
 
 ------------------------------------------------------------
+const and volatile are qualifiers
 
 ------------------------------------------------------------
 

@@ -1,0 +1,204 @@
+------------------------------------------------------------
+Copy a single file from server to local:
+(powershell)
+
+scp username@remote_server:/path/to/remote/file C:\Users\YourName\Desktop\
+
+scp exin@192.168.0.102:/home/exin/Workspace/MySQL/ProjectLogin/app.py D:\WorkSpace\By_Date\ServerFlask0725
+
+scp exin@exin-desktop:/home/exin/Workspace/MySQL/ProjectLogin/app.py D:\WorkSpace\By_Date\ServerFlask0725
+
+
+------------------------------------------------------------
+Copy a directory recursively from server to local:
+(powershell)
+
+scp -r username@remote_server:/path/to/remote/directory C:\Users\YourName\Desktop\
+
+scp -r exin@192.168.0.102:/home/exin/Workspace/MySQL/ProjectLogin/ D:\WorkSpace\By_Date\ServerFlask0725
+
+
+------------------------------------------------------------
+scp stands for Secure Copy Protocol
+It is a command-line utility that uses SSH (Secure Shell) 
+to securely transfer files between a local and a 
+remote machine (or between two remote machines)
+
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+ProjectLogin_archive_2025-08-03
+
+ProjectLoginArchive20250803
+
+
+------------------------------------------------------------
+Bexelavilion
+
+192.168.1.103
+
+192.168.247.251
+172.19.145.251 
+
+192.168.0.44
+192.168.0.49
+
+10.19.124.49
+
+
+------------------------------
+rpi
+
+192.168.1.104
+
+192.168.247.244
+172.19.145.244
+
+192.168.0.126
+
+
+------------------------------
+anareen\hp
+
+192.168.1.101
+
+
+------------------------------
+10.19.124.234:42275
+
+
+------------------------------------------------------------
+
+ssh-keygen -R exin-desktop
+
+ssh-keygen -R 192.168.77.244
+
+Reconnect to the Server:
+ssh exin@exin-desktop
+
+
+ssh 192.168.77.244
+
+------------------------------------------------------------
+docker --version
+
+Docker version 28.3.3, build 980b856
+
+------------------------------------------------------------
+sudo systemctl daemon-reload
+sudo systemctl enable aushadha.service
+sudo systemctl start aushadha.service
+
+------------------------------------------------------------
+CONTAINER ID   IMAGE                                       COMMAND                  CREATED              STATUS              PORTS                                                    NAMES
+d37ae76faebf   nginx:latest                                "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, [::]:80->80/tcp                      nginx_server
+a87d814ca60a   aushadha-server-user_registration_service   "python manage.py ru…"   About a minute ago   Up About a minute   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp              user_registration_service
+29dd616c446e   aushadha-server-user_login_service          "python manage.py ru…"   About a minute ago   Up About a minute   0.0.0.0:8002->8000/tcp, [::]:8002->8000/tcp              user_login_service
+ad90db70b2e5   aushadha-server-patient_add_service         "python manage.py ru…"   About a minute ago   Up About a minute   0.0.0.0:8003->8000/tcp, [::]:8003->8000/tcp              patient_add_service
+41764fd54a07   aushadha-server-medicine_add_service        "python manage.py ru…"   About a minute ago   Up About a minute   0.0.0.0:8004->8000/tcp, [::]:8004->8000/tcp              medicine_add_service
+65f1a5c5ae19   aushadha-server-intake_time_service         "python manage.py ru…"   About a minute ago   Up About a minute   0.0.0.0:8005->8000/tcp, [::]:8005->8000/tcp              intake_time_service
+21710942745f   mysql:8.0                                   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql_db
+
+------------------------------------------------------------
+1..5 | ForEach-Object {
+    $port = 8000 + $_
+    Test-NetConnection 172.19.145.244 -Port $port
+}
+
+ComputerName     : 172.19.145.244
+RemoteAddress    : 172.19.145.244
+RemotePort       : 8002
+InterfaceAlias   : Ethernet
+SourceAddress    : 172.19.145.251
+TcpTestSucceeded : True
+
+ComputerName     : 172.19.145.244
+RemoteAddress    : 172.19.145.244
+RemotePort       : 8003
+InterfaceAlias   : Ethernet
+SourceAddress    : 172.19.145.251
+TcpTestSucceeded : True
+
+ComputerName     : 172.19.145.244
+RemoteAddress    : 172.19.145.244
+RemotePort       : 8004
+InterfaceAlias   : Ethernet
+SourceAddress    : 172.19.145.251
+TcpTestSucceeded : True
+
+ComputerName     : 172.19.145.244
+RemoteAddress    : 172.19.145.244
+RemotePort       : 8005
+InterfaceAlias   : Ethernet
+SourceAddress    : 172.19.145.251
+TcpTestSucceeded : True
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

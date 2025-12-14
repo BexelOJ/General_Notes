@@ -1,0 +1,50 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Design Patterns: Elements of Reusable Object-Oriented Software by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
+
+------------------------------------------------------------
+Head First Design Patterns by Eric Freeman and Elisabeth Freeman
+
+------------------------------------------------------------
+Game Programming Patterns by Robert Nystrom
+
+------------------------------------------------------------
+Adaptive Code: Agile Coding with Design Patterns and SOLID Principles by Gary McLean Hall
+
+------------------------------------------------------------
+Patterns of Enterprise Application Architecture by Martin Fowler
+
+------------------------------------------------------------
+Dive Into Design Patterns by Alexander Shvets
+
+------------------------------------------------------------
+Clean Code: A Handbook of Agile Software Craftsmanship by Robert C. Martin
+
+------------------------------------------------------------
+The Art of Readable Code by Dustin Boswell and Trevor Foucher
+
+------------------------------------------------------------
+Design Patterns in C# by Vaskaran Sarcar
+
+------------------------------------------------------------
+Refactoring to Patterns by Joshua Kerievsky
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

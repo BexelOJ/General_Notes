@@ -1,0 +1,12 @@
+
+cat /etc/os-release 
+lsb_release -a
+hostnamectl
+
+sudo passwd root
+reboot -f
+
+
+
+
+
