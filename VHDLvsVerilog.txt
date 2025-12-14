@@ -1,5 +1,5 @@
 ------------------------------------------------------------
-VHDL and Verilog are both hardware description languages 
+VHDL and Verilog are both Hardware Description Languages 
 (HDLs) used to design and simulate digital circuits, 
 but they have some key differences and similarities.
 
@@ -191,16 +191,6 @@ SystemVerilog is now the industry standard in ASIC/FPGA
 design, reinforcing the Verilog ecosystem.
 
 ------------------------------------------------------------
-Summary
-
-Factor	Aerospace/Defense 	Commercial ASIC/FPGA 
-		(VHDL)              (Verilog)
-
-Origins	US DoD standard for safety-critical systems	Early vendor support and simpler syntax
-Language style	Strongly typed, verbose, rigorous	C-like, concise, faster to write
-Development priorities	Robustness, formal verification, maintainability	Rapid prototyping, time-to-market
-Ecosystem	Tooling and legacy code invested in VHDL	Vendor tools and evolving standards (SystemVerilog)
-Typical projects	Aerospace, defense, safety-critical applications	Commercial chips, FPGAs, consumer electronics
 
 
 ------------------------------------------------------------
@@ -209,10 +199,100 @@ but the culture, history, and priorities of the industries
 shaped their dominant usage patterns.
 
 ------------------------------------------------------------
+VHDL Books:
+
+1. A VHDL Primer by Jairam Bhaskar
+
+2. Beginner's guide to VHDL by Peter J. Ashenden (Keep in mind that there is also book called designer's guide to VHDL)
+3. VHDL: Programming by Example, Douglas L. Perry
+4. VHDL Handbook by Hardi Electronics
+5. Digital Design: Principles and Practices by John F. Wakerly (Actually, this book gives good comparisons and examples on HDLs - VHDL, Verilog and ABEL)
+6. VHDL Tutorial by Peter J. Ashenden
+
+------------------------------------------------------------
+VHDL:
+entity, architecture, configuration, package
+
+Ada:
+package, procedure, function, task
+
+------------------------------------------------------------
+What VHDL Describes
+
+VHDL Code Constructs	Corresponds To Hardware
+
+signal					Wire or interconnect
+process					Logic block (e.g., flip-flop, FSM)
+entity					Module or chip
+architecture			Circuit internals
+wait, rising_edge(clk)	Clocked behavior (flip-flops, 
+											registers)
+concurrent assignment	Combinational logic
+
+------------------------------------------------------------
+FSM - Finite State Machine
+
+
+------------------------------------------------------------
+VHDL = Structural + Behavioral
+There are two main ways VHDL models hardware:
+
+Behavioral (what it should do):
+
+process (clk)
+begin
+  if rising_edge(clk) then
+    Q <= D;
+  end if;
+end process;
+
+This models a D flip-flop behavior.
+
+------------------------------
+Structural (how it’s built):
+
+U1: and_gate port map (A => A1, B => B1, Y => Y1);
+
+This wires together components like gates or flip-flops.
 
 ------------------------------------------------------------
 
-------------------------------------------------------------
 
 ------------------------------------------------------------
+Key Difference:
+
+VHDL gives you records and strong typing by default.
+
+Verilog (pre-SystemVerilog) mostly sticks to arrays 
+and regs/wires.
+
+SystemVerilog extends Verilog with structs, enums, unions,
+and 
+classes → much closer to software-style data structures.
+
+So to answer directly:
+Yes, 
+both VHDL and Verilog have ways to model data structures, 
+but they’re limited compared to general-purpose languages. 
+VHDL uses records/enums/arrays, 
+while Verilog relies more on arrays, 
+and SystemVerilog adds richer constructs.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
 

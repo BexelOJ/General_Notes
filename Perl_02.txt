@@ -3,59 +3,35 @@
 ------------------------------
 
 ------------------------------------------------------------
-Ada is older, but very strong in reliability and safety. 
-It provides both built-in types and generic packages 
-for data structures.
+5 Methods to execute perl file:
 
-Major Data Structures:
+Method 1: 
+Explicitly call perlperl test.pl
+perl test.pl
 
-------------------------------
-Array
+Method 2: (shebang executable)
+Make it executable with a shebang
+chmod +x test.pl   # make it executable
+./test.pl
 
-Fixed-size, can have arbitrary index ranges.
+Method 3: (Inline script)
+Inline script with -e
+perl -e 'use warnings; my $x=10; my $y="hello"; print $x+$y;'
 
-type Int_Array is array (1 .. 10) of Integer;
+Method 4: (Run interactively)
+perl -de0
 
-------------------------------
-Record (like struct)
+Method 5: As a Project (Build/Module Style)
 
-Composite type with named fields.
+------------------------------------------------------------
+DB<2>  - DeBugger
+Indicates you are inside the Perl debugger.
 
-type Person is record 
-Name : String; 
-Age : Integer; 
-end record;
+------------------------------------------------------------
+perl -de0
 
-------------------------------
-String
-
-Fixed or bounded length.
-
-String (1 .. 20)
-
-------------------------------
-Access Types (Pointers)
-
-For linked structures like lists.
-
-------------------------------
-Tagged Types
-
-Basis for OOP in Ada.
-
-------------------------------
-Containers (Ada.Containers library)
-
-Vectors (dynamic arrays)
-Doubly_Linked_Lists
-Hashed_Maps
-Ordered_Maps
-Hashed_Sets
-Ordered_Sets
-
-------------------------------
-Ada focuses on generic, type-safe containers 
-rather than ad-hoc data structures.
+-d → Start the Perl debugger.
+-e0 → Execute the code 0
 
 ------------------------------------------------------------
 
@@ -91,14 +67,6 @@ rather than ad-hoc data structures.
 
 
 ------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
 
 
 

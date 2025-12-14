@@ -1,0 +1,129 @@
+------------------------------------------------------------
+ History of Qt and QML
+------------------------------
+📜 Qt:
+
+1991 – Originally developed by Haavard Nord and Eirik Chambe-Eng (Trolltech, Norway)
+
+1995 – Qt 1.0 released (Linux, C++)
+
+2000s – Widely adopted for KDE and cross-platform apps
+
+2008 – Acquired by Nokia (Qt 4.x era)
+
+2011 – Digia took over Qt from Nokia
+
+2012 – Qt Project becomes open source under LGPL
+
+Today – Owned and developed by The Qt Company
+
+------------------------------
+📜 QML:
+
+Introduced in Qt 4.7 (2010) by Nokia
+
+Became mature in Qt 5.x (with QtQuick 2)
+
+Enables rapid UI prototyping with smooth animations
+
+Used heavily in embedded/automotive and touchscreen apps
+
+
+------------------------------------------------------------
+# Linux
+$ qmake && make
+
+# Windows
+$ qmake && nmake (or mingw32-make)
+
+# Android
+$ ./configure -xplatform android-clang && make apk
+
+# macOS
+$ qmake && make
+
+# Raspberry Pi
+$ cross-compile with toolchain or build natively
+
+
+------------------------------------------------------------
+set(CMAKE_AUTOMOC ON) - Automatically runs the Meta-Object Compiler (moc)
+set(CMAKE_AUTOUIC ON) - Automatically runs the User Interface Compiler (uic) 
+set(CMAKE_AUTORCC ON) - Automatically runs the Resource Compiler (rcc)
+
+------------------------------------------------------------
+QPushButton
+QApplication
+QLabel
+
+LangingPage
+
+
+------------------------------------------------------------
+QWidget
+QAbstractButton 
+QPushButton
+
+
+------------------------------------------------------------
+Project Location:
+
+D:\WorkSpace\Qt\toDo\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug
+
+------------------------------
+Locatioan of windeployqt.exe
+
+D:\Qt\6.7.3\mingw_64\bin
+
+------------------------------
+Move to Project Location:
+
+cd D:\WorkSpace\Qt\toDo\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug
+
+then paste the below:
+
+D:\Qt\6.7.3\mingw_64\bin\windeployqt.exe toDo.exe
+
+this will generate all dll required for the toDo.exe to execute indepentenlty
+
+
+------------------------------------------------------------
+
+git rm --cached path/to/your/largefile
+
+QD:\WorkSpace\Qt\tConsoleApplication1
+
+git rm --cached D:\WorkSpace\Qt\QtConsoleApplication1
+
+
+------------------------------------------------------------
+scp -r D:/WorkSpace/Qt/toDo exin@<pi_ip>:/home/exin/Workspace/Qt/
+
+
+------------------------------------------------------------
+sudo apt update
+sudo apt install qt6-base-dev cmake g++ make -y
+
+
+------------------------------------------------------------
+cmake .. -DCMAKE_PREFIX_PATH=/usr/lib/qt6
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

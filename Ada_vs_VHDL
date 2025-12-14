@@ -1,0 +1,105 @@
+------------------------------------------------------------
+VHDL was derived from Ada
+
+Developed for the U.S. Department of Defense, 
+both languages aim for reliability, strong typing, 
+and hardware/software correctness.
+
+------------------------------------------------------------
+Common Keywords between Ada and VHDL
+Here’s a table of keywords used in both languages, 
+with notes:
+
+Keyword			Purpose
+
+1.) architecture	VHDL: define structure/behavior
+					Ada: not used
+
+2.) begin			Start of executable part
+
+3.) end				Close block/entity/process
+
+4.) if, elsif, else	Conditional execution
+
+5.) loop			Repeating block
+
+6.) for				Iteration control
+
+7.) while			Loop condition
+
+8.) exit			Early exit from loop
+
+9.) case, when		Switch/select block
+
+10.) is				Used in declarations/definitions
+
+11.) not, and, or, xor	Boolean logic
+
+12.) then			Used after if condition
+
+13.) procedure		Subprograms
+
+14.) function		Returns a value
+
+15.) return			Return value from function
+
+16.) signal			VHDL: hardware signal
+					Ada: used in concurrency
+
+17.) constant		Declare constant
+
+18.) type			Define a new type
+
+19.) subtype		Define constrained subtype
+
+20.) range			Specify range of values
+
+21.) in, out, in out	Parameter modes
+
+22.) use			Visibility of packages/modules
+
+23.) package		Module/namespace
+
+24.) body			Implementation of package or subprogram
+
+25.) null			Empty statement/block
+
+26.) others			Used in case or array assignments
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

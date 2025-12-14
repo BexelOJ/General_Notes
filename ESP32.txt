@@ -1,14 +1,14 @@
 ------------------------------------------------------------
 $IDF_PATH
 D:\software\Espressif\frameworks\esp-idf-v5.3.2
-D:\software\Espressif\frameworks\esp-idf-v5.4.1
+D:\software\Espressif\frameworks\esp-idf-v5.4.1 // current
 
 ------------------------------------------------------------
 
 idf.py --version
 ESP-IDF v5.3.1-889-g44a95046be-dirty
 ESP-IDF v5.3.1-dirty
-ESP-IDF v5.4.1-dirty
+ESP-IDF v5.4.1-dirty  // current
 
 ------------------------------------------------------------
 
@@ -23,7 +23,7 @@ idf.py build
 idf.py -p COMx flash
 idf.py -p COM3 flash
 
--p means Port
+// -p means Port
 
 ------------------------------------------------------------
 

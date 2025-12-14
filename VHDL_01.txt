@@ -3,59 +3,26 @@
 ------------------------------
 
 ------------------------------------------------------------
-Ada is older, but very strong in reliability and safety. 
-It provides both built-in types and generic packages 
-for data structures.
+VHDL is strongly typed and more verbose, so it feels closer 
+to a traditional programming language. 
 
-Major Data Structures:
+It has:
+------------------------------
+Scalar types: 
+bit, boolean, integer, real, etc.
+------------------------------
+Composite types:
+Arrays – e.g., std_logic_vector(7 downto 0) for an 8-bit bus.
+
+Records – like struct in C, grouping signals of different types.
 
 ------------------------------
-Array
+Enumerated types: 
+User-defined symbolic values, e.g. type state_type is 
+(IDLE, RUN, DONE); for FSMs.
 
-Fixed-size, can have arbitrary index ranges.
-
-type Int_Array is array (1 .. 10) of Integer;
-
-------------------------------
-Record (like struct)
-
-Composite type with named fields.
-
-type Person is record 
-Name : String; 
-Age : Integer; 
-end record;
-
-------------------------------
-String
-
-Fixed or bounded length.
-
-String (1 .. 20)
-
-------------------------------
-Access Types (Pointers)
-
-For linked structures like lists.
-
-------------------------------
-Tagged Types
-
-Basis for OOP in Ada.
-
-------------------------------
-Containers (Ada.Containers library)
-
-Vectors (dynamic arrays)
-Doubly_Linked_Lists
-Hashed_Maps
-Ordered_Maps
-Hashed_Sets
-Ordered_Sets
-
-------------------------------
-Ada focuses on generic, type-safe containers 
-rather than ad-hoc data structures.
+Access types (pointers): 
+Rarely used in synthesis, mostly for testbenches.
 
 ------------------------------------------------------------
 
@@ -97,8 +64,6 @@ rather than ad-hoc data structures.
 
 
 ------------------------------------------------------------
-
-
 
 
 

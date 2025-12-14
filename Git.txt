@@ -15,9 +15,10 @@ git config --list
 
 ------------------------------------------------------------
 // to generate ssh for a new system:
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "bexelo.j@outlook.com"
 
 Enter file in which to save the key (/home/your_username/.ssh/id_rsa):
+(/home/anareen/.ssh/id_rsa):
 
 // key generated in the file .ssh/id_rsa.pub
 cat .ssh/id_rsa.pub
@@ -28,7 +29,7 @@ cat .ssh/id_rsa.pub
 ssh -T git@github.com
 
 ------------------------------------------------------------
-To Remove a exited git repo:
+To Remove an exited git repo:
 
 git remote remove origin
 
@@ -36,12 +37,14 @@ git remote remove origin
 (for SSH): to make the GitHub Repo as the Remote for push
 
 git remote add origin git@github.com:BexelOJ/Ada_Programming.git
-git remote add origin git@github.com:BexelOJ/General_Notes.git
+git remote add origin git@github.com:BexelOJ/Kotlin_Programming.git
+
+https://github.com/BexelOJ/Kotlin_Programming
 
 https://github.com/BexelOJ/General_Notes
 
 git remote set-url origin git@github.com:BexelOJ/Ada_Programming.git
-git remote set-url origin git@github.com:BexelOJ/General_Notes.git
+git remote set-url origin git@github.com:BexelOJ/Kotlin_Programming.git
 
 ------------------------------------------------------------
 
@@ -199,10 +202,19 @@ git push -u origin branchName // to push to the branch
 
 
 ------------------------------------------------------------
+to delete a branch:
 
+git branch -d pavilion // delete local branch
+
+git push origin --delete pavilion // delete remote branch
 
 ------------------------------------------------------------
+(default) means the branch GitHub and Git tools treat as
+the main one for new work and pull request.
 
+Changing the default does not delete or rewrite branches,
+it only changes which one is considered the primary line
+of development and used as the base for new work.
 
 ------------------------------------------------------------
 

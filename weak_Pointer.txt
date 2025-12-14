@@ -1,0 +1,161 @@
+------------------------------------------------------------
+1. weak_ptr does not extend object lifetime
+
+Unlike shared_ptr, weak_ptr does not keep the object alive.
+
+It's used to observe an object without taking ownership.
+
+This prevents cyclic references 
+(A owns B, and B owns A via shared_ptr → memory leak)
+
+------------------------------------------------------------
+2. expired() vs lock()
+
+wp.expired() returns true if the object no longer exists.
+
+But it's not safe to do:
+------------------------------
+if (!wp.expired()) {
+    auto sp = wp.lock(); // ❌ Race condition possible
+}
+------------------------------
+
+Because the object might be destroyed between the expired() 
+check and the lock() call (in multithreaded code).
+
+Best practice:
+------------------------------
+if (auto sp = wp.lock()) {
+    // Safe to use sp here
+}
+
+------------------------------------------------------------
+3. use_count() is mostly for debugging
+
+It tells how many shared_ptrs share ownership.
+
+But you should not rely on it for logic, 
+especially in multithreaded code — 
+it can change at any time.
+
+------------------------------------------------------------
+4. Custom deleters
+
+You can provide a custom delete logic when 
+creating a shared_ptr:
+
+------------------------------
+shared_ptr<Foo> sp(new Foo, [](Foo* p) {
+    cout << "Custom delete\n";
+    delete p;
+});
+------------------------------
+
+Useful when you need to free resources other than 
+heap memory (e.g., file handles, sockets).
+
+------------------------------------------------------------
+5. Aliasing constructor
+
+You can create a shared_ptr that shares ownership but 
+points to a subobject:
+
+------------------------------
+struct Parent {
+    int a;
+    int b;
+};
+
+shared_ptr<Parent> p = make_shared<Parent>();
+shared_ptr<int> sp_alias(p, &p->b);  // points to p->b but shares p's lifetime
+------------------------------
+
+This is rare but powerful.
+
+------------------------------------------------------------
+6. Avoiding cyclic references
+
+Example of a cyclic leak:
+------------------------------
+struct A {
+    shared_ptr<B> b;
+};
+
+struct B {
+    shared_ptr<A> a;
+};
+------------------------------
+
+This will never be freed, because they reference each other
+
+✅ Fix it using weak_ptr in at least one direction.
+
+------------------------------------------------------------
+7. enable_shared_from_this
+
+Used when you need to create a shared_ptr from this pointer 
+inside a class:
+
+------------------------------
+struct MyClass : enable_shared_from_this<MyClass> {
+    shared_ptr<MyClass> get_ptr() {
+        return shared_from_this();  // safe!
+    }
+};
+------------------------------
+
+Trying shared_ptr(this) without enable_shared_from_this 
+can cause double deletion!
+
+------------------------------------------------------------
+8. std::make_shared vs new
+
+Prefer make_shared<T>() over shared_ptr<T>(new T):
+
+More efficient (single memory allocation)
+
+Safer (less error-prone)
+
+Enables exception-safe code
+
+------------------------------------------------------------
+Summary Cheat Sheet
+
+Feature				Description
+
+weak_ptr::lock()	
+Safely create temporary shared_ptr
+
+expired()	
+Check if object was destroyed
+
+use_count()	
+Debug how many shared_ptrs exist
+
+enable_shared_from_this	
+Get a shared_ptr from inside the object
+
+make_shared<T>()	
+Preferred way to create shared_ptr
+
+custom deleter	
+Define how object is destroyed
+
+aliasing constructor	
+Share ownership of part of object
+
+Cyclic refs	
+Avoid with weak_ptr
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

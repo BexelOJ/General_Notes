@@ -1,0 +1,185 @@
+------------------------------------------------------------
+CREATE USER 'exin'@'192.168.77.251' IDENTIFIED BY 'GARUDAbase';
+CREATE USER 'exin'@'192.168.0.70' IDENTIFIED BY 'Exin@1234';
+
+Exin@1234
+
+GRANT ALL PRIVILEGES ON *.* TO 'exin'@'192.168.77.251' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+GARUDAbase
+
+------------------------------------------------------------
+CREATE USER 'exin'@'192.168.0.102' IDENTIFIED BY 'GARUDAbase';
+
+GRANT ALL PRIVILEGES ON *.* TO 'your_mysql_user'@'%' IDENTIFIED BY 'your_password';
+FLUSH PRIVILEGES;
+
+GRANT ALL PRIVILEGES ON GARUDAbase.* TO 'exin'@'192.168.0.102';
+FLUSH PRIVILEGES;
+
+------------------------------------------------------------
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'GARUDAmysql';
+FLUSH PRIVILEGES;
+
+------------------------------------------------------------
+
+
+ssh-keygen -R exin-desktop
+
+ssh-keygen -R 192.168.77.244
+
+ssh 192.168.77.244
+
+------------------------------------------------------------	
+force kill: 
+
+sudo lsof -i :5051
+
+sudo kill <PID>
+sudo kill -9 42588
+
+sudo kill -9 <PID>
+sudo kill -9 38091
+
+
+------------------------------------------------------------
+
+192.168.1.102
+garudabase
+
+------------------------------------------------------------
+mysql> SELECT user, host FROM mysql.user;
+
++------------------+----------------+
+| user             | host           |
++------------------+----------------+
+| exin             | 192.168.0.102  |
+| exin             | 192.168.77.251 |
+| debian-sys-maint | localhost      |
+| mysql.infoschema | localhost      |
+| mysql.session    | localhost      |
+| mysql.sys        | localhost      |
+| root             | localhost      |
++------------------+----------------+
+
+------------------------------------------------------------
+
+CREATE USER 'exin'@'192.168.0.70' IDENTIFIED BY 'Exin@1234';
+
+GRANT ALL PRIVILEGES ON garudabase.* TO 'exin'@'192.168.0.70';
+FLUSH PRIVILEGES;
+
+------------------------------------------------------------
+SHOW DATABASES;
+
+------------------------------------------------------------
+Commenting in SQL:
+
+------------------------------
+1. Single-line comment using --
+
+-- This is a comment
+SELECT * FROM users;
+
+------------------------------
+2. Single-line comment using # (MySQL-specific)
+
+# This is also a comment in MySQL
+SELECT * FROM orders;
+
+------------------------------
+3. Multi-line (block) comment using /* ... */
+
+/*
+  This is a multi-line comment
+  Useful for longer explanations
+*/
+SELECT * FROM products;
+
+
+------------------------------------------------------------
+SELECT user, host FROM mysql.user WHERE user = 'exin';
+
+
+------------------------------------------------------------
+sudo systemctl start mysql
+
+sudo systemctl status mysql
+
+sudo systemctl restart mysql
+
+
+
+------------------------------------------------------------
+pip install flask
+
+pip install mysql-connector-python
+
+
+------------------------------------------------------------
+
+USE garudabase;
+
+------------------------------------------------------------
+ip a | grep inet
+
+http://192.168.0.102:5051/
+
+
+------------------------------------------------------------
+SHOW DATABASES;
+USE garudabase;
+SHOW TABLES;
+
+SELECT * FROM users;
+
+
+------------------------------------------------------------
+SELECT * FROM users ORDER BY id DESC LIMIT 10;
+
+
+------------------------------------------------------------
+MYSQL_ROOT_PASSWORD=rootpass
+MYSQL_DATABASE=aushadha_jnapaka
+MYSQL_USER=user
+MYSQL_PASSWORD=aushadhapass
+
+DJANGO_SECRET_KEY=your-secret-key
+DEBUG=True
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+aushadha jnapaka
+
+aushadhapass
+
+------------------------------------------------------------
+docker exec -it user_registration_service bash
+
+
+root@c3b3d33b1722:/app#
+mysql -h mysql_db -u user -p --ssl=FALSE
+
+aushadhapass
+
+------------------------------------------------------------
+SELECT * FROM aushadha_jnapaka.auth_user;
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+------------------------------------------------------------
+sdk upgrade kotlin
+
+------------------------------------------------------------
+C:\Program Files\kotlinc\bin
+------------------------------
+kotlinc -version
+
+where kotlinc
+
+------------------------------------------------------------
+Compile Kotlin files with:
+
+kotlinc Hello.kt -include-runtime -d Hello.jar
+
+------------------------------
+Run the compiled .jar:
+
+java -jar Hello.jar
+
+------------------------------------------------------------
+kotlinc hello.kt -include-runtime -d hello.jar
+java -jar hello.jar
+
+hello.kt = is your Kotlin file.
+kotlinc = compiles it.
+-include-runtime = bundles the Kotlin stdlib.
+-d = destination file (your JAR or directory).
+-d hello.jar = outputs a runnable jar.
+
+java -jar hello.jar = runs it.
+
+------------------------------------------------------------
+.kt → normal Kotlin program (needs main() and usually compiled to .jar).
+
+.kts → Kotlin script file (can run directly, like Python).
+
+------------------------------------------------------------
+To Run the Kotlin Script:
+
+kotlinc -script 20250821_firstKotlin.kts
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+Kotlin data types:
+
+val myNum = 5             // Int
+val myDoubleNum = 5.99    // Double
+val myLetter = 'D'        // Char
+val myBoolean = true      // Boolean
+val myText = "Hello"      // String
+
+------------------------------------------------------------
+Numbers
+Number types are divided into two groups:
+
+Integer types:
+Byte, Short, Int and Long
+
+Floating point types:
+Float and Double
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

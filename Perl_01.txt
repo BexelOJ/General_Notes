@@ -1,0 +1,135 @@
+------------------------------------------------------------
+apt (ubuntu) - APT (Advanced Package Tool)
+
+Perl officially stands for 
+Practical Extraction and Report Language
+
+------------------------------
+Perl first appeared in 1987 ✅
+
+Created by: Larry Wall
+
+First release: December 18, 1987 (Perl 1.0)
+
+It was originally designed for text processing, 
+report generation, and system administration tasks on Unix
+
+------------------------------------------------------------
+Timeline (important versions):
+
+1987 → Perl 1.0 released
+1988–1989 → Perl 2 & 3 (added regex, binary data support)
+1991 → Perl 4
+1994 → Perl 5 (major redesign, still the main branch today)
+2000s → Work began on Perl 6 (later renamed Raku)
+
+------------------------------------------------------------
+perl -v
+
+sudo apt install perl
+sudo apt install perl-doc
+
+sudo apt install cpanminus
+sudo apt install minilla
+sudo apt-get install libmodule-build-tiny-perl
+or cpan Module::Build::Tiny
+or cpanm Module::Build::Tiny
+
+
+------------------------------------------------------------
+cpan install Module::Name
+cpan install JSON
+cpan install DateTime
+	
+
+CPAN (Comprehensive Perl Archive Network) 
+is Perl’s official ecosystem for modules 
+(like Python has PyPI and pip, or Node.js has npm)
+
+------------------------------------------------------------
+cpanm Minilla
+minil new My::Project
+
+cpanm Minilla
+minil new HelloWorld
+
+------------------------------------------------------------
+TOML = Tom’s Obvious, Minimal Language
+It’s a configuration file format 
+(like JSON/YAML, but simpler)
+
+------------------------------------------------------------
+ExtUtils::MakeMaker - very old-school, lots of boilerplate.
+Dist::Zilla - very powerful, but plugin-heavy and hard 
+to maintain.
+Minilla → lightweight, opinionated, modern replacement.
+
+Files Minilla creates (which you saw):
+Build.PL → build script (Perl equivalent of Makefile)
+cpanfile → dependencies list
+minil.toml → project config (name, version, license, etc.)
+META.json → machine-readable metadata (for CPAN)
+lib/ → where your Perl module code lives
+t/ → tests (Perl convention)
+Changes → changelog
+README.md → documentation
+
+------------------------------------------------------------
+Workflow with Minilla:
+
+cpanm Minilla          # install
+minil new MyProject    # create a new project
+cd MyProject
+minil build            # build the dist
+minil test             # run tests
+minil release          # release to CPAN
+
+------------------------------------------------------------
+Rust → Cargo manages crates
+Perl → Minilla manages distributions
+
+------------------------------------------------------------
+Perl one-liner example that filters,
+only ERROR lines from /var/log/syslog:
+
+perl -ne 'print if /ERROR/' /var/log/syslog
+
+------------------------------------------------------------
+Case-insensitive search (error, Error, ERROR, etc.):
+perl -ne 'print if /error/i' /var/log/syslog
+
+Show only lines with "ssh":
+perl -ne 'print if /ssh/' /var/log/auth.log
+
+Filter multiple files at once:
+perl -ne 'print if /failed/i' /var/log/syslog /var/log/auth.log
+
+
+------------------------------------------------------------
+Minilla and ExtUtils::MakeMaker different tools in Perl, 
+but they solve a similar problem — 
+managing, building, and distributing Perl projects.
+
+------------------------------------------------------------
+ExtUtils::MakeMaker (EUMM)
+
+Oldest and traditional system (exists since the 1990s).
+You write a Makefile.PL (instead of Build.PL or minil.toml)
+
+------------------------------------------------------------
+Minilla
+
+A modern CPAN module authoring tool 
+(like Ruby’s Bundler or Node’s npm init).
+You write only a small config file: minil.toml.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

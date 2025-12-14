@@ -1,0 +1,92 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+When SQL first appeared:
+
+SQL (Structured Query Language) was first developed 
+in the 1970s.
+
+Created at IBM by 
+Donald D. Chamberlin and Raymond F. Boyce.
+
+Initially called 
+SEQUEL (Structured English Query Language).
+
+1974 → First description of SQL published.
+
+1979 → Oracle (then Relational Software Inc.) 
+released the first commercial SQL implementation.
+
+1986 → SQL became a standard (ANSI SQL-86).
+
+1987 → ISO adopted it (ISO SQL).
+
+------------------------------------------------------------
+SQL Major Versions:
+
+SQL-86 (1986) → First ANSI standard.
+
+SQL-89 (1989) → Minor revisions.
+
+SQL-92 (1992) → Big update, widely adopted.
+
+SQL:1999 (SQL3) → Added object-oriented features, 
+triggers, user-defined types, recursive queries.
+
+SQL:2003 → Added XML support, window functions.
+
+SQL:2006 → Updates to XML integration.
+
+SQL:2008 → Improvements in MERGE, TRUNCATE, and triggers.
+
+SQL:2011 → Added temporal database support 
+(time-based queries).
+
+SQL:2016 → Added JSON support, row pattern recognition.
+
+SQL:2019 → Latest major release, with more features 
+for big data and IoT integration.
+
+------------------------------------------------------------
+FROM Table_1 JOIN Table_2 on Table1.column_n = Table2.column_m
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

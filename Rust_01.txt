@@ -1,0 +1,94 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+If src/main.rs exists → project includes a binary crate.
+If src/lib.rs exists → project includes a library crate.
+
+------------------------------------------------------------
+Cargo → The manager that builds, runs, and ships your project.
+Crates → Rust packages (binary or library) that Cargo manages.
+
+------------------------------------------------------------
+let person = ("John", 30, true);
+This tuple contains a &str, an i32, and a bool.
+
+------------------------------------------------------------
+i32:
+Signed 32-bit integer.
+
+Default integer type in Rust if no other is specified.
+
+Uses two’s complement representation for signed numbers.
+
+
+------------------------------------------------------------
+represent signed integers with i8, i16, i32, i64, i128
+represent unsigned integers with u8, u16, u32, i64, i128
+
+------------------------------------------------------------
+What Rust Lacks Compared to Traditional OOP:
+
+No inheritance: 
+Rust does not support classical inheritance
+(no class hierarchy or subclassing). 
+Instead, code reuse and polymorphism are done via 
+traits, composition, and delegation.
+
+No virtual dispatch by default:
+Rust requires using trait objects to achieve 
+runtime polymorphism (dynamic dispatch), 
+otherwise it uses static dispatch.
+
+Different encapsulation model: 
+Rust’s privacy is module-based, 
+not strictly bound to the struct itself.
+
+------------------------------------------------------------
+Summary:
+
+Rust supports core OOP features like encapsulation, 
+polymorphism, and abstraction but implements them in its 
+own way using structs and traits.
+
+Rust does not have inheritance, 
+a hallmark feature of classical OOP.
+
+Rust is considered multi-paradigm,
+leaning on traits and composition rather than 
+class inheritance.
+
+This makes Rust flexible while avoiding some problems 
+of classical OOP such as inheritance-related complexity.
+
+So yes, 
+Rust supports object-oriented programming concepts, 
+but with a distinct and more explicit style compared to 
+traditional OOP languages.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

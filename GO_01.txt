@@ -3,59 +3,53 @@
 ------------------------------
 
 ------------------------------------------------------------
-Ada is older, but very strong in reliability and safety. 
-It provides both built-in types and generic packages 
-for data structures.
+Go Variable Types:
+ 
+
+------------------------------------------------------------
+Go’s standard library keeps things simple and efficient.
 
 Major Data Structures:
 
 ------------------------------
 Array
 
-Fixed-size, can have arbitrary index ranges.
+Fixed-size, homogeneous elements.
 
-type Int_Array is array (1 .. 10) of Integer;
-
-------------------------------
-Record (like struct)
-
-Composite type with named fields.
-
-type Person is record 
-Name : String; 
-Age : Integer; 
-end record;
+[5]int{1,2,3,4,5}
 
 ------------------------------
-String
+Slice (most common in Go)
 
-Fixed or bounded length.
+Dynamic view over arrays, resizable.
 
-String (1 .. 20)
-
-------------------------------
-Access Types (Pointers)
-
-For linked structures like lists.
+[]int{1,2,3}
 
 ------------------------------
-Tagged Types
+Map (hash map / dictionary)
 
-Basis for OOP in Ada.
+Key–value pairs.
 
-------------------------------
-Containers (Ada.Containers library)
-
-Vectors (dynamic arrays)
-Doubly_Linked_Lists
-Hashed_Maps
-Ordered_Maps
-Hashed_Sets
-Ordered_Sets
+map[string]int{"Alice": 25, "Bob": 30}
 
 ------------------------------
-Ada focuses on generic, type-safe containers 
-rather than ad-hoc data structures.
+Struct
+
+User-defined composite type.
+
+Like class but no inheritance.
+
+type Person struct {Name string; Age int}
+
+------------------------------
+Channel
+
+For concurrency, not in all languages.
+
+Used for communication between goroutines.
+
+Go doesn’t have built-in sets or queues, 
+but they can be built using map and slice.
 
 ------------------------------------------------------------
 
@@ -94,11 +88,6 @@ rather than ad-hoc data structures.
 
 
 ------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
 
 
 

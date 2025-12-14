@@ -1,0 +1,158 @@
+------------------------------------------------------------
+
+val retrofit = Retrofit.Builder()
+    .baseUrl("http://192.168.0.102:5051/")  // No localhost or 127.0.0.1
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+
+
+------------------------------
+
+------------------------------------------------------------
+Narwhal Feature Drop 2025.1.2
+
+------------------------------
+
+------------------------------------------------------------
+List of devices attached
+ZA222JTVV9      device
+adb-ZA222JTVV9-wfHO7R._adb-tls-connect._tcp     device
+
+ZA222JTVV9
+(g34)
+
+adb -s ZA222JTVV9 tcpip 5555
+
+------------------------------
+ZD2228YJK4
+(edge 30)
+
+------------------------------------------------------------
+Build the project (Ctrl+F9)
+Run the app (Shift+F10
+
+------------------------------------------------------------
+ First: Clean build system (quick fix):
+ 
+Click Build > Clean Project
+Then Build > Rebuild Project
+
+------------------------------------------------------------
+LoginScreen.kt
+MainActivity.kt
+RegisterScreen.kt
+
+
+------------------------------------------------------------
+XML (used in Android, Java, legacy apps)
+
+YAML (used in Docker, Kubernetes, GitHub Actions)
+
+JSON (used in Node.js, APIs, etc.)
+
+
+------------------------------------------------------------
+XML - eXtensible Markup Language
+
+XML (used in Android, legacy systems)
+
+It is a text-based format designed to:
+ - Store and transport structured data
+ - Be human-readable and machine-readable
+ - Allow you to define your own custom tags
+
+Introduced: 1996 (by W3C)
+
+Web services (SOAP)	XML-based protocol for APIs
+
+
+
+------------------------------------------------------------
+YAML stands for:
+
+YAML Ain’t Markup Language
+
+YAML (most human-friendly)
+
+Like JSON or XML, it’s purely a data format, 
+not a programming or scripting language
+
+It’s a declarative, text-based data format, commonly used for:
+ - Configuration files (Docker, Kubernetes, GitHub Actions)
+ - Data exchange
+ - App settings (like .yaml for Python, Node.js, etc.)
+
+
+Features of YAML:
+Feature			Details
+
+Human-readable	More readable than XML or JSON
+Supports comments	Like # this is a comment
+Hierarchical (nested)	Uses indentation instead of {} or []
+Used in DevOps heavily	Docker, Kubernetes, GitHub, Ansible, etc.
+
+
+------------------------------------------------------------
+
+JSON - JavaScript Object Notation.
+
+JSON is built using key-value pairs.
+
+JSON (used in web APIs, modern apps)
+
+------------------------------------------------------------
+AJAX - Asynchronous communication between client and server
+
+
+------------------------------------------------------------
+Format	Declarative or Imperative?	Explanation
+
+YAML	Declarative		Describes data/configuration only
+JSON	Declarative		Data format, no logic
+XML		Declarative		Markup language for data
+SQL		Declarative		Query language, what to fetch
+JavaScript/AJAX	Imperative	How to do actions step-by-step
+
+
+------------------------------------------------------------
+WorkManager or AlarmManager
+
+WorkManager
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+
+
