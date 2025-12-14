@@ -1,0 +1,86 @@
+------------------------------------------------------------
+.text	Machine code (your program)
+
+.data	Initialized global/static variables
+.bss	Uninitialized data
+
+.rodata	Read-only constants
+
+.symtab, .strtab	Symbol and string tables
+.rel.*	Relocation info (for linking)
+
+------------------------------
+
+
+------------------------------------------------------------
+T	Text (code) section, global function
+t	Text (code), local (static) function
+
+D	Data (initialized global variable)
+d	Local data section (static variable)
+
+B	BSS (uninitialized data)
+b	Local BSS
+
+U	Undefined (external) symbol (e.g. printf)
+R	Read-only data (const variables)
+
+------------------------------------------------------------
+Year	Kernel Versions Released
+
+2019	5.0 → 5.4
+2020	5.5 → 5.10 (5.10 is LTS)
+2021	5.11 → 5.15 (5.15 is LTS)
+2022	5.16 → 6.0 → 6.1 (6.1 is LTS)
+2023	6.2 → 6.5 → 6.6 (6.6 is LTS)
+2024	6.7 → 6.8 → 6.9 (expected)
+
+------------------------------------------------------------
+Ubuntu versions have two-word codenames:
+
+Format: Adjective + Animal
+
+Alphabetically ordered:
+
+Focal Fossa (20.04)
+Groovy Gorilla (20.10)
+Hirsute Hippo (21.04)
+
+Impish Indri (21.10)
+Jammy Jellyfish (22.04)
+Kinetic Kudu (22.10)
+
+Lunar Lobster (23.04)
+Mantic Minotaur (23.10)
+Noble Numbat (24.04)
+
+
+------------------------------------------------------------
+aarch32	ARM 32-bit architecture (like ARMv7)
+aarch64	ARM 64-bit architecture (like ARMv8)
+armhf	ARM hard-float (32-bit) – uses hardware FPU
+arm64	Another name for aarch64 (64-bit)
+
+------------------------------------------------------------
+arm-linux-gnueabihf-gcc	Hard float	ARM 32-bit
+arm-linux-gnueabi-gcc	Soft float	ARM 32-bit
+aarch64-linux-gnu-gcc	Always hard float	ARM 64-bit
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

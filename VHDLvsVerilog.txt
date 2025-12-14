@@ -139,8 +139,8 @@ in aerospace/defense projects.
 
 ------------------------------
 3. Rich Language Features
-VHDL includes extensive language constructs for abstraction, 
-modularity, and documentation.
+VHDL includes extensive language constructs for 
+abstraction, modularity, and documentation.
 
 These features align well with the rigorous development 
 processes of defense/aerospace industries.
@@ -203,10 +203,19 @@ VHDL Books:
 
 1. A VHDL Primer by Jairam Bhaskar
 
-2. Beginner's guide to VHDL by Peter J. Ashenden (Keep in mind that there is also book called designer's guide to VHDL)
+2. Beginner's guide to VHDL by Peter J. Ashenden 
+(Keep in mind that there is also book called 
+designer's guide to VHDL)
+
 3. VHDL: Programming by Example, Douglas L. Perry
+
 4. VHDL Handbook by Hardi Electronics
-5. Digital Design: Principles and Practices by John F. Wakerly (Actually, this book gives good comparisons and examples on HDLs - VHDL, Verilog and ABEL)
+
+5. Digital Design: Principles and Practices by 
+John F. Wakerly 
+(Actually, this book gives good comparisons and 
+examples on HDLs - VHDL, Verilog and ABEL)
+
 6. VHDL Tutorial by Peter J. Ashenden
 
 ------------------------------------------------------------
@@ -277,6 +286,10 @@ but they’re limited compared to general-purpose languages.
 VHDL uses records/enums/arrays, 
 while Verilog relies more on arrays, 
 and SystemVerilog adds richer constructs.
+
+
+------------------------------------------------------------
+
 
 ------------------------------------------------------------
 

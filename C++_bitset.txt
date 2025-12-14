@@ -1,0 +1,74 @@
+------------------------------------------------------------
+List of std::bitset Member Functions
+------------------------------------------------------------
+🔧 Bit Access & Modification
+------------------------------
+Function	Description
+
+b[i]		Access bit at position i (read/write)
+
+b.set()		Set all bits to 1
+b.reset()	Reset all bits to 0
+
+b.set(pos)	Set bit at index pos to 1
+b.reset(pos)	Reset bit at index pos to 0
+b.set(pos, value)	Set bit at pos to value (true/false)
+
+b.flip()	Flip all bits
+b.flip(pos)	Flip bit at position pos
+
+------------------------------------------------------------
+❓ Bit Queries
+------------------------------
+Function	Description
+
+b.none()	Returns true if all bits are 0
+b.all()		Returns true if all bits are 1
+
+b.count()	Returns number of bits set to 1
+b.size()	Returns total number of bits (i.e., N)
+
+b.test(pos)	Returns true if bit at pos is set (1)
+b.any()		Returns true if any bit is 1
+
+------------------------------------------------------------
+🔁 Bitwise Operations
+------------------------------
+Operator	Description
+
+~b			Bitwise NOT
+b1 & b2		Bitwise AND
+`b1	b2`
+b1 ^ b2		Bitwise XOR
+b1 <<= n	Left shift by n bits
+b1 >>= n	Right shift by n bits
+
+------------------------------------------------------------
+🔄 Conversions
+------------------------------
+Function		Description
+
+b.to_ulong()	Converts to unsigned long (throws if overflow)
+b.to_ullong()	Converts to unsigned long long (C++11+)
+b.to_string()	Converts bitset to std::string
+
+------------------------------------------------------------
+🟦 I/O Support
+------------------------------
+Function		Description
+
+std::cin >> b	Input bits from console
+std::cout << b	Print bits as 0101...
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

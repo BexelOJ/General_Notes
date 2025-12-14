@@ -1,0 +1,60 @@
+------------------------------------------------------------
+x86 (Intel/AT&T) 
+
+ARM (AArch64)
+
+------------------------------------------------------------
+Common x86 Mnemonics:
+Category	Mnemonics
+
+Data Transfer	MOV, PUSH, POP, LEA, XCHG
+Arithmetic		ADD, SUB, MUL, DIV, INC, DEC
+Logic	        AND, OR, XOR, NOT, NEG
+
+Control Flow	JMP, JE, JNE, JG, JL, CALL, RET
+
+Stack			PUSH, POP, ENTER, LEAVE
+Flags			CLC, STC, CLD, STD
+
+String Ops		MOVSB, LODSB, STOSB, SCASB, CMPSB
+System			INT, HLT, NOP, IRET, SYSCALL
+
+
+------------------------------------------------------------
+Common ARM64 Mnemonics:
+Category	Mnemonics
+
+Data Movement	MOV, LDR, STR, ADR, ADRP
+
+Arithmetic		ADD, SUB, MUL, UDIV, SDIV, NEG
+Logic			AND, ORR, EOR, MVN
+
+Control Flow	B, BL, RET, CBZ, CBNZ, BR
+Compare/Test	CMP, TST, CSET, CSEL
+
+System			SVC, NOP, WFI, WFE, ISB, DSB
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

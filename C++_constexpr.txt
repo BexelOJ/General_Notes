@@ -1,0 +1,167 @@
+------------------------------------------------------------
+constexpr itself was introduced in C++11, not C++20.
+
+But C++20 greatly expanded what constexpr can do! 
+
+------------------------------------------------------------
+constexpr Timeline
+
+Standard	What’s new with constexpr?
+
+C++11	Introduced constexpr for functions and variables — 
+		functions must be very simple 
+		(single return statement, no loops, 
+		no mutable state).
+		
+C++14	Relaxed restrictions — 
+		allowed loops, multiple statements, 
+		local variables inside constexpr functions.
+		
+C++17	More improvements, 
+		e.g., constexpr lambdas.
+		
+C++20	Major extensions: 
+		allowed constexpr for 
+		dynamic memory allocation (new/delete), 
+		virtual calls, try/catch, 
+		and more complex code inside constexpr functions
+
+------------------------------------------------------------
+So in C++20:
+
+You can do much more complex computations at compile time.
+
+You can even allocate and deallocate memory inside 
+constexpr functions.
+
+Virtual functions can be constexpr.
+
+Exception handling (try/catch) is allowed in constexpr.
+
+------------------------------------------------------------
+In C++, consteval, constexpr, and constinit are keywords 
+introduced in C++11, C++20, and C++20 respectively. 
+
+They are used to control when and how expressions and 
+variables are evaluated at compile time. 
+
+------------------------------
+constexpr - "Constant Expression"
+
+It stands for expressions or functions whose result 
+CAN BE evaluated at compile time.
+
+Declaring functions or variables that can be evaluated 
+at compile time, but not strictly required to be.
+
+A variable declared with constexpr is implicitly const, 
+meaning it cannot be modified after initialization.
+
+---------------
+Key Features of constexpr Function:
+---------------
+1.) Can be evaluated at compile time.
+
+2.) May also run at runtime if used with 
+non-constant values.
+
+3.) Must follow certain restrictions 
+(loosened since C++14 and C++20).
+
+4.) Can be overloaded like any normal function.
+
+---------------
+Rules (depending on C++ version):
+---------------
+C++11:
+Must have a single return statement.
+
+No loops, no if, etc.
+
+---------------
+C++14 onward:
+Allows:
+
+Loops (for, while)
+
+Conditionals (if, switch)
+
+Local variables
+
+Multiple statements
+
+---------------
+C++20:
+Even more relaxed.
+
+You can throw exceptions 
+(inside constexpr if caught properly).
+
+Virtual functions can be constexpr.
+
+------------------------------
+consteval - "Constant Evaluated"
+
+It stands for functions that MUST BE evaluated at 
+compile time — no exceptions.
+
+Use consteval when you want to force the compiler to 
+compute the result at compile time — useful for 
+guaranteed compile-time validation or compile-time 
+code generation.
+
+
+------------------------------
+constinit - "Constant Initialization"
+
+It indicates that a variable MUST BE initialized at 
+compile time, but can be modified later.
+
+It is used ONLY FOR variables with 
+1.) static 
+2.) or thread-local storage 
+duration and helps prevent the 
+static initialization order fiasco.
+
+constinit does not make the variable constant, 
+just ensures it’s initialized at compile time.
+
+
+------------------------------------------------------------
+constexpr (since C++11, enhanced in C++14/17/20)
+
+Can be used on:
+
+1.) Functions
+2.) Variables
+3.) Constructors
+
+May be evaluated at runtime if compile-time evaluation 
+isn't possible.
+
+------------------------------------------------------------
+Use constexpr when you want compile-time evaluation 
+if possible.
+
+Use consteval when you need compile-time evaluation 
+always.
+
+Use constinit for globals/statics to guarantee safe and 
+fast initialization, but want to allow mutation later.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

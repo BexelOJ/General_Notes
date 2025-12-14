@@ -1,0 +1,49 @@
+------------------------------------------------------------
+Common std::memory_order Types:
+
+Memory Order	Description
+
+memory_order_relaxed - 
+No ordering guarantees, fastest
+
+memory_order_acquire - 
+Load barrier — subsequent reads/writes won’t move before 
+this
+
+memory_order_release - 
+Store barrier — previous reads/writes won’t move after 
+this
+
+memory_order_acq_rel - 
+Both acquire and release semantics
+
+memory_order_seq_cst - 
+Strongest: sequential consistency across threads
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

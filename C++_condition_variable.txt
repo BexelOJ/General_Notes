@@ -1,0 +1,66 @@
+------------------------------------------------------------
+Member functions of std::condition_variable:
+------------------------------
+Function - Description
+
+notify_one() - Wakes up one waiting thread.
+
+notify_all() - Wakes up all waiting threads.
+
+------------------------------
+wait(lock) - Waits for a notification. Automatically 
+releases the lock and reacquires it after waking up.
+
+wait(lock, pred) - Waits until the predicate pred() 
+becomes true. Uses a lambda or function.
+
+wait_for(lock, duration) - Waits for a timeout period. 
+Returns cv_status::timeout or cv_status::no_timeout.
+
+wait_for(lock, duration, pred) - Waits up to the 
+specified time, but also checks a condition 
+using the predicate.
+
+wait_until(lock, time_point) - Waits until a specific 
+time point. Similar to wait_for().
+
+wait_until(lock, time_point, pred) - Like above, 
+but waits only if the predicate is false.
+
+------------------------------------------------------------
+Notes:
+
+All these methods require a std::unique_lock<std::mutex>
+as an argument.
+
+The wait() family of functions release the mutex 
+while waiting, and re-acquire it before returning.
+
+Predicate-based waits help prevent spurious wakeups 
+(where a thread wakes up without a real notification).
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

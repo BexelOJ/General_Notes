@@ -1,0 +1,490 @@
+------------------------------------------------------------
+Commands Full Form:
+------------------------------
+
+ls		- List (Lists files and directories)
+cd 		- Change Directory
+pwd		- Print Working Directory
+
+cp		- Copy (Copies files and directories)
+mv		- Move (Moves or renames files and directories)
+
+rm		- Remove (Deletes files or directories)
+rmdir	- Remove Directory (only Deletes empty directory)
+mkdir	- Make Directory (Creates new directories)
+
+stat	- Status
+cat 	- Concatenate
+tac		- cat in reverse
+
+------------------------------
+more	- More output (Views text files one screen/page
+at a time — basic navigation (Enter/Space)
+
+less 	- Less is more (Improved version of more, 
+supports forward and backward scrolling, search...)
+
+head	- Displays the first N lines of a file 
+(default: 10)
+
+tail	- Displays the last N lines of a file 
+(default: 10)
+
+mount	- mount means to attach a file system to the 
+directory tree.
+
+umount	- "unmount", meaning to detach a mounted 
+file system.
+
+------------------------------
+ps		- Process Status
+top		- Table Of Processes
+htop	- Htop = Enhanced Top (highly interactive top)
+(interactive process viewer)
+
+bg		- Background
+fg		- Foreground
+
+nice	- "niceness"
+renice  - "re-nice"
+
+------------------------------
+df 		- Disk Free
+du 		- Disk Usage
+fdisk	- Format Disk
+
+lsblk 	- List Block Devices
+blkid	- Block IDentifier
+
+brk 	- break
+sbrk    - system break
+
+fsck	- File System Check
+mkfs	- Make File System
+
+nslookup - Name Server Lookup
+dig		- Domain Information Groper
+
+wget	- Web Get
+curl	- Client URL
+
+scp		- Secure Copy
+ssh		- Secure Shell
+ftp		- File Transfer Protocol
+
+------------------------------
+chmod	- Change Mode
+chown	- Change Owner
+chgrp	- Change Group
+umask	- User Mask
+
+useradd - Add User (Creates a new user account)
+usermod - Modify User (Modifies, existing user account)
+userdel - Delete User(Deletes a user account)
+
+groupadd - Group Add (Creates a new user group)
+groupdel - Group Delete (Deletes, existing user group)
+
+------------------------------
+setfacl	- Set File Access Control List
+getfacl	- Get File Access Control List
+
+sudo	- SuperUser DO
+sudoers	- Sudo Users
+
+passwd	- Password
+gpasswd	- Group Password
+
+rsync	- Remote Sync
+cpio	- Copy In, Copy Out
+
+dd		- Data Duplicator
+dmesg	- Display Message (kernel ring buffer)
+
+lsof	- List Open Files
+journalctl	- Journal Control (for systemd logs)
+
+netstat	- Network Statistics
+ss		- Socket Statistics
+
+vmstat	- Virtual Memory Statistics
+iostat	- Input/Output Statistics
+mpstat	- Multiple Processor Statistics
+pidstat	- Process ID Statistics
+
+free	- Free memory
+uptime	- System Uptime
+time 	- Time Execution (not an acronym)
+watch	- Watch command repeatedly
+
+lscpu	- List CPU
+lsusb	- List USB devices
+lspci	- List PCI devices
+lshw	- List Hardware
+
+ifconfig	- Interface Configuration
+ip		- Internet Protocol tool 
+(modern replacement for ifconfig)
+
+nmap	- Network Mapper
+telnet	- TELecommunication NETwork
+nc		- Netcat
+iptables	- IP Tables (for firewall rules)
+firewalld	- Firewall Daemon
+ufw			- Uncomplicated Firewall
+tcpdump		- TCP Packet Dump
+
+------------------------------
+grep	- Global Regular Expression Print
+sed		- Stream Editor
+awk		- Named after Aho, Weinberger, and Kernighan
+
+------------------------------
+cut		- Cut sections from each line
+sort	- Sort lines of text
+
+uniq	- Unique — remove duplicate lines
+
+tee		- T-pipe 
+(like plumbing — output to screen and file)
+
+tr		- Translate or Delete Characters
+paste	- Paste lines together
+wc		- Word Count
+
+halt	- Halt the system (stop all CPUs)
+init	- Initialization (first process: PID 1)
+fstab	- FileSystem Table
+
+------------------------------
+tar		- Tape ARchive
+zip		- ZIP archive format (creates .zip files)
+unzip	- Un-ZIP (Extracts .zip files)
+
+gzip	- GNU zip (Compresses files into .gz format)
+gunzip	- GNU unzip (Decompresses .gz files)
+
+bzip2	- Block Zip 2 (or Bzip v2)
+bunzip2	- Bzip2 Uncompress
+
+xz		- (name for LZMA-based compression tool)
+unxz	- XZ Uncompress
+
+------------------------------------------------------------
+systemctl
+------------------------------
+systemctl start
+systemctl stop
+systemctl restart
+systemctl enable
+systemctl disable
+
+------------------------------------------------------------
+💾 Disk & Filesystem Commands
+------------------------------
+Command	Full Form	Description
+
+mkfs 	- Make File System	
+Creates a new file system (e.g., ext4, xfs) 
+on a device or partition
+
+fdisk 	- Format Disk (common usage) or Fixed Disk	
+Partition table manipulator for block devices (MBR-focused)
+
+fsck 	- File System Check	
+Checks and repairs inconsistencies in file systems
+
+blkid 	- Block IDentifier	
+Lists block devices and their UUIDs, labels, types, etc.
+
+------------------------------
+🌐 Network Utilities
+------------------------------
+Command	Full Form	Description
+
+netstat	- Network Statistics	
+Displays active connections, routing tables, 
+and interface stats (now replaced by ss)
+
+ss		- Socket Statistics	
+Faster alternative to netstat, shows socket information
+
+nslookup - Name Server Lookup	
+Queries DNS to obtain domain/IP mapping
+
+dig		- Domain Information Groper	
+Advanced DNS lookup tool (preferred over nslookup)
+
+------------------------------
+🌍 Web/Transfer Tools
+------------------------------
+Command	Full Form	Description
+
+wget 	- Web Get	    
+Non-interactive network downloader (HTTP, HTTPS, FTP)
+
+curl 	- Client URL	
+Transfers data to/from a server using many protocols 
+(HTTP, FTP, SMTP, etc.)
+
+------------------------------
+🔐 Secure Copy & Access
+------------------------------
+Command	Full Form	Description
+
+scp		- Secure Copy		
+Secure file transfer between machines using SSH
+
+ssh		- Secure Shell	
+Secure remote login and command execution
+
+ftp		- File Transfer Protocol		
+Standard (insecure) protocol for transferring files
+
+------------------------------
+🧠 Bonus Notes:
+------------------------------
+Some names like curl, dig, and ssh have evolved 
+into acronyms or backronyms based on usage.
+
+ss is faster and more modern than netstat.
+
+curl supports far more protocols than wget.
+
+------------------------------------------------------------
+Permission & Ownership Commands
+------------------------------
+Command	Full Form	Description
+
+chmod	- Change Mode	
+Changes file permissions (read/write/execute)
+
+chown	- Change Owner	
+Changes ownership of files or directories
+
+chgrp	- Change Group	
+Changes the group ownership of files/directories
+
+umask	- User Mask (or User file creation MASK)	
+Sets default permission bits when creating 
+files/directories
+
+------------------------------
+ACL (Access Control List) Commands
+------------------------------
+Command	Full Form	Description
+
+setfacl	- Set File Access Control List	
+Adds or modifies fine-grained ACL entries for 
+files/directories
+
+getfacl	- Get File Access Control List	
+Displays ACL entries for files/directories
+
+------------------------------
+User Privilege & Password Management
+------------------------------
+Command	Full Form	Description
+
+sudo	- SuperUser DO	
+Run commands with elevated (root) privileges
+
+visudo	- VI Sudo (Edit sudoers safely)	
+Safely edits the /etc/sudoers file using vi or nano, 
+with syntax checking
+
+sudoers	- Sudo Users (Config File)	
+Configuration file (/etc/sudoers) 
+for defining sudo access rules
+
+passwd	- Password	
+Used to change user passwords
+
+gpasswd	- Group Password	
+Administer a group, including adding/removing 
+members or setting group passwords
+
+------------------------------
+Quick Tips:
+------------------------------
+Use chmod, chown, chgrp for basic permission/ownership.
+
+Use setfacl/getfacl for more fine-grained control 
+(e.g., give user1 write access to a file owned by user2).
+
+sudo and sudoers define who can act as root, 
+and visudo is used to safely edit that configuration.
+
+umask is critical for default file permissions 
+(e.g., 0022 means files are 644, dirs 755 by default).
+
+
+------------------------------------------------------------
+mkdir -p dir1/dir2/dir3
+------------------------------
+
+-p = "parents"
+
+├── dir1
+│   └── dir2
+│       └── dir3
+
+
+------------------------------------------------------------
+dd 		- Data Duplicator
+------------------------------
+Command	Full Form	Description
+
+dd - Data Duplicator - Low-level tool to copy and convert 
+raw data from one source to another 
+(e.g., disks, partitions, ISO creation)
+
+Why is it called dd?
+It mimics the IBM JCL (Job Control Language) 
+command DD (Data Definition) used in mainframes.
+
+Its syntax is different from typical Unix tools 
+(uses if=, of=, bs=, etc.)
+
+------------------------------
+Example:
+
+dd if=/dev/sda of=/backup/image.img bs=4M status=progress
+
+'if='
+(input file/device)
+
+'of='
+(output file/device)
+
+'bs='
+(block size)
+
+'status=progress'
+(shows real-time progress)
+
+------------------------------------------------------------
+Archiving Tools
+------------------------------
+Command - Full Form / Meaning - Description
+
+tar - Tape ARchive - Archives multiple files into a 
+single .tar file (no compression by default)
+
+zip - ZIP archive format - Compresses and archives files 
+(creates .zip files)
+
+unzip - Un-ZIP - Extracts .zip files
+
+------------------------------------------------------------
+Compression Tools (Gzip Family)
+------------------------------
+Command - Full Form / Meaning - Description
+
+gzip - GNU zip - Compresses files into .gz format
+
+gunzip - GNU unzip - Decompresses .gz files 
+(opposite of gzip)
+
+------------------------------------------------------------
+Compression Tools (Bzip2 Family)
+------------------------------
+Command - Full Form / Meaning - Description
+
+bzip2 - Block Zip 2 (or Bzip v2) - Compresses files into 
+.bz2 format (better compression than gzip)
+
+bunzip2 - Bzip2 Uncompress - Decompresses .bz2 files
+
+------------------------------------------------------------
+Compression Tools (XZ Family)
+------------------------------
+Command - Full Form / Meaning - Description
+
+xz - Not an acronym — name for LZMA-based compression tool 
+- Compresses files into .xz format (high ratio)
+
+unxz - XZ Uncompress - Decompresses .xz files
+
+------------------------------------------------------------
+Summary Table
+------------------------------
+| Format | Archive Tool | Compress  | Decompress |
+| ------ | ------------ | --------- | ---------- |
+|  .tar	 |  tar         |  tar -cf  |  tar -xf   |
+|  .zip  |  zip         |  zip      |  unzip     |
+|  .gz   |  gzip        |  gzip     |  gunzip    |
+|  .bz2  |  bzip2       |  bzip2    |  bunzip2   |
+|  .xz   |  xz          |  xz       |  unxz      |
+
+-c = create: it tells tar to create a new archive.
+
+-x = extract: it tells tar to extract files from an 
+archive.
+
+-f = file: it tells tar that the next argument is the name 
+of the archive file to create or extract from.
+
+------------------------------------------------------------
+time ls -l
+------------------------------
+
+real    0m0.002s
+user    0m0.001s
+sys     0m0.001s
+
+------------------------------
+Meaning:
+------------------------------
+real: Total elapsed wall-clock time (start → end)
+
+user: Time spent in user-mode code 
+(CPU processing your code)
+
+sys: Time spent in kernel-mode (system calls, I/O, etc.)
+
+------------------------------
+Use Cases:
+------------------------------
+Benchmarking performance
+
+Comparing versions of algorithms or scripts
+
+Debugging slow-running commands
+
+------------------------------
+Example:
+------------------------------
+time find / -name "myfile.txt"
+
+→ Measures how long it takes to find that file across 
+the filesystem.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------

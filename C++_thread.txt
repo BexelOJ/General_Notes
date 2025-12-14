@@ -1,0 +1,129 @@
+------------------------------------------------------------
+Member Functions of std::thread Class
+------------------------------
+Method - Description
+
+join() - Waits for the thread to finish execution. 
+Blocks the calling thread until the thread represented 
+by the object has finished.
+
+detach() - Detaches the thread from the object, 
+allowing it to execute independently (in background).
+
+joinable() - Returns true if the thread is joinable 
+(hasn't been joined or detached).
+
+get_id() - Returns the thread ID (std::thread::id) 
+of the associated thread.
+
+native_handle() - Returns the underlying OS handle 
+(for advanced OS-level thread control).
+
+swap(thread& other) - Swaps two thread objects.
+
+operator=() - Move-assigns a new thread to the 
+thread object (copying is not allowed).
+
+------------------------------------------------------------
+Static Methods
+------------------------------
+Static Function - Description
+
+std::this_thread::get_id() 
+- Returns the ID of the current thread.
+
+std::this_thread::sleep_for(duration) - Makes the 
+current thread sleep for the given time duration.
+
+std::this_thread::sleep_until(time_point) 
+- Makes the thread sleep until the given time point.
+
+std::this_thread::yield() - Hints to the scheduler to 
+reschedule to another thread. Useful in spinlocks or 
+cooperative multitasking.
+
+------------------------------------------------------------
+Other Related Types and Functions
+------------------------------
+
+std::thread::id
+- a unique identifier for a thread.
+
+std::thread::hardware_concurrency() - static method 
+returning the number of hardware threads supported 
+(like CPU cores).
+
+unsigned int cores = std::thread::hardware_concurrency();
+
+------------------------------------------------------------
+Example Usage of Some Functions:
+
+#include <iostream>
+#include <thread>
+#include <chrono>
+
+void task() {
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::cout << "Task finished\n";
+}
+
+int main() {
+    std::thread t(task);
+
+    if (t.joinable()) {
+        std::cout << "Thread ID: " << t.get_id() << "\n";
+        t.join();
+    }
+
+    std::cout << "Main thread ends\n";
+    return 0;
+}
+
+------------------------------------------------------------
+std::thread
+
+std::mutex / std::lock_guard
+std::condition_variable
+std::atomic
+
+std::promise + std::future
+std::shared_future
+std::async
+
+std::packaged_task
+Thread pool (custom or lib)
+Coroutines (co_await) [C++20]
+
+------------------------------
+std::packaged_task<int()> task;
+std::unique_lock<std::mutex> lock(mtx);
+std::lock_guard<mutex> lock(mtx);  
+// Automatically locks and unlocks
+
+------------------------------------------------------------
+Thread t1 = new Thread(() -> 
+{ System.out.println("This is thread t1"); } );
+
+
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+
+
+

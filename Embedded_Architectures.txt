@@ -1,0 +1,94 @@
+------------------------------------------------------------
+1. x86
+Type: CISC (Complex Instruction Set Computing)
+
+Developed by: Intel (originally in 1978)
+
+Used in: Desktops, laptops, servers
+
+Characteristics:
+
+Rich and complex instruction set
+
+Backward compatible with older x86 instructions
+
+Dominates the PC and server market
+
+32-bit (x86) and 64-bit (x86_64 / AMD64) versions available
+
+------------------------------------------------------------
+2. ARM
+Type: RISC (Reduced Instruction Set Computing)
+
+Developed by: ARM Holdings 
+(originally Acorn Computers in the 1980s)
+
+Used in: Smartphones, embedded systems, IoT, 
+and increasingly in servers and laptops
+
+Characteristics:
+
+Energy-efficient and performance-per-watt optimized
+
+Widely licensed to other companies (e.g., Apple, Qualcomm)
+
+ARMv7 (32-bit), ARMv8 & ARMv9 (64-bit)
+
+Apple Silicon (M1, M2, etc.) is ARM-based
+
+------------------------------------------------------------
+3. MIPS
+Type: RISC
+
+Developed by: MIPS Computer Systems (1980s)
+
+Used in: Embedded systems, routers, automotive, 
+previously used in academic and workstation markets
+
+Characteristics:
+
+Simple, clean instruction set — popular in education
+
+Less mainstream today but still used in 
+low-power applications
+
+Available in both 32-bit and 64-bit versions
+
+------------------------------------------------------------
+4. RISC-V
+Type: RISC
+
+Developed by: University of California, Berkeley (2010)
+
+Used in: Emerging in IoT, embedded, HPC, 
+and custom SoC design
+
+Characteristics:
+
+Open-source and royalty-free architecture
+
+Modular and highly customizable 
+(e.g., minimal base + extensions)
+
+Growing rapidly in research, startups, and government use
+
+Toolchain and ecosystem are actively expanding
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

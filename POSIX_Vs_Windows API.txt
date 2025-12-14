@@ -1,0 +1,117 @@
+------------------------------------------------------------
+POSIX vs Windows: Process & Signal Management Comparison
+
+Functionality - POSIX (Unix/Linux/macOS) - Windows (WinAPI)
+
+Create Process - fork(), exec() - CreateProcess()
+
+Wait for Child - wait(), waitpid() - WaitForSingleObject(),
+WaitForMultipleObjects()
+
+Terminate Process - kill(pid, SIGTERM) - 
+TerminateProcess()
+
+Get Process ID - getpid(), getppid() - 
+GetCurrentProcessId(), GetCurrentThreadId()
+
+Send Signal - kill() - No direct equivalent 
+(see GenerateConsoleCtrlEvent)
+
+Handle Signal - signal(), sigaction() - 
+SetConsoleCtrlHandler() (limited)
+
+Stop/Continue Process - SIGSTOP, SIGCONT - 
+No direct equivalent
+
+Exit Process - exit(), _exit() - 
+ExitProcess(), ExitThread()
+
+Process Group Control - setpgid(), getpgid(), setsid() - 
+No native support
+
+Thread Creation - pthread_create() - CreateThread()
+
+Sleep/Delay - sleep(), usleep(), nanosleep() - 
+Sleep() (in milliseconds)
+
+User-defined Signals - SIGUSR1, SIGUSR2 - 
+No equivalent
+
+Signal Masking - sigprocmask(), sigpending() - 
+No equivalent
+
+Process Execution (replacement) - execve(), execlp() - 
+Not applicable (process is not replaced)
+
+Pipes for IPC - pipe(), popen() - 
+CreatePipe(), CreateNamedPipe()
+
+Process Environment - getenv(), setenv() - 
+GetEnvironmentVariable(), SetEnvironmentVariable()
+
+------------------------------------------------------------
+Threads
+POSIX: Managed using pthread library.
+
+Windows: Managed using CreateThread() or 
+higher-level libraries.
+	
+------------------------------
+Process Groups
+POSIX: Full support via setpgid(), tcsetpgrp(), killpg().
+
+Windows: Only limited grouping using Job Objects 
+(with AssignProcessToJobObject()).
+
+------------------------------------------------------------
+POSIX exec Family — Complete List
+
+Header: <unistd.h>
+
+All of these are defined in <unistd.h> and differ by how 
+they take arguments and locate the executable.
+
+Function - Description
+
+execl() - Takes a variable number of arguments (list), 
+ending with NULL.
+
+execle() - Like execl(), 
+but allows specifying a custom environment.
+
+execlp() - Like execl(), 
+but searches PATH for the executable.
+
+execv() - Takes an array 
+(argv[]) instead of a variable list of arguments.
+
+execvp() - Like execv(), 
+but searches PATH.
+
+execvpe() - Like execvp(), 
+but allows setting a custom environment. (GNU extension)
+
+------------------------------------------------------------
+Argument list (argv[])
+
+Environment list (envp[])
+
+------------------------------------------------------------
+Parent calls fork() to create a new child process.
+
+Child process calls exec*() to run a different program.
+
+Parent process may wait() for the child to complete.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
