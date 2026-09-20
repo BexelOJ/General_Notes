@@ -1,9 +1,9 @@
- ------------------------------------------------------------
+-----------------------------------------------------
 systemctl status ssh
 systemctl status ufw
 systemctl daemon-reload
 
-------------------------------------------------------------
+-----------------------------------------------------
 // number of files in a directory
 find /path/to/directory -type f | wc -l
 
@@ -11,7 +11,7 @@ find /path/to/directory -type f | wc -l
 find /path/to/directory -type d | wc -l
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 ufw : uncomplicated firewall
 
 //Check UFW Status:To see if UFW is active or inactive
@@ -37,8 +37,11 @@ sudo ufw deny 80
 //To block an IP:
 sudo ufw deny from 192.168.1.100
 
-//Check Detailed UFW Status:For more detailed information, including rules and the policy:
+//Check Detailed UFW Status:
+For more detailed information, 
+including rules and the policy:
 sudo ufw status verbose
+
 //To see the available application profiles:
 sudo ufw app list
 
@@ -48,7 +51,7 @@ sudo ufw reset
 //If you want to enable logging:
 sudo ufw logging on
 
-------------------------------------------------------------
+-----------------------------------------------------
 sudo apt-get install build-essential // 198 MB
 sudo apt-get install make //
 sudo apt-get install cmake // 47 MB
@@ -64,14 +67,14 @@ sudo apt-get install clang   // 642 MB
 sudo apt-get install coreutils   // 
 sudo apt-get install curl
 
-------------------------------------------------------------
+-----------------------------------------------------
 // to install zstd
 sudo apt install zstd
 
 // to uncompress a file xilinx-selectmap.ko
 zstd -d xilinx-selectmap.ko.zst
 
-------------------------------------------------------------
+-----------------------------------------------------
 # clear and add content to file 
 cat > file.txt
 hello # content at line 1
@@ -82,7 +85,7 @@ cat file.txt
 hello
 world
 
-------------------------------------------------------------
+-----------------------------------------------------
 # append content to file 
 cat >> file.txt
 good # content at line 3
@@ -95,34 +98,31 @@ world
 good
 morning
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
 
-
-------------------------------------------------------------
 
 
 
