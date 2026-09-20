@@ -1,4 +1,6 @@
 ------------------------------------------------------------
+[opc@android-ser ~]$ docker --version
+Docker version 29.2.1, build a5c7197
 
 ------------------------------
 container_name: mysql_db

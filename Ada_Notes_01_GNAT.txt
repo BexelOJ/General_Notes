@@ -415,14 +415,33 @@ Parentheses indicate an array (a list of values).
 Quotes are string delimiters.
 
 
+------------------------------------------------------------ 
+GNAT Studio in windows Desktop with Remote Rpi:
+
+in OS Shell (View -> OS Shell):
+
+------------------------------
+# 1. SYNC (2 commands)
+
+scp Pr_hello.gpr exin@192.168.1.104:~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260115_hello/
+scp Pr_Main.gpr exin@192.168.1.104:~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260115_addfunction/
+
+scp -r src exin@192.168.1.104:~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260115_hello/
+scp -r src exin@192.168.1.104:~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260115_addfunction/
+
+------------------------------
+# 2. BUILD
+ssh exin@192.168.1.104 "cd ~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260116_subtraction && gprbuild -P pr_subtraction.gpr"
+
+gprbuild -P Pr_Main.gpr
+------------------------------
+# 3. RUN
+ssh exin@192.168.1.104 "~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260115_hello/obj/main"
+
 ------------------------------------------------------------
 
 
-
-
-------------------------------------------------------------
-
-
+ssh exin@192.168.1.104 "mkdir -p ~/Workspace/Ada/Ada_2026/Ada_01_2026/pr_20260115_hello/{obj,bin}"
 
 
 ------------------------------------------------------------

@@ -288,7 +288,333 @@ Type		Package					Procedure Example
 Integer		Ada.Integer_Text_IO		Put(123)
 
 ------------------------------------------------------------
+Ada Visibility Control:
 
+❌ NO public/private/protected keywords
+✅ Library-level packages = "public" interface
+✅ Private types/parts = "private" data
+✅ Child packages = "protected" inheritance
+
+------------------------------------------------------------
+File	Purpose
+b__main.adb/.ads
+GNAT Binder - Auto-generated wrapper that calls your main()
+
+b__main.ali
+Ada Library Info - Dependencies/timestamps for b__main
+
+b__main.o
+Object code - Compiled binder (machine code)
+
+main
+EXECUTABLE - Your final ./main binary ✓
+
+main.ali
+Ada Library Info - Dependencies for your main.adb
+
+main.bexch
+Exception table - Runtime debug info for exceptions
+
+main.o
+Object code - Your main.adb compiled to machine code
+
+main.adb.stderr	
+Compiler errors/warnings log
+
+main.adb.stdout
+Compiler output log
+
+------------------------------------------------------------
+-- New Float TYPE (not subtype):
+type My_Float is digits 8 range -1.0 .. 1.0;  
+-- 8 decimal digits precision
+
+-- Subtype of existing Float:
+subtype Temp_Range is Float range 20.0 .. 100.0;  
+-- Range constraint only
+
+subtype High_Prec is Float digits 10;              
+-- Precision constraint
+
+
+------------------------------------------------------------
+Integer subtype:  
+type Age is range 0 .. 150;           
+-- range = Integer
+
+Float subtype:    
+subtype Temp is Float range 20.0 .. 100.0;  
+-- MUST name Float
+           
+OR type My_Float is digits 6 range 0.0 .. 1.0;
+
+
+------------------------------------------------------------
+subtype Temperature is Float range -50.0 .. 150.0;
+Temp : Temperature := 25.7;  -- OK
+Temp := 200.0;               -- ❌ Constraint_Error!
+
+
+------------------------------------------------------------
+SCALAR Types (predefined):
+├── Integer subtypes (Natural, Positive)
+├── Float subtypes  
+├── Fixed Point (delta/range specified)
+├── Modular (unsigned, wraps around)
+├── Enumeration (Boolean, custom like Day)
+└── Character (Wide_Character, etc.)
+
+COMPOSITE Types:
+├── Array (your Int_List)
+├── Record (struct-like)
+└── Access (pointers)
+
+
+------------------------------------------------------------
+Core Containers Hierarchy:
+
+Ada.Containers.*
+├── Vectors        ← Dynamic arrays (like std::vector)
+├── Doubly_Linked_Lists   ← Linked lists  
+├── Ordered_Maps   ← Sorted key-value (like std::map)
+├── Hashed_Maps    ← Hash tables (like std::unordered_map)
+├── Ordered_Sets   ← Sorted unique elements
+└── Hashed_Sets    ← Hash unique elements
+
+
+------------------------------------------------------------
+-- Ada has 4 main loop types:
+
+-- 1. FOR loop (discrete range)
+for J in Int_List'Range loop     -- J = 1,2,3,4,5
+   Put_Line(Integer'Image(Int_List(J)));
+
+-- 2. WHILE loop
+Count : Integer := 0;
+while Count < 5 loop
+   Put_Line("Count: " & Integer'Image(Count));
+   Count := Count + 1;
+
+-- 3. INFINITE loop + exit
+loop
+   exit when Done;  -- Break equivalent
+   Process_Data;
+end loop;
+
+-- 4. CONTAINER iterator (Ada 2012)
+for E of My_Vector loop  -- E = each element
+   Process(E);
+
+
+------------------------------------------------------------
+Complete Attribute Categories:
+
+TYPE attributes:     Integer'First, Float'Digits,Float'Max
+ARRAY attributes:    Int_List'Range, Int_List'Length  
+OBJECT attributes:   My_Var'Address, My_Var'Size
+SUBPROGRAM attrs:    Func'Access, Proc'Unrestricted_Access
+PACKAGE attributes:  Pkg'Body_Version
+ENUMERATION attrs:   Color'Enum_Rep, Day'Pos(Friday)
+EXCEPTION attrs:     Exc'Identity
+LOOP attributes:     Loop_Name'Loop_Range (named loops)
+
+------------------------------------------------------------
+Yes! Both array(5..55) and array(-5..5) are perfectly 
+valid in Ada.
+
+Valid Range Examples:
+
+-- Large positive range (51 elements)
+type Big_Array is array (5 .. 55) of Integer;
+
+-- Negative/positive symmetric (11 elements)  
+type Offset_Array is array (-5 .. 5) of Float;
+
+-- Even negative-only ranges work!
+type Neg_Array is array (-10 .. -1) of Character;
+
+------------------------------------------------------------
+Type (type)	            Subtype (subtype)
+New distinct type	    Constrained view of existing type
+Type incompatible	    Assignment compatible
+Creates 'First, 'Last	Inherits from base type
+
+------------------------------------------------------------
+-- TYPE = Completely new type
+type Age is range 0 .. 150;      -- NEW type (not Integer!)
+Age_Var : Age := 25;
+-- Integer_Var := Age_Var;           ❌ Type mismatch!
+
+-- SUBTYPE = Constrained Integer
+subtype Temp is Float range 20.0 .. 100.0;  
+Temp_Var : Temp := 37.5;
+Float_Var : Float := Temp_Var;        ✅ Assignment OK!
+
+------------------------------------------------------------
+=> (arrow operator) is used in 4 main places in Ada:
+
+------------------------------
+1. Array Aggregate (your Int_List context)
+
+Int_List : array (1 .. 5) of Integer := 
+   (1 => 10, 3 => 30, others => 0);  
+   -- Index => Value
+-- Result: [10, 0, 30, 0, 0]
+
+------------------------------
+2. Record Aggregate
+
+type Person is record
+   Name : String(1..10);
+   Age  : Integer;
+end record;
+
+P : Person := (Name => "John     ", Age => 25);
+
+------------------------------
+3. Parameter Association (named parameters)
+
+procedure Calc(X, Y, Z : Integer);
+
+Calc(Z => 5, X => 10, Y => 20);  
+-- Order doesn't matter!
+
+------------------------------
+4. Case Expression (Ada 2012)
+
+Result := (case Day is
+   when Monday    => 1,
+   when Tuesday   => 2,
+   when others    => 0);
+
+------------------------------
+Most Common: others =>
+
+-- Initialize all elements
+Arr : array(1..100) of Integer := (others => 0);
+
+-- Fill specific + rest
+Arr : array(1..5) of Integer := (2|3 => 99, others => 0);
+-- Result: [0, 99, 99, 0, 0]
+
+------------------------------
+=> always means "PUT this value INTO that position"
+Index/Field/Param => Value
+
+------------------------------------------------------------
+type Grade is range 0 .. 100;
+type Business_Day is new Day range Monday .. Friday;
+type Weekend_Day is new Day range Saturday .. Sunday;
+
+subtype Business_Day is Day range Monday .. Friday;
+subtype Weekend_Day is Day range Saturday .. Sunday;
+subtype Dice_Throw is Integer range 1 .. 6;
+
+------------------------------------------------------------
+'Pos (Position) - Get position
+'Val (Value) - 	Position → value
+'Succ (Successor) - Next value
+'Pred (predecessor) - Previous value
+
+------------------------------------------------------------  
+arrays have 4 primary attributes:
+
+'First(N)	Lower bound of dimension N	
+S'First(1) → 1
+
+'Last(N)	Upper bound of dimension N	
+S'Last(1) → 10
+
+'Length(N)	Number of elements in dimension N	
+S'Length(1) → 10
+
+'Range(N)	Index range of dimension N	
+S'Range(1) → 1 .. 10
+
+------------------------------------------------------------
+Ada subtypes support 6 major constraint types
+Range is the most common
+
+------------------------------
+1.) range_constraint:
+
+Applies To:
+Integer, Float, Enum
+
+Syntax Example:
+subtype X is Integer range 1 .. 100;
+
+------------------------------
+2.) digits_constraint:
+
+Applies To:
+Float types
+
+Syntax Example:
+subtype Metric is Float digits 8;
+
+------------------------------
+3.) delta_constraint:
+
+Applies To:
+Fixed-point
+
+Syntax Example:
+subtype Price is Delta 0.01 range 0.0 .. 999.99;
+
+------------------------------
+4.) index_constraint:
+
+Applies To:
+Arrays
+
+Syntax Example:
+subtype Vec3 is Vector(1..3);
+
+------------------------------
+5.) discriminant_constraint:
+
+Applies To:
+Records
+
+Syntax Example:
+type Rect(X, Y: Positive); subtype Square is Rect(Z, Z);
+
+------------------------------
+6.) predicate:
+
+Applies To: Any type (Ada 2012+)
+
+Syntax Example:
+predicate Valid_Grade (G) is G >= 0 and G <= 100;
+
+------------------------------
+-- Range (most common)
+subtype Business_Day is Day range Monday .. Friday;
+
+-- Digits (float precision)  
+subtype High_Prec is Float digits 12;
+
+-- Array index
+subtype Short_String is String(1 .. 10);
+
+-- Predicate (dynamic)
+subtype Even_Nums is Integer with 
+   predicate Even_Nums(X) => X mod 2 = 0;
+
+------------------------------------------------------------
+.adb → Ada Body ✅
+Usually contains the implementation/body of a procedure, 
+function, or package.
+
+.ads → Ada Specification ✅
+Contains the public declarations/interface of a package, 
+procedure, etc.
+
+.ali → Ada Library Information ❌ “Ada Link”
+GNAT generates it as a compiler metadata file containing 
+information about the compiled unit and its dependencies, 
+used during compilation/building.
 
 ------------------------------------------------------------
 
@@ -309,15 +635,3 @@ Integer		Ada.Integer_Text_IO		Put(123)
 
 
 ------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-

@@ -36,7 +36,9 @@ git remote remove origin
 (for SSH): to make the GitHub Repo as the Remote for push
 
 git remote add origin git@github.com:BexelOJ/Ada_Programming.git
-git remote add origin git@github.com:BexelOJ/General_Notes.git
+git remote add origin git@github.com:BexelOJ/VHDL_Notes.git
+git remote add origin git@github.com:BexelOJ/ESP32_FreeRTOS
+git origin  https://github.com/BexelOJ/Verilog_Programming.git (push)
 
 https://github.com/BexelOJ/General_Notes
 
@@ -54,7 +56,7 @@ Workaround:
 https://github.com/BexelOJ/Linux_Device_Driver
 
 git remote add origin git@github.com:BexelOJ/General_Notes_AG.git
-git remote add origin git@github.com:BexelOJ/General_Notes.git
+git remote add origin git@github.com:BexelOJ/Qt_Projects
 
 https://github.com/BexelOJ/General_Notes
 https://github.com/BexelOJ/Python_Notes
@@ -199,6 +201,186 @@ git push -u origin branchName // to push to the branch
 
 
 ------------------------------------------------------------
+git reset --hard <hash-of-B>
+
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+Suppose you start with:
+
+main:
+A → B → C → D
+
+------------------------------
+Then you create a branch from B:
+
+git checkout -b new-feature <hash-of-B>
+
+------------------------------
+and make two commits:
+
+main:
+A → B → C → D
+
+new-feature:
+A → B → E → F
+
+------------------------------
+Now:
+
+A exists ✅
+B exists ✅
+C exists ✅
+D exists ✅
+E exists ✅
+F exists ✅
+
+Nothing was deleted.
+
+------------------------------
+Git is preserving both futures:
+
+           C → D
+          /
+A → B
+          \
+           E → F
+
+------------------------------
+When do C and D disappear?
+
+Only if you move the branch pointer backwards.
+
+git reset --hard <hash-of-B>
+
+------------------------------------------------------------
+View History of Commits:
+
+git log
+
+------------------------------------------------------------
+git <subcommand> [options] [arguments]
+
+git commit -m "Add buzzer support"
+
+------------------------------------------------------------
+Main Porcelain Commands
+
+   add                     Add file contents to the index
+   am                      Apply a series of patches from a mailbox
+   archive                 Create an archive of files from a named tree
+
+   bisect                  Use binary search to find the commit that introduced a bug
+   branch                  List, create, or delete branches
+   bundle                  Move objects and refs by archive
+
+   checkout                Switch branches or restore working tree files
+   cherry-pick             Apply the changes introduced by some existing commits
+   citool                  Graphical alternative to git-commit
+   clean                   Remove untracked files from the working tree
+   clone                   Clone a repository into a new directory
+   commit                  Record changes to the repository
+
+   describe                Give an object a human readable name based on an available ref
+   diff                    Show changes between commits, commit and working tree, etc
+
+   fetch                   Download objects and refs from another repository
+   format-patch            Prepare patches for e-mail submission
+
+   gc                      Cleanup unnecessary files and optimize the local repository
+   gitk                    The Git repository browser
+   grep                    Print lines matching a pattern
+   gui                     A portable graphical interface to Git
+
+   init                    Create an empty Git repository or reinitialize an existing one
+
+   log                     Show commit logs
+
+   maintenance             Run tasks to optimize Git repository data
+   merge                   Join two or more development histories together
+   mv                      Move or rename a file, a directory, or a symlink
+
+   notes                   Add or inspect object notes
+
+   pull                    Fetch from and integrate with another repository or a local branch
+   push                    Update remote refs along with associated objects
+
+   range-diff              Compare two commit ranges (e.g. two versions of a branch)
+   rebase                  Reapply commits on top of another base tip
+   reset                   Reset current HEAD to the specified state
+   restore                 Restore working tree files
+   revert                  Revert some existing commits
+   rm                      Remove files from the working tree and from the index
+
+   scalar                  A tool for managing large Git repositories
+   shortlog                Summarize 'git log' output
+   show                    Show various types of objects
+   sparse-checkout         Reduce your working tree to a subset of tracked files
+   stash                   Stash the changes in a dirty working directory away
+   status                  Show the working tree status
+   submodule               Initialize, update or inspect submodules
+   switch                  Switch branches
+
+   tag                     Create, list, delete or verify a tag object signed with GPG
+
+   worktree                Manage multiple working trees
+
+Ancillary Commands / Manipulators
+
+   config                  Get and set repository or global options
+
+   fast-export             Git data exporter
+   fast-import             Backend for fast Git data importers
+   filter-branch           Rewrite branches
+
+   mergetool               Run merge conflict resolution tools to resolve merge conflicts
+
+   pack-refs               Pack heads and tags for efficient repository access
+   prune                   Prune all unreachable objects from the object database
+
+   reflog                  Manage reflog information
+   remote                  Manage set of tracked repositories
+   repack                  Pack unpacked objects in a repository
+   replace                 Create, list, delete refs to replace objects
+
+Ancillary Commands / Interrogators
+
+   annotate                Annotate file lines with commit information
+
+   blame                   Show what revision and author last modified each line of a file
+   bugreport               Collect information for user to file a bug report
+
+   count-objects           Count unpacked number of objects and their disk consumption
+
+   diagnose                Generate a zip archive of diagnostic information
+   difftool                Show changes using common diff tools
+
+   fsck                    Verifies the connectivity and validity of the objects in the database
+
+------------------------------------------------------------
+Can I make an "empty" message?
+
+Yes, but Git makes you do it explicitly:
+
+git commit --allow-empty-message -m ""
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
 
 
 ------------------------------------------------------------
@@ -217,3 +399,8 @@ git push -u origin branchName // to push to the branch
 
 
 ------------------------------------------------------------
+
+
+
+
+

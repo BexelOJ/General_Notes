@@ -1,11 +1,75 @@
 ------------------------------------------------------------
+<sys/types.h> 
+defines portable integer types for system programming. 
+Here's each major type:
 
+------------------------------
+Core Process/File Types:
+
+pid_t - 
+Process ID (int); used in fork(), waitpid(pid_t)
+​
+uid_t, gid_t - 
+User/group ID (unsigned int)
+
+off_t - 
+File offset/size (long or long long)
+
+mode_t - 
+File permissions (unsigned int)
+
+ino_t - 
+File inode number (unsigned long)
+
+dev_t - 
+Device number
+
+nlink_t - 
+Hard link count (unsigned short)
+
+------------------------------
+Time/Clock Types
+
+clock_t - 
+CPU clock ticks (long)
+
+time_t - 
+Calendar time (long)
+
+suseconds_t - 
+Microseconds (long)
+
+------------------------------
+Filesystem Types
+
+blkcnt_t - 
+File block count (long long)
+
+blksize_t - 
+Filesystem block size (long)
+
+------------------------------
+IPC/POSIX Types
+
+key_t - 
+IPC key (long)
+
+id_t - 
+General ID (holds pid_t, uid_t)
+
+------------------------------
+Thread Types (if _POSIX_THREADS)
+text 
+pthread_t          pthread_mutex_t
+pthread_attr_t     pthread_cond_t
+pthread_key_t      etc.
 
 ------------------------------------------------------------
 
 
 ------------------------------------------------------------
-
+# Replace <PUBLIC_IP> with your instance's Public IP Address
+ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
 
 ------------------------------------------------------------
 

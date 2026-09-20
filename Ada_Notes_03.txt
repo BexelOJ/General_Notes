@@ -1,0 +1,165 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Ada learning sequence:
+#	Topic	What we'll learn:
+
+1	Hello World
+- with, procedure, begin, end, Put_Line
+
+2	Variables & Constants
+- Integer, Float, Boolean, Character, constants
+
+3	Input / Output
+- Get, Get_Line, Put, Put_Line
+
+4	Operators
+- Arithmetic, comparison, logical operators
+
+5	if / elsif / else
+- Conditional execution
+
+6	case
+- Ada's case statement
+
+7	Loops
+- loop, while, for, exit
+
+8	Arrays
+- One-dimensional and multidimensional arrays
+
+------------------------------
+9	Strings
+- String, slices, indexing
+
+10	Procedures
+- Parameters, in, out, in out
+
+11	Functions
+- Return values
+
+12	Records
+- Ada equivalent of a C/C++ struct
+
+13	Enumerations
+- User-defined enum types
+
+14	Access Types
+- Ada's pointer/reference mechanism
+
+15	Packages
+- Ada's major code-organization mechanism
+
+16	Separate compilation
+- .ads and .adb
+
+------------------------------
+17	Exceptions
+- Exception handling
+
+18	Generics
+- Generic procedures, functions and packages
+
+19	Tagged Types / OOP
+- Ada's object-oriented programming
+
+20	Interfaces & Polymorphism
+- OOP concepts in Ada
+
+------------------------------
+21	Tasks
+- Ada's built-in concurrency model
+
+22	Protected Objects
+- Synchronization
+
+23	Real-time Ada
+- Priorities, task scheduling, timing
+
+24	Low-level Ada
+- Representation clauses, addresses, hardware-oriented programming
+
+
+------------------------------------------------------------
+main.adb
+hello.gpr
+
+gnatmake main.adb
+
+------------------------------------------------------------
+--    Arithmetic Operators:
+
+--    +     Addition
+--    -     Subtraction
+--    *     Multiplication
+--    /     Division
+--    mod   Remainder
+--    rem   Remainder
+
+--    Comparison Operators:
+
+--    =      Equal
+--    /=     Not equal
+--    <      Less than
+--    <=     Less than or equal
+--    >      Greater than
+--    >=     Greater than or equal
+
+--    Logical Operators:
+
+--    and
+--    or
+--    not
+--    xor
+
+
+------------------------------------------------------------
+Literal  → value written directly in source code
+
+Variable → named object whose value can change
+
+Constant → named object whose value cannot change
+
+------------------------------------------------------------
+// to kill the never ending main process
+
+tasklist | findstr main.exe
+
+taskkill /F /IM main.exe
+
+
+gprbuild -d -P basicloop.gpr
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

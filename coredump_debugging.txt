@@ -1,0 +1,438 @@
+------------------------------------------------------------
+coredumpctl
+
+------------------------------
+
+------------------------------------------------------------
+coredumpctl list
+# List all crashes
+
+------------------------------
+coredumpctl info
+# Show detailed information
+
+coredumpctl info 4210
+
+coredumpctl dump PID > core.dump
+
+------------------------------------------------------------
+coredumpctl gdb
+# Open the core dump
+
+coredumpctl gdb crash
+
+coredumpctl gdb 67348
+
+------------------------------------------------------------
+ulimit -c unlimited
+# 
+
+ulimit -c
+# 0 - its disabled
+
+------------------------------------------------------------
+nm app
+
+readelf -s app
+objdump -t app
+
+
+------------------------------------------------------------
+strip app
+// This removes the symbol table (or most of it)
+
+------------------------------------------------------------
+bt (backtrace)
+frame
+list
+info locals
+print
+info registers
+x (examine memory)
+disassemble
+
+------------------------------------------------------------
+(gdb) disassemble
+Dump of assembler code for function _Z5func3v:
+   0x0000aaaad24b0918 <+0>:     stp     x29, x30, [sp, #-32]!
+   0x0000aaaad24b091c <+4>:     mov     x29, sp
+   0x0000aaaad24b0920 <+8>:     adrp    x0, 0xaaaad24b0000
+   0x0000aaaad24b0924 <+12>:    add     x1, x0, #0xa28
+   0x0000aaaad24b0928 <+16>:    adrp    x0, 0xaaaad24cf000
+   0x0000aaaad24b092c <+20>:    ldr     x0, [x0, #4064]
+   0x0000aaaad24b0930 <+24>:    bl      0xaaaad24b07c0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+   0x0000aaaad24b0934 <+28>:    adrp    x1, 0xaaaad24cf000
+   0x0000aaaad24b0938 <+32>:    ldr     x1, [x1, #4048]
+   0x0000aaaad24b093c <+36>:    bl      0xaaaad24b07d0 <_ZNSolsEPFRSoS_E@plt>
+   0x0000aaaad24b0940 <+40>:    str     xzr, [sp, #24]
+   0x0000aaaad24b0944 <+44>:    ldr     x0, [sp, #24]
+   0x0000aaaad24b0948 <+48>:    mov     w1, #0x64                       // #100
+=> 0x0000aaaad24b094c <+52>:    str     w1, [x0]
+   0x0000aaaad24b0950 <+56>:    nop
+   0x0000aaaad24b0954 <+60>:    ldp     x29, x30, [sp], #32
+   0x0000aaaad24b0958 <+64>:    ret
+End of assembler dump.
+(gdb)
+
+------------------------------------------------------------
+For Linux kernel debugging and embedded development, 
+you'll use roughly 30–50 instructions most of the time.
+
+------------------------------
+Mnemonic	Full meaning	Purpose
+
+mov	: Move
+// Copy data between registers
+
+ldr	: Load Register
+// Read data from memory into a register
+
+str	: Store Register
+// Write data from a register to memory
+
+stp	: Store Pair
+// Store two registers to memory
+
+ldp	: Load Pair
+// Load two registers from memory
+
+b	: Branch
+// Unconditional jump
+
+bl	: Branch with Link
+// Call a function
+
+ret	: Return
+// Return from a function
+
+add	: Add
+// Addition
+
+sub	: Subtract
+// Subtraction
+
+cmp	: Compare
+// Compare two values
+
+adr : Address
+// 
+
+adrp : Address of 4 KB Page
+// Compute the base address of a memory page
+
+cbz : Compare and Branch on Zero
+// 
+
+cbnz : Compare and Branch on Non Zero
+// 
+
+and : Logical AND
+// Performs a bitwise AND operation
+
+orr : Logical OR
+// Performs a bitwise OR operation
+
+eor : Exclusive OR
+// Performs a bitwise XOR operation
+
+lsl : Logical Shift Left
+// Shifts bits to the left
+
+lsr : Logical Shift Right
+// Shifts bits to the Right
+
+nop : No Operation
+// 
+
+------------------------------------------------------------
+AArch64 Assembly (most common name)
+ARM64 Assembly (used by Linux, Android, Apple, etc.)
+ARMv8-A AArch64 Assembly (most precise)
+
+------------------------------------------------------------
+
+and
+orr
+eor
+lsl
+lsr
+
+------------------------------------------------------------
+Registers 
+(x0–x30, w0–w30, sp, pc)
+
+Data types and register sizes
+
+Memory
+(ldr, str)
+
+Stack
+(stp, ldp)
+
+Arithmetic
+(add, sub, mul)
+
+Branching
+(b, bl, ret)
+
+Function calls and stack frames
+
+Calling convention
+(how C/C++ uses registers)
+
+Reading compiler-generated assembly
+
+Debugging real crashes with GDB
+
+------------------------------------------------------------
+As you're learning ELF binaries, 
+these tools are commonly used together:
+
+Command		Purpose
+
+nm			Display symbol table
+readelf		Inspect ELF file structure
+objdump		Disassemble and inspect binaries
+strings		Show printable strings in a binary
+ldd			List shared library dependencies
+file		Identify file type
+
+------------------------------------------------------------
+X0–X30 → 64-bit general-purpose registers.
+
+W0–W30 → 32-bit view of those registers.
+
+------------------------------------------------------------
+(gdb) bt
+(gdb) where
+(gdb) list
+
+(gdb) info frame
+
+------------------------------------------------------------
+gdb command list:
+List of classes of commands:
+
+aliases
+-- User-defined aliases of other commands.
+
+breakpoints
+-- Making program stop at certain points.
+
+data
+-- Examining data.
+
+files
+-- Specifying and examining files.
+
+internals
+-- Maintenance commands.
+
+obscure
+-- Obscure features.
+
+running
+-- Running the program.
+
+stack
+-- Examining the stack.
+
+status
+-- Status inquiries.
+
+support
+-- Support facilities.
+
+text-user-interface
+-- TUI is the GDB text based interface.
+
+tracepoints
+-- Tracing of program execution without stopping the program.
+
+user-defined
+-- User-defined commands.
+
+------------------------------
+Type "help" followed by a class name
+for a list of commands in that class.
+
+Type "help all" 
+for the list of all commands.
+
+Type "help" followed by command name
+for full documentation.
+
+Type "apropos word" to search
+for commands related to "word".
+
+Type "apropos -v word"
+for full documentation of commands related to "word".
+
+Command name abbreviations are allowed if unambiguous.
+
+------------------------------------------------------------
+Most important GDB commands
+
+Here are the commands you'll use most often.
+
+Program execution    Command	Meaning
+run (r)
+Start the program
+
+start
+Run and stop at main()
+
+continue (c)
+Continue execution
+
+next (n)
+Next source line (step over)
+
+step (s)
+Step into function
+
+finish
+Run until current function returns
+
+until
+Continue until a later line
+
+kill
+Terminate the program
+
+quit (q)
+Exit GDB
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+exin@exin-desktop:~/Workspace$ env
+
+SHELL=/bin/bash
+JAVA_HOME=
+PWD=/home/exin/Workspace
+LOGNAME=exin
+XDG_SESSION_TYPE=tty
+
+HOME=/home/exin
+LANG=C.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+SSH_CONNECTION=192.168.0.129 61920 192.168.0.122 22
+LESSCLOSE=/usr/bin/lesspipe %s %s
+
+XDG_SESSION_CLASS=user
+TERM=xterm
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=exin
+SHLVL=1
+
+XDG_SESSION_ID=140
+XDG_RUNTIME_DIR=/run/user/1002
+SSH_CLIENT=192.168.0.129 61920 22
+DEBUGINFOD_URLS=https://debuginfod.ubuntu.com
+XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+
+PATH=/home/exin/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1002/bus
+SSH_TTY=/dev/pts/2
+OLDPWD=/home/exin
+_=/usr/bin/env
+
+------------------------------------------------------------
+SHELL
+USER
+HOME
+JAVA_HOME
+PATH
+PWD
+OLDPWD
+LOGNAME
+
+SSH_CONNECTION
+SSH_CLIENT
+SSH_TTY
+
+XDG_SESSION_TYPE
+XDG_SESSION_CLASS
+XDG_SESSION_ID
+XDG_RUNTIME_DIR
+XDG_DATA_DIRS
+
+TERM
+LANG
+LS_COLORS
+LESSCLOSE
+LESSOPEN
+SHLVL
+DEBUGINFOD_URLS
+DBUS_SESSION_BUS_ADDRESS
+_
+
+------------------------------------------------------------
+XDG : Cross Desktop Group
+
+XDG_SESSION_TYPE : Graphical session type (x11 or wayland)
+XDG_CURRENT_DESKTOP : Desktop environment (GNOME, KDE, XFCE, etc.)
+XDG_RUNTIME_DIR	: Runtime directory for the current user session
+XDG_CONFIG_HOME	: User configuration directory
+XDG_DATA_HOME	: User data directory
+XDG_CACHE_HOME	: User cache directory
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

@@ -1,0 +1,288 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+ANSI X3.159-1989 (commonly called ANSI C89)
+
+------------------------------
+#include <string.h>
+
+// first time standardization of string header
+
+------------------------------
+Function	Purpose
+
+strlen()	Length of string
+strcpy()	Copy string
+strncpy()	Copy n characters
+strcat()	Concatenate strings
+strncat()	Concatenate n characters
+
+strcmp()	Compare strings
+strncmp()	Compare first n characters
+strchr()	Find character
+strrchr()	Find last occurrence
+strstr()	Find substring
+
+strtok()	Tokenize string
+
+memcpy()	Copy memory
+memmove()	Move memory safely
+memset()	Fill memory
+memcmp()	Compare memory
+memchr()	Find byte in memory
+
+------------------------------------------------------------
+The header and many of its functions already existed 
+in Unix implementations before 1989.
+
+ANSI C89 did not invent them, it standardized them so that
+every conforming C compiler had to provide them with
+the same behavior.
+
+Think of it like this:
+
+------------------------------
+Year	Event
+
+1972	C language invented;
+		strings represented as char[] and char*
+
+1970s	Unix implementations provided many
+		string functions (not standardized)
+		
+1978	K&R C
+		
+		named after the authors of the famous 
+		C programming book:
+		
+		Brian Kernighan
+		Dennis Ritchie
+		
+1989	ANSI C89 standardized <string.h> and 
+		its functions
+
+1990	ISO adopted essentially the same
+		standard as ISO C90
+
+------------------------------------------------------------
+ANSI C89 (<string.h>) – Core functions
+
+These include the classic functions:
+
+memcpy()
+memmove()
+memchr()
+memcmp()
+memset()
+
+strcpy()
+strncpy()
+strcat()
+strncat()
+strcmp()
+
+strncmp()
+strcoll()
+strxfrm()
+strlen()
+strchr()
+
+strrchr()
+strspn()
+strcspn()
+strpbrk()
+strstr()
+
+strtok()
+strerror()
+
+These are the functions that have been 
+available since ANSI C89 / ISO C90.
+
+------------------------------
+C95
+
+No significant additions to <string.h>
+
+------------------------------
+C99
+
+Several additions were made, including:
+
+snprintf() (in <stdio.h>, not <string.h>)
+vsnprintf() (in <stdio.h>)
+Some library improvements, 
+but 
+<string.h> itself changed very little.
+
+------------------------------
+C11
+
+C11 introduced optional bounds-checking interfaces 
+(from Annex K), including:
+
+memcpy_s()
+memmove_s()
+
+strcpy_s()
+strncpy_s()
+
+strcat_s()
+strncat_s()
+
+strtok_s()
+strerror_s()
+strlen_s() (Annex K / optional)
+
+and others.
+
+These are optional. 
+Many popular compilers (especially GCC and Clang on Linux) 
+do not implement Annex K, while Microsoft Visual 
+C++ implements many of these functions.
+
+------------------------------
+C23
+
+C23 adds and standardizes some new library functionality, 
+including additions related to duplicated strings such as:
+
+strdup()
+strndup()
+
+These functions existed for many years as POSIX extensions 
+before becoming part of the C standard.
+
+------------------------------------------------------------
+typedef unsigned long size_t;
+typedef unsigned int size_t;
+typedef unsigned long long size_t;
+
+------------------------------
+size_t // ANSI C89 / ISO C90
+ssize_t (Signed Size Type) // POSIX (Unix), not ISO C
+
+------------------------------
+ptrdiff_t
+wchar_t (Wide Character Type) // #include <wchar.h>
+
+------------------------------
+time_t
+clock_t
+
+------------------------------
+1970s (Unix):
+pid_t // process ID Type
+uid_t // user ID Type
+gid_t // group ID Type
+mode_t // Mode Type, file mode
+off_t // Offset Type, file offset
+// #include <sys/types.h> 
+// It is not a C standard header,
+// It is a POSIX/Unix header
+
+ino_t // Inode number
+dev_t // Device ID
+nlink_t // Number of hard links
+blkcnt_t // Number of filesystem blocks
+blksize_t // Preferred block size
+ssize_t // Signed size type
+
+------------------------------
+intptr_t
+uintptr_t
+int32_t
+uint64_t
+
+------------------------------
+1999 (C99):
+int8_t
+int16_t
+int32_t
+int64_t
+
+uint8_t
+uint16_t
+uint32_t
+uint64_t
+
+intptr_t
+uintptr_t
+intmax_t
+uintmax_t
+
+fixed-width integer types, introduced in C99 in the header:
+#include <stdint.h>
+
+------------------------------------------------------------
+<sys/types.h>
+pid_t
+uid_t
+gid_t
+off_t
+mode_t
+
+------------------------------
+<sys/socket.h> // 1983
+socklen_t
+sa_family_t
+
+------------------------------
+<pthread.h> // 1995
+pthread_t
+pthread_mutex_t
+
+------------------------------
+<signal.h> // ANSI C89 (1989)
+sigset_t
+
+------------------------------
+<time.h> // ANSI C89 (1989)
+time_t
+clock_t
+
+------------------------------
+<sys/stat.h> 1970s (Version 7 Unix, ~1979)
+Uses mode_t
+defines struct stat
+
+------------------------------
+<dirent.h> // 1988
+DIR
+struct dirent
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+

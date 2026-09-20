@@ -1,0 +1,334 @@
+------------------------------------------------------------
+gcc and g++ support hundreds of command-line options
+
+------------------------------
+most commonly used flags, grouped by purpose
+
+------------------------------------------------------------
+1. General Compilation:
+
+Flag	 Meaning
+
+-c	  	 # Compile only, do not link
+-o file	 # Output file name
+-E	 	 # Stop after preprocessing
+-S	  	 # Generate assembly code
+-pipe 	 # Use pipes instead of temporary files
+-v	  	 # Verbose output
+-###   	 # Show commands without executing them
+-x language	 # Specify source language
+
+------------------------------------------------------------
+2. Debugging:
+
+Flag	 Meaning
+
+-g		 # Generate debug symbols
+-ggdb	 # GDB-specific debug info
+-g3		 # Maximum debug information
+-gdwarf-5 # Use DWARF version 5
+-fno-omit-frame-pointer	# Keep frame pointers for debugging
+
+------------------------------------------------------------
+3. Optimization:
+
+Flag	Meaning
+
+-O0		# No optimization
+-O1	 	# Recommended optimization
+-O3		# Aggressive optimization
+
+-Os		# Optimize for size
+-Oz		# More size optimization (where supported)
+-Ofast	# Maximum optimization, may relax standards
+-Og		# Optimize while preserving debuggability
+
+------------------------------------------------------------
+4. Warnings:
+
+Flag		Meaning
+
+-Wall	 	# Common warnings
+-Wextra	 	# Extra warnings
+-Werror	 	# Treat warnings as errors
+
+-pedantic	# Enforce standard compliance
+-pedantic-errors # Standard violations become errors
+
+-Wshadow	# Warn on variable shadowing
+-Wconversion # Warn on implicit conversions
+-Wunused	# Warn about unused variables/functions
+-Wformat	# Check printf/scanf formats
+
+------------------------------------------------------------
+5. C++ Standard Selection:
+
+Flag		Meaning
+
+-std=c++98	 # C++98
+-std=c++03	 # C++03
+-std=c++11	 # C++11
+-std=c++14	 # C++14
+-std=c++17	 # C++17
+-std=c++20	 # C++20
+-std=c++23	 # C++23
+-std=c++26	 # Draft C++26 (compiler support dependent)
+
+------------------------------------------------------------
+6. C Standard Selection (gcc):
+
+Flag		Meaning
+
+-std=c89	 # ANSI C
+-std=c99	 # C99
+-std=c11	 # C11
+-std=c17	 # C17
+-std=c23	 # C23
+
+------------------------------------------------------------
+7. Include Directories:
+
+Flag			Meaning
+
+-I dir			# Add include directory
+-isystem dir	# Add system include directory
+-iquote dir		# Quote include directory
+
+------------------------------------------------------------
+8. Libraries:
+
+Flag	Meaning
+
+-L dir		# Library search path
+-lxxx		# Link library
+-static		# Static linking
+-shared		# Build shared library
+-Winvalid-pch	# Validate precompiled headers
+
+------------------------------------------------------------
+9. Preprocessor:
+
+Flag			Meaning
+
+-DNAME			# Define a macro
+-DNAME=value	# Define a macro with value
+-UNAME			# Undefine a macro
+-include file	# Force include a header
+
+------------------------------------------------------------
+10. Position Independent Code:
+
+Flag	Meaning
+
+-fPIC	# Position-independent code
+-fPIE	# Position-independent executable
+-pie	# Create PIE executable
+
+------------------------------------------------------------
+11. Sanitizers:
+
+Flag				Meaning
+
+-fsanitize=address	# AddressSanitizer
+-fsanitize=thread	# ThreadSanitizer
+-fsanitize=memory	# MemorySanitizer (where supported)
+-fsanitize=undefined	# UndefinedBehaviorSanitizer
+-fsanitize=leak		# LeakSanitizer
+
+------------------------------------------------------------
+12. Profiling & Coverage:
+
+Flag	Meaning
+
+-pg				# Enable gprof profiling
+--coverage		# Enable coverage (gcov)
+-fprofile-arcs	# Coverage instrumentation
+-ftest-coverage	# Generate coverage data
+
+------------------------------------------------------------
+13. Dependency Generation:
+
+Flag	Meaning
+
+-M		# Generate dependencies
+-MM		# Ignore system headers
+-MD		# Generate .d file while compiling
+-MMD	# Like -MD, excluding system headers
+
+------------------------------------------------------------
+14. Architecture:
+
+Flag	Meaning
+
+-m32			# Generate 32-bit code
+-m64			# Generate 64-bit code
+-march=native	# Optimize for current CPU
+-mtune=native	# Tune for current CPU
+
+------------------------------------------------------------
+15. Exception & RTTI:
+
+Flag	Meaning
+
+-fexceptions	# Enable exceptions
+-fno-exceptions	# Disable exceptions
+-frtti			# Enable RTTI
+-fno-rtti		# Disable RTTI
+
+------------------------------
+-f<feature>      # Enable the feature
+-fno-<feature>   # Disable the feature
+
+-f # (machine-independent) compiler feature (or flag)
+-fexceptions # Enable the compiler feature "exceptions".
+
+------------------------------------------------------------
+16. Stack & Security:
+
+Flag						Meaning
+
+-fstack-protector			# Stack protection
+-fstack-protector-all		# Protect all functions
+-fstack-clash-protection	# Stack clash protection
+
+-fcf-protection	# Control-flow protection 
+				  (supported targets)
+
+------------------------------------------------------------
+17. Useful Information:
+
+Flag			Meaning
+
+--help			# Show help
+--version		# Compiler version
+-dumpmachine	# Target machine
+-dumpversion	# GCC version
+
+------------------------------------------------------------
+Flag				Meaning
+
+-fexceptions		# Enable exception handling
+-fno-exceptions		# Disable exception handling
+-frtti				# Enable RTTI
+-fno-rtti			# Disable RTTI
+-finline-functions	# Enable function inlining
+
+-fno-inline-functions	# Disable function inlining
+-fomit-frame-pointer	# Omit the frame pointer
+-fno-omit-frame-pointer	# Keep the frame pointer
+
+------------------------------------------------------------
+Prefix	General purpose
+
+-f		# Compiler features
+-W		# Warnings
+-O		# Optimization levels
+-g		# Debug information
+-m		# Machine/architecture-specific options
+-std=	# Language standard
+-I		# Include directories
+-L		# Library search paths
+-l		# Libraries to link
+
+------------------------------------------------------------
+Compile separately for each platform.
+------------------------------
+
+Linux
+↓
+
+ELF
+
+------------------------------
+
+Windows
+↓
+
+PE
+// Portable Executable
+// It is, 
+   standard executable file format,
+   used by Windows
+
+------------------------------
+
+macOS
+↓
+
+Mach-O
+
+------------------------------------------------------------
+Common hidden directories:
+
+Directory	Purpose
+
+.config		Application configuration
+.cache		Cached data
+.local		User-specific applications and data
+.ssh		SSH keys and configuration
+.git		Git repository metadata
+.vscode		VS Code workspace settings
+.cargo		Rust toolchain and packages
+.npm		Node.js package cache
+.mozilla	Firefox profile data
+
+------------------------------------------------------------
+AArch64 : ARM Architecture 64-bit
+
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+

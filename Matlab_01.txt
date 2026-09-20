@@ -10,8 +10,22 @@ Current Folder - list the directory hierarchy
 Command History - list the previously used commands
 
 ------------------------------------------------------------
-% - commenting in Matlab
+MATLAB Comment Syntax
+------------------------------
+Single-line comments:
 
+% This is a single-line comment
+x = 5; % Inline comment after code
+
+------------------------------
+Block comments:
+
+%{
+	This is a multi-line
+	block comment
+%}
+
+------------------------------------------------------------
 ; - suppress the output, but executes
 
 In MATLAB, indexing always starts at 1, not 0.

@@ -1,0 +1,81 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+POD = Plain Old Documentation:
+Perl's embedded documentation format
+
+POD is a simple markup language embedded directly in 
+Perl source files for documentation
+
+------------------------------------------------------------
+Basic POD Syntax:
+
+=pod                 # Start POD block
+
+=head1 Title         # Level 1 heading
+This is documentation text.
+
+=head2 Subtitle     # Level 2 heading
+
+=item First item     # List item
+=item Second item
+
+=cut                 # End POD block (back to Perl code)
+
+------------------------------------------------------------
+Single-line comments:
+
+# This is a single-line comment
+print "Hello";  # Inline comment
+
+------------------------------------------------------------
+Multi-line comments (using POD):
+
+=begin comment
+	This is a multi-line comment.
+	Multiple lines ignored by interpreter.
+=end comment
+
+------------------------------
+# OR using =pod ... =cut
+
+=pod
+	Documentation comment block
+=cut
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

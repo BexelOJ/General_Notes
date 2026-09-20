@@ -1,0 +1,274 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+# TO make a code run as a daemon service in Ubuntu:
+------------------------------
+/etc/systemd/system/myapp.service
+# service location and name
+
+------------------------------
+# You create a systemd service:
+
+[Unit]
+Description=My Python Service
+After=network.target
+
+[Service]
+Type=simple
+User=exin
+WorkingDirectory=/home/exin/myapp
+ExecStart=/home/exin/myapp/venv/bin/python /home/exin/myapp/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+------------------------------
+# run the service reload and enable cmd
+
+sudo systemctl daemon-reload
+sudo systemctl enable myapp
+sudo systemctl start myapp
+
+------------------------------------------------------------
+------------------------------------------------------------
+#To make static IP for each OS (diff card, with same RPi)
+
+
+
+------------------------------------------------------------
+# multi-user.target, which is the non-graphical, 
+text-only mode
+sudo systemctl isolate multi-user.target
+
+# To get the GUI back
+sudo systemctl isolate graphical.target
+
+------------------------------------------------------------
+# Find memory-hungry processes:
+ps aux --sort=-%mem | head
+
+------------------------------------------------------------
+
+/var/log/tshark
+
+1440 
+
+/media/exin/EXIN P32MK1/PCAP
+
+exin@exin-desktop:/media/exin/EXIN P32MK1/PCAP$ ls -l
+total 128
+drwxr-xr-x 2 exin exin 32768 Jul 15 21:06 202604
+drwxr-xr-x 2 exin exin 32768 Jul 15 21:06 202605
+drwxr-xr-x 2 exin exin 32768 Jul 15 21:00 202606
+drwxr-xr-x 2 exin exin 32768 Jul 15 21:00 202607
+exin@exin-desktop:/media/exin/EXIN P32MK1/PCAP$
+
+------------------------------------------------------------
+Scheduling Parameters:
+
+Priority
+
+Nice value
+
+Time slice
+
+CPU affinity
+
+Preemption
+
+------------------------------------------------------------
+Scheduling Policies:
+
+SCHED_OTHER
+
+SCHED_FIFO
+
+SCHED_RR
+
+SCHED_BATCH
+
+SCHED_IDLE
+
+SCHED_DEADLINE
+
+------------------------------------------------------------
+Kernel Internals:
+
+task_struct
+
+runqueue
+
+scheduler class
+
+pick_next_task()
+
+context_switch()
+
+schedule()
+
+need_resched
+
+These are real kernel functions.
+
+------------------------------------------------------------
+Debug the Scheduler:
+
+ps
+
+top
+
+htop
+
+strace
+
+perf
+
+trace-cmd
+
+ftrace
+
+sched_debug
+
+/proc
+
+/sys
+
+debugfs
+
+------------------------------------------------------------
+Kernel Source:
+
+kernel/sched/core.c
+
+kernel/sched/fair.c
+
+kernel/sched/rt.c
+
+kernel/sched/deadline.c
+
+kernel/sched/idle.c
+
+------------------------------------------------------------
+Kernel Debugging:
+
+Eventually you'll debug inside the scheduler itself using:
+
+gdb - with a kernel built with debug symbols
+kgdb (kernel debugger)
+ftrace
+perf
+tracepoints (especially sched_switch and sched_wakeup)
+
+You'll be able to see exactly when and why the 
+kernel switches tasks.
+
+------------------------------------------------------------
+
+exin@exin-desktop:~/Workspace/Bash/Bash_2026/sh_08_2026$
+
+scp file.txt username@windows_ip:C:/Users/username/Desktop/
+
+syscalls.txt
+
+scp syscalls.txt exin@windows_ip:C:/Users/username/Desktop/
+
+scp exin@192.168.1.122:/home/exin/Workspace/Bash/Bash_2026/sh_08_2026/syscalls.txt D:\My Files 2026\My_Notes_2026
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
