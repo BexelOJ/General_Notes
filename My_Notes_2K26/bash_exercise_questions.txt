@@ -1,0 +1,160 @@
+------------------------------------------------------------
+Bash Exercise Roadmap (100 Exercises)
+------------------------------
+
+------------------------------------------------------------
+Level 1 — Basics (1–20):
+
+1.) Print "Hello World" - done
+2.) Print current date - done
+3.) Print current user - done
+4.) Print hostname - done
+5.) Print working directory - done
+
+6.) Store your name in a variable - done
+7.) Swap two variables - done
+8.) Read name from keyboard - done
+9.) Read two numbers and print sum - done
+10.) Calculate area of rectangle - done
+
+11.) Convert Celsius to Fahrenheit
+12.) Find largest of two numbers
+13.) Check even or odd
+14.) Check positive or negative
+15.) Find greatest of three numbers
+
+16.) Simple calculator
+17.) Print multiplication table
+18.) Reverse a string
+19.) Count characters in string
+20.) Check palindrome
+
+------------------------------------------------------------
+Level 2 — Loops (21–40):
+
+21.) Print numbers 1–100
+22.) Print even numbers
+23.) Print odd numbers
+24.) Sum of first N numbers
+25.) Factorial
+26.) Fibonacci
+27.) Prime number check
+28.) Print all primes up to N
+29.) Multiplication tables (1–10)
+30.) Star pyramid
+31.) Inverted pyramid
+32.) Floyd's triangle
+33.) Diamond pattern
+34.) Guess number game
+35.) Countdown timer
+36.) While menu program
+37.) Until loop example
+38.) Break demonstration
+39.) Continue demonstration
+40.) Infinite loop with Ctrl+C exit
+
+------------------------------------------------------------
+Level 3 — Strings (41–55):
+
+41.) Count vowels
+42.) Count consonants
+43.) Count words
+44.) Replace word
+45.) Convert to uppercase
+46.) Convert to lowercase
+47.) Check substring
+48.) Reverse words
+49.) Remove spaces
+50.) Extract file extension
+51.) Split string
+52.) Compare strings
+53.) Sort words
+54.) Find longest word
+55.) Password strength checker
+
+------------------------------------------------------------
+Level 4 — Arrays (56–65):
+
+56.) Print all elements
+57.) Print indexes
+58.) Find largest element
+59.) Find smallest
+60.) Average of array
+61.) Reverse array
+62.) Search element
+63.) Delete element
+64.) Merge arrays
+65.) Remove duplicates
+
+------------------------------------------------------------
+Level 5 — Functions (66–75):
+
+66.) Function to add numbers
+67.) Function returning value
+68.) Recursive factorial
+69.) Recursive Fibonacci
+70.) Menu using functions
+71.) Library of math functions
+72.) String utility functions
+73.) File utility functions
+74.) Logging function
+75.) Error handling function
+
+------------------------------------------------------------
+Level 6 — Files (76–90):
+
+76.) Count lines
+77.) Count words
+78.) Count characters
+79.) Find largest file
+80.) Backup directory
+81.) Rename files
+82.) Delete empty files
+83.) Find duplicate files
+84.) Print file permissions
+85.) Check file exists
+86.) Check directory exists
+87.) Monitor file changes
+88.) Compare two files
+89.) Find recently modified files
+90.) Compress directory
+
+------------------------------------------------------------
+Level 7 — Advanced Bash (91–100):
+
+91.) Process monitor
+92.) Disk usage analyzer
+93.) Memory monitor
+94.) CPU monitor
+95.) Network ping monitor
+96.) Log analyzer
+97.) Mini shell
+98.) Student database
+99.) TODO manager
+100.) Mini package manager simulation
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

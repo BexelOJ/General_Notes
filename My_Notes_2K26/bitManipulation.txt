@@ -1,0 +1,198 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+------------------------------------------------------------
+Level 1 — Basic bit operations
+------------------------------
+Bit Inspector:
+Given an integer n and a position pos, 
+determine whether bit pos contains 1.
+
+------------------------------
+Turn It On:
+Given n and pos, modify n so that bit pos becomes 1, 
+regardless of its previous value.
+
+------------------------------
+Switch It Off:
+Given n and pos, force bit at pos to 0.
+
+------------------------------
+Flip One Bit:
+Given n and pos, invert only that bit: 0 → 1 or 1 → 0.
+
+------------------------------
+Read the Lowest Bit:
+Determine whether the least-significant bit 
+of a number is 0 or 1.
+
+------------------------------
+Remove the Lowest Set Bit:
+Given a number containing one or more 1 bits, 
+clear its rightmost 1.
+
+------------------------------
+Find the Lowest Set Bit:
+Return the value represented by the 
+least-significant set bit.
+
+------------------------------
+Count the Ones:
+Find how many 1s are present in the binary representation 
+of an integer.
+
+------------------------------------------------------------
+------------------------------------------------------------
+Level 2 — Number properties
+------------------------------
+Parity Without %:
+Determine whether a number is even or odd without using 
+the modulus operator.
+
+------------------------------
+Power-of-Two Detector:
+Determine whether a positive integer can be 
+represented as 2^k.
+
+------------------------------
+Binary Mirror Test:
+Determine whether the binary representation of a number 
+has the same first and last bit.
+
+------------------------------
+Exactly One Bit:
+Determine whether a number contains exactly one set bit.
+
+------------------------------
+More Than One:
+Determine whether a number contains at least two set bits.
+
+------------------------------
+All Bits Are One:
+Determine whether all bits from bit 0 through 
+bit pos are set.
+
+------------------------------------------------------------
+------------------------------------------------------------
+Level 3 — Manipulation
+------------------------------
+
+Extract a Bit Range:
+Given n, start, and end, extract the bits 
+between those positions.
+
+------------------------------
+Clear a Range:
+Set every bit between positions start and end to 0.
+
+------------------------------
+Set a Range:
+Make every bit between positions start and 
+end equal to 1.
+
+------------------------------
+Toggle a Range:
+Flip all bits between two specified positions.
+
+------------------------------
+Swap Two Bits:
+Exchange the values of bit i and bit j.
+
+------------------------------
+Reverse the Bits:
+Reverse the bit order of a 32-bit unsigned integer.
+
+------------------------------------------------------------
+------------------------------------------------------------
+Level 4 — Interesting problems
+
+------------------------------
+Find the Unique Number:
+Every number in an array appears twice except one. 
+Find the number that appears once.
+
+------------------------------
+Two Unique Numbers:
+Every number appears twice except two numbers. 
+Find both unique values.
+
+------------------------------
+Missing Number:
+An array contains numbers from 0 to N, with one missing. 
+Find it using bitwise operations.
+
+------------------------------
+Power Without Multiplication
+Calculate n × 2^k using bit operations.
+
+------------------------------
+Divide by Two:
+Divide an integer by 2, using bit manipulation.
+
+------------------------------
+Multiply by Four:
+Multiply an integer by 4, without using *.
+
+------------------------------
+Nth Bit Pattern:
+Generate a number whose first N bits are all 1.
+
+------------------------------
+Position of First Set Bit:
+Find the position of the rightmost 1 bit.
+
+------------------------------
+Position of Highest Set Bit:
+Find the position of the most-significant 1 bit.
+
+------------------------------
+Number of Bit Changes:
+Given a and b, determine how many bits must be 
+changed to convert a into b.
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

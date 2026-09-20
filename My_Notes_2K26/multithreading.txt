@@ -1,0 +1,118 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Multithreading roadmap:
+
+------------------------------
+Thread fundamentals:
+
+Process vs thread
+Thread address space
+pthread
+std::thread
+Thread creation and termination
+
+------------------------------
+Thread lifecycle:
+
+join()
+detach()
+Thread IDs
+Passing arguments
+Returning results
+
+------------------------------
+Shared memory:
+
+Why threads can access the same variables
+Stack vs heap vs global/static data
+Data races
+
+------------------------------
+Synchronization:
+
+Mutex
+pthread_mutex_t
+std::mutex
+lock_guard
+unique_lock
+
+------------------------------
+Condition synchronization:
+
+Condition variables
+pthread_cond_t
+std::condition_variable
+
+------------------------------
+Classic problems:
+
+Producer–consumer
+Readers–writers
+Dining philosophers
+
+------------------------------
+Atomic operations:
+
+std::atomic
+Atomic load/store
+Compare-and-swap
+Lock-free concepts
+
+------------------------------
+Advanced:
+
+Deadlock
+Starvation
+Livelock
+Priority inversion
+Thread pools
+Futures/promises
+async
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

@@ -1,0 +1,135 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+1. Operators
+2. Strings
+3. Functions in more depth
+4. Scope & closures
+5. this
+
+6. Objects
+7. Classes & OOP
+8. Prototypes & prototype chain
+9. Destructuring
+10. Spread / Rest
+
+11. Callbacks
+12. Promises
+13. async / await
+14. Modules
+15. DOM / Browser APIs
+
+16. Error handling
+17. JSON
+18. Node.js
+
+
+------------------------------------------------------------
+JavaScript has 8 data types. They are broadly divided into primitive and non-primitive (object) types.
+
+------------------------------
+1. Primitive data types
+
+There are 7 primitive types:
+
+Type	Example		Meaning
+
+number	
+let x = 10;	
+Integers and floating-point numbers
+
+bigint	
+let x = 123n;	
+Very large integers
+
+string	
+let s = "Hello";	
+Text
+
+boolean	
+let b = true;	
+true / false
+
+undefined	
+let x;	
+Variable declared but no value assigned
+
+null	
+let x = null;	
+Intentionally no value
+
+symbol	
+let id = Symbol();	
+Unique identifier
+
+------------------------------
+2. Non-primitive
+
+The 8th type is:
+
+object
+
+Examples:
+let person = {
+    name: "Alice",
+    age: 25
+};
+
+Arrays are also objects:
+let numbers = [10, 20, 30];
+
+And things like Set, Map, Date, etc. are objects:
+let s = new Set();
+let m = new Map();
+
+------------------------------------------------------------
+Common Node.js console.log() format specifiers include:
+
+Specifier	Meaning
+
+%s	String
+%d	Number
+%i	Integer
+%f	Floating-point number
+%j	JSON
+%o	Object
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

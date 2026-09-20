@@ -1,0 +1,249 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+ps
+ps aux
+ps -ef
+pstree
+top
+htop
+
+------------------------------------------------------------
+uname -r
+cat /sys/kernel/debug/sched/features
+
+you're looking at internal scheduler feature controls, 
+not a list of all the
+scheduling algorithms available in Linux.
+
+------------------------------
+Scheduler features / tunable implementation behaviors:
+------------------------------
+task placement / scheduling decisions:
+
+PLACE_LAG 
+PLACE_DEADLINE_INITIAL 
+RUN_TO_PARITY
+
+------------------------------
+buddy-based task selection and cache locality:
+
+NO_NEXT_BUDDY 
+PICK_BUDDY 
+CACHE_HOT_BUDDY 
+
+------------------------------
+controls whether a waking task can trigger preemption of the 
+currently running task:
+
+WAKEUP_PREEMPTION
+
+------------------------------
+scheduler clock/tick behavior,
+including high-resolution scheduler ticks:
+
+NO_HRTICK
+NO_HRTICK_DL
+NO_DOUBLE_TICK
+
+------------------------------
+
+NONTASK_CAPACITY 
+TTWU_QUEUE 
+SIS_UTIL 
+NO_WARN_DOUBLE_CLOCK 
+
+------------------------------
+real-time scheduling and load balancing:
+
+RT_PUSH_IPI
+NO_RT_RUNTIME_SHARE 
+NO_LB_MIN 
+
+------------------------------
+ATTACH_AGE_LOAD 
+WA_IDLE 
+WA_WEIGHT 
+WA_BIAS 
+
+------------------------------
+utilization estimation:
+
+UTIL_EST 
+
+------------------------------
+NO_LATENCY_WARN NI_RANDOM 
+HZ_BW
+
+------------------------------------------------------------
+STAT is also worth learning
+
+You'll see values such as:
+
+R
+S
+D
+T
+Z
+
+------------------------------
+These represent process states:
+
+R → Running / runnable
+S → Interruptible sleep
+D → Uninterruptible sleep, usually waiting on I/O
+T → Stopped/traced
+Z → Zombie
+------------------------------------------------------------
+ps aux
+
+a → processes from other users
+u → detailed user-oriented format
+x → include processes without terminals
+
+------------------------------
+ps -ef
+
+-e and -f are separate options
+
+-e = every process
+-f = full-format listing
+
+------------------------------
+UID   → User ID
+PID   → Process ID
+PPID  → Parent Process ID
+C     → CPU utilization indicator
+STIME → Start time
+TTY   → Terminal
+TIME  → CPU time
+CMD   → Command
+
+------------------------------
+Column	Full form	Meaning
+
+USER - User - 
+	User who owns the process
+
+PID - Process ID - 
+	Unique ID assigned to the process
+
+%CPU - Percentage of CPU - 
+	Percentage of CPU being used
+
+%MEM - Percentage of Memory - 
+	Percentage of physical RAM being used
+
+VSZ - Virtual Memory Size - 
+	Total virtual memory available to the process, usually in KB
+
+RSS - Resident Set Size - 
+	Amount of the process's memory currently resident in physical RAM
+
+TTY - Teletypewriter / Terminal - 
+	Terminal associated with the process
+
+STAT - State - 
+	Current state of the process
+
+START - Start time - 
+	When the process started
+
+TIME - CPU Time - 
+	Total CPU time consumed by the process
+
+COMMAND - Command - 
+	Command/program that started the process
+
+------------------------------------------------------------
+ps -eo pid,cls,rtprio,ni,pri,stat,comm
+
+TS → normal time-sharing tasks
+FF → SCHED_FIFO
+RR → SCHED_RR
+DL → SCHED_DEADLINE
+
+------------------------------------------------------------
+Learn scheduling policies:
+
+chrt
+chrt -m
+
+SCHED_OTHER
+SCHED_FIFO
+SCHED_RR
+SCHED_DEADLINE
+
+chrt -f 80 ./program
+
+------------------------------------------------------------
+CPU affinity:
+
+taskset
+
+taskset -c 2 ./program
+
+------------------------------------------------------------
+Observe scheduling instead of guessing:
+
+vmstat
+pidstat
+perf
+perf sched
+
+sudo perf sched record ./myprogram
+sudo perf sched latency
+
+------------------------------------------------------------
+Write your own experiments:
+
+Thread 1 → CPU-intensive
+Thread 2 → CPU-intensive
+Thread 3 → sleep periodically
+Thread 4 → I/O
+
+nice
+renice
+taskset
+chrt
+sleep
+CPU affinity
+number of threads
+
+------------------------------------------------------------
+task_struct
+scheduler classes
+runqueues
+context switching
+wakeups
+preemption
+load balancing
+CPU scheduling
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

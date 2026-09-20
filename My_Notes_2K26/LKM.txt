@@ -1,0 +1,236 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+01  Hello World LKM
+02  Module parameters
+03  printk / pr_info / pr_err
+04  Kernel logging levels
+05  Character device
+
+06  /dev/mydevice
+07  file_operations
+08  open/read/write/close
+09  ioctl
+10  Kernel memory allocation
+
+11  kmalloc/kfree
+12  copy_to_user/copy_from_user
+13  Kernel linked lists
+14  Kernel threads
+15  Mutex / semaphore / spinlock
+
+16  Wait queues
+17  Interrupt handling
+18  Workqueues
+19  Timers
+20  Procfs / Sysfs
+
+------------------------------------------------------------
+kernel logging levels:
+
+Level	Macro	Meaning
+
+0	KERN_EMERG		System is unusable
+1	KERN_ALERT		Immediate action required
+2	KERN_CRIT		Critical condition
+3	KERN_ERR		Error condition
+4	KERN_WARNING	Warning
+5	KERN_NOTICE		Normal but significant
+6	KERN_INFO		Informational
+7	KERN_DEBUG		Debug information
+
+------------------------------------------------------------
+end = ktime_get_ns();
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+exin@exin-desktop:~/Workspace/LinuxDD/LDD_2026/LDD_08_2026/hello_lkm$ lsmod
+
+Module                  Size  Used by
+
+hello                  12288  0
+tls                   151552  0
+veth                   36864  0
+nf_conntrack_netlink    53248  0
+
+xt_nat                 12288  30
+xt_MASQUERADE          16384  2
+
+bridge                372736  0
+stp                    12288  1 bridge
+llc                    16384  2 bridge,stp
+
+xfrm_user              53248  1
+
+xfrm_algo              20480  1 xfrm_user
+
+xt_set                 20480  0
+ip_set                 61440  1 xt_set
+
+nft_chain_nat          12288  19
+nf_nat                 61440  3 xt_nat,nft_chain_nat,xt_MASQUERADE
+
+snd_seq_dummy          12288  0
+snd_hrtimer            12288  1
+
+ib_core               471040  0
+overlay               192512  7
+qrtr                   45056  2
+bnep                   32768  2
+ip6t_REJECT            12288  1
+nf_reject_ipv6         24576  1 ip6t_REJECT
+xt_hl                  12288  22
+
+ip6t_rt                16384  3
+ipt_REJECT             12288  1
+
+nf_reject_ipv4         16384  1 ipt_REJECT
+xt_LOG                 16384  10
+nf_log_syslog          20480  10
+nft_limit              16384  13
+
+xt_limit               16384  0
+xt_addrtype            12288  8
+xt_tcpudp              20480  60
+xt_conntrack           12288  18
+
+nf_conntrack          192512  5 xt_conntrack,nf_nat,xt_nat,nf_conntrack_netlink,xt_MASQUERADE
+nf_defrag_ipv6         24576  1 nf_conntrack
+nf_defrag_ipv4         12288  1 nf_conntrack
+nft_compat             20480  155
+nf_tables             327680  1161 nft_compat,nft_chain_nat,nft_limit
+
+binfmt_misc            24576  1
+vc4                   438272  9
+joydev                 32768  0
+snd_soc_hdmi_codec     24576  2
+drm_display_helper    225280  1 vc4
+cec                    90112  2 vc4,drm_display_helper
+input_leds             12288  0
+drm_dma_helper         24576  2 vc4
+brcmfmac_wcc           12288  0
+hci_uart              167936  0
+snd_soc_core          376832  2 vc4,snd_soc_hdmi_codec
+btsdio                 20480  0
+snd_compress           28672  1 snd_soc_core
+btqca                  28672  1 hci_uart
+snd_bcm2835            32768  1
+brcmfmac              495616  1 brcmfmac_wcc
+ac97_bus               12288  1 snd_soc_core
+snd_pcm_dmaengine      16384  1 snd_soc_core
+btrtl                  32768  1 hci_uart
+snd_pcm               184320  5 snd_bcm2835,snd_soc_hdmi_codec,snd_compress,snd_soc_core,snd_pcm_dmaengine
+btintel                53248  1 hci_uart
+brcmutil               28672  1 brcmfmac
+btbcm                  24576  1 hci_uart
+bcm2835_codec          49152  0
+snd_seq_midi           24576  0
+rpivid_hevc            69632  0
+snd_seq_midi_event     16384  1 snd_seq_midi
+v4l2_mem2mem           45056  2 bcm2835_codec,rpivid_hevc
+bcm2835_v4l2           49152  0
+cfg80211             1179648  1 brcmfmac
+bcm2835_isp            32768  0
+bluetooth             970752  16 btrtl,btqca,btsdio,btintel,hci_uart,btbcm,bnep
+snd_rawmidi            49152  1 snd_seq_midi
+bcm2835_mmal_vchiq     40960  3 bcm2835_codec,bcm2835_v4l2,bcm2835_isp
+v3d                   143360  2
+crct10dif_ce           12288  1
+videobuf2_dma_contig    24576  3 bcm2835_codec,rpivid_hevc,bcm2835_isp
+ecdh_generic           16384  1 bluetooth
+videobuf2_vmalloc      20480  1 bcm2835_v4l2
+gpu_sched              61440  1 v3d
+snd_seq               118784  9 snd_seq_midi,snd_seq_midi_event,snd_seq_dummy
+rfkill                 40960  7 bluetooth,cfg80211
+vc_sm_cma              49152  2 bcm2835_mmal_vchiq,bcm2835_isp
+drm_shmem_helper       24576  1 v3d
+videobuf2_memops       16384  2 videobuf2_vmalloc,videobuf2_dma_contig
+ecc                    40960  1 ecdh_generic
+raspberrypi_hwmon      12288  0
+videobuf2_v4l2         32768  5 bcm2835_codec,bcm2835_v4l2,rpivid_hevc,v4l2_mem2mem,bcm2835_isp
+snd_seq_device         16384  3 snd_seq,snd_seq_midi,snd_rawmidi
+videodev              352256  6 bcm2835_codec,videobuf2_v4l2,bcm2835_v4l2,rpivid_hevc,v4l2_mem2mem,bcm2835_isp
+snd_timer              49152  3 snd_seq,snd_hrtimer,snd_pcm
+videobuf2_common       81920  9 bcm2835_codec,videobuf2_vmalloc,videobuf2_dma_contig,videobuf2_v4l2,bcm2835_v4l2,rpivid_hevc,v4l2_mem2mem,videobuf2_memops,bcm2835_isp
+raspberrypi_gpiomem    12288  0
+mc                     94208  7 videodev,bcm2835_codec,videobuf2_v4l2,videobuf2_common,rpivid_hevc,v4l2_mem2mem,bcm2835_isp
+snd                   139264  15 snd_seq,snd_seq_device,snd_bcm2835,snd_soc_hdmi_codec,snd_timer,snd_compress,snd_soc_core,snd_pcm,snd_rawmidi
+sch_fq_codel           24576  6
+fuse                  163840  5
+efi_pstore             12288  0
+dm_mod                200704  0
+dax                    49152  1 dm_mod
+nfnetlink              20480  6 nft_compat,nf_conntrack_netlink,nf_tables,ip_set
+ip_tables              36864  0
+x_tables               65536  14 xt_conntrack,nft_compat,xt_LOG,xt_tcpudp,xt_addrtype,xt_nat,ip6t_rt,xt_set,ipt_REJECT,ip_tables,xt_limit,xt_hl,xt_MASQUERADE,ip6t_REJECT
+autofs4                57344  2
+btrfs                1814528  0
+blake2b_generic        20480  0
+xor                    12288  1 btrfs
+xor_neon               16384  1 xor
+raid6_pq              110592  1 btrfs
+libcrc32c              12288  4 nf_conntrack,nf_nat,btrfs,nf_tables
+hid_generic            12288  0
+usbhid                 81920  0
+spidev                 28672  0
+dwc2                  380928  0
+roles                  16384  1 dwc2
+udc_core               86016  1 dwc2
+i2c_brcmstb            24576  0
+bcm2835_mmc            45056  0
+i2c_bcm2835            24576  1
+spi_bcm2835            32768  0
+xhci_pci               28672  0
+xhci_pci_renesas       24576  1 xhci_pci
+phy_generic            20480  1
+nvmem_rmem             12288  0
+uio_pdrv_genirq        16384  0
+uio                    32768  1 uio_pdrv_genirq
+z3fold                 24576  32
+zstd                   12288  8
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+
+
+

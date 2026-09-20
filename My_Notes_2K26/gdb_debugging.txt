@@ -1,0 +1,225 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Your first useful gdb commands:
+Command	Short	Purpose
+
+help		—	Show help
+
+run			r	Start the program
+
+quit		q	Exit GDB
+
+list		l	Show source code
+
+break		b	Set a breakpoint
+
+next		n	Execute the next source line 
+				(don't step into functions)
+
+step		s	Execute the next source line 
+				(step into functions)
+
+continue	c	Resume execution until the next breakpoint 
+				or program end
+
+print		p	Display the value of a variable or 
+				expression
+
+backtrace	bt	Show the call stack
+
+------------------------------------------------------------
+Level 1 (Basics)
+
+run
+break
+next
+step
+continue
+print
+backtrace
+list
+quit
+
+------------------------------
+Level 2 (Intermediate)
+
+info breakpoints
+info locals
+info args
+display
+watch
+frame
+up
+down
+
+------------------------------
+Level 3 (Advanced)
+
+info registers
+x (examine memory)
+disassemble
+layout asm
+info threads
+thread
+thread apply all bt
+
+------------------------------------------------------------
+gdb command list:
+List of classes of commands:
+
+aliases
+-- User-defined aliases of other commands.
+
+breakpoints
+-- Making program stop at certain points.
+
+data
+-- Examining data.
+
+files
+-- Specifying and examining files.
+
+internals
+-- Maintenance commands.
+
+obscure
+-- Obscure features.
+
+running
+-- Running the program.
+
+stack
+-- Examining the stack.
+
+status
+-- Status inquiries.
+
+support
+-- Support facilities.
+
+text-user-interface
+-- TUI is the GDB text based interface.
+
+tracepoints
+-- Tracing of program execution without stopping the program.
+
+user-defined
+-- User-defined commands.
+
+------------------------------
+Type "help" followed by a class name
+for a list of commands in that class.
+
+Type "help all" 
+for the list of all commands.
+
+Type "help" followed by command name
+for full documentation.
+
+Type "apropos word" to search
+for commands related to "word".
+
+Type "apropos -v word"
+for full documentation of commands related to "word".
+
+Command name abbreviations are allowed if unambiguous.
+
+------------------------------------------------------------
+Most important GDB commands
+
+Here are the commands you'll use most often.
+
+Program execution    Command	Meaning
+run (r)
+Start the program
+
+start
+Run and stop at main()
+
+continue (c)
+Continue execution
+
+next (n)
+Next source line (step over)
+
+step (s)
+Step into function
+
+finish
+Run until current function returns
+
+until
+Continue until a later line
+
+kill
+Terminate the program
+
+quit (q)
+Exit GDB
+
+
+------------------------------------------------------------
+Registers 
+(x0–x30, w0–w30, sp, pc)
+
+Data types and register sizes
+
+Memory
+(ldr, str)
+
+Stack
+(stp, ldp)
+
+Arithmetic
+(add, sub, mul)
+
+Branching
+(b, bl, ret)
+
+Function calls and stack frames
+
+Calling convention
+(how C/C++ uses registers)
+
+Reading compiler-generated assembly
+
+Debugging real crashes with GDB
+
+------------------------------------------------------------
+For Linux kernel debugging and embedded development, 
+you'll use roughly 30–50 instructions most of the time.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

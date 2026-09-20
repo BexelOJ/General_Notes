@@ -1,0 +1,138 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+Other common names, for Design Module:
+
+Design file
+RTL file
+RTL module
+HDL source file
+DUT (Design Under Test) when used during simulation
+
+------------------------------------------------------------
+gates → module name
+uut_gates → instance name
+
+------------------------------------------------------------
+In Verilog, 
+there are multiple valid ways to declare a module:
+
+------------------------------
+Method 1: ANSI-style (Modern Verilog)
+
+module gates(
+    input a,
+    input b,
+    output and_o,
+    output or_o,
+    output not_o,
+    output nand_o,
+    output nor_o,
+    output xor_o,
+    output xnor_o
+);
+
+    // Logic
+
+endmodule
+
+------------------------------
+Or even more compact:
+
+module gates(input a, b,
+             output and_o, or_o, not_o, nand_o, nor_o, xor_o, xnor_o);
+
+    // Logic
+
+endmodule
+
+------------------------------
+Method 2: Non-ANSI-style (Old Verilog-1995)
+Older Verilog separated 
+the port list from 
+the port declarations:
+
+module gates(a, b,
+             and_o, or_o, not_o,
+             nand_o, nor_o,
+             xor_o, xnor_o);
+
+input a;
+input b;
+
+output and_o;
+output or_o;
+output not_o;
+output nand_o;
+output nor_o;
+output xor_o;
+output xnor_o;
+
+    // Logic
+
+endmodule
+
+This style is still encountered when maintaining 
+legacy code
+
+------------------------------
+Method 3: Declare Multiple Signals Together
+
+
+
+------------------------------
+Method 4: Include Data Types (SystemVerilog)
+
+module gates(
+    input  logic a,
+    input  logic b,
+    output logic and_o,
+    output logic or_o,
+    output logic not_o,
+    output logic nand_o,
+    output logic nor_o,
+    output logic xor_o,
+    output logic xnor_o
+);
+
+endmodule
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

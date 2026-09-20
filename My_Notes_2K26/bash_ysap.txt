@@ -1,0 +1,677 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+${} → Variable Expansion
+"Get the value of a variable."
+
+$() → Command Substitution
+"Run this command and replace it with its output."
+
+------------------------------------------------------------
+Parameter expansion is one of the most powerful 
+features of Bash:
+
+------------------------------
+1. Basic expansion:
+
+name="Lr"
+echo "${name}"
+
+Output:
+Lr
+
+------------------------------
+2. Default value: ${var:-default}
+If the variable is unset or empty, use a default value.
+
+name=""
+echo "${name:-Guest}"
+
+Output:
+Guest
+
+------------------------------
+3. Use an alternate value: ${var:+value}
+If the variable is set and not empty, substitute another value.
+
+name="Lr"
+echo "${name:+Present}"
+
+Output:
+Present
+
+------------------------------
+4. Assign a default: ${var:=default}
+If the variable is unset or empty, assign it the default value.
+
+unset city
+echo "${city:=Bangalore}"
+echo "${city}"
+
+Output:
+Bangalore
+Bangalore
+
+------------------------------
+5. Display an error: ${var:?message}
+Useful when a required variable is missing.
+
+unset file
+echo "${file:?File name is required}"
+
+Output:
+bash: file: File name is required
+
+------------------------------
+6. Length of a string: ${#var}
+The # means length.
+
+name="Bangalore"
+echo "${#name}"
+
+Output:
+9
+
+------------------------------
+7. Remove shortest suffix: ${var%pattern}
+
+file="report.txt"
+echo "${file%.txt}"
+
+Output:
+report
+
+------------------------------
+8. Remove longest suffix: ${var%%pattern}
+
+
+------------------------------
+9. Remove shortest prefix: ${var#pattern}
+
+
+------------------------------
+10. Remove longest prefix: ${var##pattern}
+
+
+------------------------------
+11. Replace text: ${var/old/new}
+
+
+------------------------------
+12. Replace all occurrences: ${var//old/new}
+
+
+------------------------------
+13. Substring extraction
+
+
+------------------------------
+14. Convert to uppercase
+
+
+------------------------------
+15. Convert to lowercase
+
+
+------------------------------
+
+------------------------------------------------------------
+bash Keywords:
+
+if
+then
+else
+elif
+fi
+
+for
+while
+until
+do
+done
+
+case
+esac
+
+function
+in
+time
+select
+until
+
+------------------------------------------------------------
+Builtin commands: implemented inside the Bash shell itself.
+
+Examples:
+
+echo
+printf
+
+cd
+pwd
+read
+
+set
+unset
+
+export
+alias
+
+type
+help
+
+history
+source
+
+exec
+exit
+
+shift
+
+------------------------------
+exin@exin-desktop:~/Workspace/$ type set
+set is a shell builtin
+
+type if
+if is a shell keyword
+
+------------------------------------------------------------
+Functions:
+
+Concept				Example
+
+Define function		greet() { ... }
+Call function		greet
+
+First argument		$1
+Second argument		$2
+Number of arguments	$#
+All arguments		"$@"
+
+Local variable		local var=value
+Return status		return 0
+Capture output		result=$(func)
+List functions		declare -F
+Show function		declare -f greet
+Remove function		unset -f greet
+
+------------------------------------------------------------
+Conditionals:
+
+if condition; then
+    commands
+fi
+
+------------------------------
+if condition; then
+    commands
+else
+    commands
+fi
+
+------------------------------
+if condition1; then
+    commands
+elif condition2; then
+    commands
+elif condition3; then
+    commands
+else
+    commands
+fi
+
+------------------------------------------------------------
+Common comparison operators:
+------------------------------
+Numeric:
+
+Operator	Meaning
+
+-eq			Equal
+-ne			Not equal
+-gt			Greater than
+-ge			Greater than or equal
+-lt			Less than
+-le			Less than or equal
+
+------------------------------
+String:
+
+Operator	Meaning
+
+= or ==		Equal
+!=			Not equal
+-z			String is empty
+-n			String is not empty
+
+------------------------------
+File:
+
+Operator	Meaning
+
+-e			Exists
+
+-f			Regular file
+-d			Directory
+
+-r			Readable
+-w			Writable
+-x			Executable
+
+-s			File size > 0
+
+------------------------------------------------------------
+Common read Options:
+
+Option		Meaning
+
+read -p			Display a prompt
+read -s			Silent mode (hide input)
+
+read -t			Timeout in seconds
+read -n			Read only N characters
+
+read -a			Read into an array
+read -r			Don't treat backslash (\) as an escape character
+read -d			Read until a specified delimiter
+
+------------------------------------------------------------
+No newline (-n):
+
+echo -n "Hello"  # no newline
+echo " World"    # with newline
+
+Output:
+Hello World
+
+------------------------------------------------------------
+Escape sequences (-e):
+
+echo -e "One\nTwo\nThree"
+
+Output:
+One
+Two
+Three
+
+------------------------------------------------------------
+printf "Hello\n"
+
+# Unlike echo, printf does not automatically add a newline.
+
+------------------------------
+name="Bexel"
+age=34
+
+printf "Name: %s\nAge: %d\n" "$name" "$age"
+
+------------------------------
+printf "%.2f\n" 12.3456
+
+------------------------------
+printf "%-10s %5d\n" "Apple" 10
+printf "%-10s %5d\n" "Orange" 25
+
+------------------------------------------------------------
+input/output redirection:
+
+------------------------------------------------------------
+Common printf field width examples:
+
+Format	Meaning								ExampleOutput
+
+%10s	String, right-aligned, width 10			" Apple"
+%-10s	String, left-aligned, width 10			"Apple "
+
+%5d		Integer, right-aligned, width 5			" 42"
+%-5d	Integer, left-aligned, width 5			"42 "
+%08d	Integer, width 8, pad with zeros		"00000042"
+
+%.2f	Floating-point number with 2 decimal places	"3.14"
+
+------------------------------
+%[flags][width][.precision]type
+
+------------------------------
+%-10s
+│ │  │ └── type (string)
+│ │  └──── width (10 characters)
+│ └─────── flag (left-align)
+└───────── start of format specifier
+
+------------------------------
+Why use field widths? :
+
+printf "%s %d\n" "Apple" 10
+printf "%s %d\n" "Watermelon" 200
+printf "%s %d\n" "Kiwi" 5
+
+Output:
+Apple 10
+Watermelon 200
+Kiwi 5
+
+------------------------------
+With field widths:
+
+printf "%-12s %5d\n" "Apple" 10
+printf "%-12s %5d\n" "Watermelon" 200
+printf "%-12s %5d\n" "Kiwi" 5
+
+Output:
+Apple           10
+Watermelon     200
+Kiwi             5
+
+------------------------------------------------------------
+[[ ]] → Conditional Expression
+
+Use [[ ]] when testing:
+
+Strings
+Files
+Pattern matching
+Logical conditions
+Numeric comparisons (-eq, -lt, etc.)
+
+------------------------------
+(( )) → Arithmetic Expression
+
+Use (( )) when working with numbers.
+
+------------------------------
+count=10
+
+while (( count > 0 ))
+do
+    echo "$count"
+    ((count--))
+done
+
+------------------------------
+while [[ $count -gt 0 ]]
+do
+    echo "$count"
+    ((count--))
+done
+
+------------------------------------------------------------
+[[ $a -eq $b ]]
+[[ $a -ne $b ]]
+[[ $a -lt $b ]]
+[[ $a -gt $b ]]
+[[ $a == "abc" ]]
+[[ $a != "abc" ]]
+
+------------------------------
+(( a == b ))
+(( a != b ))
+(( a < b ))
+(( a > b ))
+(( a >= b ))
+(( a <= b ))
+
+------------------------------
+Which one should I use?:
+
+Situation			Recommended
+
+Arithmetic 			(+, -, *, <, >)	(( ))
+
+String comparison	[[ ]]
+File tests 			(-f, -d, -r)	[[ ]]
+Pattern matching 	(==, =~)	[[ ]]
+Numeric counters in loops	(( ))
+
+------------------------------------------------------------
+() → Starts a subshell
+(( )) → Evaluates an arithmetic expression
+[[ ]] → Evaluates a conditional expression
+
+------------------------------------------------------------
+The three constructs:
+
+------------------------------
+1. ()
+
+Creates a subshell:
+
+pwd
+
+(
+    cd /tmp
+    pwd
+)
+
+pwd
+
+Output:
+
+/home/exin
+/tmp
+/home/exin
+
+The cd only affects the subshell.
+
+------------------------------
+2. (( ))
+
+Arithmetic evaluation:
+
+count=5
+
+if (( count > 3 ))
+then
+    echo "Greater"
+fi
+
+------------------------------
+3. [[ ]]
+
+Conditional evaluation
+
+name="Bexel"
+
+if [[ "$name" == "Bexel" ]]
+then
+    echo "Match"
+fi
+
+------------------------------------------------------------
+Summary:
+Syntax		Purpose							Example
+
+( ... )		Run commands in a subshell
+								(cd /tmp; ls)
+
+{ ...; }	Group commands in the current shell
+								{ echo "A"; echo "B"; }
+
+(( ... ))	Arithmetic evaluation
+								(( count > 10 ))
+
+[[ ... ]]	Conditional tests
+								[[ "$x" == "yes" ]]
+
+[ ... ]		POSIX test command
+								[ "$x" = "yes" ]
+
+------------------------------------------------------------
+Bash arithmetic ((( )) and $(( ))) supports integers only
+
+------------------------------------------------------------
+grep, sed, and awk are the 
+three classic text-processing tools
+
+------------------------------
+Tool	Main Purpose				Think of it as
+
+grep	Find lines					Search
+sed		Edit lines					Editor
+awk		Process fields and data		Programming language
+
+------------------------------
+Analogy
+Imagine a library:
+
+grep = Librarian who finds the right books.
+
+sed = Editor who corrects or changes the text.
+
+awk = Analyst who extracts information and performs 
+	  calculations.
+
+------------------------------
+grep = only for searching
+
+sed = stream editor, for replace text
+
+awk = filter records
+
+------------------------------------------------------------
+grep [OPTIONS] PATTERN FILE
+
+grep "hello" file.txt
+
+------------------------------
+Common grep Options:
+
+Option	Meaning		Example
+
+-i		Ignore case	
+				grep -i "hello" file.txt
+
+-v		Invert match (show non-matching lines)	
+				grep -v "hello" file.txt
+
+-n		Show line numbers	
+				grep -n "hello" file.txt
+
+-c		Count matching lines	
+				grep -c "hello" file.txt
+
+-r		Recursive search in directories	
+				grep -r "main" src/
+
+-w		Match whole words only	
+				grep -w "cat" file.txt
+
+-x		Match entire line	
+				grep -x "Hello" file.txt
+
+-l		Show only filenames with matches	
+				grep -l "main" *.c
+
+-L		Show filenames without matches	
+				grep -L "main" *.c
+
+-o		Print only the matching text	
+				grep -o "[0-9]*" file.txt
+
+-A n	Show n lines After match	
+				grep -A 2 "error" log.txt
+
+-B n	Show n lines Before match	
+				grep -B 2 "error" log.txt
+
+-C n	Show n lines before & after	
+				grep -C 2 "error" log.txt
+
+-e		Multiple search patterns	
+				grep -e "cat" -e "dog" file.txt
+
+-E  	Multiple search patterns
+				grep -E "cat|dog" animals.txt
+
+-f		Read patterns from file	
+				grep -f patterns.txt file.txt
+
+-E		Extended regular expressions	
+				`grep -E "cat
+
+-F		Fixed string search (no regex)	
+				grep -F "a+b" file.txt
+
+-q		Quiet mode (no output, only exit status)	
+				grep -q "hello" file.txt
+
+--color=auto	Highlight matches	
+				grep --color=auto "hello" file.txt
+
+------------------------------
+Exit Status:
+grep is often used in scripts because of its return value.
+
+Exit Code	Meaning
+
+0	Match found
+1	No match found
+2	An error occurred
+
+------------------------------
+-i   Ignore case
+-v   Invert match
+-n   Line numbers
+-c   Count matches
+-r   Recursive search
+
+-w   Whole word
+-o   Only matching text
+
+-A   After context
+-B   Before context
+-C   Surrounding context
+-E   Extended regex
+-F   Fixed string
+
+-q   Quiet mode
+-l   List matching files
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

@@ -1,0 +1,116 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Mnemonic	Full meaning	Purpose
+
+mov	: Move
+// Copy data between registers
+
+ldr	: Load Register
+// Read data from memory into a register
+
+str	: Store Register
+// Write data from a register to memory
+
+stp	: Store Pair
+// Store two registers to memory
+
+ldp	: Load Pair
+// Load two registers from memory
+
+b	: Branch
+// Unconditional jump
+
+bl	: Branch with Link
+// Call a function
+
+ret	: Return
+// Return from a function
+
+add	: Add
+// Addition
+
+sub	: Subtract
+// Subtraction
+
+cmp	: Compare
+// Compare two values
+
+adr : Address
+// 
+
+adrp : Address of 4 KB Page
+// Compute the base address of a memory page
+
+cbz : Compare and Branch on Zero
+// 
+
+cbnz : Compare and Branch on Non Zero
+// 
+
+and : Logical AND
+// Performs a bitwise AND operation
+
+orr : Logical OR
+// Performs a bitwise OR operation
+
+eor : Exclusive OR
+// Performs a bitwise XOR operation
+
+lsl : Logical Shift Left
+// Shifts bits to the left
+
+lsr : Logical Shift Right
+// Shifts bits to the Right
+
+nop : No Operation
+// 
+
+
+------------------------------------------------------------
+X0–X30 → 64-bit general-purpose registers.
+
+W0–W30 → 32-bit view of those registers.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

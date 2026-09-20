@@ -1,0 +1,223 @@
+------------------------------------------------------------
+Connecting to device...
+Connected. Now doing extended checks.
+
+Sending echo to device...
+Device replied to echo with expected contents.
+
+Sending echo to device...
+Device replied to echo with expected contents.
+
+Checking kernel version...
+Linux 6.8.0-1057-raspi aarch64
+
+Checking if specified ports are available...
+All specified ports are available.
+
+Checking whether "generic file copy" works...
+"generic file copy" is functional.
+
+Checking whether "sftp" works...
+"sftp" is functional.
+
+Checking whether "rsync" works...
+Failed to start "rsync": "rsync" failed to start: The program "rsync" does not exist or is not executable.
+
+Checking if required commands are available...
+
+base64...
+base64 found.
+
+cat...
+cat found.
+
+chmod...
+chmod found.
+
+cp...
+cp found.
+
+cut...
+cut found.
+
+dd...
+dd found.
+
+df...
+df found.
+
+echo...
+echo found.
+
+env...
+env found.
+
+eval...
+eval found.
+
+exit...
+exit found.
+
+kill...
+kill found.
+
+ls...
+ls found.
+
+mkdir...
+mkdir found.
+
+mkfifo...
+mkfifo found.
+
+mktemp...
+mktemp found.
+
+mv...
+mv found.
+
+printf...
+printf found.
+
+read...
+read found.
+
+readlink...
+readlink found.
+
+rm...
+rm found.
+
+sed...
+sed found.
+
+sh...
+sh found.
+
+shift...
+
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Edit Qt program from windows and scp to rpi server and run.
+
+scp -r "D:\WorkSpace\Qt\2026_Qt\2026_06_Jun_Qt\QtRpiCounter" exin@192.168.0.122:/home/exin/Workspace/Qt/Qt_2026/Qt_06_2026/
+
+recursive source destination
+
+rm -rf build # inside Project_folder, remove old build directory
+
+mkdir build # create new build directory
+cmake ..
+
+make -j4
+ 
+./executableFile # run the executable file
+ 
+------------------------------------------------------------
+UIC (User Interface Compiler)
+MOC - 
+Meta-Object System
+
+------------------------------------------------------------
+Q_OBJECT enables Qt's Meta-Object System
+Q_SLOT
+Q_PROPERTY
+
+------------------------------------------------------------
+private slots:   → only internal use (most common)
+protected slots: → accessible in subclasses
+public slots:    → accessible externally
+
+------------------------------------------------------------
+On your system 'QMainWindow' lives inside Qt installation, 
+like:
+
+Qt/6.x.x/gcc_64/include/QtWidgets/QMainWindow
+
+and implementation is in Qt library binaries (.so, .dll).
+
+------------------------------------------------------------
+What are slots?
+
+A slot = a function that reacts to signals
+
+------------------------------------------------------------
+mainwindow.ui is just an XML file
+
+------------------------------------------------------------
+centralWidget = new QWidget(MainWindow);
+
+pushButton = new QPushButton(centralWidget);
+pushButton = new QPushButton(this);
+
+label = new QLabel(centralWidget);
+
+------------------------------------------------------------
+Qt classes: 
+“Q specifies that this class is a part of the Qt library.”
+
+QWidget
+QPushButton
+QLabel
+
+------------------------------------------------------------
+QObject
+   ↓
+QWidget
+   ↓
+QAbstractButton
+   ↓
+QPushButton
+
+------------------------------------------------------------
+https://www.youtube.com/shorts/9jIKSTifwRk
+
+------------------------------------------------------------
+https://github.com/BexelOJ?tab=projects
+
+------------------------------------------------------------
+gradle.properties (source-level, not build folder)
+
+
+
+------------------------------------------------------------
+23:09:19: Running steps for project QtRpiCounter...
+23:09:19: Starting: "D:\Qt\Tools\CMake_64\bin\cmake.exe" --build D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug --target clean
+jom: parallel job execution disabled for Makefile
+23:09:19: The command "D:\Qt\Tools\CMake_64\bin\cmake.exe --build D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug --target clean" finished successfully.
+23:09:19: Starting: "D:\Qt\Tools\CMake_64\bin\cmake.exe" --build D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug --target all
+jom: parallel job execution disabled for Makefile
+[  0%] Built target QtRpiCounter_autogen_timestamp_deps
+[  0%] Built target qt_internal_plugins
+[ 11%] Automatic MOC and UIC for target QtRpiCounter
+[ 11%] Built target QtRpiCounter_autogen
+[ 22%] Automatic RCC for resources.qrc
+[ 33%] Building CXX object CMakeFiles/QtRpiCounter.dir/QtRpiCounter_autogen/mocs_compilation.cpp.o
+[ 44%] Building CXX object CMakeFiles/QtRpiCounter.dir/main.cpp.o
+[ 66%] Building CXX object CMakeFiles/QtRpiCounter.dir/mainwindow.cpp.o
+[ 66%] Building CXX object CMakeFiles/QtRpiCounter.dir/QtRpiCounter_autogen/EWIEGA46WW/qrc_resources.cpp.o
+[ 77%] Linking CXX shared module libQtRpiCounter_arm64-v8a.so
+[ 88%] Built target QtRpiCounter
+[100%] Copying QtRpiCounter binary to apk folder
+[100%] Built target QtRpiCounter_prepare_apk_dir
+23:09:35: The command "D:\Qt\Tools\CMake_64\bin\cmake.exe --build D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug --target all" finished successfully.
+23:09:35: Starting: "D:\Qt\6.7.3\mingw_64\bin\androiddeployqt.exe" --input D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug/android-QtRpiCounter-deployment-settings.json --output D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug/android-build --android-platform android-36 --jdk "C:/Program Files/Java/jdk-17" --gradle
+Generating Android Package
+  Input file: D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug/android-QtRpiCounter-deployment-settings.json
+  Output directory: D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug/android-build/
+  Application binary: QtRpiCounter
+  Android build platform: android-36
+  Install to device: No
+  
+  
+ [100%] Built target QtRpiCounter_prepare_apk_dir
+ 
+ 
+23:26:44: The command "D:\Qt\Tools\CMake_64\bin\cmake.exe --build D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug --target all" finished successfully.
+23:26:44: Starting: "D:\Qt\6.7.3\mingw_64\bin\androiddeployqt.exe" --input D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug/android-QtRpiCounter-deployment-settings.json --output D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug/android-build --android-platform android-36 --jdk "C:/Program Files/Java/jdk-17" --gradle
+  
+
+Build: cmake.exe --build D:/WorkSpace/Qt/2026_Qt/2026_06_Jun_Qt/QtRpiCounter/build/Qt_6_7_3_for_Android_arm64_v8a-Debug --target all

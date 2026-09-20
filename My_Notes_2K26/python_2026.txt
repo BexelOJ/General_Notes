@@ -1,0 +1,168 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+python3 -m venv myenv
+#to create virtual environment named myenv
+
+source myenv/bin/activate
+#to activate virtual environment, myenv
+
+------------------------------------------------------------
+Number of Python Keywords : 35
+
+1 : False
+2 : None
+3 : True
+4 : and
+5 : as
+6 : assert
+7 : async
+8 : await
+9 : break
+10 : class
+11 : continue
+12 : def
+13 : del
+14 : elif
+15 : else
+16 : except
+17 : finally
+18 : for
+19 : from
+20 : global
+21 : if
+22 : import
+23 : in
+24 : is
+25 : lambda
+26 : nonlocal
+27 : not
+28 : or
+29 : pass
+30 : raise
+31 : return
+32 : try
+33 : while
+34 : with
+35 : yield
+
+------------------------------
+1 : _
+2 : case
+3 : match
+4 : type
+
+------------------------------------------------------------
+1 : False
+2 : None
+3 : True
+
+4 : and
+5 : or
+6 : not
+
+7 : in
+8 : is
+9 : as
+
+10 : assert
+11 : async
+12 : await
+
+13 : def
+14 : class
+15 : lambda
+16 : return
+
+17 : break
+18 : continue
+
+19 : global
+20 : nonlocal
+
+21 : del
+
+22 : if
+23 : elif
+24 : else
+
+25 : for
+26 : while
+27 : pass
+
+28 : from
+29 : import
+
+31 : try
+32 : except
+33 : finally
+30 : raise
+
+33 : with
+35 : yield
+
+------------------------------------------------------------
+LIST
+  ordered
+  mutable
+  duplicates allowed
+  indexable
+
+
+TUPLE
+  ordered
+  immutable
+  duplicates allowed
+  indexable
+
+
+SET
+  unordered
+  mutable
+  duplicates NOT allowed
+  not indexable
+
+
+DICT
+  insertion ordered
+  mutable
+  keys unique
+  key → value
+  not positionally indexable
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

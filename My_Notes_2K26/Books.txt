@@ -1,0 +1,81 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Brian Kernighan's most influential books focus on 
+programming languages, software tools, and 
+computing history, shaping generations of developers.
+​
+
+Top Books:
+The C Programming Language (1978, 1988) 
+with Dennis Ritchie—known 
+as K&R C—sold millions 
+and defined the C language standard.
+​
+The AWK Programming Language (1988)
+with Al Aho and Peter Weinberger, 
+foundational for text processing and data extraction.
+​
+Software Tools (1976)
+with P.J. Plauger, 
+advocating practical Unix utilities 
+and clean code principles.
+​
+
+Other Notable Works:
+
+The Elements of Programming Style (1974) 
+with P.J. Plauger, 
+early guide to readable, efficient code.
+​
+UNIX: A History and a Memoir (2019)
+personal account of Unix development at Bell Labs.
+​
+These texts remain staples in systems programming 
+and computer science curricula worldwide.
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

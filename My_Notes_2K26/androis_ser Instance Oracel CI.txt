@@ -1,0 +1,165 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+# Update Oracle Linux
+sudo dnf update -y
+
+# Add MySQL 8.4 repo + GPG
+sudo dnf install -y https://dev.mysql.com/get/mysql80-community-release-el9-5.noarch.rpm
+sudo dnf install -y mysql-community-server
+
+# Start + enable
+
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+sudo systemctl status mysqld
+
+# Secure install (sets root password)
+sudo mysql_secure_installation
+
+------------------------------------------------------------
+[opc@android-ser ~]$ df -h
+Filesystem                  Size  Used Avail Use% Mounted on
+devtmpfs                    4.0M     0  4.0M   0% /dev
+tmpfs                       5.7G     0  5.7G   0% /dev/shm
+tmpfs                       2.3G  8.9M  2.3G   1% /run
+efivarfs                    256K   42K  210K  17% /sys/firmware/efi/efivars
+/dev/mapper/ocivolume-root   30G  9.0G   21G  31% /
+/dev/sda2                   2.0G  441M  1.6G  23% /boot
+/dev/mapper/ocivolume-oled   15G  155M   15G   2% /var/oled
+/dev/sda1                   100M  7.2M   93M   8% /boot/efi
+tmpfs                       1.2G     0  1.2G   0% /run/user/988
+tmpfs                       1.2G     0  1.2G   0% /run/user/1000
+
+------------------------------------------------------------
+Linux android-ser 6.12.0-107.59.3.2.el9uek.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Dec 22 10:16:59 PST 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+------------------------------------------------------------
+Sun Feb 15 02:50:59 PM GMT 2026
+
+Indian Time: 8:21 PM 15/02/2026
+
+------------------------------------------------------------
+Public IP address
+129.154.41.65
+
+ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
+
+
+------------------------------------------------------------
+2026-02-15T14:53:24.984772Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: R5kK<ep=vZV!
+
+------------------------------------------------------------
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MYSQLDB_PASSWD';
+FLUSH PRIVILEGES;
+EXIT;
+
+------------------------------------------------------------
+mysql -u root -p
+
+SHOW DATABASES;
+
+------------------------------------------------------------
+CREATE DATABASE android_app_db;
+CREATE USER 'android_app'@'%' IDENTIFIED BY 'ANDROIDSEr@root123';
+GRANT ALL ON android_app_db.* TO 'android_app'@'%';
+FLUSH PRIVILEGES;
+EXIT;
+
+129.154.41.65
+129.154.41.65
+ANDROIDSEr@root123
+ANDROIDSEr@root123
+------------------------------------------------------------
+# view public key in the linux terminal 
+ls -la ~/
+# Look for: drwx------  2 opc opc  4096 ... .ssh/
+
+ls -la ~/.ssh/
+# Look for: -rw-------  1 opc opc ... authorized_keys
+
+------------------------------------------------------------
+Public IPv4 address 129.154.41.65
+Private IPv4 address 10.0.0.186
+
+------------------------------------------------------------
+PS C:\Users\bexel> ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
+
+ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
+
+------------------------------------------------------------
+
+ANDROIDSEr@root123
+ANDROIDSEr@root123
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'ANDROIDSEr@root123';
+FLUSH PRIVILEGES;
+EXIT;
+
+ANDROIDSEr@root123
+
+------------------------------------------------------------
+ocid1.routetable.oc1.ap-hyderabad-1.aaaaaaaagjy6strraqkq6qmfggiquh56lamerbsqzpcocah6dpchmijdsazq
+
+------------------------------------------------------------
+CREATE USER 'root'@'%' IDENTIFIED BY 'ANDROIDSEr@root123';
+
+------------------------------------------------------------
+sudo systemctl start docker
+sudo systemctl status docker
+
+------------------------------------------------------------
+D:\WorkSpace\Android\Aushadha Jnapaka\app\build\intermediates\apk\debug
+
+
+------------------------------------------------------------
+[opc@android-ser ~]$ docker info | head -5
+Client: Docker Engine - Community
+ Version:    29.2.1
+ Context:    default
+ Debug Mode: false
+ Plugins:
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[opc@android-ser ~]$
+
+------------------------------------------------------------
+http://129.154.41.65:80/patient    → patient_add_service:8000
+http://129.154.41.65:80/medicine   → medicine_add_service:8000  
+http://129.154.41.65:80/register   → user_registration_service:8000
+http://129.154.41.65:80/login      → user_login_service:8000
+http://129.154.41.65:80/intake     → intake_time_service:8000
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------

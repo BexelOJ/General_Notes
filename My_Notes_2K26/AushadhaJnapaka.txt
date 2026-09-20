@@ -1,0 +1,274 @@
+------------------------------------------------------------
+ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
+------------------------------
+
+------------------------------------------------------------
+git clone https://github.com/BexelOJ/VHDL_Notes.gitandroid
+
+------------------------------------------------------------
+private const val BASE_URL = "https://casual-abnormally-pony.ngrok-free.app/"
+
+------------------------------------------------------------
+129.154.41.65
+e
+------------------------------------------------------------
+docker compose exec user_registration_service bash
+docker compose exec user_login_service bash
+docker compose exec medicine_add_service bash
+docker compose exec patient_add_service bash
+docker compose exec intake_time_service bash
+
+nano /app/medicine_add_service/settings.py
+
+------------------------------------------------------------
+docker ps
+
+------------------------------------------------------------
+# 1. KILL EVERYTHING (clean slate)
+docker compose down
+
+# restart all
+docker compose up -d
+
+------------------------------------------------------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'aushadha_jnapaka',
+        'USER': 'user',
+        'PASSWORD': 'aushadhapass',
+        'HOST': 'mysql_db',  # service name from docker-compose
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl_mode': 'DISABLED'}
+        }
+    }
+}
+
+------------------------------------------------------------
+apt-get update
+apt-get install -y nano
+
+------------------------------------------------------------
+D:\WorkSpace\Android\Aushadha Jnapaka\app\release
+
+------------------------------------------------------------
+/home/opc/Workspace/AushadhaJnapaka_backend/user_registration_service/user_registration_proj
+
+/home/opc/Workspace/AushadhaJnapaka_backend/medicine_add_service/medicine_add_proj
+
+------------------------------------------------------------
+Django settings for medicine_add_proj project.
+ROOT_URLCONF = 'medicine_add_proj.urls'
+WSGI_APPLICATION = 'medicine_add_proj.wsgi.application'
+
+------------------------------------------------------------
+curl -X POST http://localhost/register/ \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","email":"test@example.com","password":"testpass123"}'
+
+
+[opc@android-ser AushadhaJnapaka_backend]$ curl -X POST http://localhost/register/ \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","email":"test@example.com","password":"testpass123"}'
+{"message": "Error: (1146, \"Table 'aushadha_jnapaka.auth_user' doesn't exist\")"}[opc@android-ser AushadhaJnapaka_backend]$
+
+------------------------------------------------------------
+docker exec -it mysql_db mysql -u user -paushadhapass aushadha_jnapaka -e "SHOW TABLES LIKE 'auth_user';"
+
+curl -X POST http://localhost/register/ \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","email":"test@example.com","password":"testpass123"}'
+
+------------------------------------------------------------
+docker exec -it mysql_db mysql -u user -paushadhapass aushadha_jnapaka
+
+docker exec -it mysql_db mysql -u root -p
+
+docker exec -it mysql_db mysql -u user -p
+
+aushadhapass
+
+'PASSWORD': 'aushadhapass',
+  
+------------------------------------------------------------
+SHOW DATABASES;
+
+USE aushadha_jnapaka;
+
+SHOW TABLES;
+
+------------------------------------------------------------
+SELECT id,username,email FROM auth_user WHERE username='testuser';
+
+User Registration SUCCESS
+User login SUCCESS
+
+------------------------------------------------------------
+[opc@android-ser AushadhaJnapaka_backend]$ ls -l
+total 12796
+-rw-r--r--. 1 opc opc        0 Aug 14  2025 25.2
+-rw-r--r--. 1 opc opc 13092053 Feb 16 14:08 aushadha-server-complete.tar.gz
+-rw-r--r--. 1 opc opc     2814 Aug 15  2025 docker-compose.yml
+drwxr-xr-x. 2 opc opc       24 Aug 12  2025 gateway
+-rw-r--r--. 1 opc opc      117 Aug  8  2025 init.sql
+drwxr-xr-x. 4 opc opc      127 Aug 15  2025 intake_time_service
+drwxr-xr-x. 4 opc opc      128 Aug 15  2025 medicine_add_service
+drwxr-xr-x. 4 opc opc       42 Aug  8  2025 mysql
+drwxr-xr-x. 2 opc opc       48 Aug  8  2025 mysql_db
+drwxr-xr-x. 2 opc opc       48 Aug  8  2025 nginx_server
+drwxr-xr-x. 4 opc opc      127 Aug 15  2025 patient_add_service
+-rw-r--r--. 1 opc opc        0 Aug 14  2025 See
+drwxr-xr-x. 5 opc opc      138 Aug 15  2025 user_login_service
+drwxr-xr-x. 4 opc opc      151 Aug 15  2025 user_registration_service
+
+------------------------------------------------------------
+docker exec -it patient_add_service python manage.py migrate
+
+------------------------------------------------------------
+mysql> SHOW TABLES;
+
++----------------------------+
+| Tables_in_aushadha_jnapaka |
++----------------------------+
+| Patient                    |
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+11 rows in set (0.00 sec)
+
+------------------------------------------------------------
+SELECT COUNT(*) FROM patient_api_patient;
+
+SELECT * FROM patient_api_patient ORDER BY created_at DESC;
+
+SELECT id, name, age, gender, notes, DATE_FORMAT(created_at, '%Y-%m-%d %H:%i') as created FROM patient_api_patient ORDER BY created_at DESC LIMIT 20;
+
+------------------------------------------------------------
+Termux:
+
+ssh u0_464@192.168.1.105 -p 8022
+ssh u0_a464@192.168.1.105 -p 8022
+
+ssh u0_364@192.168.1.103 -p 8022
+
+------------------------------------------------------------
+scp C:\Users\bexel\.ssh\oci_android_key u0_a364@192.168.1.103:8022:~/.ssh/
+
+scp -P 8022 C:\Users\bexel\.ssh\oci_android_key u0_a364@192.168.1.103:~/.ssh/
+
+------------------------------------------------------------
+Termux to OCI:
+
+ssh -i ~/.ssh/oci_android_key opc@129.154.41.65
+
+------------------------------------------------------------
+scp C:\Users\bexel\.ssh\oci_android_key u0_a464@192.168.1.105:~/oci_android_key
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

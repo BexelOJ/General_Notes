@@ -1,0 +1,114 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+docker-compose.yml = PROJECT ROOT (STANDARD!)
+
+intake_time_service/ = DJANGO MICROSERVICE SOURCE DIRECTORY
+
+intake_time_proj/ = DJANGO PROJECT DIRECTORY
+
+------------------------------
+intake_time_service/                    ← MICROSERVICE SOURCE FOLDER
+├── Dockerfile                          ← Builds Docker image
+├── manage.py                           ← Django CLI (migrate, runserver)
+├── requirements.txt                    ← pip packages
+├── wait-for-db.sh                      ← Startup script
+└── intake_time_proj/                   ← **DJANGO PROJECT** (Core config)
+    ├── __init__.py
+    ├── settings.py                     ← DATABASES, ALLOWED_HOSTS
+    ├── urls.py                         ← Main URL routing
+    ├── wsgi.py                         ← Production server
+    └── asgi.py                         ← WebSocket support
+└── user_api/                           ← DJANGO APP (Business logic)
+    ├── views.py                        ← def register(), def login()
+    ├── models.py                       ← Patient, Medicine models
+    ├── urls.py                         ← path('register/', views.register)
+    └── serializers.py                  ← JSON validation
+	
+------------------------------------------------------------
+Docker Engine = "Container Manager" (NOT inside containers)
+
+Docker Engine runs as a systemd service on your host OS
+
+Docker Engine = Linux daemon (dockerd)
+- Runs as systemd service: systemctl status docker
+- Manages ALL containers on this host
+- Shares host kernel with ALL containers
+- 1 Engine → 1000 containers ✓ (lightweight!)
+
+# Check YOUR engine managing 6 containers:
+docker ps                    # Lists all 6 containers
+docker stats                 # Shows ALL using 1 engine
+systemctl status docker      # Engine status ✓
+
+------------------------------------------------------------
+Infinite Containers from 1 Image:
+
+# Scale to infinity!
+docker-compose up --scale intake_time_service=5    ← 5 identical containers
+docker-compose up --scale intake_time_service=100  ← 100 identical containers
+
+------------------------------------------------------------
+Check YOUR Docker Service:
+
+# 1. Docker Engine status:
+systemctl status docker
+# Expected: "Active: active (running) since Feb 16"
+
+# 2. Docker daemon process:
+ps aux | grep dockerd
+# Expected: "/usr/bin/dockerd -H fd://"
+
+# 3. Auto-starts on boot:
+systemctl enable docker    # Already done!
+
+------------------------------------------------------------
+docker ps -a
+
+docker logs user_registration_service
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+

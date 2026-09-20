@@ -1,0 +1,1071 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Strategy → Observer → Decorator → 
+
+Factory → Singleton → Command → 
+
+Adapter/Facade → Template Method → 
+
+Iterator/Composite → State → Proxy
+
+
+------------------------------------------------------------
+Patterns where interfaces are very important:
+
+Pattern	Typical interface used for	Example
+
+------------------------------
+Strategy - Encapsulate interchangeable algorithms - FlyBehavior, QuackBehavior
+
+Observer - Define observer/subject contracts - Observer, Subject
+
+Decorator - Common interface between wrapped objects - Beverage, CondimentDecorator
+
+------------------------------
+Factory Method - Product abstraction - Pizza, Product
+
+Abstract Factory - Family of related products - PizzaIngredientFactory
+
+Command - Encapsulate a request - Command`
+
+------------------------------
+Adapter - Convert one interface to another - TurkeyAdapter
+
+Iterator - Provide common traversal interface - Iterator
+
+State - Encapsulate states/behaviors - State
+
+------------------------------
+Template Method - Often uses abstract classes rather than interfaces - nil
+
+Composite - Common interface for leaf/composite - Component
+
+Proxy - Same interface as real object - Subject
+
+------------------------------------------------------------
+Beverage
+   ↑
+   |
+DarkRoast
+Espresso
+HouseBlend
+Decaf
+
+CondimentDecorator
+   ↑
+   |
+Mocha
+Soy
+SteamedMilk
+Whip
+
+------------------------------------------------------------
+Simple Factory
+      ↓
+Factory Method
+      ↓
+Abstract Factory    
+
+------------------------------------------------------------
+CREATIONAL
+------------------------------
+
+Simple Factory
+    → centralize creation
+
+Factory Method
+    → subclasses decide what to create
+
+Abstract Factory
+    → create families of related objects
+
+Builder
+    → build complex object step-by-step
+
+Prototype
+    → create by cloning
+
+
+------------------------------
+STRUCTURAL
+------------------------------
+
+Adapter
+    → convert interface
+
+Bridge
+    → separate abstraction from implementation
+
+Composite
+    → tree: individual + group uniformly
+
+Facade
+    → simplify complex subsystem
+
+Flyweight
+    → share objects/data to save memory
+
+Proxy
+    → intermediary controlling access
+
+
+------------------------------
+BEHAVIORAL
+------------------------------
+
+Template Method
+    → algorithm skeleton + customizable steps
+
+Command
+    → request/action becomes object
+
+Iterator
+    → traverse collection
+
+Mediator
+    → centralize communication
+
+Memento
+    → save/restore state
+
+State
+    → behavior changes with state
+
+Chain of Responsibility
+    → pass request through handlers
+
+Visitor
+    → add operations without changing object structure
+
+Interpreter
+    → interpret a language/grammar
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+1. Template Method
+------------------------------------------------------------
+What exactly does it do?
+
+Template Method defines the overall algorithm in a 
+superclass, 
+while allowing subclasses to customize individual steps.
+
+------------------------------
+Imagine making coffee and tea.
+
+Both processes are:
+
+boilWater()
+brew()
+pourIntoCup()
+addCondiments()
+
+The overall recipe is the same.
+
+But:
+
+Coffee → brew = put coffee grounds
+Tea    → brew = steep tea
+
+------------------------------
+So the superclass defines:
+
+makeDrink()
+   |
+   +-- boilWater()
+   +-- brew()
+   +-- pourIntoCup()
+   +-- addCondiments()
+
+Subclasses provide the varying steps.
+
+Core idea
+
+Template Method = algorithm skeleton in superclass, 
+variable steps in subclasses.
+
+------------------------------------------------------------
+2. Memento
+------------------------------------------------------------
+What exactly does it do?
+
+Memento allows an object to save its state and 
+later restore it.
+
+------------------------------
+Think:
+
+Editor
+  |
+  | save
+  v
+Memento
+
+------------------------------
+Then later:
+
+Editor
+  ^
+  |
+restore
+  |
+Memento
+
+------------------------------
+For example:
+
+Document
+    |
+    | state:
+    | "Hello World"
+    v
+ Memento
+
+------------------------------
+You modify it:
+
+"Hello World!!!"
+
+------------------------------
+Then undo:
+
+restore()
+
+and return to:
+
+"Hello World"
+
+------------------------------
+Important point:
+
+The Memento preserves the object's state without
+exposing the object's internal implementation
+to the outside world.
+
+------------------------------
+Core idea
+
+Memento = save and restore an object's state.
+
+Typical use:
+
+Undo / Redo
+Game checkpoints
+Transaction rollback
+
+------------------------------------------------------------
+3. Mediator
+------------------------------------------------------------
+What exactly does it do?
+
+Mediator centralizes communication between multiple objects.
+
+Suppose you have:
+
+A ↔ B
+A ↔ C
+A ↔ D
+B ↔ C
+B ↔ D
+C ↔ D
+
+------------------------------
+Objects become heavily coupled.
+
+Mediator changes this to:
+
+        A
+        |
+        v
+B → Mediator ← C
+        ^
+        |
+        D
+
+------------------------------
+Now A doesn't directly communicate with B, C and D.
+
+It communicates with the Mediator.
+
+------------------------------
+Real-world example:
+
+An air traffic control system.
+
+Planes don't directly coordinate with every other plane.
+
+Plane A ─┐
+Plane B ─┤
+Plane C ─┼──> AirTrafficController
+Plane D ─┘
+
+The controller coordinates them.
+
+------------------------------
+Core idea
+
+Mediator = centralize communication between objects to 
+reduce their direct coupling.
+
+------------------------------------------------------------
+4. Interpreter
+------------------------------------------------------------
+What exactly does it do?
+
+Interpreter represents a language/grammar and evaluates 
+expressions in that language.
+
+------------------------------
+Suppose you create a tiny language:
+
+"1 + 2"
+"5 + 3"
+"10 - 4"
+
+------------------------------
+You could represent:
+
+Expression
+   |
+   +-- NumberExpression
+   +-- PlusExpression
+   +-- MinusExpression
+
+Then:
+
+5 + 3
+
+becomes something like:
+
+      +
+     / \
+    5   3
+
+The expression tree can then be interpreted.
+
+------------------------------
+Where is it useful?
+
+Small domain-specific languages:
+
+SQL-like expressions
+Search expressions
+Configuration languages
+Rules engines
+Regular expressions
+Core idea
+
+Interpreter = represent grammar/rules as objects and 
+evaluate expressions in that language.
+
+It is usually useful when the language is small and simple.
+
+------------------------------------------------------------
+5. Chain of Responsibility
+------------------------------------------------------------
+What exactly does it do?
+
+Chain of Responsibility passes a request through a 
+chain of possible handlers until one handles it.
+
+------------------------------
+Imagine technical support:
+
+Customer
+   |
+   v
+Level 1 Support
+   |
+   | can't handle
+   v
+Level 2 Support
+   |
+   | can't handle
+   v
+Level 3 Support
+
+------------------------------
+Each handler asks:
+
+Can I handle this?
+
+If yes:
+
+handle()
+
+If no:
+
+pass to next 
+Structure
+Client
+  |
+  v
+Handler A → Handler B → Handler C → Handler D
+
+------------------------------
+Core idea
+------------------------------
+Chain of Responsibility = give multiple objects a chance 
+to handle a request without the sender knowing 
+which one will handle it.
+
+------------------------------------------------------------
+6. Visitor
+------------------------------------------------------------
+This is one of the harder patterns.
+
+What exactly does it do?
+
+Visitor lets you add new operations to a collection of 
+object types without modifying those object classes.
+
+------------------------------
+Suppose you have:
+
+File
+Directory
+SymbolicLink
+
+And you want operations:
+
+calculateSize()
+compress()
+scanVirus()
+generateReport()
+
+Without Visitor, you may keep adding methods to those 
+classes.
+
+Visitor separates the operation from the objects.
+
+             Visitor
+            /   |   \
+           /    |    \
+      File   Directory  Link
+
+------------------------------
+For example:
+
+SizeVisitor
+CompressionVisitor
+VirusScanVisitor
+
+------------------------------
+The objects accept the Visitor:
+
+File.accept(visitor)
+Directory.accept(visitor)
+Why?
+
+------------------------------
+You can add:
+
+NewVisitor
+
+without changing:
+
+File
+Directory
+Link
+Core idea
+
+Visitor = separate an operation from the object structure 
+on which it operates.
+
+Visitor is especially useful when:
+
+the object structure is stable, but operations on that 
+structure keep changing.
+
+------------------------------------------------------------
+7. Bridge
+------------------------------------------------------------
+What exactly does it do?
+
+Bridge separates two dimensions of variation so they can 
+evolve independently.
+
+------------------------------
+Suppose you have:
+
+Remote
+
+and:
+
+Device
+
+------------------------------
+Devices:
+
+TV
+Radio
+
+------------------------------
+Remotes:
+
+BasicRemote
+AdvancedRemote
+
+------------------------------
+Without Bridge, you might get:
+
+BasicTVRemote
+AdvancedTVRemote
+BasicRadioRemote
+AdvancedRadioRemote
+...
+
+Combinations explode.
+
+------------------------------
+Bridge separates them:
+
+Remote
+  |
+  +----------------+
+                   |
+                   v
+                Device
+                /    \
+               TV    Radio
+
+------------------------------
+So:
+
+Remote hierarchy
+        ↕
+Device hierarchy
+
+can evolve independently.
+
+------------------------------
+Core idea
+
+Bridge = separate abstraction from implementation so 
+both can vary independently.
+
+------------------------------------------------------------
+8. Flyweight
+------------------------------------------------------------
+What exactly does it do?
+
+Flyweight shares common objects/data to reduce memory usage.
+
+------------------------------
+Imagine a game with:
+
+1,000,000 trees
+
+------------------------------
+Each tree might have:
+
+tree type
+texture
+color
+shape
+
+If every tree stores its own copy of those things, 
+memory usage becomes huge.
+
+Instead:
+
+             TreeType
+               |
+       shared intrinsic data
+               |
+       +-------+-------+
+       |       |       |
+     Tree    Tree    Tree
+
+Trees share common data.
+
+But each individual tree keeps its unique information:
+
+position
+rotation
+size
+Two types of data
+Intrinsic → shared
+Extrinsic  → individual
+Core idea
+
+Flyweight = share common immutable data between 
+many objects to reduce memory consumption.
+
+------------------------------------------------------------
+9. Prototype
+What exactly does it do?
+
+Prototype creates new objects by cloning an existing object.
+
+------------------------------
+Instead of:
+
+new ExpensiveObject()
+
+you have:
+
+existingObject.clone()
+
+Imagine a game:
+
+Monster prototype
+       |
+       +-- clone → Monster 1
+       +-- clone → Monster 2
+       +-- clone → Monster 3
+
+You prepare a configured prototype once:
+
+Monster
+health = 100
+speed = 20
+weapon = sword
+
+Then clone it.
+
+Why?
+
+Sometimes creating/configuring an object from scratch 
+is expensive or complicated.
+
+Core idea
+
+Prototype = create new objects by copying existing objects.
+
+------------------------------------------------------------
+10. Builder
+------------------------------------------------------------
+What exactly does it do?
+
+Builder separates the construction of a complex object 
+from its final representation.
+
+------------------------------
+Suppose you are building:
+
+House
+
+It might have:
+
+walls
+doors
+windows
+roof
+garage
+garden
+
+Instead of:
+
+new House(walls, doors, windows, roof, garage, garden);
+
+which becomes ugly, Builder allows:
+
+HouseBuilder
+   |
+   +-- buildWalls()
+   +-- buildDoors()
+   +-- buildWindows()
+   +-- buildRoof()
+   +-- buildGarage()
+
+Then:
+
+builder.buildWalls()
+       .buildDoors()
+       .buildWindows()
+       .buildRoof()
+       .build();
+Core idea
+
+Builder = construct a complex object step-by-step.
+
+Now the Factory family
+
+This is particularly important because you were asking 
+about this earlier.
+
+There are three different things:
+
+Simple Factory
+      ↓
+Factory Method
+      ↓
+Abstract Factory
+
+But be careful:
+
+Factory Method did not formally "evolve" from 
+Simple Factory, and Abstract Factory is not 
+simply a more advanced Factory Method.
+
+They solve related but different problems.
+
+------------------------------------------------------------
+11. Simple Factory
+------------------------------------------------------------
+Simple Factory is not actually one of the official 
+GoF patterns.
+
+It is a common technique.
+
+Suppose:
+
+Pizza
+├── CheesePizza
+├── PepperoniPizza
+└── VeggiePizza
+
+Instead of:
+
+if (type.equals("cheese"))
+    return new CheesePizza();
+else if (...)
+
+everywhere, put object creation into one class:
+
+PizzaFactory
+     |
+     +-- CheesePizza
+     +-- PepperoniPizza
+     +-- VeggiePizza
+
+Client:
+
+PizzaFactory.createPizza("cheese")
+Core idea
+
+Simple Factory = centralize object creation in one place.
+
+------------------------------------------------------------
+12. Factory Method
+------------------------------------------------------------
+Factory Method moves the decision about which 
+concrete object to create into subclasses.
+
+Suppose:
+
+PizzaStore
+
+has:
+
+orderPizza()
+
+but:
+
+createPizza()
+
+is implemented by subclasses.
+
+              PizzaStore
+                  |
+          createPizza()
+                  |
+          +-------+-------+
+          |               |
+      NYPizzaStore   ChicagoPizzaStore
+
+Then:
+
+NYPizzaStore
+      ↓
+NYPizza
+
+
+ChicagoPizzaStore
+      ↓
+ChicagoPizza
+
+The superclass controls the algorithm:
+
+orderPizza()
+
+while subclasses decide what gets created.
+
+Core idea
+
+Factory Method = define an object-creation method, 
+but let subclasses decide which concrete object to create.
+
+This is a GoF Creational Pattern.
+
+------------------------------------------------------------
+13. Abstract Factory
+------------------------------------------------------------
+Now the problem changes.
+
+Suppose you aren't creating one object.
+
+You're creating a family of related objects.
+
+For a GUI:
+
+Windows UI
+├── WindowsButton
+└── WindowsCheckbox
+
+
+Mac UI
+├── MacButton
+└── MacCheckbox
+
+You want all components to belong to the same family.
+
+So:
+
+GUIFactory
+   |
+   +-- createButton()
+   +-- createCheckbox()
+
+Implementations:
+
+WindowsFactory
+MacFactory
+
+Then:
+
+WindowsFactory
+     |
+     +-- WindowsButton
+     +-- WindowsCheckbox
+
+and:
+
+MacFactory
+     |
+     +-- MacButton
+     +-- MacCheckbox
+Core idea
+
+Abstract Factory = create families of related objects 
+without specifying their concrete classes.
+
+The crucial Factory difference
+
+Think about how much you're creating.
+
+Simple Factory
+ONE factory
+    |
+    +---- creates different products
+
+Example:
+
+PizzaFactory
+   |
+   +-- CheesePizza
+   +-- PepperoniPizza
+   +-- VeggiePizza
+Factory Method
+ONE creator hierarchy
+       |
+       +---- subclass decides product
+PizzaStore
+    |
+    +-- NYPizzaStore → NYPizza
+    |
+    +-- ChicagoPizzaStore → ChicagoPizza
+
+The important feature is subclass-based creation.
+
+Abstract Factory
+ONE factory
+    |
+    +-- creates Product A
+    +-- creates Product B
+    +-- creates Product C
+
+And there are multiple families:
+
+              GUIFactory
+              /        \
+             /          \
+      WindowsFactory   MacFactory
+          |                |
+          +-- Button       +-- Button
+          +-- Checkbox     +-- Checkbox
+
+The important feature is families of related products.
+
+------------------------------------------------------------
+Put everything together
+
+Here's the mental map I'd recommend memorizing:
+
+------------------------------------------------------------
+CREATIONAL
+------------------------------
+
+
+Simple Factory
+    → centralize creation
+
+
+Factory Method
+    → subclasses decide what to create
+
+
+Abstract Factory
+    → create families of related objects
+
+
+Builder
+    → build complex object step-by-step
+
+
+Prototype
+    → create by cloning
+
+
+------------------------------------------------------------
+STRUCTURAL
+------------------------------
+
+
+Adapter
+    → convert interface
+
+
+Bridge
+    → separate abstraction from implementation
+
+
+Composite
+    → tree: individual + group uniformly
+
+
+Facade
+    → simplify complex subsystem
+
+
+Flyweight
+    → share objects/data to save memory
+
+
+Proxy
+    → intermediary controlling access
+
+
+
+------------------------------------------------------------
+BEHAVIORAL
+------------------------------
+
+
+Template Method
+    → algorithm skeleton + customizable steps
+
+
+Command
+    → request/action becomes object
+
+
+Iterator
+    → traverse collection
+
+
+Mediator
+    → centralize communication
+
+
+Memento
+    → save/restore state
+
+
+State
+    → behavior changes with state
+
+
+Chain of Responsibility
+    → pass request through handlers
+
+
+Visitor
+    → add operations without changing object structure
+
+
+Interpreter
+    → interpret a language/grammar
+
+------------------------------------------------------------
+One particularly useful way to distinguish the 
+structural patterns you've now covered is:
+
+Adapter   → "Make these two things fit."
+Bridge    → "Keep these two dimensions independent."
+Composite → "Treat one and many the same."
+Facade    → "Hide complexity behind one simple interface."
+Flyweight → "Share common data."
+Proxy     → "Put something in front of the real object."
+
+------------------------------------------------------------
+And for the behavioral patterns:
+
+Command              → objectify a request
+Iterator             → traverse
+Template Method      → define algorithm skeleton
+State                → behavior depends on state
+Mediator             → coordinate objects
+Memento              → save/restore
+Chain of Responsibility → pass request along
+Visitor              → add operations
+Interpreter           → evaluate language
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
+
+
+

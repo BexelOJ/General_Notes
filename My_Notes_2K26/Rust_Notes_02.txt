@@ -1,0 +1,113 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Compile-Time Polymorphism (Static Dispatch)
+
+
+
+------------------------------------------------------------
+Run-Time Polymorphism (Dynamic Dispatch)
+
+Uses trait objects (&dyn Trait or Box<dyn Trait>), 
+with vtable lookup at runtime (small overhead).
+
+------------------------------------------------------------
+Rust favors static dispatch for performance;
+dynamic only when needed (heterogeneous collections).
+
+------------------------------------------------------------
+Method Overloading	❌ Not supported
+Method Overriding	❌ No inheritance
+
+------------------------------------------------------------
+42i32     → Signed 32-bit
+42u64     → Unsigned 64-bit  
+42i       → Default signed (i32)
+42         → Default (i32)
+0x41u8    → Hex + unsigned 8-bit
+
+------------------------------------------------------------
+let c1 = 65i32 as char;     // 'A' (explicit type)
+let c2 = 65 as char;        // 'A' (inferred i32)
+let c3: char = 65 as char;  // 'A' (type annotation)
+
+------------------------------------------------------------
+unsafe	                Error Handling
+
+Memory safety bypass	Logic flow control
+Dereference pointers	Handle Result/Option
+Raw memory access	    User input validation
+Compile-time contract	Runtime conditions
+
+------------------------------------------------------------
+Rust Standard Library (std) is organized into modules 
+with these core components:
+
+------------------------------
+Core Modules:
+
+PRIMITIVES & COLLECTIONS
+├── primitives (i32, f64, bool, char)
+├── collections (Vec, HashMap, BTreeMap)
+├── string (String, &str) 
+└── slice (array slices)
+
+ERROR HANDLING
+├── result (Result<T,E>)
+└── option (Option<T>)
+
+MEMORY & OWNERSHIP
+├── boxed (Box<T>)
+├── rc (Rc<T>) 
+├── arc (Arc<T>)
+└── cell (RefCell)
+
+ITERATORS & FUNCTIONAL
+├── iter (Iterator trait)
+└── ops (operator overloading)
+
+------------------------------
+I/O & System:
+
+FILE SYSTEM    NETWORK     PROCESS
+├── fs         ├── net      ├── process
+├── io         └── tcp      └── env
+└── stdio      (UDP/TCP)
+
+------------------------------
+Concurrency:
+
+THREADS    SYNC     CHANNELS
+├── thread ├── mutex  ├── sync (mpsc)
+└── panic  └── once   └── barrier
+
+
+------------------------------------------------------------
+Rule: Always use {:?} for collections 
+(Vec, arrays, slices, etc.)
+
+Single primitives can use {}
+
+------------------------------------------------------------
+Mastering Embedded Linux Programming: Unleash the full potential of Embedded Linux with Linux 4.9 and Yocto Project 2.2 (Morty) Updates, 2nd Edition
+
+------------------------------------------------------------
+
+
+Embedded Linux Development Using Yocto Project Cookbook
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+
