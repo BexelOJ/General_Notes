@@ -1,0 +1,1287 @@
+-----------------------------------------------------
+Linux Device Driver — Complete Project Roadmap
+------------------------------
+Linux kernel internals → LDD → Device Tree → 
+embedded Linux → Yocto/Buildroot
+
+-----------------------------------------------------
+01–10 — Kernel Module Fundamentals
+-----------------------------------------------------
+These establish the foundation before touching 
+actual hardware.
+
+#	Project - Main concept
+
+01	ldd_helloModule
+- Basic kernel module
+
+02	ldd_moduleInitExit
+- module_init() / module_exit()
+
+03	ldd_moduleParameters
+- Module parameters
+
+04	ldd_moduleLicense
+- MODULE_LICENSE() / metadata
+
+05	ldd_kernelLog
+- printk() / pr_info()
+
+06	ldd_kernelBuild
+- Kernel module Makefile
+
+07	ldd_outOfTreeModule
+- External module build
+
+08	ldd_symbolExport
+- EXPORT_SYMBOL()
+
+09	ldd_moduleDependency
+- Module dependencies
+
+10	ldd_moduleUnload
+- Safe module loading/unloading
+
+------------------------------
+ Application
+     │
+     ▼
+ Linux Kernel
+     │
+     ▼
+ Kernel Module
+ 
+-----------------------------------------------------
+11–25 — Character Device Drivers
+-----------------------------------------------------
+This is the classic LDD foundation.
+
+#	Project - Main concept
+
+11	ldd_charDevice
+- Character device
+
+12	ldd_deviceNumber
+- Major / Minor numbers
+
+13	ldd_registerChrdev
+- Device registration
+
+14	ldd_cdev
+- struct cdev
+
+15	ldd_fileOperations
+- struct file_operations
+
+16	ldd_openRelease
+- open() / release()
+
+17	ldd_read
+- read()
+
+18	ldd_write
+- write()
+
+19	ldd_copyToUser
+- copy_to_user()
+
+20	ldd_copyFromUser
+- copy_from_user()
+
+21	ldd_deviceCreate
+- /dev node creation
+
+22	ldd_classCreate
+- Kernel device class
+
+23	ldd_multipleDevices
+- Multiple minor devices
+
+24	ldd_dynamicMajor
+- Dynamic device numbers
+
+25	ldd_charDriverComplete
+- Complete character driver
+
+------------------------------
+Eventually:
+
+User Application
+       │
+       │ read/write
+       ▼
+ /dev/mydevice
+       │
+       ▼
+ Character Driver
+       │
+       ▼
+ Linux Kernel
+ 
+-----------------------------------------------------
+26–38 — File Operations & User-Space Interface
+-----------------------------------------------------
+#	Project - Main concept
+
+26	ldd_ioctl
+- ioctl()
+
+27	ldd_ioctlCommands
+- IOCTL command design
+
+28	ldd_ioctlStruct
+- Passing structures
+
+29	ldd_nonBlockingIO
+- O_NONBLOCK
+
+30	ldd_poll
+- poll()
+
+31	ldd_select
+- select()
+
+32	ldd_epoll
+- epoll() interaction
+
+33	ldd_fasync
+- Asynchronous notification
+
+34	ldd_mmap
+- mmap()
+
+35	ldd_userKernelMemory
+- User/kernel memory boundary
+
+36	ldd_sysfs
+- Sysfs interface
+
+37	ldd_procfs
+- Proc filesystem
+
+38	ldd_debugfs
+- Debugfs
+
+------------------------------
+This gives you:
+
+Application
+ │
+ ├── read()
+ ├── write()
+ ├── ioctl()
+ ├── poll()
+ ├── mmap()
+ └── sysfs
+       │
+       ▼
+   Device Driver
+   
+-----------------------------------------------------
+39–50 — Kernel Memory
+-----------------------------------------------------
+Memory is extremely important for driver development
+
+#	Project - Main concept
+
+39	ldd_kmalloc
+- kmalloc()
+
+40	ldd_kzalloc
+- kzalloc()
+
+41	ldd_kfree
+- kfree()
+
+42	ldd_vmalloc
+- vmalloc()
+
+43	ldd_pageAllocation
+- Page allocation
+
+44	ldd_getFreePages
+- Page allocator
+
+45	ldd_slabCache
+- Slab allocation
+
+46	ldd_dmaMemory
+- DMA-capable memory
+
+47	ldd_dmaMapping
+- DMA mapping
+
+48	ldd_coherentDMA
+- Coherent DMA
+
+49	ldd_userMemory
+- User-space memory handling
+
+50	ldd_memoryDebug
+- Memory debugging
+
+-----------------------------------------------------
+51–63 — Concurrency & Synchronization
+-----------------------------------------------------
+This connects beautifully with what you're 
+learning in FreeRTOS.
+
+#	Project - Main concept
+
+51	ldd_kernelThread
+- Kernel threads
+
+52	ldd_kthreadWait
+- Waiting
+
+53	ldd_waitQueue
+- Wait queues
+
+54	ldd_mutex
+- Kernel mutex
+
+55	ldd_semaphore
+- Kernel semaphore
+
+56	ldd_spinlock
+- Spinlocks
+
+57	ldd_rwlock
+- Read/write locks
+
+58	ldd_atomic
+- Atomic operations
+
+59	ldd_completion
+- Completions
+
+60	ldd_workqueue
+- Workqueues
+
+61	ldd_delayedWork
+- Delayed work
+
+62	ldd_tasklet
+- Deferred execution / tasklets
+
+63	ldd_raceCondition
+- Race-condition demonstration
+
+------------------------------
+This is where we'll compare:
+
+FreeRTOS                  Linux
+─────────                 ─────
+Mutex              →     Mutex
+Semaphore          →     Semaphore
+Task               →     Kernel thread
+Queue              →     Wait/work mechanisms
+Critical section   →     Spinlock / locking
+ISR                →     Interrupt handler
+
+-----------------------------------------------------
+64–75 — Interrupt Handling
+-----------------------------------------------------
+Now we move from software-only drivers 
+toward hardware.
+
+#	Project - Main concept
+
+64	ldd_irqBasic
+- Basic IRQ
+
+65	ldd_requestIRQ
+- request_irq()
+
+66	ldd_freeIRQ
+- IRQ cleanup
+
+67	ldd_irqHandler
+- Interrupt handler
+
+68	ldd_sharedIRQ
+- Shared interrupts
+
+69	ldd_irqThread
+- Threaded IRQ
+
+70	ldd_topHalfBottomHalf
+- Deferred interrupt work
+
+71	ldd_workqueueIRQ
+- IRQ + workqueue
+
+72	ldd_waitQueueIRQ
+- IRQ + waiting task
+
+73	ldd_irqAffinity
+- IRQ CPU affinity
+
+74	ldd_irqTiming
+- Interrupt latency
+
+75	ldd_hardwareIRQDriver
+- Complete interrupt-driven driver
+
+------------------------------
+Architecture:
+
+Hardware
+   │
+   │ IRQ
+   ▼
+Interrupt Handler
+   │
+   ▼
+Deferred Work
+   │
+   ▼
+Driver
+   │
+   ▼
+User Application
+
+-----------------------------------------------------
+76–88 — Linux Device Model
+-----------------------------------------------------
+This is one of the most important sections of 
+modern LDD.
+
+#	Project - Main concept
+
+76	ldd_deviceModel
+- Linux device model
+
+77	ldd_busDriver
+- Bus concept
+
+78	ldd_deviceDriver
+- Device/driver relationship
+
+79	ldd_platformDevice
+- Platform device
+
+80	ldd_platformDriver
+- Platform driver
+
+81	ldd_probeRemove
+- probe() / remove()
+
+82	ldd_driverMatch
+- Device-driver matching
+
+83	ldd_driverData
+- Driver private data
+
+84	ldd_devres
+- Device-managed resources
+
+85	ldd_devGroups
+- Device attributes
+
+86	ldd_busSysfs
+- Bus representation in sysfs
+
+87	ldd_deviceLinks
+- Device links
+
+88	ldd_completePlatformDriver
+- Complete platform driver
+
+------------------------------
+This gives us:
+
+                 Linux Device Model
+                        │
+              ┌─────────┴─────────┐
+              │                   │
+            Device              Driver
+              │                   │
+              └──────► Match ◄────┘
+                         │
+                       probe()
+                         │
+                         ▼
+                    Hardware
+						
+-----------------------------------------------------
+89–102 — Device Tree
+-----------------------------------------------------
+Since you're specifically interested in 
+embedded Linux, 
+Device Tree deserves its own major section.
+
+#	Project	Main concept
+
+89	ldd_deviceTreeBasic
+- Device Tree introduction
+
+90	ldd_dtsSyntax
+- DTS syntax
+
+91	ldd_dtNode
+- Nodes
+
+92	ldd_dtProperty
+- Properties
+
+93	ldd_dtCompatible
+- compatible
+
+94	ldd_dtReg
+- reg property
+
+95	ldd_dtInterrupt
+- Interrupt property
+
+96	ldd_dtGPIO
+- GPIO property
+
+97	ldd_dtClock
+- Clock property
+
+98	ldd_dtReset
+- Reset controller
+
+99	ldd_dtPhandle
+- Phandles
+
+100	ldd_ofAPI
+- Device Tree APIs
+
+101	ldd_dtPlatformDriver
+- DT + platform driver
+
+102	ldd_dtCompleteDriver
+- Complete DT-based driver
+
+------------------------------
+Eventually:
+
+Device Tree
+     │
+     │ compatible
+     ▼
+Platform Bus
+     │
+     ▼
+Driver probe()
+     │
+     ▼
+Hardware
+
+-----------------------------------------------------
+103–112 — GPIO Drivers
+-----------------------------------------------------
+Now we start writing drivers for actual peripherals.
+
+#	Project - Main concept
+
+103	ldd_gpioOutput
+- GPIO output
+
+104	ldd_gpioInput
+- GPIO input
+
+105	ldd_gpioLED
+- LED driver
+
+106	ldd_gpioButton
+- Button driver
+
+107	ldd_gpioInterrupt
+- GPIO interrupt
+
+108	ldd_gpioDebounce
+- Button debounce
+
+109	ldd_gpioSysfs
+- GPIO userspace interface
+
+110	ldd_gpiodAPI
+- GPIO descriptor API
+
+111	ldd_gpioDeviceTree
+- GPIO + DT
+
+112	ldd_gpioComplete
+- Complete GPIO driver
+
+-----------------------------------------------------
+113–123 — I²C Drivers
+-----------------------------------------------------
+This will be particularly useful for your 
+OLED / sensor / Raspberry Pi work.
+
+#	Project - Main concept
+
+113	ldd_i2cBasic
+- I²C subsystem
+
+114	ldd_i2cClient
+- I²C client
+
+115	ldd_i2cDriver
+- I²C driver
+
+116	ldd_i2cProbe
+- I²C probe
+
+117	ldd_i2cRead
+- I²C read
+
+118	ldd_i2cWrite
+- I²C write
+
+119	ldd_i2cRegister
+- Register-based device
+
+120	ldd_i2cDeviceTree
+- I²C + DT
+
+121	ldd_i2cSensor
+- Sensor driver
+
+122	ldd_i2cOLED
+- OLED driver
+
+123	ldd_i2cComplete
+- Complete I²C driver
+
+-----------------------------------------------------
+124–134 — SPI Drivers
+-----------------------------------------------------
+#	Project - Main concept
+
+124	ldd_spiBasic
+- SPI subsystem
+
+125	ldd_spiDevice
+- SPI device
+
+126	ldd_spiDriver
+- SPI driver
+
+127	ldd_spiTransfer
+- SPI transfers
+
+128	ldd_spiMessage
+- SPI messages
+
+129	ldd_spiMode
+- SPI modes
+
+130	ldd_spiRegister
+- SPI register device
+
+131	ldd_spiDeviceTree
+- SPI + DT
+
+132	ldd_spiSensor
+- SPI sensor
+
+133	ldd_spiDisplay
+- SPI display
+
+134	ldd_spiComplete
+- Complete SPI driver
+
+-----------------------------------------------------
+135–143 — PWM, ADC, DAC & Hardware Interfaces
+-----------------------------------------------------
+#	Project - Main concept
+
+135	ldd_pwmBasic
+- PWM
+
+136	ldd_pwmDriver
+- PWM consumer
+
+137	ldd_pwmDeviceTree
+- PWM + DT
+
+138	ldd_adcBasic
+- ADC
+
+139	ldd_iioBasic
+- Industrial I/O subsystem
+
+140	ldd_iioSensor
+- IIO sensor
+
+141	ldd_dacBasic
+- DAC
+
+142	ldd_hwmonBasic
+- Hardware monitoring
+
+143	ldd_hwmonSensor
+- hwmon driver
+
+-----------------------------------------------------
+144–153 — USB
+-----------------------------------------------------
+#	Project - Main concept
+
+144	ldd_usbBasic
+- USB architecture
+
+145	ldd_usbDevice
+- USB device
+
+146	ldd_usbDriver
+- USB driver
+
+147	ldd_usbProbeDisconnect
+- Probe/disconnect
+
+148	ldd_usbEndpoints
+- Endpoints
+
+149	ldd_usbControlTransfer
+- Control transfers
+
+150	ldd_usbBulkTransfer
+- Bulk transfers
+
+151	ldd_usbInterruptTransfer
+- Interrupt transfers
+
+152	ldd_usbURB
+- URBs
+
+153	ldd_usbComplete
+- Complete USB driver
+
+-----------------------------------------------------
+154–163 — PCI / PCIe
+-----------------------------------------------------
+#	Project - Main concept
+
+154	ldd_pciBasic
+- PCI subsystem
+
+155	ldd_pciDevice
+- PCI device
+
+156	ldd_pciDriver
+- PCI driver
+
+157	ldd_pciProbeRemove
+- Probe/remove
+
+158	ldd_pciConfigSpace
+- PCI configuration space
+
+159	ldd_pciBAR
+- BARs
+
+160	ldd_pciMMIO
+- MMIO
+
+161	ldd_pciIRQ
+- PCI interrupts
+
+162	ldd_pciDMA
+- PCI DMA
+
+163	ldd_pciComplete
+- Complete PCI driver
+
+-----------------------------------------------------
+164–173 — DMA
+-----------------------------------------------------
+#	Project - Main concept
+
+164	ldd_dmaBasic
+- DMA architecture
+
+165	ldd_dmaAlloc
+- DMA allocation
+
+166	ldd_dmaMap
+- DMA mapping
+
+167	ldd_dmaUnmap
+- DMA unmapping
+
+168	ldd_dmaCoherent
+- Coherent DMA
+
+169	ldd_dmaStreaming
+- Streaming DMA
+
+170	ldd_dmaScatterGather
+- Scatter-gather
+
+171	ldd_dmaInterrupt
+- DMA completion IRQ
+
+172	ldd_dmaRingBuffer
+- DMA ring buffer
+
+173	ldd_dmaComplete
+- Complete DMA driver
+
+-----------------------------------------------------
+174–184 — Block Device Drivers
+-----------------------------------------------------
+This takes us beyond character devices.
+
+#	Project - Main concept
+
+174	ldd_blockBasic	
+- Block device
+
+175	ldd_blockRegistration
+- Block registration
+
+176	ldd_blockRequest
+- Request handling
+
+177	ldd_blockBIO
+- BIO
+
+178	ldd_blockQueue
+- Request queue
+
+179	ldd_blockReadWrite
+- Block I/O
+
+180	ldd_ramBlockDevice
+- RAM block device
+
+181	ldd_virtualBlockDevice
+- Virtual block device
+
+182	ldd_blockIOCTL
+- Block ioctl
+
+183	ldd_blockPartition
+- Partitions
+
+184	ldd_blockComplete
+- Complete block driver
+
+-----------------------------------------------------
+185–194 — Networking Drivers
+-----------------------------------------------------
+#	Project - Main concept
+
+185	ldd_netdevBasic
+- Network device
+
+186	ldd_netdevRegistration
+- net_device
+
+187	ldd_netdevOpenClose
+- Network open/close
+
+188	ldd_netdevTX
+- Packet transmission
+
+189	ldd_netdevRX
+- Packet reception
+
+190	ldd_netdevNAPI
+- NAPI
+
+191	ldd_netdevIRQ
+- Network IRQ
+
+192	ldd_netdevDMA
+- Network DMA
+
+193	ldd_netdevStatistics
+- Network statistics
+
+194	ldd_netdevComplete
+- Complete network driver
+
+-----------------------------------------------------
+195–204 — Input Subsystem
+-----------------------------------------------------
+#	Project - Main concept
+
+195	ldd_inputBasic
+- Input subsystem
+
+196	ldd_inputKeyboard
+- Keyboard
+
+197	ldd_inputButton
+- Button
+
+198	ldd_inputMouse
+- Mouse
+
+199	ldd_inputEvent
+- Input events
+
+200	ldd_inputInterrupt
+- Input + IRQ
+
+201	ldd_inputDeviceTree
+- Input + DT
+
+202	ldd_inputDebounce
+- Debouncing
+
+203	ldd_inputGPIO
+- GPIO input
+
+204	ldd_inputComplete
+- Complete input driver
+
+-----------------------------------------------------
+205–214 — TTY / Serial
+-----------------------------------------------------
+#	Project - Main concept
+
+205	ldd_ttyBasi
+- TTY subsystem
+
+206	ldd_ttyDriver
+- TTY driver
+
+207	ldd_uartBasic
+- UART
+
+208	ldd_uartDriver
+- UART driver
+
+209	ldd_uartInterrupt
+- UART IRQ
+
+210	ldd_uartDMA
+- UART DMA
+
+211	ldd_uartFlowControl
+- Flow control
+
+212	ldd_uartDeviceTree
+- UART + DT
+
+213	ldd_serialConsole
+- Serial console
+
+214	ldd_uartComplete
+- Complete UART driver
+
+-----------------------------------------------------
+215–224 — Power Management
+-----------------------------------------------------
+Very important for embedded Linux.
+
+#	Project - Main concept
+
+215	ldd_pmBasic
+- Linux PM
+
+216	ldd_runtimePM
+- Runtime PM
+
+217	ldd_systemSuspend
+- System suspend
+
+218	ldd_systemResume
+- Resume
+
+219	ldd_pmCallbacks
+- PM callbacks
+
+220	ldd_pmRuntime
+- Runtime PM APIs
+
+221	ldd_wakeupSource
+- Wakeup sources
+
+222	ldd_regulator
+- Regulators
+
+223	ldd_clockFramework
+- Common Clock Framework
+
+224	ldd_powerComplete
+- Complete PM-aware driver
+
+-----------------------------------------------------
+225–234 — Kernel Debugging & Tracing
+-----------------------------------------------------
+#	Project - Main concept
+
+225	ldd_dynamicDebug
+- Dynamic debug
+
+226	ldd_debugfsDriver
+- Driver debugfs
+
+227	ldd_ftrace
+- ftrace
+
+228	ldd_tracepoints
+- Tracepoints
+
+229	ldd_kprobe
+- kprobes
+
+230	ldd_kgdb
+- KGDB
+
+231	ldd_kernelOops
+- Oops analysis
+
+232	ldd_kernelPanic
+- Panic analysis
+
+233	ldd_lockdep
+- Lock debugging
+
+234	ldd_sanitizers
+- Kernel sanitizers
+
+-----------------------------------------------------
+235–244 — Driver Error Handling & Robustness
+-----------------------------------------------------
+#	Project - Main concept
+
+235	ldd_errorHandling
+- Error paths
+
+236	ldd_probeFailure
+- Probe failure
+
+237	ldd_deferredProbe
+- Deferred probing
+
+238	ldd_resourceManagement
+- Resource management
+
+239	ldd_devres
+- Device-managed resources
+
+240	ldd_cleanup
+- Cleanup patterns
+
+241	ldd_moduleRefcount
+- Module reference counting
+
+242	ldd_raceProtection
+- Race protection
+
+243	ldd_failureInjection
+- Failure injection
+
+244	ldd_robustDriver
+- Robust driver architecture
+
+-----------------------------------------------------
+245–254 — Advanced Kernel Interfaces
+-----------------------------------------------------
+#	Project - Main concept
+
+245	ldd_syscallInterface
+- Driver vs syscall interface
+
+246	ldd_netlink
+- Netlink
+
+247	ldd_genericNetlink
+- Generic Netlink
+
+248	ldd_uevent
+- Kernel uevents
+
+249	ldd_udevInteraction
+- udev/device nodes
+
+250	ldd_configfs
+- Configfs
+
+251	ldd_sysfsAdvanced
+- Advanced sysfs
+
+252	ldd_debugfsAdvanced
+- Advanced debugfs
+
+253	ldd_kernelNotifier
+- Notifier chains
+
+254	ldd_kernelInterface
+- Kernel interface design
+
+-----------------------------------------------------
+255–264 — Embedded Linux Driver Architecture
+-----------------------------------------------------
+Now we combine everything.
+
+#	Project - Main concept
+
+255	ldd_embeddedGPIO
+- Embedded GPIO driver
+
+256	ldd_embeddedI2C
+- Embedded I²C driver
+
+257	ldd_embeddedSPI
+- Embedded SPI driver
+
+258	ldd_embeddedUART
+- Embedded UART driver
+
+259	ldd_embeddedIRQ
+- Embedded IRQ
+
+260	ldd_embeddedDMA
+- Embedded DMA
+
+261	ldd_embeddedDT
+- DT-based architecture
+
+262	ldd_embeddedPM
+- Power-aware driver
+
+263	ldd_embeddedMultiPeripheral
+- Multiple peripherals
+
+264	ldd_embeddedComplete
+- Complete embedded driver
+
+-----------------------------------------------------
+265–274 — Yocto / Buildroot / Driver Integration
+-----------------------------------------------------
+This connects LDD to the 
+embedded Linux system-building side.
+
+#	Project - Main concept
+
+265	ldd_kernelSourceBuild
+- Build Linux kernel
+
+266	ldd_externalModuleBuild
+- External module
+
+267	ldd_kernelConfig
+- Kernel configuration
+
+268	ldd_moduleConfig
+- CONFIG_*
+
+269	ldd_buildrootDriver
+- Buildroot integration
+
+270	ldd_buildrootModule	
+- Kernel module in Buildroot
+
+271	ldd_yoctoDriver	
+- Yocto driver integration
+
+272	ldd_yoctoRecipe
+- BitBake recipe
+
+273	ldd_yoctoDTS
+- DT + Yocto
+
+274	ldd_embeddedImage
+- Complete embedded Linux image
+
+-----------------------------------------------------
+275–284 — Real Hardware Projects
+-----------------------------------------------------
+This is where the individual concepts 
+become actual products.
+
+#	Project - Hardware / concept
+
+275	ldd_rpiLEDDriver
+- Raspberry Pi GPIO
+
+276	ldd_rpiButtonDriver
+- GPIO + IRQ
+
+277	ldd_rpiOLEDDriver
+- I²C OLED
+
+278	ldd_rpiTemperatureDriver
+- I²C sensor
+
+279	ldd_rpiIMUDriver
+- IMU
+
+280	ldd_rpiSPIDisplay
+- SPI display
+
+281	ldd_rpiUARTDevice
+- UART peripheral
+
+282	ldd_rpiDMADevice
+- DMA
+
+283	ldd_rpiDeviceTree
+- Custom DT overlay
+
+284	ldd_rpiCompleteDevice
+- Full custom device
+
+-----------------------------------------------------
+285–294 — Capstone Drivers
+-----------------------------------------------------
+Finally, we combine the architecture.
+
+#	Project - Main concept
+
+285	ldd_virtualSensor
+- Virtual sensor driver
+
+286	ldd_characterSensor
+- Character + sensor
+
+287	ldd_i2cSensorIRQ
+- I²C + IRQ
+
+288	ldd_i2cSensorDMA
+- I²C + DMA
+
+289	ldd_spiSensorIRQ
+- SPI + IRQ
+
+290	ldd_spiSensorDMA
+- SPI + DMA
+
+291	ldd_multiDeviceDriver
+- Multiple devices
+
+292	ldd_completePlatformDriver
+- Platform + DT + IRQ
+
+293	ldd_completeEmbeddedDriver
+- DT + bus + IRQ + DMA + PM
+
+294	ldd_productionDriver
+- Production-style driver architecture
+
+-----------------------------------------------------
+The complete learning progression
+
+The important thing is not really the 294 number. 
+
+The progression is:
+
+                    Linux
+                      │
+                      ▼
+               Kernel Modules
+                      │
+                      ▼
+              Character Drivers
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+    User/Kernel API          Kernel Memory
+          │                       │
+          └───────────┬───────────┘
+                      ▼
+               Synchronization
+                      │
+                      ▼
+                 Interrupts
+                      │
+                      ▼
+                Device Model
+                      │
+                      ▼
+               Platform Driver
+                      │
+                      ▼
+                Device Tree
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+         GPIO         I²C         SPI
+          │           │           │
+          └───────────┼───────────┘
+                      ▼
+                    DMA
+                      │
+          ┌───────────┼────────────┐
+          ▼           ▼            ▼
+        USB          PCI         Network
+          │           │            │
+          └───────────┼────────────┘
+                      ▼
+                Power Management
+                      │
+                      ▼
+               Debug / Tracing
+                      │
+                      ▼
+              Buildroot / Yocto
+                      │
+                      ▼
+             Embedded Linux
+                      │
+                      ▼
+              Production Driver
+
+-----------------------------------------------------
+And this connects directly to your current roadmap
+
+You are essentially building 
+Three layers of knowledge:
+
+                    YOUR SYSTEM LEARNING
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+          ▼                ▼                ▼
+      FreeRTOS        Linux Kernel          LDD
+          │                │                │
+       Tasks          Scheduler          Device Model
+       Queue          Memory             Char Driver
+       Mutex          Syscalls           Platform
+       ISR            VFS                Device Tree
+       Timer          MM                 GPIO/I2C/SPI
+       Event          IRQ                DMA
+       etc.           etc.               etc.
+          │                │                │
+          └────────────────┼────────────────┘
+                           ▼
+                    Embedded Linux
+                           │
+                           ▼
+                   Yocto / Buildroot
+                           │
+                           ▼
+                    Real Hardware
+					
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+

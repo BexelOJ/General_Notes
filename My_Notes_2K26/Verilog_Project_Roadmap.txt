@@ -1,0 +1,935 @@
+-----------------------------------------------------
+Verilog / RTL / FPGA — Complete Project Roadmap
+------------------------------
+
+
+-----------------------------------------------------
+01–10 — Verilog Fundamentals
+-----------------------------------------------------
+#	Project - Main concept
+
+01	verilog_hello
+- Basic Verilog module
+
+02	verilog_assign
+- Continuous assignment
+
+03	verilog_wireReg
+- wire / reg
+
+04	verilog_logicGates
+- AND/OR/NOT/XOR
+
+05	verilog_mux
+- Multiplexer
+
+06	verilog_demux
+- Demultiplexer
+
+07	verilog_encoder
+- Encoder
+
+08	verilog_decoder
+- Decoder
+
+09	verilog_comparato
+- Comparator
+
+10	verilog_adder
+- Half/full adder
+
+-----------------------------------------------------
+11–20 — Combinational Logic
+-----------------------------------------------------
+#	Project - Main concept
+
+11	verilog_subtractor
+- Subtractor
+
+12	verilog_addSub
+- Adder/subtractor
+
+13	verilog_mux4to1
+- 4:1 MUX
+
+14	verilog_mux8to1
+- 8:1 MUX
+
+15	verilog_priorityEncoder
+- Priority encoder
+
+16	verilog_barrelShifter
+- Barrel shifter
+
+17	verilog_al
+- ALU
+
+18	verilog_parity
+- Parity generator/checker
+
+19	verilog_grayBinary
+- Gray ↔ Binary
+
+20	verilog_combinationLock
+- Combinational design
+
+-----------------------------------------------------
+21–30 — Sequential Logic
+-----------------------------------------------------
+Now we introduce clocked hardware.
+
+#	Project - Main concept
+
+21	verilog_dFlipFlop
+- D flip-flop
+
+22	verilog_jkFlipFlop
+- JK flip-flop
+
+23	verilog_tFlipFlop
+- T flip-flop
+
+24	verilog_register
+- Register
+
+25	verilog_shiftRegister
+- Shift register
+
+26	verilog_ringCounter
+- Ring counter
+
+27	verilog_johnsonCounter
+- Johnson counter
+
+28	verilog_upCounter
+- Up counter
+
+29	verilog_downCounter
+- Down counter
+
+30	verilog_upDownCounter
+- Up/down counter
+
+-----------------------------------------------------
+31–40 — Counters, Timers & Clocking
+-----------------------------------------------------
+#	Project - Main concept
+
+31	verilog_modCounter
+- Mod-N counter
+
+32	verilog_frequencyDivider
+- Clock divider
+
+33	verilog_timer
+- Timer
+
+34	verilog_tickGenerator
+- Tick generation
+
+35	verilog_pwm
+- PWM
+
+36	verilog_pulseGenerator
+- Pulse generation
+
+37	verilog_clockEnable
+- Clock enable
+
+38	verilog_watchdogTimer
+- Watchdog
+
+39	verilog_timestampCounter
+- Timestamp counter
+
+40	verilog_clockManager
+- Clock management
+
+-----------------------------------------------------
+41–50 — Finite State Machines
+-----------------------------------------------------
+This is one of the most important RTL topics.
+
+#	Project - Main concept
+
+41	verilog_fsmBasic
+- FSM basics
+
+42	verilog_mooreFSM
+- Moore FSM
+
+43	verilog_mealyFSM
+- Mealy FSM
+
+44	verilog_sequenceDetector
+- Sequence detector
+
+45	verilog_trafficLight
+- Traffic light FSM
+
+46	verilog_vendingMachine
+- Vending machine
+
+47	verilog_uartFS
+- 	UART control FSM
+
+48	verilog_protocolFSM
+- Protocol controller
+
+49	verilog_fsmOneHot
+- One-hot FSM
+
+50	verilog_fsmSafe
+- Safe FSM design
+
+-----------------------------------------------------
+51–60 — Memories
+-----------------------------------------------------
+#	Project - Main concept
+
+51	verilog_rom
+- ROM
+
+52	verilog_ram
+- RAM
+
+53	verilog_singlePortRAM
+- Single-port RAM
+
+54	verilog_dualPortRAM
+- Dual-port RAM
+
+55	verilog_registerFil
+- Register file
+
+56	verilog_fifo
+- FIFO
+
+57	verilog_asyncFIFO
+- Asynchronous FIFO
+
+58	verilog_syncFIFO
+- Synchronous FIFO
+
+59	verilog_memoryController
+- Memory controller
+
+60	verilog_cacheBasic
+- Basic cache
+
+-----------------------------------------------------
+61–70 — Arithmetic RTL
+-----------------------------------------------------
+#	Project - Main concept
+
+61	verilog_multiplier
+- Multiplier
+
+62	verilog_divider
+- Divider
+
+63	verilog_signedArithmetic
+- Signed arithmetic
+
+64	verilog_fixedPoint
+- Fixed-point
+
+65	verilog_saturatingArithmetic
+- Saturation
+
+66	verilog_mac
+- Multiply-accumulate
+
+67	verilog_cordic
+- CORDIC
+
+68	verilog_sqrt
+- Square root
+
+69	verilog_mathUnit
+- Arithmetic unit
+
+70	verilog_dspUnit
+- DSP-style datapath
+
+-----------------------------------------------------
+71–80 — UART / Serial Interfaces
+-----------------------------------------------------
+#	Project - Main concept
+
+71	verilog_uartTx
+- UART transmitter
+
+72	verilog_uartRx
+- UART receiver
+
+73	verilog_uart
+- Complete UART
+
+74	verilog_uartFIFO
+- UART + FIFO
+
+75	verilog_uartInterrupt
+- UART interrupt
+
+76	verilog_uartBaudGenerator
+- Baud generator
+
+77	verilog_spiMaster
+- SPI master
+
+78	verilog_spiSlave
+- SPI slave
+
+79	verilog_i2cMaster
+- I²C master
+
+80	verilog_i2cSlave
+- I²C slave
+
+-----------------------------------------------------
+81–90 — FPGA Interfaces
+-----------------------------------------------------
+Now we move from pure RTL toward actual FPGA hardware.
+
+#	Project - Main concept
+
+81	verilog_led
+- FPGA LED
+
+82	verilog_button
+- Push button
+
+83	verilog_debounce
+- Button debounce
+
+84	verilog_sevenSegment
+- 7-segment display
+
+85	verilog_ledCounter
+- Counter + LEDs
+
+86	verilog_uartFPGA
+- UART on FPGA
+
+87	verilog_spiFPGA
+- SPI on FPGA
+
+88	verilog_i2cFPGA
+- I²C on FPGA
+
+89	verilog_pwmFPGA
+- PWM hardware
+
+90	verilog_frequencyMeter
+- Frequency measurement
+
+-----------------------------------------------------
+91–100 — VGA / Display / Video
+-----------------------------------------------------
+#	Project - Main concept
+
+91	verilog_vgaTiming
+- VGA timing
+
+92	verilog_vgaColor
+- RGB generation
+
+93	verilog_vgaRectangle
+- Rectangle
+
+94	verilog_vgaText
+- Text rendering
+
+95	verilog_vgaSprite
+- Sprite
+
+96	verilog_vgaAnimation
+- Animation
+
+97	verilog_frameBuffer
+- Frame buffer
+
+98	verilog_imageROM
+- Image ROM
+
+99	verilog_videoPipeline
+- Video pipeline
+
+100	verilog_displayController
+- Complete display controller
+
+-----------------------------------------------------
+101–110 — Verification
+-----------------------------------------------------
+This is where RTL development becomes much more serious.
+
+#	Project - Main concept
+
+101	verilog_testbench
+- Testbench
+
+102	verilog_clockResetTB
+- Clock/reset generation
+
+103	verilog_stimulus
+- Test stimulus
+
+104	verilog_monitor
+- Monitoring
+
+105	verilog_checker
+- Checking
+
+106	verilog_assertion
+- Assertions
+
+107	verilog_scoreboard
+- Scoreboard
+
+108	verilog_randomTest
+- Random testing
+
+109	verilog_coverage
+- Coverage
+
+110	verilog_regression
+- Regression testing
+
+-----------------------------------------------------
+111–120 — SystemVerilog Verification
+-----------------------------------------------------
+Once Verilog verification fundamentals are clear:
+
+#	Project - Main concept
+
+111	sv_interface
+- Interfaces
+
+112	sv_clockingBlock
+- Clocking blocks
+
+113	sv_class
+- Classes
+
+114	sv_transaction
+- Transactions
+
+115	sv_generator
+- Generator
+
+116	sv_driver
+- Driver
+
+117	sv_monitor
+- Monitor
+
+118	sv_scoreboard
+- Scoreboard
+
+119	sv_coverage
+- Functional coverage
+
+120	sv_testbench
+- Structured SV testbench
+
+-----------------------------------------------------
+121–130 — AXI / FPGA Interconnect
+-----------------------------------------------------
+Very important for Vivado / Xilinx FPGA work.
+
+#	Project - Main concept
+
+121	verilog_axiLiteSlave
+- AXI4-Lite slave
+
+122	verilog_axiLiteMaster
+- AXI4-Lite master
+
+123	verilog_axiRegister
+- AXI register interface
+
+124	verilog_axiStream
+- AXI4-Stream
+
+125	verilog_axiStreamFIFO
+- AXI Stream FIFO
+
+126	verilog_axiStreamMaster
+- AXI Stream master
+
+127	verilog_axiStreamSlave
+- AXI Stream slave
+
+128	verilog_axiDMA
+- AXI DMA concept
+
+129	verilog_axiMemory
+- AXI memory interface
+
+130	verilog_axiPeripheral
+- Complete AXI peripheral
+
+-----------------------------------------------------
+131–140 — Clock Domain Crossing
+-----------------------------------------------------
+Extremely important in real hardware.
+
+#	Project - Main concept
+
+131	verilog_cdcBasic
+- CDC fundamentals
+
+132	verilog_twoFlipSynchronizer
+- 2-FF synchronizer
+
+133	verilog_pulseSynchronizer
+- Pulse CDC
+
+134	verilog_toggleSynchronizer
+- Toggle CDC
+
+135	verilog_handshakeCDC
+- Handshake
+
+136	verilog_asyncFIFO
+- Async FIFO
+
+137	verilog_grayPointer
+- Gray-code CDC
+
+138	verilog_resetSynchronizer
+- Reset synchronization
+
+139	verilog_multiClock
+- Multiple clock domains
+
+140	verilog_cdcSyste
+- Complete CDC system
+
+-----------------------------------------------------
+141–150 — Timing & RTL Quality
+-----------------------------------------------------
+#	Project - Main concept
+
+141	verilog_setupHold
+- Setup / hold
+
+142	verilog_clockSkew
+- Clock skew
+
+143	verilog_timingConstraint
+- Timing constraints
+
+144	verilog_xdc
+- XDC
+
+145	verilog_falsePath
+- False paths
+
+146	verilog_multicyclePath
+- Multicycle paths
+
+147	verilog_maxDelay
+- Maximum delay
+
+148	verilog_pipeline
+- Pipelining
+
+149	verilog_timingClosure
+- Timing closure
+
+150	verilog_rtlOptimization
+- RTL optimization
+
+-----------------------------------------------------
+151–160 — Pipelined / High-Performance RTL
+-----------------------------------------------------
+#	Project - Main concept
+
+151	verilog_pipelineAdder
+- Pipelined adder
+
+152	verilog_pipelineMultiplier
+- Pipelined multiplier
+
+153	verilog_pipelineMAC
+- Pipelined MAC
+
+154	verilog_pipelineALU
+- Pipelined ALU
+
+155	verilog_streamPipeline
+- Streaming pipeline
+
+156	verilog_pipelineFIFO
+- Pipeline buffering
+
+157	verilog_throughput
+- Throughput
+
+158	verilog_latency
+- Latency
+
+159	verilog_backpressure
+- Backpressure
+
+160	verilog_highPerformance
+- High-performance datapath
+
+-----------------------------------------------------
+161–170 — Soft CPU / Computer Architecture
+-----------------------------------------------------
+Now we start building a processor.
+
+#	Project - Main concept
+
+161	verilog_registerCPU
+- Basic CPU
+
+162	verilog_programCounter
+- PC
+
+163	verilog_instructionMemory
+- Instruction memory
+
+164	verilog_controlUnit
+- Control unit
+
+165	verilog_registerFile
+- Register file
+
+166	verilog_aluCPU
+- ALU
+
+167	verilog_singleCycleCPU
+- Single-cycle CPU
+
+168	verilog_multiCycleCPU
+- Multi-cycle CPU
+
+169	verilog_pipelineCPU
+- Pipelined CPU
+
+170	verilog_riscvCPU
+- RISC-V CPU
+
+-----------------------------------------------------
+171–180 — RISC-V SoC
+-----------------------------------------------------
+This becomes particularly interesting when combined with your embedded/Linux interests.
+
+#	Project - Main concept
+
+171	verilog_riscvRV32I
+- RV32I
+
+172	verilog_riscvCSR
+- CSRs
+
+173	verilog_riscvInterrupt
+- Interrupts
+
+174	verilog_riscvTimer
+- Timer
+
+175	verilog_riscvUART
+- UART peripheral
+
+176	verilog_riscvGPIO
+- GPIO peripheral
+
+177	verilog_riscvSPI
+- SPI peripheral
+
+178	verilog_riscvMemoryMap
+- Memory-mapped I/O
+
+179	verilog_riscvBus
+- SoC bus
+
+180	verilog_riscvSoC
+- Complete RISC-V SoC
+
+-----------------------------------------------------
+181–190 — DSP / Signal Processing
+-----------------------------------------------------
+#	Project - Main concept
+
+181	verilog_firFilter
+- FIR
+
+182	verilog_iirFilter
+- IIR
+
+183	verilog_movingAverage
+- Moving average
+
+184	verilog_decimation
+- Decimation
+
+185	verilog_interpolation
+- Interpolation
+
+186	verilog_fftBasic
+- FFT
+
+187	verilog_fftPipeline
+- Pipelined FFT
+
+188	verilog_dspPipeline
+- DSP pipeline
+
+189	verilog_spectrumAnalyzer
+- Spectrum analyzer
+
+190	verilog_digitalSignalProcessor
+- Complete DSP unit
+
+-----------------------------------------------------
+191–200 — FPGA System Projects
+-----------------------------------------------------
+#	Project - Main concept
+
+191	verilog_sensorController
+- Sensor controller
+
+192	verilog_dataLogger
+- Data logger
+
+193	verilog_uartDataLogger
+- UART data logging
+
+194	verilog_spiSensorSystem
+- SPI sensor system
+
+195	verilog_i2cSensorSystem
+- I²C sensor system
+
+196	verilog_motorController
+- Motor control
+
+197	verilog_pwmMotor
+- PWM motor
+
+198	verilog_encoderInterface
+- Encoder
+
+199	verilog_pidController
+- PID
+
+200	verilog_embeddedController
+- Complete FPGA controller
+
+-----------------------------------------------------
+201–210 — Advanced FPGA Architecture
+-----------------------------------------------------
+#	Project - Main concept
+
+201	verilog_multiClockSystem
+- Multi-clock architecture
+
+202	verilog_multiRateSystem
+- Multi-rate design
+
+203	verilog_streamingSystem
+- Streaming architecture
+
+204	verilog_packetProcessor
+- Packet processing
+
+205	verilog_fifoNetwork
+- FIFO-based architecture
+
+206	verilog_dmaEngine
+- DMA engine
+
+207	verilog_memoryArbiter
+- Memory arbitration
+
+208	verilog_busArbiter
+- Bus arbitration
+
+209	verilog_socInterconnect
+- SoC interconnect
+
+210	verilog_fpgaSystem
+- Complete FPGA system
+
+-----------------------------------------------------
+211–220 — Final Capstone Projects
+-----------------------------------------------------
+#	Project - Main concept
+
+211	verilog_uartFPGAComputer
+- FPGA computer
+
+212	verilog_riscvFPGA
+- RISC-V FPGA system
+
+213	verilog_riscvSoC
+- RISC-V SoC
+
+214	verilog_linuxCapableSoC
+- Linux-capable architecture
+
+215	verilog_axiPeripheralSystem
+- AXI peripheral system
+
+216	verilog_videoSoC\
+- Video SoC
+
+217	verilog_dspSoC
+- DSP SoC
+
+218	verilog_networkProcessor
+- Network processing
+
+219	verilog_customAccelerator
+- Hardware accelerator
+
+220	verilog_completeFPGA
+- Complete FPGA project
+
+-----------------------------------------------------
+The big picture
+
+Your learning path would become:
+
+
+                     VERILOG
+                        │
+                        ▼
+              Digital Logic
+                        │
+                        ▼
+              Combinational RTL
+                        │
+                        ▼
+              Sequential RTL
+                        │
+                        ▼
+                    FSMs
+                        │
+                        ▼
+                 Memory / FIFO
+                        │
+                        ▼
+               Arithmetic / DSP
+                        │
+                        ▼
+             UART / SPI / I²C
+                        │
+                        ▼
+                 FPGA Hardware
+                        │
+                        ▼
+                 Verification
+                        │
+                        ▼
+               SystemVerilog
+                        │
+                        ▼
+                  AXI / DMA
+                        │
+                        ▼
+                     CDC
+                        │
+                        ▼
+                Timing Closure
+                        │
+                        ▼
+                  Pipelining
+                        │
+                        ▼
+                   CPU / RISC-V
+                        │
+                        ▼
+                    SoC
+                        │
+                        ▼
+              Embedded Linux
+			  
+			  
+-----------------------------------------------------
+And this fits extremely well with the other 
+three roadmaps we're building:
+
+
+                    Hardware
+                       │
+                    Verilog
+                       │
+                       ▼
+                    FPGA
+                       │
+                       ▼
+                  RISC-V / SoC
+                       │
+                       ▼
+                Embedded Linux
+                       │
+              ┌────────┴────────┐
+              ▼                 ▼
+          Linux Kernel        Device Tree
+              │
+              ▼
+        Device Drivers
+              │
+              ▼
+          Applications
+		  
+		  
+-----------------------------------------------------
+While the FreeRTOS path sits alongside it:
+
+FPGA / SoC
+    │
+    ├── Bare Metal
+    │
+    ├── FreeRTOS
+    │     ├── Tasks
+    │     ├── Queue
+    │     ├── Semaphore
+    │     ├── Mutex
+    │     └── Interrupts
+    │
+    └── Linux
+          ├── Kernel
+          ├── Device Drivers
+          ├── Device Tree
+          └── Applications
+		  
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

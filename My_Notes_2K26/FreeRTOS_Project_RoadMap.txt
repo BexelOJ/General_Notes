@@ -1,0 +1,1294 @@
+-----------------------------------------------------
+
+------------------------------
+
+-----------------------------------------------------
+Project	Main concept
+
+1	Two tasks
+2	Task priorities
+3	Task states + delays
+4	Producer/Consumer
+5	Queue
+
+6	Mutex + race condition
+7	Semaphore
+8	ISR → Task
+9	Event Groups
+10	Task Notifications
+
+11	Software Timer
+12	Memory management
+13	Watchdog
+14	Multicore
+15	Sensor data logger
+
+16	FreeRTOS networking application
+
+-----------------------------------------------------
+C
+ ↓
+C pointers / memory
+ ↓
+Data structures
+ ↓
+Linux processes
+ ↓
+Linux threads / pthreads
+ ↓
+IPC
+ ↓
+Scheduling
+ ↓
+FreeRTOS
+ ↓
+Interrupts
+ ↓
+Drivers
+ ↓
+Embedded Linux
+ ↓
+Linux kernel
+ ↓
+Yocto
+ ↓
+Real-time Linux / PREEMPT_RT
+
+-----------------------------------------------------
+pdMS :
+
+pd → port/period delay (FreeRTOS naming convention; 
+the macro converts a time in milliseconds to ticks)
+
+MS → milliseconds
+
+-----------------------------------------------------
+clock-domain crossing (CDC) logic
+
+-----------------------------------------------------
+TCB (Task Control Block)
+
+-----------------------------------------------------
+xTaskCreate(
+    task_function,
+    task_name,
+    stack_size,
+    parameters,
+    priority,
+    task_handle
+);
+
+xTaskCreatePinnedToCore(
+    pxTaskCode,
+    pcName,
+    usStackDepth,
+    pvParameters,
+    uxPriority,
+    pvCreatedTask,
+    xCoreID
+);
+
+-----------------------------------------------------
+The useful FreeRTOS prefix pattern
+
+You'll see these prefixes everywhere in FreeRTOS:
+
+Prefix		Meaning		Example
+
+  p			pointer		pSomething
+
+  c			char		cName 
+  x			FreeRTOS base/type conventionxTaskHandle
+
+  v			void		pvParameters
+
+  s			short		sValue
+  l			long		lValue
+  f			float		fValue
+  d			double		dValue
+  u			unsigned	uValue
+
+-----------------------------------------------------
+pxTaskCode      → pointer to function
+pcName          → pointer to char/string
+usStackDepth    → unsigned stack depth
+
+pvParameters    → pointer to void
+uxPriority      → unsigned priority value
+pvCreatedTask   → pointer to TaskHandle_t
+
+xCoreID         → core ID value
+
+-----------------------------------------------------
+The learning order:
+
+C pointers
+   ↓
+Function pointers
+   ↓
+FreeRTOS tasks
+   ↓
+Task states
+   ↓
+Scheduler
+   ↓
+Priority
+   ↓
+Preemption
+   ↓
+Tick
+   ↓
+Context switch
+   ↓
+Queues
+   ↓
+Semaphores
+   ↓
+Mutex
+   ↓
+Interrupts
+   ↓
+Memory
+   ↓
+Dual core
+   ↓
+Kernel source
+   ↓
+Scheduler internals
+   ↓
+ESP32 port layer
+   ↓
+GDB/debugging
+   ↓
+Real project
+
+-----------------------------------------------------
+task basics → scheduler internals → 
+synchronization → interrupts → memory → multicore → 
+kernel source
+
+-----------------------------------------------------
+Phase 1 — FreeRTOS Fundamentals
+-----------------------------------------------------
+1. FreeRTOS architecture
+
+What is FreeRTOS?
+Kernel vs application
+ESP-IDF + FreeRTOS relationship
+app_main()
+FreeRTOS kernel components
+Tasks, scheduler, queues, semaphores, timers
+
+-----------------------------------------------------
+2. Tasks
+
+What is a task?
+Task function
+TaskFunction_t
+xTaskCreate()
+xTaskCreatePinnedToCore()
+Task parameters
+Task names
+Task stack
+Task priority
+TaskHandle_t
+
+-----------------------------------------------------
+3. FreeRTOS naming conventions
+
+We'll decode things like:
+
+pxTaskCode
+pcName
+usStackDepth
+pvParameters
+uxPriority
+pvCreatedTask
+xCoreID
+
+And later kernel variables:
+
+pxCurrentTCB
+uxTopReadyPriority
+pxReadyTasksLists
+
+-----------------------------------------------------
+4. Task states
+
+        ┌───────────┐
+        │   READY   │
+        └─────┬─────┘
+              │
+              ▼
+        ┌───────────┐
+        │  RUNNING  │
+        └──┬─────┬──┘
+           │     │
+      delay│     │preempt
+           ▼     │
+      ┌────────┐ │
+      │BLOCKED │ │
+      └───┬────┘ │
+          │       │
+          └───────┘
+
+We'll understand:
+
+Ready
+Running
+Blocked
+Suspended
+Terminated		  
+
+-----------------------------------------------------
+Phase 2 — Scheduler
+-----------------------------------------------------
+5. FreeRTOS scheduler
+
+What is a scheduler?
+Scheduler tick
+Tick interrupt
+
+configTICK_RATE_HZ
+portTICK_PERIOD_MS
+pdMS_TO_TICKS()
+
+CPU clock vs RTOS tick
+
+-----------------------------------------------------
+6. Priority-based scheduling
+
+We'll experiment with:
+
+Task 1 → Priority 3
+Task 2 → Priority 6
+
+Understand:
+
+Higher number
+     ↓
+Higher priority
+     ↓
+Gets CPU when ready
+
+-----------------------------------------------------
+7. Preemption
+
+We'll deliberately create:
+
+Low priority task
+        +
+High priority task
+
+and observe the high-priority task preempting the 
+lower-priority task.
+
+-----------------------------------------------------
+8. Time slicing
+
+Same-priority tasks
+configUSE_TIME_SLICING
+Tick interrupt
+Round-robin behavior
+taskYIELD()
+
+-----------------------------------------------------
+9. Blocking vs busy waiting
+
+Compare:
+
+vTaskDelay(...)
+
+with:
+
+while (...)
+{
+}
+
+Understand why blocking is important.
+
+-----------------------------------------------------
+Phase 3 — Task Control
+-----------------------------------------------------
+10. Task delay
+
+vTaskDelay()
+vTaskDelayUntil()
+
+Difference between:
+
+delay after execution
+
+and:
+
+periodic execution
+
+-----------------------------------------------------
+11. Task control APIs
+
+vTaskSuspend()
+vTaskResume()
+vTaskDelete()
+vTaskPrioritySet()
+uxTaskPriorityGet()
+vTaskDelay()
+taskYIELD()
+
+-----------------------------------------------------
+12. Task handles
+
+Deep dive into:
+
+TaskHandle_t
+
+and:
+
+TaskHandle_t *pvCreatedTask
+
+We'll understand pointers properly here.
+
+-----------------------------------------------------
+Phase 4 — Inter-Task Communication
+-----------------------------------------------------
+13. Queues
+
+xQueueCreate()
+xQueueSend()
+xQueueReceive()
+
+Example:
+
+Sensor Task
+     │
+     │ data
+     ▼
+   Queue
+     │
+     ▼
+Processing Task
+
+-----------------------------------------------------
+14. Queue blocking
+
+Understand:
+
+xQueueReceive(..., portMAX_DELAY);
+
+and why the task becomes Blocked.
+
+-----------------------------------------------------
+15. Semaphores
+
+Binary semaphore
+Counting semaphore
+Giving/taking semaphore
+
+xSemaphoreGive()
+xSemaphoreTake()
+
+-----------------------------------------------------
+16. Mutex
+
+Mutex vs semaphore
+Shared resources
+Mutual exclusion
+Critical sections
+
+Example:
+
+Task 1 ──┐
+         ├──► UART
+Task 2 ──┘
+
+Why simultaneous access can cause problems.
+
+-----------------------------------------------------
+Phase 5 — Synchronization
+-----------------------------------------------------
+17. Race conditions
+
+We'll intentionally create a race condition:
+
+counter++;
+
+and understand why this is not necessarily atomic.
+
+-----------------------------------------------------
+18. Critical sections
+
+taskENTER_CRITICAL()
+taskEXIT_CRITICAL()
+
+-----------------------------------------------------
+19. Spinlocks
+
+Especially important on ESP32 dual-core systems.
+
+-----------------------------------------------------
+20. Atomic operations
+
+Atomic read/write
+Atomic increment
+Compare-and-swap concepts
+
+-----------------------------------------------------
+Phase 6 — Interrupts + FreeRTOS
+-----------------------------------------------------
+21. Interrupt fundamentals
+
+Interrupt
+ISR
+Interrupt controller
+Interrupt latency
+ISR vs task
+
+
+-----------------------------------------------------
+22. ISR → Task communication
+
+Learn the FromISR APIs:
+
+xQueueSendFromISR()
+xSemaphoreGiveFromISR()
+vTaskNotifyGiveFromISR()
+
+-----------------------------------------------------
+23. Interrupt priority and restrictions
+
+Understand why you cannot simply call every 
+FreeRTOS API from an ISR.
+
+-----------------------------------------------------
+Phase 7 — Task Notifications
+-----------------------------------------------------
+24. Task notifications
+
+xTaskNotify()
+xTaskNotifyGive()
+ulTaskNotifyTake()
+xTaskNotifyWait()
+
+Understand why task notifications can be 
+much lighter than queues/semaphores for certain 
+one-to-one signaling cases.
+
+-----------------------------------------------------
+Phase 8 — Software Timers
+-----------------------------------------------------
+25. FreeRTOS software timers
+
+xTimerCreate()
+xTimerStart()
+xTimerStop()
+
+Understand:
+
+Hardware timer
+       vs
+FreeRTOS software timer
+
+-----------------------------------------------------
+26. Timer callback
+
+Timer service task
+Callback execution
+Periodic timers
+One-shot timers
+
+-----------------------------------------------------
+Phase 9 — Memory
+-----------------------------------------------------
+27. Task stack
+
+Deep dive into:
+
+4096
+
+What does that actually mean on ESP32?
+
+Stack allocation
+Stack usage
+Stack overflow
+Stack high-water mark
+
+-----------------------------------------------------
+28. Heap
+
+FreeRTOS heap
+ESP-IDF heap
+Dynamic allocation
+pvPortMalloc()
+vPortFree()
+heap_caps_malloc()
+
+-----------------------------------------------------
+29. Static vs dynamic tasks
+
+xTaskCreate()
+
+vs
+
+xTaskCreateStatic()
+
+Understand TCB and stack allocation.
+
+-----------------------------------------------------
+Phase 10 — ESP32 Dual Core
+-----------------------------------------------------
+30. SMP / multicore concepts
+
+Understand:
+
+Core 0
+   │
+   ├── Task A
+   └── Task B
+
+Core 1
+   │
+   ├── Task C
+   └── Task D
+
+-----------------------------------------------------
+31. Task affinity
+
+xTaskCreatePinnedToCore()
+
+Understand:
+
+0 → Core 0
+1 → Core 1
+
+-----------------------------------------------------
+32. Same-core vs different-core scheduling
+
+We'll compare:
+
+Task A ── Core 0
+Task B ── Core 0
+
+against:
+
+Task A ── Core 0
+Task B ── Core 1
+
+This will make the scheduler behavior much clearer.
+
+-----------------------------------------------------
+Phase 11 — Advanced Scheduling
+-----------------------------------------------------
+33. Context switching
+
+Understand what happens when:
+
+Task A
+  ↓
+Scheduler
+  ↓
+Task B
+
+including:
+
+CPU registers
+Stack pointer
+Program counter
+Task control block
+Saving/restoring context
+
+-----------------------------------------------------
+34. Tick interrupt → scheduler → context switch
+
+We'll trace the complete chain:
+
+
+Hardware timer
+      ↓
+Tick interrupt
+      ↓
+FreeRTOS tick handler
+      ↓
+Update delays
+      ↓
+Check ready tasks
+      ↓
+Scheduler
+      ↓
+Context switch
+      ↓
+New task executes
+
+-----------------------------------------------------
+Phase 12 — FreeRTOS Kernel Source
+-----------------------------------------------------
+
+This is where your kernel-learning goal starts 
+becoming serious.
+
+We'll read actual source code.
+
+-----------------------------------------------------
+35. tasks.c
+
+Study:
+
+xTaskCreate()
+xTaskCreateStatic()
+prvInitialiseNewTask()
+prvAddNewTaskToReadyList()
+vTaskDelay()
+vTaskDelete()
+vTaskSuspend()
+
+-----------------------------------------------------
+36. Task Control Block — TCB
+
+Understand the internal structure:
+
+TCB
+├── Task name
+├── Priority
+├── Stack pointer
+├── State information
+├── Task list items
+├── Core affinity
+└── Other task metadata
+
+-----------------------------------------------------
+37. Ready lists
+
+Understand:
+
+Priority 6 → Task B
+Priority 5 → Task C
+Priority 4 → Task D
+Priority 3 → Task A
+
+and how the scheduler finds the next task.
+
+-----------------------------------------------------
+38. Scheduler internals
+
+Study:
+
+vTaskSwitchContext()
+taskSELECT_HIGHEST_PRIORITY_TASK()
+
+and related port-specific code.
+
+-----------------------------------------------------
+Phase 13 — ESP32 FreeRTOS Internals
+-----------------------------------------------------
+39. ESP-IDF FreeRTOS modifications
+
+ESP-IDF additions
+ESP-specific scheduler behavior
+Core affinity
+SMP-related behavior
+ESP32 port layer
+
+-----------------------------------------------------
+40. FreeRTOS port layer
+
+Understand the relationship:
+
+
+Application
+     ↓
+FreeRTOS API
+     ↓
+FreeRTOS Kernel
+     ↓
+ESP32 Port
+     ↓
+Xtensa CPU
+     ↓
+Hardware
+
+-----------------------------------------------------
+Phase 14 — Debugging
+-----------------------------------------------------
+41. FreeRTOS debugging
+
+Learn:
+
+uxTaskGetSystemState()
+vTaskList()
+uxTaskGetStackHighWaterMark()
+
+-----------------------------------------------------
+42. Stack overflow debugging
+
+Understand:
+
+Guru Meditation
+Stack overflow
+Watchdog
+Illegal memory access
+StoreProhibited
+LoadProhibited
+
+-----------------------------------------------------
+43. GDB
+
+Since you're already learning GDB:
+
+
+ESP32
+  ↓
+GDB
+  ↓
+breakpoint
+  ↓
+registers
+  ↓
+stack
+  ↓
+task state
+
+-----------------------------------------------------
+Phase 15 — Build a Real Project
+-----------------------------------------------------
+
+Finally, we'll combine everything into one project:
+
+ESP32 FreeRTOS System Monitor
+
+Something like:
+
+                 ESP32
+                   │
+       ┌───────────┼───────────┐
+       │           │           │
+       ▼           ▼           ▼
+   Sensor Task   Logger Task  Monitor Task
+       │           │           │
+       └──────┬────┴───────────┘
+              ▼
+            Queue
+              │
+              ▼
+          Processing
+              │
+              ▼
+           Display
+
+We'll use:
+
+Multiple tasks
+Different priorities
+Task delays
+
+Queues
+Mutex
+Semaphore
+Interrupt
+
+Task notification
+Software timer
+Memory allocation
+
+Core 0/Core 1
+Task monitoring
+Debugging
+
+-----------------------------------------------------
+In FreeRTOS, Inter-Task Communication (ITC) means 
+mechanisms that allow one task 
+to send data/signals to another task safely.
+
+The main mechanisms are:
+
+Mechanism - Purpose	- Data transfer - Typical use:
+
+Queue - Send data between tasks - 
+✅ Yes - Sensor → processing task
+
+Binary Semaphore - Signal/event synchronization
+❌ Usually no data - Task → task notification
+
+Counting Semaphore - 
+Count available resources/events - 
+❌ Usually no data - Resource pool/event counting
+
+Mutex - Protect shared resource - 
+❌ No - Shared I²C/UART/SPI
+
+Recursive Mutex - 
+Mutex that same task can lock repeatedly - 
+❌ No - Nested resource access
+
+Task Notification - 
+Very lightweight task-to-task communication - 	
+✅ Small value/notification - Fast signaling
+
+Event Groups - 
+Communicate multiple event conditions - 
+✅ Bit flags - "Wi-Fi + sensor + config ready"
+
+Stream Buffer - Transfer byte streams - 	
+✅ Bytes - UART-like data
+
+Message Buffer - 
+Transfer variable-size messages - 
+✅ Messages - Protocol packets
+
+
+-----------------------------------------------------
+FreeRTOS Project creation in ESP32-IDF
+
+idf.py create-project frtos_20260921_binarySemaphore
+
+-----------------------------------------------------
+-----------------------------------------------------
+FreeRTOS + ESP32 Project Roadmap
+-----------------------------------------------------
+-----------------------------------------------------
+01–03 — Already completed:
+
+# - Project - Main concept
+
+01	blink_led
+- ESP32 GPIO / basic ESP-IDF
+
+02	esp32_CoreInfo
+- ESP32 CPU cores
+
+03	frtos_20260921_twoTask
+- Tasks, scheduler, core affinity
+
+-----------------------------------------------------
+04–13 — Task Communication & Synchronization
+-----------------------------------------------------
+# - Project - Main concept
+
+04	frtos_20260921_taskQueue
+- Queue
+
+05	frtos_20260921_binarySemaphore
+- Binary Semaphore
+
+06	frtos_20260921_countingSemaphore
+- Counting Semaphore
+
+07	frtos_20260921_mutex
+- Mutex
+
+08	frtos_20260921_taskNotification
+- Task Notification
+
+09	frtos_20260921_eventGroup
+- Event Groups
+
+10	frtos_20260921_streamBuffer
+- Stream Buffer
+
+11	frtos_20260921_messageBuffer
+- Message Buffer
+
+12	frtos_20260921_taskSuspendResume
+- Suspend / Resume
+
+13	frtos_20260921_taskPriority
+- Task Priority / Scheduling
+
+-----------------------------------------------------
+14–23 — Task Management
+-----------------------------------------------------
+# - Project - Main concept
+
+14	frtos_20260922_taskDelay	
+vTaskDelay()
+
+15	frtos_20260922_taskDelayUntil
+- vTaskDelayUntil()
+
+16	frtos_20260922_taskDelete
+- Task deletion
+
+17	frtos_20260922_taskCreate
+- Dynamic task creation
+
+18	frtos_20260922_taskStaticCreate
+- Static task creation
+
+19	frtos_20260922_taskParameters	
+- Passing parameters to tasks
+
+20	frtos_20260922_taskHandle
+- Task handles
+
+21	frtos_20260922_taskState
+- Task states
+
+22	frtos_20260922_taskIdle
+- Idle task
+
+23	frtos_20260922_taskWatchdog
+- Task watchdog
+
+-----------------------------------------------------
+24–32 — Memory Management
+-----------------------------------------------------
+# - Project - Main concept
+
+24	frtos_20260923_heap	
+- FreeRTOS heap
+
+25	frtos_20260923_mallocFree
+- Dynamic allocation
+
+26	frtos_20260923_heapUsage
+- Heap usage monitoring
+
+27	frtos_20260923_heapCaps
+- ESP-IDF heap capabilities
+
+28	frtos_20260923_stackUsage
+- Stack usage
+
+29	frtos_20260923_stackOverflow
+- Stack overflow detection
+
+30	frtos_20260923_staticQueue
+- Static queue
+
+31	frtos_20260923_staticSemaphore
+- Static semaphore
+
+32	frtos_20260923_memoryPool
+- Memory-pool concept
+
+-----------------------------------------------------
+33–40 — Interrupts & ISR Communication
+-----------------------------------------------------
+# - Project - Main concept
+
+33	frtos_20260924_gpioInterrupt
+- GPIO interrupt
+
+34	frtos_20260924_isrQueue
+- ISR → Task using Queue
+
+35	frtos_20260924_isrSemaphore	
+- ISR → Task using Semaphore
+
+36	frtos_20260924_isrNotification
+- ISR → Task Notification
+
+37	frtos_20260924_isrEventGroup
+- ISR + Event Group
+
+38	frtos_20260924_timerInterrupt
+- Timer interrupt
+
+39	frtos_20260924_interruptPriority
+- Interrupt priority
+
+40	frtos_20260924_isrRules
+- ISR-safe FreeRTOS APIs
+
+-----------------------------------------------------
+41–48 — Software Timers
+-----------------------------------------------------
+# - Project - Main concept
+
+41	frtos_20260925_softwareTimer
+- Software Timer
+
+42	frtos_20260925_oneShotTimer
+- One-shot timer
+
+43	frtos_20260925_periodicTimer
+- Periodic timer
+
+44	frtos_20260925_timerCallback
+- Timer callback
+
+45	frtos_20260925_timerStartStop
+- Start / Stop
+
+46	frtos_20260925_timerReset
+- Reset timer
+
+47	frtos_20260925_multipleTimers
+- Multiple timers
+
+48	frtos_20260925_timerTask
+- Timer service task
+
+-----------------------------------------------------
+49–56 — Scheduling & Real-Time Concepts
+-----------------------------------------------------
+# - Project - Main concept
+
+49	frtos_20260926_roundRobin
+- Time slicing
+
+50	frtos_20260926_priorityPreemption
+- Preemption
+
+51	frtos_20260926_priorityInversion
+- Priority inversion
+
+52	frtos_20260926_priorityInheritance
+- Priority inheritance
+
+53	frtos_20260926_deadlock
+- Deadlock
+
+54	frtos_20260926_raceCondition
+- Race condition
+
+55	frtos_20260926_criticalSection
+- Critical sections
+
+56	frtos_20260926_schedulerSuspension
+- Scheduler suspension
+
+-----------------------------------------------------
+57–64 — ESP32 + FreeRTOS
+-----------------------------------------------------
+# - Project - Main concept
+
+57	frtos_20260927_dualCoreTasks
+- Dual-core task design
+
+58	frtos_20260927_coreAffinity
+- Core affinity
+
+59	frtos_20260927_coreCommunication
+- Core-to-core communication
+
+60	frtos_20260927_uartTask
+- UART + Task
+
+61	frtos_20260927_i2cTask
+- I²C + Task
+
+62	frtos_20260927_spiTask
+- SPI + Task
+
+63	frtos_20260927_gpioTask
+- GPIO + Task
+
+64	frtos_20260927_wifiTask
+- Wi-Fi + Task
+
+-----------------------------------------------------
+65–72 — Practical RTOS Architecture
+-----------------------------------------------------
+# - Project - Main concept
+
+65	frtos_20260928_sensorSystem
+- Sensor task architecture
+
+66	frtos_20260928_producerConsumer
+- Producer–Consumer
+
+67	frtos_20260928_commandTask
+- Command processing
+
+68	frtos_20260928_loggerTask
+- Dedicated logging task
+
+69	frtos_20260928_dataPipeline
+- Multi-task pipeline
+
+70	frtos_20260928_stateMachine
+- Task + state machine
+
+71	frtos_20260928_deviceManager
+- Device-manager architecture
+
+72	frtos_20260928_monitorTask
+- System monitoring
+
+-----------------------------------------------------
+73–80 — FreeRTOS Internals
+-----------------------------------------------------
+This is where we start going deeper 
+into the RTOS itself.
+
+# - Project - Main concept
+
+73	frtos_20260929_taskControlBlock	
+- TCB
+
+74	frtos_20260929_readyList
+- Ready lists
+
+75	frtos_20260929_blockedTask
+- Blocked lists
+
+76	frtos_20260929_scheduler
+- Scheduler internals
+
+77	frtos_20260929_contextSwitch
+- Context switching
+
+78	frtos_20260929_tickInterrupt
+- RTOS tick
+
+79	frtos_20260929_ticklessIdle
+- Tickless operation
+
+80	frtos_20260929_portLayer
+- FreeRTOS port layer
+
+-----------------------------------------------------
+81–90 — Advanced:
+-----------------------------------------------------
+# - Project - Main concept
+
+81	frtos_20260930_queueSet
+- Queue Sets
+
+82	frtos_20260930_recursiveMutex
+- Recursive Mutex
+
+83	frtos_20260930_directToTaskNotification
+- Direct task notification
+
+84	frtos_20260930_notificationBits
+- Notification bits
+
+85	frtos_20260930_multipleTasks
+- Complex task coordination
+
+86	frtos_20260930_multicoreSynchronization
+- Multicore synchronization
+
+87	frtos_20260930_runtimeStats
+- Runtime statistics
+
+88	frtos_20260930_taskTrace
+- Task tracing
+
+89	frtos_20260930_systemMonitor
+- RTOS system monitor
+
+90	frtos_20260930_fullSystem
+- Complete FreeRTOS application
+
+-----------------------------------------------------
+The overall path:
+
+ESP32
+  │
+  ├── GPIO
+  │
+  ├── CPU / Dual Core
+  │
+  └── FreeRTOS
+       │
+       ├── Tasks
+       │
+       ├── Communication
+       │    ├── Queue
+       │    ├── Semaphore
+       │    ├── Mutex
+       │    ├── Notification
+       │    ├── Event Group
+       │    ├── Stream Buffer
+       │    └── Message Buffer
+       │
+       ├── Memory
+       │
+       ├── Interrupts
+       │
+       ├── Timers
+       │
+       ├── Scheduling
+       │
+       ├── ESP32 peripherals
+       │
+       ├── RTOS architecture
+       │
+       └── FreeRTOS internals
+              │
+              ▼
+         Linux Kernel
+		 
+		 
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+

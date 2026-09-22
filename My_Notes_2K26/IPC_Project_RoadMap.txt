@@ -1,0 +1,1172 @@
+-----------------------------------------------------
+IPC — Complete Project Roadmap
+------------------------------
+
+
+-----------------------------------------------------
+01–10 — IPC Fundamentals
+-----------------------------------------------------
+#	Project - Concept
+
+01	ipc_helloProcess
+- fork() and process creation
+
+02	ipc_parentChild
+- Parent/child process relationship
+
+03	ipc_processExit
+- exit(), _exit(), wait()
+
+04	ipc_waitStatus
+- Process termination status
+
+05	ipc_exec
+- exec() family
+
+06	ipc_forkExec
+- fork() + exec()
+
+07	ipc_processTree
+- Process hierarchy
+
+08	ipc_orphanProcess
+- Orphan process
+
+09	ipc_zombieProcess
+- Zombie process
+
+10	ipc_daemonProcess
+- Daemon/background process
+
+-----------------------------------------------------
+11–20 — Pipes
+-----------------------------------------------------
+#	Project - Concept
+
+11	ipc_pipeBasic
+- Anonymous pipe
+
+12	ipc_pipeParentChild
+- Parent → child
+
+13	ipc_pipeChildParent
+- Child → parent
+
+14	ipc_pipeBidirectional
+- Two pipes
+
+15	ipc_pipeMultipleProcess
+- Multiple processes
+
+16	ipc_pipeBlocking
+- Blocking behavior
+
+17	ipc_pipeNonBlocking
+- O_NONBLOCK
+
+18	ipc_pipeEOF
+- Pipe EOF semantics
+
+19	ipc_pipeCapacity
+- Pipe buffer capacity
+
+20	ipc_pipeProducerConsumer
+- Producer/consumer
+
+-----------------------------------------------------
+21–30 — Named Pipes / FIFO
+-----------------------------------------------------
+#	Project - Concept
+
+21	ipc_fifoBasic
+- mkfifo()
+
+22	ipc_fifoWriter
+- FIFO writer
+
+23	ipc_fifoReader
+- FIFO reader
+
+24	ipc_fifoTwoProcess
+- Independent processes
+
+25	ipc_fifoBlocking
+- FIFO blocking
+
+26	ipc_fifoNonBlocking
+- Non-blocking FIFO
+
+27	ipc_fifoMultipleWriter
+- Multiple writers
+
+28	ipc_fifoServer
+- FIFO server
+
+29	ipc_fifoClient
+- FIFO client
+
+30	ipc_fifoChat
+- Simple IPC chat
+
+-----------------------------------------------------
+31–40 — Signals
+-----------------------------------------------------
+#	Project - Concept
+
+31	ipc_signalBasic
+- kill()
+
+32	ipc_signalHandler
+- signal()
+
+33	ipc_sigaction
+- sigaction()
+
+34	ipc_signalUser
+- SIGUSR1/SIGUSR2
+
+35	ipc_signalAlarm
+- alarm()
+
+36	ipc_signalTimer
+- Timer signals
+
+37	ipc_signalMask
+- Signal masking
+
+38	ipc_signalPending
+- Pending signals
+
+39	ipc_signalWait
+- sigwait()
+
+40	ipc_signalProcessControl
+- Process control with signals
+
+-----------------------------------------------------
+41–50 — POSIX Message Queues
+-----------------------------------------------------
+#	Project - Concept
+
+41	ipc_mqBasic
+- POSIX message queue
+
+42	ipc_mqSend
+- mq_send()
+
+43	ipc_mqReceiv
+- mq_receive()
+
+44	ipc_mqPriority
+- Message priority
+
+45	ipc_mqBlocking
+- Blocking queue
+
+46	ipc_mqNonBlocking
+- Non-blocking queue
+
+47	ipc_mqAttributes
+- Queue attributes
+
+48	ipc_mqNotification
+- Queue notification
+
+49	ipc_mqProducerConsumer
+- Producer/consumer
+
+50	ipc_mqClientServer
+- Message-queue client/server
+
+-----------------------------------------------------
+51–60 — Shared Memory
+-----------------------------------------------------
+This is one of the most important IPC sections.
+
+#	Project - Concept
+
+51	ipc_shmBasic
+- Shared memory concept
+
+52	ipc_shmCreate
+- Create shared memory
+
+53	ipc_shmAttach
+- Mapping memory
+
+54	ipc_shmDetach
+- Unmapping
+
+55	ipc_shmProcess\
+- Two processes sharing data
+
+56	ipc_shmStruct
+- Shared structures
+
+57	ipc_shmArray
+- Shared buffer
+
+58	ipc_shmProducerConsumer
+- Shared-memory buffer
+
+59	ipc_shmRingBuffer
+- Ring buffer
+
+60	ipc_shmDataExchange
+- High-speed IPC
+
+-----------------------------------------------------
+61–70 — Shared Memory Synchronization
+-----------------------------------------------------
+Shared memory by itself creates race conditions, 
+so this section combines IPC with synchronization.
+
+#	Project - Concept
+
+61	ipc_shmSemaphore
+- Shared memory + semaphore
+
+62	ipc_shmMutex
+- Shared memory + mutex
+
+63	ipc_shmCondition
+- Condition variable
+
+64	ipc_shmProducerConsumer
+- Synchronised buffer
+
+65	ipc_shmMultipleReader
+- Multiple readers
+
+66	ipc_shmMultipleWriter
+- Multiple writers
+
+67	ipc_shmReaderWriter
+- Reader/writer model
+
+68	ipc_shmRingBufferSync
+- Synchronised ring buffer
+
+69	ipc_shmLockFree
+- Lock-free shared memory
+
+70	ipc_shmHighPerformance
+- High-performance IPC
+
+-----------------------------------------------------
+71–80 — System V IPC
+-----------------------------------------------------
+Important because you'll encounter it in 
+older Linux systems and existing software.
+
+#	Project - Concept
+
+71	ipc_sysvMessageQueue
+- System V message queues
+
+72	ipc_sysvMsgSend
+- msgsnd()
+
+73	ipc_sysvMsgReceive
+- msgrcv()
+
+74	ipc_sysvSemaphore
+- System V semaphores
+
+75	ipc_sysvSemOperation
+- semop()
+
+76	ipc_sysvSharedMemory
+- System V shared memory
+
+77	ipc_sysvShmAttach
+- shmat()
+
+78	ipc_sysvShmDetach
+- shmdt()
+
+79	ipc_sysvPermissions
+- IPC permissions
+
+80	ipc_sysvCleanup
+- IPC resource management
+
+-----------------------------------------------------
+81–90 — UNIX Domain Sockets
+-----------------------------------------------------
+Very important for Linux applications.
+
+#	Project - Concept
+
+81	ipc_unixSocketBasic
+- UNIX domain socket
+
+82	ipc_unixServer
+- Server
+
+83	ipc_unixClient
+- Client
+
+84	ipc_unixStream
+- SOCK_STREAM
+
+85	ipc_unixDatagram
+- SOCK_DGRAM
+
+86	ipc_unixNonBlocking
+- Non-blocking socket
+
+87	ipc_unixMultipleClient
+- Multiple clients
+
+88	ipc_unixChat
+- IPC chat
+
+89	ipc_unixServerPool
+- Server process pool
+
+90	ipc_unixClientServer
+- Production-style IPC
+
+-----------------------------------------------------
+91–100 — Network IPC
+-----------------------------------------------------
+Now IPC extends beyond one machine.
+
+#	Project - Concept
+
+91	ipc_tcpServer
+- TCP server
+
+92	ipc_tcpClient
+- TCP client
+
+93	ipc_tcpMultiClient
+- Multiple clients
+
+94	ipc_udpServer
+- UDP server
+
+95	ipc_udpClient
+- UDP client
+
+96	ipc_tcpBlocking
+- Blocking sockets
+
+97	ipc_tcpNonBlocking
+- Non-blocking sockets
+
+98	ipc_select
+- select()
+
+99	ipc_poll
+- poll()
+
+100	ipc_epoll
+- epoll()
+
+-----------------------------------------------------
+101–110 — Event-Driven IPC
+-----------------------------------------------------
+This is where IPC starts becoming much closer to 
+real Linux server architecture.
+
+#	Project - Concept
+
+101	ipc_epollBasic
+- Basic epoll
+
+102	ipc_epollServer
+- Event-driven server
+
+103	ipc_epollMultiClient
+- Multiple clients
+
+104	ipc_epollEdgeTriggered
+- Edge-triggered
+
+105	ipc_epollLevelTriggered
+- Level-triggered
+
+106	ipc_eventfd
+- eventfd()
+
+107	ipc_timerfd
+- timerfd()
+
+108	ipc_signalfd
+- signalfd()
+
+109	ipc_epollEvents
+- Multiple event sources
+
+110	ipc_eventDrivenServer
+- Complete event-driven IPC
+
+-----------------------------------------------------
+111–120 — Process Synchronization
+-----------------------------------------------------
+IPC and synchronization overlap heavily.
+
+#	Project - Concept
+
+111	ipc_posixSemaphore
+- POSIX semaphore
+
+112	ipc_namedSemaphore
+- Named semaphore
+
+113	ipc_unnamedSemaphore
+- Unnamed semaphore
+
+114	ipc_processMutex
+- Process-shared mutex
+
+115	ipc_processCondition
+- Process-shared condition
+
+116	ipc_rwlock
+- Reader/writer lock
+
+117	ipc_spinlock
+- Spinlock
+
+118	ipc_barrier
+- Process barrier
+
+119	ipc_deadlock
+- Deadlock
+
+120	ipc_raceCondition
+- Race condition
+
+-----------------------------------------------------
+121–130 — Advanced Process Management
+-----------------------------------------------------
+#	Project - Concept
+
+121	ipc_processGroup
+- Process groups
+
+122	ipc_session
+- Sessions
+
+123	ipc_terminalControl
+- Controlling terminal
+
+124	ipc_daemon
+- Daemon architecture
+
+125	ipc_doubleFork
+- Double-fork daemon
+
+126	ipc_pidfd
+- pidfd
+
+127	ipc_processSignal
+- Process signaling
+
+128	ipc_waitpid
+- Process lifecycle
+
+129	ipc_subreaper
+- Child reaping
+
+130	ipc_processSupervisor
+- Process supervisor
+
+-----------------------------------------------------
+131–140 — File-Based IPC
+-----------------------------------------------------
+#	Project - Concept
+
+131	ipc_fileExchange
+- File-based communication
+
+132	ipc_fileLock
+- File locking
+
+133	ipc_flock
+- flock()
+
+134	ipc_fcntlLock
+- fcntl() locks
+
+135	ipc_atomicFile
+- Atomic file replacement
+
+136	ipc_tempFile
+- Temporary IPC files
+
+137	ipc_lockFile
+- Lock files
+
+138	ipc_spoolDirectory
+- Spool directory
+
+139	ipc_fileQueue
+- File queue
+
+140	ipc_fileIPCServer
+- File-based IPC server
+
+-----------------------------------------------------
+141–150 — IPC Performance
+-----------------------------------------------------
+Now measure the different mechanisms.
+
+#	Project - Concept
+
+141	ipc_pipeBenchmark
+- Pipe performance
+
+142	ipc_fifoBenchmark
+- FIFO performance
+
+143	ipc_mqBenchmark
+- Message queue
+
+144	ipc_shmBenchmark
+- Shared memory
+
+145	ipc_unixSocketBenchmark
+- UNIX socket
+
+146	ipc_tcpBenchmark
+- TCP
+
+147	ipc_latencyBenchmark
+- IPC latency
+
+148	ipc_throughputBenchmark
+- IPC throughput
+
+149	ipc_cpuBenchmark
+- CPU overhead
+
+150	ipc_memoryBenchmark
+- Memory overhead
+
+-----------------------------------------------------
+151–160 — Zero-Copy / High Performance IPC
+-----------------------------------------------------
+#	Project - Concept
+
+151	ipc_zeroCopyBasic
+- Zero-copy concept
+
+152	ipc_sharedRingBuffer
+- Shared ring buffer
+
+153	ipc_lockFreeQueue
+- Lock-free queue
+
+154	ipc_spscQueue
+- Single producer/single consumer
+
+155	ipc_mpscQueue
+- Multiple producer
+
+156	ipc_spmcQueue
+- Multiple consumer
+
+157	ipc_mpmcQueue
+- Multiple producer/consumer
+
+158	ipc_memfd
+- memfd_create()
+
+159	ipc_memfdSharing
+- Memory sharing
+
+160	ipc_highPerformanceIPC
+- Complete high-speed IPC
+
+-----------------------------------------------------
+161–170 — File Descriptor Based IPC
+-----------------------------------------------------
+Modern Linux relies heavily on file descriptors.
+
+#	Project - Concept
+
+161	ipc_fdPassing
+- File descriptor passing
+
+162	ipc_unixFdPassing
+- UNIX socket FD passing
+
+163	ipc_sendmsg
+- sendmsg()
+
+164	ipc_recvmsg
+- recvmsg()
+
+165	ipc_scmRights
+- SCM_RIGHTS
+
+166	ipc_fdServer
+- FD-passing server
+
+167	ipc_fdClient
+- FD-passing client
+
+168	ipc_sharedFileDescriptor
+- Resource sharing
+
+169	ipc_fdEventSystem
+- FD-based event system
+
+170	ipc_fdArchitecture
+- FD-oriented IPC
+
+-----------------------------------------------------
+171–180 — IPC + Threads
+-----------------------------------------------------
+Important distinction:
+
+Thread communication ≠ process communication, 
+but real applications often combine both.
+
+#	Project - Concept
+
+171	ipc_threadPipe
+- Thread + pipe
+
+172	ipc_threadQueue
+- Thread-safe queue
+
+173	ipc_threadSocket
+- Threads + sockets
+
+174	ipc_threadSharedMemory
+- Threads + shared memory
+
+175	ipc_threadSemaphore
+- Threads + semaphore
+
+176	ipc_threadCondition
+- Threads + condition
+
+177	ipc_threadPoolIPC
+- Thread pool
+
+178	ipc_processThreadPool
+- Process + thread pool
+
+179	ipc_workerArchitecture
+- Worker architecture
+
+180	ipc_hybridIPC
+- Hybrid IPC
+
+-----------------------------------------------------
+181–190 — IPC Security
+-----------------------------------------------------
+#	Project - Concept
+
+181	ipc_permissions
+- IPC permissions
+
+182	ipc_uidGid
+- UID/GID
+
+183	ipc_filePermissions
+- UNIX permissions
+
+184	ipc_socketPermissions
+- UNIX socket permissions
+
+185	ipc_credentials
+- Credential passing
+
+186	ipc_peerCredentials
+- SO_PEERCRED
+
+187	ipc_capabilities
+- Linux capabilities
+
+188	ipc_selinuxIPC
+- SELinux IPC
+
+189	ipc_seccompIPC
+- Seccomp interaction
+
+190	ipc_secureServer
+- Secure IPC server
+
+-----------------------------------------------------
+191–200 — IPC + Linux Kernel
+-----------------------------------------------------
+This connects your IPC learning to your 
+Linux Device Driver / Kernel roadmap.
+
+#	Project - Concept
+
+191	ipc_procfs
+- /proc process information
+
+192	ipc_sysfs
+- /sys
+
+193	ipc_kernelPipe
+- Kernel pipe concepts
+
+194	ipc_kernelSignal
+- Kernel signal path
+
+195	ipc_kernelSocket
+- Kernel socket architecture
+
+196	ipc_kernelShm
+- Shared memory internals
+
+197	ipc_kernelMq
+- Message queue internals
+
+198	ipc_kernelEventfd
+- eventfd internals
+
+199	ipc_kernelEpoll
+- epoll internals
+
+200	ipc_syscallIPC
+- IPC system calls
+
+-----------------------------------------------------
+201–210 — IPC with Device Drivers
+-----------------------------------------------------
+This is particularly relevant to your 
+Linux driver work.
+
+#	Project - Concept
+
+201	ipc_driverPipe
+- Driver ↔ process
+
+202	ipc_driverSignal
+- Driver → process signal
+
+203	ipc_driverPoll
+- poll() from driver
+
+204	ipc_driverSelect
+- select() from driver
+
+205	ipc_driverEpoll
+- Driver + epoll
+
+206	ipc_driverEventfd
+- Driver + eventfd
+
+207	ipc_driverMmap
+- Driver + mmap()
+
+208	ipc_driverSharedMemory
+- Driver shared memory
+
+209	ipc_driverIoctl
+- ioctl() communication
+
+210	ipc_driverUserspace
+- Complete driver/user IPC
+
+-----------------------------------------------------
+211–220 — IPC Architectures
+-----------------------------------------------------
+Now start combining mechanisms.
+
+#	Project	Architecture
+
+211	ipc_clientServer
+- Client/server
+
+212	ipc_workerPool
+- Worker pool
+
+213	ipc_pipeline
+- Processing pipeline
+
+214	ipc_producerConsumer
+- Producer/consumer
+
+215	ipc_pubSub
+- Publish/subscribe
+
+216	ipc_requestResponse
+- Request/response
+
+217	ipc_eventDriven
+- Event-driven
+
+218	ipc_messageRouter
+- Message routing
+
+219	ipc_serviceManager
+- Service manager
+
+220	ipc_supervisorWorker
+- Supervisor/worker
+
+-----------------------------------------------------
+221–230 — Real-World IPC Projects
+-----------------------------------------------------
+#	Project	Practical System
+
+221	ipc_logger
+- Central logging process
+
+222	ipc_monitor
+- System monitoring
+
+223	ipc_sensorService
+- Sensor service
+
+224	ipc_dataCollector
+- Data collector
+
+225	ipc_databaseService
+- Database service
+
+226	ipc_commandService
+- Command service
+
+227	ipc_configService
+- Configuration service
+
+228	ipc_notificationService
+- Notification service
+
+229	ipc_taskManager
+- Task manager
+
+230	ipc_processManage
+- Process manager
+
+-----------------------------------------------------
+231–240 — IPC + Your Embedded/Linux Stack
+-----------------------------------------------------
+This is where the roadmap connects directly to 
+what you're already learning.
+
+#	Project	Combination
+
+231	ipc_raspberryPi
+- IPC on Raspberry Pi
+
+232	ipc_gpioService
+- GPIO service
+
+233	ipc_i2cService
+- I²C service
+
+234	ipc_spiService
+- SPI service
+
+235	ipc_uartService
+- UART service
+
+236	ipc_sensorPipeline
+- Sensor → IPC → application
+
+237	ipc_mqttBridge
+- IPC → MQTT
+
+238	ipc_databaseBridge
+- IPC → PostgreSQL
+
+239	ipc_qtBackend
+- Qt ↔ backend process
+
+240	ipc_embeddedArchitecture
+- Complete embedded IPC
+
+-----------------------------------------------------
+241–250 — IPC + Qt
+-----------------------------------------------------
+Very relevant to your yantraSthiti architecture.
+
+#	Project	Concept
+
+241	ipc_qtProcess
+- Qt process management
+
+242	ipc_qtLocalSocket
+- QLocalSocket
+
+243	ipc_qtLocalServer
+- QLocalServer
+
+244	ipc_qtProcessCommunication
+- Qt ↔ process
+
+245	ipc_qtBackendService
+- Qt frontend/backend
+
+246	ipc_qtWorkerProcess
+- Worker process
+
+247	ipc_qtMultiProcess
+- Multiple Qt processes
+
+248	ipc_qtSharedMemory
+- Qt shared memory
+
+249	ipc_qtNetworkIPC
+- Qt network IPC
+
+250	ipc_qtProductionArchitecture
+- Production Qt IPC
+
+-----------------------------------------------------
+251–260 — IPC + Distributed Systems
+-----------------------------------------------------
+At this point the boundary between IPC and 
+distributed communication becomes important.
+
+#	Project	Concept
+
+251	ipc_rpcBasic
+- RPC
+
+252	ipc_grpcBasic
+- gRPC
+
+253	ipc_grpcServer
+- gRPC server
+
+254	ipc_grpcClient
+- gRPC client
+
+255	ipc_grpcStreamin
+- Streaming
+
+256	ipc_restServic
+- REST service
+
+257	ipc_messageBroke
+- Message broker
+
+258	ipc_mqttIP
+- MQTT
+
+259	ipc_serviceToService
+- Service communication
+
+260	ipc_distributedArchitecture	Distributed IPC
+
+-----------------------------------------------------
+261–270 — Advanced Linux IPC
+-----------------------------------------------------
+#	Project	Concept
+
+261	ipc_ioUring
+- io_uring
+
+262	ipc_ioUringIPC
+- Async IPC
+
+263	ipc_asyncSocket
+- Async sockets
+
+264	ipc_asyncPipe
+- Async pipes
+
+265	ipc_asyncFile
+- Async file operations
+
+266	ipc_signalSafe
+- Async-signal-safe programming
+
+267	ipc_namespace
+- IPC namespaces
+
+268	ipc_containerIPC
+- Container IPC
+
+269	ipc_dockerIPC
+- Docker IPC
+
+270	ipc_linuxIPCArchitecture
+- Linux IPC architecture
+
+-----------------------------------------------------
+271–280 — Debugging & Observability
+-----------------------------------------------------
+#	Project	Concept
+
+271	ipc_strace
+- strace
+
+272	ipc_lsof
+- Open file descriptors
+
+273	ipc_procInspection
+- /proc
+
+274	ipc_ipcs
+- System V IPC inspection
+
+275	ipc_ss
+- Socket inspection
+
+276	ipc_netstat
+- Network IPC inspection
+
+277	ipc_perf
+- Performance analysis
+
+278	ipc_ftrace
+- Kernel tracing
+
+279	ipc_bpf
+- eBPF observation
+
+280	ipc_debugToolkit
+- IPC debugging toolkit
+
+-----------------------------------------------------
+281–290 — Capstone Projects
+-----------------------------------------------------
+#	Project	System
+
+281	ipc_chatSystem
+- Multi-process chat
+
+282	ipc_logSystem
+- Centralized logging
+
+283	ipc_sensorSystem
+- Sensor processing system
+
+284	ipc_monitoringSystem
+- System monitoring
+
+285	ipc_jobScheduler
+- Job scheduler
+
+286	ipc_processSupervisor
+- Process supervisor
+
+287	ipc_databaseServer
+- Database service
+
+288	ipc_embeddedServer
+- Embedded service architecture
+
+289	ipc_qtLinuxSystem
+- Qt + Linux IPC
+
+290	ipc_completeIPCSystem
+- Complete IPC architecture
+
+-----------------------------------------------------
+-----------------------------------------------------
+The learning progression
+
+The important thing is not to memorize 290 APIs. 
+The projects build the architecture progressively:
+
+Processes
+   ↓
+fork / exec / wait
+   ↓
+Pipes
+   ↓
+FIFO
+   ↓
+Signals
+   ↓
+Message Queues
+   ↓
+Shared Memory
+   ↓
+Synchronization
+   ↓
+UNIX Domain Sockets
+   ↓
+TCP / UDP
+   ↓
+select / poll / epoll
+   ↓
+eventfd / timerfd / signalfd
+   ↓
+File Descriptor Passing
+   ↓
+Zero-Copy / Ring Buffers
+   ↓
+Kernel IPC
+   ↓
+Device Driver ↔ User Space
+   ↓
+Qt ↔ Backend
+   ↓
+RPC / gRPC / MQTT
+   ↓
+Containers / Namespaces
+   ↓
+Production IPC Architecture
+
+-----------------------------------------------------
+How this fits your other learning tracks
+
+You now have three very useful parallel tracks:
+
+
+                    Linux
+                      │
+        ┌─────────────┼─────────────┐
+        ↓             ↓             ↓
+     FreeRTOS       IPC       Device Drivers
+        │             │             │
+        ↓             ↓             ↓
+     Embedded      Linux Apps     Kernel
+        │             │             │
+        └─────────────┼─────────────┘
+                      ↓
+                 Embedded Linux
+                      │
+                      ↓
+              Qt / Applications
+                      │
+                      ↓
+              Real Products
+			  
+			  
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+
+
