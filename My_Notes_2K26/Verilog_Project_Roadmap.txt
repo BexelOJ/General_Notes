@@ -8,34 +8,34 @@ Verilog / RTL / FPGA — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Main concept
 
-01	verilog_hello
+01	verilog_20261101_hello
 - Basic Verilog module
 
-02	verilog_assign
+02	verilog_20261101_assign
 - Continuous assignment
 
-03	verilog_wireReg
+03	verilog_20261101_wireReg
 - wire / reg
 
-04	verilog_logicGates
+04	verilog_20261101_logicGates
 - AND/OR/NOT/XOR
 
-05	verilog_mux
+05	verilog_20261101_mux
 - Multiplexer
 
-06	verilog_demux
+06	verilog_20261101_demux
 - Demultiplexer
 
-07	verilog_encoder
+07	verilog_20261101_encoder
 - Encoder
 
-08	verilog_decoder
+08	verilog_20261101_decoder
 - Decoder
 
-09	verilog_comparato
+09	verilog_20261101_comparato
 - Comparator
 
-10	verilog_adder
+10	verilog_20261101_adder
 - Half/full adder
 
 -----------------------------------------------------
@@ -43,34 +43,34 @@ Verilog / RTL / FPGA — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Main concept
 
-11	verilog_subtractor
+11	verilog_20261102_subtractor
 - Subtractor
 
-12	verilog_addSub
+12	verilog_20261102_addSub
 - Adder/subtractor
 
-13	verilog_mux4to1
+13	verilog_20261102_mux4to1
 - 4:1 MUX
 
-14	verilog_mux8to1
+14	verilog_20261102_mux8to1
 - 8:1 MUX
 
-15	verilog_priorityEncoder
+15	verilog_20261102_priorityEncoder
 - Priority encoder
 
-16	verilog_barrelShifter
+16	verilog_20261102_barrelShifter
 - Barrel shifter
 
-17	verilog_al
+17	verilog_20261102_al
 - ALU
 
-18	verilog_parity
+18	verilog_20261102_parity
 - Parity generator/checker
 
-19	verilog_grayBinary
+19	verilog_20261102_grayBinary
 - Gray ↔ Binary
 
-20	verilog_combinationLock
+20	verilog_20261102_combinationLock
 - Combinational design
 
 -----------------------------------------------------
@@ -80,34 +80,34 @@ Now we introduce clocked hardware.
 
 #	Project - Main concept
 
-21	verilog_dFlipFlop
+21	verilog_20261103_dFlipFlop
 - D flip-flop
 
-22	verilog_jkFlipFlop
+22	verilog_20261103_jkFlipFlop
 - JK flip-flop
 
-23	verilog_tFlipFlop
+23	verilog_20261103_tFlipFlop
 - T flip-flop
 
-24	verilog_register
+24	verilog_20261103_register
 - Register
 
-25	verilog_shiftRegister
+25	verilog_20261103_shiftRegister
 - Shift register
 
-26	verilog_ringCounter
+26	verilog_20261103_ringCounter
 - Ring counter
 
-27	verilog_johnsonCounter
+27	verilog_20261103_johnsonCounter
 - Johnson counter
 
-28	verilog_upCounter
+28	verilog_20261103_upCounter
 - Up counter
 
-29	verilog_downCounter
+29	verilog_20261103_downCounter
 - Down counter
 
-30	verilog_upDownCounter
+30	verilog_20261103_upDownCounter
 - Up/down counter
 
 -----------------------------------------------------
@@ -115,34 +115,34 @@ Now we introduce clocked hardware.
 -----------------------------------------------------
 #	Project - Main concept
 
-31	verilog_modCounter
+31	verilog_20261104_modCounter
 - Mod-N counter
 
-32	verilog_frequencyDivider
+32	verilog_20261104_frequencyDivider
 - Clock divider
 
-33	verilog_timer
+33	verilog_20261104_timer
 - Timer
 
-34	verilog_tickGenerator
+34	verilog_20261104_tickGenerator
 - Tick generation
 
-35	verilog_pwm
+35	verilog_20261104_pwm
 - PWM
 
-36	verilog_pulseGenerator
+36	verilog_20261104_pulseGenerator
 - Pulse generation
 
-37	verilog_clockEnable
+37	verilog_20261104_clockEnable
 - Clock enable
 
-38	verilog_watchdogTimer
+38	verilog_20261104_watchdogTimer
 - Watchdog
 
-39	verilog_timestampCounter
+39	verilog_20261104_timestampCounter
 - Timestamp counter
 
-40	verilog_clockManager
+40	verilog_20261104_clockManager
 - Clock management
 
 -----------------------------------------------------
@@ -152,34 +152,34 @@ This is one of the most important RTL topics.
 
 #	Project - Main concept
 
-41	verilog_fsmBasic
+41	verilog_20261105_fsmBasic
 - FSM basics
 
-42	verilog_mooreFSM
+42	verilog_20261105_mooreFSM
 - Moore FSM
 
-43	verilog_mealyFSM
+43	verilog_20261105_mealyFSM
 - Mealy FSM
 
-44	verilog_sequenceDetector
+44	verilog_20261105_sequenceDetector
 - Sequence detector
 
-45	verilog_trafficLight
+45	verilog_20261105_trafficLight
 - Traffic light FSM
 
-46	verilog_vendingMachine
+46	verilog_20261105_vendingMachine
 - Vending machine
 
-47	verilog_uartFS
+47	verilog_20261105_uartFS
 - 	UART control FSM
 
-48	verilog_protocolFSM
+48	verilog_20261105_protocolFSM
 - Protocol controller
 
-49	verilog_fsmOneHot
+49	verilog_20261105_fsmOneHot
 - One-hot FSM
 
-50	verilog_fsmSafe
+50	verilog_20261105_fsmSafe
 - Safe FSM design
 
 -----------------------------------------------------
@@ -187,34 +187,34 @@ This is one of the most important RTL topics.
 -----------------------------------------------------
 #	Project - Main concept
 
-51	verilog_rom
+51	verilog_20261106_rom
 - ROM
 
-52	verilog_ram
+52	verilog_20261106_ram
 - RAM
 
-53	verilog_singlePortRAM
+53	verilog_20261106_singlePortRAM
 - Single-port RAM
 
-54	verilog_dualPortRAM
+54	verilog_20261106_dualPortRAM
 - Dual-port RAM
 
-55	verilog_registerFil
+55	verilog_20261106_registerFil
 - Register file
 
-56	verilog_fifo
+56	verilog_20261106_fifo
 - FIFO
 
-57	verilog_asyncFIFO
+57	verilog_20261106_asyncFIFO
 - Asynchronous FIFO
 
-58	verilog_syncFIFO
+58	verilog_20261106_syncFIFO
 - Synchronous FIFO
 
-59	verilog_memoryController
+59	verilog_20261106_memoryController
 - Memory controller
 
-60	verilog_cacheBasic
+60	verilog_20261106_cacheBasic
 - Basic cache
 
 -----------------------------------------------------
@@ -222,34 +222,34 @@ This is one of the most important RTL topics.
 -----------------------------------------------------
 #	Project - Main concept
 
-61	verilog_multiplier
+61	verilog_20261107_multiplier
 - Multiplier
 
-62	verilog_divider
+62	verilog_20261107_divider
 - Divider
 
-63	verilog_signedArithmetic
+63	verilog_20261107_signedArithmetic
 - Signed arithmetic
 
-64	verilog_fixedPoint
+64	verilog_20261107_fixedPoint
 - Fixed-point
 
-65	verilog_saturatingArithmetic
+65	verilog_20261107_saturatingArithmetic
 - Saturation
 
-66	verilog_mac
+66	verilog_20261107_mac
 - Multiply-accumulate
 
-67	verilog_cordic
+67	verilog_20261107_cordic
 - CORDIC
 
-68	verilog_sqrt
+68	verilog_20261107_sqrt
 - Square root
 
-69	verilog_mathUnit
+69	verilog_20261107_mathUnit
 - Arithmetic unit
 
-70	verilog_dspUnit
+70	verilog_20261107_dspUnit
 - DSP-style datapath
 
 -----------------------------------------------------
@@ -257,34 +257,34 @@ This is one of the most important RTL topics.
 -----------------------------------------------------
 #	Project - Main concept
 
-71	verilog_uartTx
+71	verilog_20261108_uartTx
 - UART transmitter
 
-72	verilog_uartRx
+72	verilog_20261108_uartRx
 - UART receiver
 
-73	verilog_uart
+73	verilog_20261108_uart
 - Complete UART
 
-74	verilog_uartFIFO
+74	verilog_20261108_uartFIFO
 - UART + FIFO
 
-75	verilog_uartInterrupt
+75	verilog_20261108_uartInterrupt
 - UART interrupt
 
-76	verilog_uartBaudGenerator
+76	verilog_20261108_uartBaudGenerator
 - Baud generator
 
-77	verilog_spiMaster
+77	verilog_20261108_spiMaster
 - SPI master
 
-78	verilog_spiSlave
+78	verilog_20261108_spiSlave
 - SPI slave
 
-79	verilog_i2cMaster
+79	verilog_20261108_i2cMaster
 - I²C master
 
-80	verilog_i2cSlave
+80	verilog_20261108_i2cSlave
 - I²C slave
 
 -----------------------------------------------------
@@ -294,34 +294,34 @@ Now we move from pure RTL toward actual FPGA hardware.
 
 #	Project - Main concept
 
-81	verilog_led
+81	verilog_20261109_led
 - FPGA LED
 
-82	verilog_button
+82	verilog_20261109_button
 - Push button
 
-83	verilog_debounce
+83	verilog_20261109_debounce
 - Button debounce
 
-84	verilog_sevenSegment
+84	verilog_20261109_sevenSegment
 - 7-segment display
 
-85	verilog_ledCounter
+85	verilog_20261109_ledCounter
 - Counter + LEDs
 
-86	verilog_uartFPGA
+86	verilog_20261109_uartFPGA
 - UART on FPGA
 
-87	verilog_spiFPGA
+87	verilog_20261109_spiFPGA
 - SPI on FPGA
 
-88	verilog_i2cFPGA
+88	verilog_20261109_i2cFPGA
 - I²C on FPGA
 
-89	verilog_pwmFPGA
+89	verilog_20261109_pwmFPGA
 - PWM hardware
 
-90	verilog_frequencyMeter
+90	verilog_20261109_frequencyMeter
 - Frequency measurement
 
 -----------------------------------------------------
@@ -329,34 +329,34 @@ Now we move from pure RTL toward actual FPGA hardware.
 -----------------------------------------------------
 #	Project - Main concept
 
-91	verilog_vgaTiming
+91	verilog_20261110_vgaTiming
 - VGA timing
 
-92	verilog_vgaColor
+92	verilog_20261110_vgaColor
 - RGB generation
 
-93	verilog_vgaRectangle
+93	verilog_20261110_vgaRectangle
 - Rectangle
 
-94	verilog_vgaText
+94	verilog_20261110_vgaText
 - Text rendering
 
-95	verilog_vgaSprite
+95	verilog_20261110_vgaSprite
 - Sprite
 
-96	verilog_vgaAnimation
+96	verilog_20261110_vgaAnimation
 - Animation
 
-97	verilog_frameBuffer
+97	verilog_20261110_frameBuffer
 - Frame buffer
 
-98	verilog_imageROM
+98	verilog_20261110_imageROM
 - Image ROM
 
-99	verilog_videoPipeline
+99	verilog_20261110_videoPipeline
 - Video pipeline
 
-100	verilog_displayController
+100	verilog_20261110_displayController
 - Complete display controller
 
 -----------------------------------------------------
@@ -366,34 +366,34 @@ This is where RTL development becomes much more serious.
 
 #	Project - Main concept
 
-101	verilog_testbench
+101	verilog_20261111_testbench
 - Testbench
 
-102	verilog_clockResetTB
+102	verilog_20261111_clockResetTB
 - Clock/reset generation
 
-103	verilog_stimulus
+103	verilog_20261111_stimulus
 - Test stimulus
 
-104	verilog_monitor
+104	verilog_20261111_monitor
 - Monitoring
 
-105	verilog_checker
+105	verilog_20261111_checker
 - Checking
 
-106	verilog_assertion
+106	verilog_20261111_assertion
 - Assertions
 
-107	verilog_scoreboard
+107	verilog_20261111_scoreboard
 - Scoreboard
 
-108	verilog_randomTest
+108	verilog_20261111_randomTest
 - Random testing
 
-109	verilog_coverage
+109	verilog_20261111_coverage
 - Coverage
 
-110	verilog_regression
+110	verilog_20261111_regression
 - Regression testing
 
 -----------------------------------------------------
@@ -403,34 +403,34 @@ Once Verilog verification fundamentals are clear:
 
 #	Project - Main concept
 
-111	sv_interface
+111	sv_20261112_interface
 - Interfaces
 
-112	sv_clockingBlock
+112	sv_20261112_clockingBlock
 - Clocking blocks
 
-113	sv_class
+113	sv_20261112_class
 - Classes
 
-114	sv_transaction
+114	sv_20261112_transaction
 - Transactions
 
-115	sv_generator
+115	sv_20261112_generator
 - Generator
 
-116	sv_driver
+116	sv_20261112_driver
 - Driver
 
-117	sv_monitor
+117	sv_20261112_monitor
 - Monitor
 
-118	sv_scoreboard
+118	sv_20261112_scoreboard
 - Scoreboard
 
-119	sv_coverage
+119	sv_20261112_coverage
 - Functional coverage
 
-120	sv_testbench
+120	sv_20261112_testbench
 - Structured SV testbench
 
 -----------------------------------------------------
@@ -440,34 +440,34 @@ Very important for Vivado / Xilinx FPGA work.
 
 #	Project - Main concept
 
-121	verilog_axiLiteSlave
+121	verilog_20261113_axiLiteSlave
 - AXI4-Lite slave
 
-122	verilog_axiLiteMaster
+122	verilog_20261113_axiLiteMaster
 - AXI4-Lite master
 
-123	verilog_axiRegister
+123	verilog_20261113_axiRegister
 - AXI register interface
 
-124	verilog_axiStream
+124	verilog_20261113_axiStream
 - AXI4-Stream
 
-125	verilog_axiStreamFIFO
+125	verilog_20261113_axiStreamFIFO
 - AXI Stream FIFO
 
-126	verilog_axiStreamMaster
+126	verilog_20261113_axiStreamMaster
 - AXI Stream master
 
-127	verilog_axiStreamSlave
+127	verilog_20261113_axiStreamSlave
 - AXI Stream slave
 
-128	verilog_axiDMA
+128	verilog_20261113_axiDMA
 - AXI DMA concept
 
-129	verilog_axiMemory
+129	verilog_20261113_axiMemory
 - AXI memory interface
 
-130	verilog_axiPeripheral
+130	verilog_20261113_axiPeripheral
 - Complete AXI peripheral
 
 -----------------------------------------------------
@@ -477,34 +477,34 @@ Extremely important in real hardware.
 
 #	Project - Main concept
 
-131	verilog_cdcBasic
+131	verilog_20261114_cdcBasic
 - CDC fundamentals
 
-132	verilog_twoFlipSynchronizer
+132	verilog_20261114_twoFlipSynchronizer
 - 2-FF synchronizer
 
-133	verilog_pulseSynchronizer
+133	verilog_20261114_pulseSynchronizer
 - Pulse CDC
 
-134	verilog_toggleSynchronizer
+134	verilog_20261114_toggleSynchronizer
 - Toggle CDC
 
-135	verilog_handshakeCDC
+135	verilog_20261114_handshakeCDC
 - Handshake
 
-136	verilog_asyncFIFO
+136	verilog_20261114_asyncFIFO
 - Async FIFO
 
-137	verilog_grayPointer
+137	verilog_20261114_grayPointer
 - Gray-code CDC
 
-138	verilog_resetSynchronizer
+138	verilog_20261114_resetSynchronizer
 - Reset synchronization
 
-139	verilog_multiClock
+139	verilog_20261114_multiClock
 - Multiple clock domains
 
-140	verilog_cdcSyste
+140	verilog_20261114_cdcSyste
 - Complete CDC system
 
 -----------------------------------------------------
@@ -512,34 +512,34 @@ Extremely important in real hardware.
 -----------------------------------------------------
 #	Project - Main concept
 
-141	verilog_setupHold
+141	verilog_20261115_setupHold
 - Setup / hold
 
-142	verilog_clockSkew
+142	verilog_20261115_clockSkew
 - Clock skew
 
-143	verilog_timingConstraint
+143	verilog_20261115_timingConstraint
 - Timing constraints
 
-144	verilog_xdc
+144	verilog_20261115_xdc
 - XDC
 
-145	verilog_falsePath
+145	verilog_20261115_falsePath
 - False paths
 
-146	verilog_multicyclePath
+146	verilog_20261115_multicyclePath
 - Multicycle paths
 
-147	verilog_maxDelay
+147	verilog_20261115_maxDelay
 - Maximum delay
 
-148	verilog_pipeline
+148	verilog_20261115_pipeline
 - Pipelining
 
-149	verilog_timingClosure
+149	verilog_20261115_timingClosure
 - Timing closure
 
-150	verilog_rtlOptimization
+150	verilog_20261115_rtlOptimization
 - RTL optimization
 
 -----------------------------------------------------
@@ -547,34 +547,34 @@ Extremely important in real hardware.
 -----------------------------------------------------
 #	Project - Main concept
 
-151	verilog_pipelineAdder
+151	verilog_20261116_pipelineAdder
 - Pipelined adder
 
-152	verilog_pipelineMultiplier
+152	verilog_20261116_pipelineMultiplier
 - Pipelined multiplier
 
-153	verilog_pipelineMAC
+153	verilog_20261116_pipelineMAC
 - Pipelined MAC
 
-154	verilog_pipelineALU
+154	verilog_20261116_pipelineALU
 - Pipelined ALU
 
-155	verilog_streamPipeline
+155	verilog_20261116_streamPipeline
 - Streaming pipeline
 
-156	verilog_pipelineFIFO
+156	verilog_20261116_pipelineFIFO
 - Pipeline buffering
 
-157	verilog_throughput
+157	verilog_20261116_throughput
 - Throughput
 
-158	verilog_latency
+158	verilog_20261116_latency
 - Latency
 
-159	verilog_backpressure
+159	verilog_20261116_backpressure
 - Backpressure
 
-160	verilog_highPerformance
+160	verilog_20261116_highPerformance
 - High-performance datapath
 
 -----------------------------------------------------
@@ -584,34 +584,34 @@ Now we start building a processor.
 
 #	Project - Main concept
 
-161	verilog_registerCPU
+161	verilog_20261117_registerCPU
 - Basic CPU
 
-162	verilog_programCounter
+162	verilog_20261117_programCounter
 - PC
 
-163	verilog_instructionMemory
+163	verilog_20261117_instructionMemory
 - Instruction memory
 
-164	verilog_controlUnit
+164	verilog_20261117_controlUnit
 - Control unit
 
-165	verilog_registerFile
+165	verilog_20261117_registerFile
 - Register file
 
-166	verilog_aluCPU
+166	verilog_20261117_aluCPU
 - ALU
 
-167	verilog_singleCycleCPU
+167	verilog_20261117_singleCycleCPU
 - Single-cycle CPU
 
-168	verilog_multiCycleCPU
+168	verilog_20261117_multiCycleCPU
 - Multi-cycle CPU
 
-169	verilog_pipelineCPU
+169	verilog_20261117_pipelineCPU
 - Pipelined CPU
 
-170	verilog_riscvCPU
+170	verilog_20261117_riscvCPU
 - RISC-V CPU
 
 -----------------------------------------------------
@@ -621,34 +621,34 @@ This becomes particularly interesting when combined with your embedded/Linux int
 
 #	Project - Main concept
 
-171	verilog_riscvRV32I
+171	verilog_20261118_riscvRV32I
 - RV32I
 
-172	verilog_riscvCSR
+172	verilog_20261118_riscvCSR
 - CSRs
 
-173	verilog_riscvInterrupt
+173	verilog_20261118_riscvInterrupt
 - Interrupts
 
-174	verilog_riscvTimer
+174	verilog_20261118_riscvTimer
 - Timer
 
-175	verilog_riscvUART
+175	verilog_20261118_riscvUART
 - UART peripheral
 
-176	verilog_riscvGPIO
+176	verilog_20261118_riscvGPIO
 - GPIO peripheral
 
-177	verilog_riscvSPI
+177	verilog_20261118_riscvSPI
 - SPI peripheral
 
-178	verilog_riscvMemoryMap
+178	verilog_20261118_riscvMemoryMap
 - Memory-mapped I/O
 
-179	verilog_riscvBus
+179	verilog_20261118_riscvBus
 - SoC bus
 
-180	verilog_riscvSoC
+180	verilog_20261118_riscvSoC
 - Complete RISC-V SoC
 
 -----------------------------------------------------
@@ -656,34 +656,34 @@ This becomes particularly interesting when combined with your embedded/Linux int
 -----------------------------------------------------
 #	Project - Main concept
 
-181	verilog_firFilter
+181	verilog_20261119_firFilter
 - FIR
 
-182	verilog_iirFilter
+182	verilog_20261119_iirFilter
 - IIR
 
-183	verilog_movingAverage
+183	verilog_20261119_movingAverage
 - Moving average
 
-184	verilog_decimation
+184	verilog_20261119_decimation
 - Decimation
 
-185	verilog_interpolation
+185	verilog_20261119_interpolation
 - Interpolation
 
-186	verilog_fftBasic
+186	verilog_20261119_fftBasic
 - FFT
 
-187	verilog_fftPipeline
+187	verilog_20261119_fftPipeline
 - Pipelined FFT
 
-188	verilog_dspPipeline
+188	verilog_20261119_dspPipeline
 - DSP pipeline
 
-189	verilog_spectrumAnalyzer
+189	verilog_20261119_spectrumAnalyzer
 - Spectrum analyzer
 
-190	verilog_digitalSignalProcessor
+190	verilog_20261119_digitalSignalProcessor
 - Complete DSP unit
 
 -----------------------------------------------------
@@ -691,34 +691,34 @@ This becomes particularly interesting when combined with your embedded/Linux int
 -----------------------------------------------------
 #	Project - Main concept
 
-191	verilog_sensorController
+191	verilog_20261120_sensorController
 - Sensor controller
 
-192	verilog_dataLogger
+192	verilog_20261120_dataLogger
 - Data logger
 
-193	verilog_uartDataLogger
+193	verilog_20261120_uartDataLogger
 - UART data logging
 
-194	verilog_spiSensorSystem
+194	verilog_20261120_spiSensorSystem
 - SPI sensor system
 
-195	verilog_i2cSensorSystem
+195	verilog_20261120_i2cSensorSystem
 - I²C sensor system
 
-196	verilog_motorController
+196	verilog_20261120_motorController
 - Motor control
 
-197	verilog_pwmMotor
+197	verilog_20261120_pwmMotor
 - PWM motor
 
-198	verilog_encoderInterface
+198	verilog_20261120_encoderInterface
 - Encoder
 
-199	verilog_pidController
+199	verilog_20261120_pidController
 - PID
 
-200	verilog_embeddedController
+200	verilog_20261120_embeddedController
 - Complete FPGA controller
 
 -----------------------------------------------------
@@ -726,34 +726,34 @@ This becomes particularly interesting when combined with your embedded/Linux int
 -----------------------------------------------------
 #	Project - Main concept
 
-201	verilog_multiClockSystem
+201	verilog_20261121_multiClockSystem
 - Multi-clock architecture
 
-202	verilog_multiRateSystem
+202	verilog_20261121_multiRateSystem
 - Multi-rate design
 
-203	verilog_streamingSystem
+203	verilog_20261121_streamingSystem
 - Streaming architecture
 
-204	verilog_packetProcessor
+204	verilog_20261121_packetProcessor
 - Packet processing
 
-205	verilog_fifoNetwork
+205	verilog_20261121_fifoNetwork
 - FIFO-based architecture
 
-206	verilog_dmaEngine
+206	verilog_20261121_dmaEngine
 - DMA engine
 
-207	verilog_memoryArbiter
+207	verilog_20261121_memoryArbiter
 - Memory arbitration
 
-208	verilog_busArbiter
+208	verilog_20261121_busArbiter
 - Bus arbitration
 
-209	verilog_socInterconnect
+209	verilog_20261121_socInterconnect
 - SoC interconnect
 
-210	verilog_fpgaSystem
+210	verilog_20261121_fpgaSystem
 - Complete FPGA system
 
 -----------------------------------------------------
@@ -761,34 +761,34 @@ This becomes particularly interesting when combined with your embedded/Linux int
 -----------------------------------------------------
 #	Project - Main concept
 
-211	verilog_uartFPGAComputer
+211	verilog_20261122_uartFPGAComputer
 - FPGA computer
 
-212	verilog_riscvFPGA
+212	verilog_20261122_riscvFPGA
 - RISC-V FPGA system
 
-213	verilog_riscvSoC
+213	verilog_20261122_riscvSoC
 - RISC-V SoC
 
-214	verilog_linuxCapableSoC
+214	verilog_20261122_linuxCapableSoC
 - Linux-capable architecture
 
-215	verilog_axiPeripheralSystem
+215	verilog_20261122_axiPeripheralSystem
 - AXI peripheral system
 
-216	verilog_videoSoC\
+216	verilog_20261122_videoSoC\
 - Video SoC
 
-217	verilog_dspSoC
+217	verilog_20261122_dspSoC
 - DSP SoC
 
-218	verilog_networkProcessor
+218	verilog_20261122_networkProcessor
 - Network processing
 
-219	verilog_customAccelerator
+219	verilog_20261122_customAccelerator
 - Hardware accelerator
 
-220	verilog_completeFPGA
+220	verilog_20261122_completeFPGA
 - Complete FPGA project
 
 -----------------------------------------------------

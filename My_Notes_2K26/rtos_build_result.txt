@@ -1,0 +1,116 @@
+===================================================
+                 BUILD SUMMARY
+===================================================
+
+Project                                 Status  Duration
+-------                                 ------  --------
+frtos_20260525_blink_led                FAILED  00:00:17
+frtos_20260915_freertos_two_tasks       FAILED  00:00:02
+frtos_20260921_binarySemaphore          SUCCESS 00:00:13
+frtos_20260921_countingSemaphore        SUCCESS 00:10:19
+frtos_20260921_eventGroup               SUCCESS 00:11:11
+frtos_20260921_messageBuffer            SUCCESS 00:00:11
+frtos_20260921_mutex                    SUCCESS 00:00:04
+frtos_20260921_streamBuffer             FAILED  00:08:50
+frtos_20260921_taskNotification         SUCCESS 00:00:13
+frtos_20260921_taskPriority             SUCCESS 00:10:21
+
+frtos_20260921_taskQueue                SUCCESS 00:00:12
+frtos_20260921_taskSuspendResume        SUCCESS 00:10:10
+frtos_20260922_taskCreate               SUCCESS 00:09:11
+frtos_20260922_taskDelay                SUCCESS 00:09:41
+frtos_20260922_taskDelayUntil           SUCCESS 00:10:37
+frtos_20260922_taskDelete               SUCCESS 00:09:37
+frtos_20260922_taskHandle               SUCCESS 00:09:32
+frtos_20260922_taskIdle                 SUCCESS 00:09:50
+frtos_20260922_taskParameters           SUCCESS 00:11:04
+frtos_20260922_taskState                SUCCESS 00:11:31
+
+frtos_20260922_taskStaticCreate         SUCCESS 00:13:00
+frtos_20260922_taskWatchdog             SUCCESS 00:12:56
+frtos_20260923_heap                     SUCCESS 00:09:24
+frtos_20260923_heapCaps                 SUCCESS 00:09:12
+frtos_20260923_heapUsage                SUCCESS 00:09:49
+frtos_20260923_mallocFree               SUCCESS 00:10:39
+frtos_20260923_memoryPool               SUCCESS 00:10:18
+frtos_20260923_stackOverflow            SUCCESS 00:10:00
+frtos_20260923_stackUsage               SUCCESS 00:10:06
+frtos_20260923_staticQueue              SUCCESS 00:10:02
+
+frtos_20260923_staticSemaphore          SUCCESS 00:12:40
+frtos_20260924_gpioInterrupt            SUCCESS 00:09:01
+frtos_20260924_interruptPriority        SUCCESS 00:08:31
+frtos_20260924_isrEventGroup            SUCCESS 00:08:13
+frtos_20260924_isrNotification          SUCCESS 00:07:54
+frtos_20260924_isrQueue                 SUCCESS 00:07:41
+frtos_20260924_isrRules                 SUCCESS 00:11:43
+frtos_20260924_isrSemaphore             SUCCESS 00:12:27
+frtos_20260924_timerInterrupt           SUCCESS 00:11:17
+frtos_20260925_multipleTimers           SUCCESS 00:12:02
+
+frtos_20260925_oneShotTimer             SUCCESS 00:11:10
+frtos_20260925_periodicTimer            SUCCESS 00:09:45
+frtos_20260925_softwareTimer            SUCCESS 00:09:24
+frtos_20260925_timerCallback            SUCCESS 00:10:32
+frtos_20260925_timerReset               SUCCESS 00:09:55
+frtos_20260925_timerStartStop           SUCCESS 00:11:08
+frtos_20260925_timerTask                SUCCESS 00:11:22
+frtos_20260926_criticalSection          SUCCESS 00:09:59
+frtos_20260926_deadlock                 SUCCESS 00:14:32
+frtos_20260926_priorityInheritance      SUCCESS 00:10:52
+
+frtos_20260926_priorityInversion        SUCCESS 00:17:34
+frtos_20260926_priorityPreemption       SUCCESS 00:14:02
+frtos_20260926_raceCondition            SUCCESS 00:12:51
+frtos_20260926_roundRobin               SUCCESS 00:09:07
+frtos_20260926_schedulerSuspension      SUCCESS 00:08:40
+frtos_20260927_coreAffinity             SUCCESS 00:08:31
+frtos_20260927_coreCommunication        SUCCESS 00:09:17
+frtos_20260927_dualCoreTasks            SUCCESS 00:09:07
+frtos_20260927_gpioTask                 SUCCESS 00:08:47
+frtos_20260927_i2cTask                  SUCCESS 00:09:08
+
+frtos_20260927_spiTask                  SUCCESS 00:09:25
+frtos_20260927_uartTask                 SUCCESS 00:08:59
+frtos_20260927_wifiTask                 SUCCESS 00:09:18
+frtos_20260928_commandTask              SUCCESS 00:09:31
+frtos_20260928_dataPipeline             SUCCESS 00:09:01
+frtos_20260928_deviceManager            SUCCESS 00:08:00
+frtos_20260928_loggerTask               SUCCESS 00:07:38
+frtos_20260928_monitorTask              SUCCESS 06:38:26
+frtos_20260928_producerConsumer         SUCCESS 00:13:22
+frtos_20260928_sensorSystem             SUCCESS 00:14:09
+
+frtos_20260928_stateMachine             SUCCESS 00:13:47
+frtos_20260929_blockedTask              SUCCESS 00:08:22
+frtos_20260929_contextSwitch            SUCCESS 00:08:46
+frtos_20260929_portLayer                SUCCESS 00:14:13
+frtos_20260929_readyList                SUCCESS 00:09:06
+frtos_20260929_scheduler                SUCCESS 00:09:07
+frtos_20260929_taskControlBlock         SUCCESS 00:08:33
+frtos_20260929_tickInterrupt            SUCCESS 00:10:12
+frtos_20260929_ticklessIdle             SUCCESS 00:13:13
+frtos_20260930_directToTaskNotification SUCCESS 00:09:35
+
+frtos_20260930_fullSystem               SUCCESS 00:08:31
+frtos_20260930_multicoreSynchronization SUCCESS 00:08:20
+frtos_20260930_multipleTasks            SUCCESS 00:08:15
+frtos_20260930_notificationBits         SUCCESS 00:08:11
+frtos_20260930_queueSet                 SUCCESS 00:08:22
+frtos_20260930_recursiveMutex           SUCCESS 00:10:11
+frtos_20260930_runtimeStats             FAILED  00:09:09
+frtos_20260930_systemMonitor            SUCCESS 00:08:51
+frtos_20260930_taskTrace                SUCCESS 00:08:41
+
+
+
+Total   : 89
+Success : 85
+Failed  : 4
+===================================================
+PS D:\ProgramFiles\ESPIDF\WorkSpace>
+
+
+
+
+

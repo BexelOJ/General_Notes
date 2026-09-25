@@ -8,34 +8,34 @@ IPC — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Concept
 
-01	ipc_helloProcess
+01	ipc_202061001_helloProcess
 - fork() and process creation
 
-02	ipc_parentChild
+02	ipc_202061001_parentChild
 - Parent/child process relationship
 
-03	ipc_processExit
+03	ipc_202061001_processExit
 - exit(), _exit(), wait()
 
-04	ipc_waitStatus
+04	ipc_202061001_waitStatus
 - Process termination status
 
-05	ipc_exec
+05	ipc_202061001_exec
 - exec() family
 
-06	ipc_forkExec
+06	ipc_202061001_forkExec
 - fork() + exec()
 
-07	ipc_processTree
+07	ipc_202061001_processTree
 - Process hierarchy
 
-08	ipc_orphanProcess
+08	ipc_202061001_orphanProcess
 - Orphan process
 
-09	ipc_zombieProcess
+09	ipc_202061001_zombieProcess
 - Zombie process
 
-10	ipc_daemonProcess
+10	ipc_202061001_daemonProcess
 - Daemon/background process
 
 -----------------------------------------------------
@@ -43,34 +43,34 @@ IPC — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Concept
 
-11	ipc_pipeBasic
+11	ipc_202061002_pipeBasic
 - Anonymous pipe
 
-12	ipc_pipeParentChild
+12	ipc_202061002_pipeParentChild
 - Parent → child
 
-13	ipc_pipeChildParent
+13	ipc_202061002_pipeChildParent
 - Child → parent
 
-14	ipc_pipeBidirectional
+14	ipc_202061002_pipeBidirectional
 - Two pipes
 
-15	ipc_pipeMultipleProcess
+15	ipc_202061002_pipeMultipleProcess
 - Multiple processes
 
-16	ipc_pipeBlocking
+16	ipc_202061002_pipeBlocking
 - Blocking behavior
 
-17	ipc_pipeNonBlocking
+17	ipc_202061002_pipeNonBlocking
 - O_NONBLOCK
 
-18	ipc_pipeEOF
+18	ipc_202061002_pipeEOF
 - Pipe EOF semantics
 
-19	ipc_pipeCapacity
+19	ipc_202061002_pipeCapacity
 - Pipe buffer capacity
 
-20	ipc_pipeProducerConsumer
+20	ipc_202061002_pipeProducerConsumer
 - Producer/consumer
 
 -----------------------------------------------------
@@ -78,34 +78,34 @@ IPC — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Concept
 
-21	ipc_fifoBasic
+21	ipc_202061003_fifoBasic
 - mkfifo()
 
-22	ipc_fifoWriter
+22	ipc_202061003_fifoWriter
 - FIFO writer
 
-23	ipc_fifoReader
+23	ipc_202061003_fifoReader
 - FIFO reader
 
-24	ipc_fifoTwoProcess
+24	ipc_202061003_fifoTwoProcess
 - Independent processes
 
-25	ipc_fifoBlocking
+25	ipc_202061003_fifoBlocking
 - FIFO blocking
 
-26	ipc_fifoNonBlocking
+26	ipc_202061003_fifoNonBlocking
 - Non-blocking FIFO
 
-27	ipc_fifoMultipleWriter
+27	ipc_202061003_fifoMultipleWriter
 - Multiple writers
 
-28	ipc_fifoServer
+28	ipc_202061003_fifoServer
 - FIFO server
 
-29	ipc_fifoClient
+29	ipc_202061003_fifoClient
 - FIFO client
 
-30	ipc_fifoChat
+30	ipc_202061003_fifoChat
 - Simple IPC chat
 
 -----------------------------------------------------
@@ -113,34 +113,34 @@ IPC — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Concept
 
-31	ipc_signalBasic
+31	ipc_202061004_signalBasic
 - kill()
 
-32	ipc_signalHandler
+32	ipc_202061004_signalHandler
 - signal()
 
-33	ipc_sigaction
+33	ipc_202061004_sigaction
 - sigaction()
 
-34	ipc_signalUser
+34	ipc_202061004_signalUser
 - SIGUSR1/SIGUSR2
 
-35	ipc_signalAlarm
+35	ipc_202061004_signalAlarm
 - alarm()
 
-36	ipc_signalTimer
+36	ipc_202061004_signalTimer
 - Timer signals
 
-37	ipc_signalMask
+37	ipc_202061004_signalMask
 - Signal masking
 
-38	ipc_signalPending
+38	ipc_202061004_signalPending
 - Pending signals
 
-39	ipc_signalWait
+39	ipc_202061004_signalWait
 - sigwait()
 
-40	ipc_signalProcessControl
+40	ipc_202061004_signalProcessControl
 - Process control with signals
 
 -----------------------------------------------------
@@ -148,34 +148,34 @@ IPC — Complete Project Roadmap
 -----------------------------------------------------
 #	Project - Concept
 
-41	ipc_mqBasic
+41	ipc_202061005_mqBasic
 - POSIX message queue
 
-42	ipc_mqSend
+42	ipc_202061005_mqSend
 - mq_send()
 
-43	ipc_mqReceiv
+43	ipc_202061005_mqReceiv
 - mq_receive()
 
-44	ipc_mqPriority
+44	ipc_202061005_mqPriority
 - Message priority
 
-45	ipc_mqBlocking
+45	ipc_202061005_mqBlocking
 - Blocking queue
 
-46	ipc_mqNonBlocking
+46	ipc_202061005_mqNonBlocking
 - Non-blocking queue
 
-47	ipc_mqAttributes
+47	ipc_202061005_mqAttributes
 - Queue attributes
 
-48	ipc_mqNotification
+48	ipc_202061005_mqNotification
 - Queue notification
 
-49	ipc_mqProducerConsumer
+49	ipc_202061005_mqProducerConsumer
 - Producer/consumer
 
-50	ipc_mqClientServer
+50	ipc_202061005_mqClientServer
 - Message-queue client/server
 
 -----------------------------------------------------
@@ -185,34 +185,34 @@ This is one of the most important IPC sections.
 
 #	Project - Concept
 
-51	ipc_shmBasic
+51	ipc_202061006_shmBasic
 - Shared memory concept
 
-52	ipc_shmCreate
+52	ipc_202061006_shmCreate
 - Create shared memory
 
-53	ipc_shmAttach
+53	ipc_202061006_shmAttach
 - Mapping memory
 
-54	ipc_shmDetach
+54	ipc_202061006_shmDetach
 - Unmapping
 
-55	ipc_shmProcess\
+55	ipc_202061006_shmProcess
 - Two processes sharing data
 
-56	ipc_shmStruct
+56	ipc_202061006_shmStruct
 - Shared structures
 
-57	ipc_shmArray
+57	ipc_202061006_shmArray
 - Shared buffer
 
-58	ipc_shmProducerConsumer
+58	ipc_202061006_shmProducerConsumer
 - Shared-memory buffer
 
-59	ipc_shmRingBuffer
+59	ipc_202061006_shmRingBuffer
 - Ring buffer
 
-60	ipc_shmDataExchange
+60	ipc_202061006_shmDataExchange
 - High-speed IPC
 
 -----------------------------------------------------
@@ -223,34 +223,34 @@ so this section combines IPC with synchronization.
 
 #	Project - Concept
 
-61	ipc_shmSemaphore
+61	ipc_202061007_shmSemaphore
 - Shared memory + semaphore
 
-62	ipc_shmMutex
+62	ipc_202061007_shmMutex
 - Shared memory + mutex
 
-63	ipc_shmCondition
+63	ipc_202061007_shmCondition
 - Condition variable
 
-64	ipc_shmProducerConsumer
+64	ipc_202061007_shmProducerConsumer
 - Synchronised buffer
 
-65	ipc_shmMultipleReader
+65	ipc_202061007_shmMultipleReader
 - Multiple readers
 
-66	ipc_shmMultipleWriter
+66	ipc_202061007_shmMultipleWriter
 - Multiple writers
 
-67	ipc_shmReaderWriter
+67	ipc_202061007_shmReaderWriter
 - Reader/writer model
 
-68	ipc_shmRingBufferSync
+68	ipc_202061007_shmRingBufferSync
 - Synchronised ring buffer
 
-69	ipc_shmLockFree
+69	ipc_202061007_shmLockFree
 - Lock-free shared memory
 
-70	ipc_shmHighPerformance
+70	ipc_202061007_shmHighPerformance
 - High-performance IPC
 
 -----------------------------------------------------
@@ -261,34 +261,34 @@ older Linux systems and existing software.
 
 #	Project - Concept
 
-71	ipc_sysvMessageQueue
+71	ipc_202061008_sysvMessageQueue
 - System V message queues
 
-72	ipc_sysvMsgSend
+72	ipc_202061008_sysvMsgSend
 - msgsnd()
 
-73	ipc_sysvMsgReceive
+73	ipc_202061008_sysvMsgReceive
 - msgrcv()
 
-74	ipc_sysvSemaphore
+74	ipc_202061008_sysvSemaphore
 - System V semaphores
 
-75	ipc_sysvSemOperation
+75	ipc_202061008_sysvSemOperation
 - semop()
 
-76	ipc_sysvSharedMemory
+76	ipc_202061008_sysvSharedMemory
 - System V shared memory
 
-77	ipc_sysvShmAttach
+77	ipc_202061008_sysvShmAttach
 - shmat()
 
-78	ipc_sysvShmDetach
+78	ipc_202061008_sysvShmDetach
 - shmdt()
 
-79	ipc_sysvPermissions
+79	ipc_202061008_sysvPermissions
 - IPC permissions
 
-80	ipc_sysvCleanup
+80	ipc_202061008_sysvCleanup
 - IPC resource management
 
 -----------------------------------------------------
@@ -298,34 +298,34 @@ Very important for Linux applications.
 
 #	Project - Concept
 
-81	ipc_unixSocketBasic
+81	ipc_202061009_unixSocketBasic
 - UNIX domain socket
 
-82	ipc_unixServer
+82	ipc_202061009_unixServer
 - Server
 
-83	ipc_unixClient
+83	ipc_202061009_unixClient
 - Client
 
-84	ipc_unixStream
+84	ipc_202061009_unixStream
 - SOCK_STREAM
 
-85	ipc_unixDatagram
+85	ipc_202061009_unixDatagram
 - SOCK_DGRAM
 
-86	ipc_unixNonBlocking
+86	ipc_202061009_unixNonBlocking
 - Non-blocking socket
 
-87	ipc_unixMultipleClient
+87	ipc_202061009_unixMultipleClient
 - Multiple clients
 
-88	ipc_unixChat
+88	ipc_202061009_unixChat
 - IPC chat
 
-89	ipc_unixServerPool
+89	ipc_202061009_unixServerPool
 - Server process pool
 
-90	ipc_unixClientServer
+90	ipc_202061009_unixClientServer
 - Production-style IPC
 
 -----------------------------------------------------
@@ -335,34 +335,34 @@ Now IPC extends beyond one machine.
 
 #	Project - Concept
 
-91	ipc_tcpServer
+91	ipc_202061010_tcpServer
 - TCP server
 
-92	ipc_tcpClient
+92	ipc_202061010_tcpClient
 - TCP client
 
-93	ipc_tcpMultiClient
+93	ipc_202061010_tcpMultiClient
 - Multiple clients
 
-94	ipc_udpServer
+94	ipc_202061010_udpServer
 - UDP server
 
-95	ipc_udpClient
+95	ipc_202061010_udpClient
 - UDP client
 
-96	ipc_tcpBlocking
+96	ipc_202061010_tcpBlocking
 - Blocking sockets
 
-97	ipc_tcpNonBlocking
+97	ipc_202061010_tcpNonBlocking
 - Non-blocking sockets
 
-98	ipc_select
+98	ipc_202061010_select
 - select()
 
-99	ipc_poll
+99	ipc_202061010_poll
 - poll()
 
-100	ipc_epoll
+100	ipc_202061010_epoll
 - epoll()
 
 -----------------------------------------------------
@@ -373,34 +373,34 @@ real Linux server architecture.
 
 #	Project - Concept
 
-101	ipc_epollBasic
+101	ipc_202061011_epollBasic
 - Basic epoll
 
-102	ipc_epollServer
+102	ipc_202061011_epollServer
 - Event-driven server
 
-103	ipc_epollMultiClient
+103	ipc_202061011_epollMultiClient
 - Multiple clients
 
-104	ipc_epollEdgeTriggered
+104	ipc_202061011_epollEdgeTriggered
 - Edge-triggered
 
-105	ipc_epollLevelTriggered
+105	ipc_202061011_epollLevelTriggered
 - Level-triggered
 
-106	ipc_eventfd
+106	ipc_202061011_eventfd
 - eventfd()
 
-107	ipc_timerfd
+107	ipc_202061011_timerfd
 - timerfd()
 
-108	ipc_signalfd
+108	ipc_202061011_signalfd
 - signalfd()
 
-109	ipc_epollEvents
+109	ipc_202061011_epollEvents
 - Multiple event sources
 
-110	ipc_eventDrivenServer
+110	ipc_202061011_eventDrivenServer
 - Complete event-driven IPC
 
 -----------------------------------------------------
@@ -410,34 +410,34 @@ IPC and synchronization overlap heavily.
 
 #	Project - Concept
 
-111	ipc_posixSemaphore
+111	ipc_202061012_posixSemaphore
 - POSIX semaphore
 
-112	ipc_namedSemaphore
+112	ipc_202061012_namedSemaphore
 - Named semaphore
 
-113	ipc_unnamedSemaphore
+113	ipc_202061012_unnamedSemaphore
 - Unnamed semaphore
 
-114	ipc_processMutex
+114	ipc_202061012_processMutex
 - Process-shared mutex
 
-115	ipc_processCondition
+115	ipc_202061012_processCondition
 - Process-shared condition
 
-116	ipc_rwlock
+116	ipc_202061012_rwlock
 - Reader/writer lock
 
-117	ipc_spinlock
+117	ipc_202061012_spinlock
 - Spinlock
 
-118	ipc_barrier
+118	ipc_202061012_barrier
 - Process barrier
 
-119	ipc_deadlock
+119	ipc_202061012_deadlock
 - Deadlock
 
-120	ipc_raceCondition
+120	ipc_202061012_raceCondition
 - Race condition
 
 -----------------------------------------------------
@@ -445,34 +445,34 @@ IPC and synchronization overlap heavily.
 -----------------------------------------------------
 #	Project - Concept
 
-121	ipc_processGroup
+121	ipc_202061013_processGroup
 - Process groups
 
-122	ipc_session
+122	ipc_202061013_session
 - Sessions
 
-123	ipc_terminalControl
+123	ipc_202061013_terminalControl
 - Controlling terminal
 
-124	ipc_daemon
+124	ipc_202061013_daemon
 - Daemon architecture
 
-125	ipc_doubleFork
+125	ipc_202061013_doubleFork
 - Double-fork daemon
 
-126	ipc_pidfd
+126	ipc_202061013_pidfd
 - pidfd
 
-127	ipc_processSignal
+127	ipc_202061013_processSignal
 - Process signaling
 
-128	ipc_waitpid
+128	ipc_202061013_waitpid
 - Process lifecycle
 
-129	ipc_subreaper
+129	ipc_202061013_subreaper
 - Child reaping
 
-130	ipc_processSupervisor
+130	ipc_202061013_processSupervisor
 - Process supervisor
 
 -----------------------------------------------------
@@ -480,34 +480,34 @@ IPC and synchronization overlap heavily.
 -----------------------------------------------------
 #	Project - Concept
 
-131	ipc_fileExchange
+131	ipc_202061014_fileExchange
 - File-based communication
 
-132	ipc_fileLock
+132	ipc_202061014_fileLock
 - File locking
 
-133	ipc_flock
+133	ipc_202061014_flock
 - flock()
 
-134	ipc_fcntlLock
+134	ipc_202061014_fcntlLock
 - fcntl() locks
 
-135	ipc_atomicFile
+135	ipc_202061014_atomicFile
 - Atomic file replacement
 
-136	ipc_tempFile
+136	ipc_202061014_tempFile
 - Temporary IPC files
 
-137	ipc_lockFile
+137	ipc_202061014_lockFile
 - Lock files
 
-138	ipc_spoolDirectory
+138	ipc_202061014_spoolDirectory
 - Spool directory
 
-139	ipc_fileQueue
+139	ipc_202061014_fileQueue
 - File queue
 
-140	ipc_fileIPCServer
+140	ipc_202061014_fileIPCServer
 - File-based IPC server
 
 -----------------------------------------------------
@@ -517,34 +517,34 @@ Now measure the different mechanisms.
 
 #	Project - Concept
 
-141	ipc_pipeBenchmark
+141	ipc_202061015_pipeBenchmark
 - Pipe performance
 
-142	ipc_fifoBenchmark
+142	ipc_202061015_fifoBenchmark
 - FIFO performance
 
-143	ipc_mqBenchmark
+143	ipc_202061015_mqBenchmark
 - Message queue
 
-144	ipc_shmBenchmark
+144	ipc_202061015_shmBenchmark
 - Shared memory
 
-145	ipc_unixSocketBenchmark
+145	ipc_202061015_unixSocketBenchmark
 - UNIX socket
 
-146	ipc_tcpBenchmark
+146	ipc_202061015_tcpBenchmark
 - TCP
 
-147	ipc_latencyBenchmark
+147	ipc_202061015_latencyBenchmark
 - IPC latency
 
-148	ipc_throughputBenchmark
+148	ipc_202061015_throughputBenchmark
 - IPC throughput
 
-149	ipc_cpuBenchmark
+149	ipc_202061015_cpuBenchmark
 - CPU overhead
 
-150	ipc_memoryBenchmark
+150	ipc_202061015_memoryBenchmark
 - Memory overhead
 
 -----------------------------------------------------
@@ -552,34 +552,34 @@ Now measure the different mechanisms.
 -----------------------------------------------------
 #	Project - Concept
 
-151	ipc_zeroCopyBasic
+151	ipc_202061016_zeroCopyBasic
 - Zero-copy concept
 
-152	ipc_sharedRingBuffer
+152	ipc_202061016_sharedRingBuffer
 - Shared ring buffer
 
-153	ipc_lockFreeQueue
+153	ipc_202061016_lockFreeQueue
 - Lock-free queue
 
-154	ipc_spscQueue
+154	ipc_202061016_spscQueue
 - Single producer/single consumer
 
-155	ipc_mpscQueue
+155	ipc_202061016_mpscQueue
 - Multiple producer
 
-156	ipc_spmcQueue
+156	ipc_202061016_spmcQueue
 - Multiple consumer
 
-157	ipc_mpmcQueue
+157	ipc_202061016_mpmcQueue
 - Multiple producer/consumer
 
-158	ipc_memfd
+158	ipc_202061016_memfd
 - memfd_create()
 
-159	ipc_memfdSharing
+159	ipc_202061016_memfdSharing
 - Memory sharing
 
-160	ipc_highPerformanceIPC
+160	ipc_202061016_highPerformanceIPC
 - Complete high-speed IPC
 
 -----------------------------------------------------
@@ -589,34 +589,34 @@ Modern Linux relies heavily on file descriptors.
 
 #	Project - Concept
 
-161	ipc_fdPassing
+161	ipc_202061017_fdPassing
 - File descriptor passing
 
-162	ipc_unixFdPassing
+162	ipc_202061017_unixFdPassing
 - UNIX socket FD passing
 
-163	ipc_sendmsg
+163	ipc_202061017_sendmsg
 - sendmsg()
 
-164	ipc_recvmsg
+164	ipc_202061017_recvmsg
 - recvmsg()
 
-165	ipc_scmRights
+165	ipc_202061017_scmRights
 - SCM_RIGHTS
 
-166	ipc_fdServer
+166	ipc_202061017_fdServer
 - FD-passing server
 
-167	ipc_fdClient
+167	ipc_202061017_fdClient
 - FD-passing client
 
-168	ipc_sharedFileDescriptor
+168	ipc_202061017_sharedFileDescriptor
 - Resource sharing
 
-169	ipc_fdEventSystem
+169	ipc_202061017_fdEventSystem
 - FD-based event system
 
-170	ipc_fdArchitecture
+170	ipc_202061017_fdArchitecture
 - FD-oriented IPC
 
 -----------------------------------------------------
@@ -629,34 +629,34 @@ but real applications often combine both.
 
 #	Project - Concept
 
-171	ipc_threadPipe
+171	ipc_202061018_threadPipe
 - Thread + pipe
 
-172	ipc_threadQueue
+172	ipc_202061018_threadQueue
 - Thread-safe queue
 
-173	ipc_threadSocket
+173	ipc_202061018_threadSocket
 - Threads + sockets
 
-174	ipc_threadSharedMemory
+174	ipc_202061018_threadSharedMemory
 - Threads + shared memory
 
-175	ipc_threadSemaphore
+175	ipc_202061018_threadSemaphore
 - Threads + semaphore
 
-176	ipc_threadCondition
+176	ipc_202061018_threadCondition
 - Threads + condition
 
-177	ipc_threadPoolIPC
+177	ipc_202061018_threadPoolIPC
 - Thread pool
 
-178	ipc_processThreadPool
+178	ipc_202061018_processThreadPool
 - Process + thread pool
 
-179	ipc_workerArchitecture
+179	ipc_202061018_workerArchitecture
 - Worker architecture
 
-180	ipc_hybridIPC
+180	ipc_202061018_hybridIPC
 - Hybrid IPC
 
 -----------------------------------------------------
@@ -664,34 +664,34 @@ but real applications often combine both.
 -----------------------------------------------------
 #	Project - Concept
 
-181	ipc_permissions
+181	ipc_202061019_permissions
 - IPC permissions
 
-182	ipc_uidGid
+182	ipc_202061019_uidGid
 - UID/GID
 
-183	ipc_filePermissions
+183	ipc_202061019_filePermissions
 - UNIX permissions
 
-184	ipc_socketPermissions
+184	ipc_202061019_socketPermissions
 - UNIX socket permissions
 
-185	ipc_credentials
+185	ipc_202061019_credentials
 - Credential passing
 
-186	ipc_peerCredentials
+186	ipc_202061019_peerCredentials
 - SO_PEERCRED
 
-187	ipc_capabilities
+187	ipc_202061019_capabilities
 - Linux capabilities
 
-188	ipc_selinuxIPC
+188	ipc_202061019_selinuxIPC
 - SELinux IPC
 
-189	ipc_seccompIPC
+189	ipc_202061019_seccompIPC
 - Seccomp interaction
 
-190	ipc_secureServer
+190	ipc_202061019_secureServer
 - Secure IPC server
 
 -----------------------------------------------------
@@ -702,34 +702,34 @@ Linux Device Driver / Kernel roadmap.
 
 #	Project - Concept
 
-191	ipc_procfs
+191	ipc_202061020_procfs
 - /proc process information
 
-192	ipc_sysfs
+192	ipc_202061020_sysfs
 - /sys
 
-193	ipc_kernelPipe
+193	ipc_202061020_kernelPipe
 - Kernel pipe concepts
 
-194	ipc_kernelSignal
+194	ipc_202061020_kernelSignal
 - Kernel signal path
 
-195	ipc_kernelSocket
+195	ipc_202061020_kernelSocket
 - Kernel socket architecture
 
-196	ipc_kernelShm
+196	ipc_202061020_kernelShm
 - Shared memory internals
 
-197	ipc_kernelMq
+197	ipc_202061020_kernelMq
 - Message queue internals
 
-198	ipc_kernelEventfd
+198	ipc_202061020_kernelEventfd
 - eventfd internals
 
-199	ipc_kernelEpoll
+199	ipc_202061020_kernelEpoll
 - epoll internals
 
-200	ipc_syscallIPC
+200	ipc_202061020_syscallIPC
 - IPC system calls
 
 -----------------------------------------------------
@@ -740,34 +740,34 @@ Linux driver work.
 
 #	Project - Concept
 
-201	ipc_driverPipe
+201	ipc_202061021_driverPipe
 - Driver ↔ process
 
-202	ipc_driverSignal
+202	ipc_202061021_driverSignal
 - Driver → process signal
 
-203	ipc_driverPoll
+203	ipc_202061021_driverPoll
 - poll() from driver
 
-204	ipc_driverSelect
+204	ipc_202061021_driverSelect
 - select() from driver
 
-205	ipc_driverEpoll
+205	ipc_202061021_driverEpoll
 - Driver + epoll
 
-206	ipc_driverEventfd
+206	ipc_202061021_driverEventfd
 - Driver + eventfd
 
-207	ipc_driverMmap
+207	ipc_202061021_driverMmap
 - Driver + mmap()
 
-208	ipc_driverSharedMemory
+208	ipc_202061021_driverSharedMemory
 - Driver shared memory
 
-209	ipc_driverIoctl
+209	ipc_202061021_driverIoctl
 - ioctl() communication
 
-210	ipc_driverUserspace
+210	ipc_202061021_driverUserspace
 - Complete driver/user IPC
 
 -----------------------------------------------------
@@ -777,34 +777,34 @@ Now start combining mechanisms.
 
 #	Project	Architecture
 
-211	ipc_clientServer
+211	ipc_202061022_clientServer
 - Client/server
 
-212	ipc_workerPool
+212	ipc_202061022_workerPool
 - Worker pool
 
-213	ipc_pipeline
+213	ipc_202061022_pipeline
 - Processing pipeline
 
-214	ipc_producerConsumer
+214	ipc_202061022_producerConsumer
 - Producer/consumer
 
-215	ipc_pubSub
+215	ipc_202061022_pubSub
 - Publish/subscribe
 
-216	ipc_requestResponse
+216	ipc_202061022_requestResponse
 - Request/response
 
-217	ipc_eventDriven
+217	ipc_202061022_eventDriven
 - Event-driven
 
-218	ipc_messageRouter
+218	ipc_202061022_messageRouter
 - Message routing
 
-219	ipc_serviceManager
+219	ipc_202061022_serviceManager
 - Service manager
 
-220	ipc_supervisorWorker
+220	ipc_202061022_supervisorWorker
 - Supervisor/worker
 
 -----------------------------------------------------
@@ -812,34 +812,34 @@ Now start combining mechanisms.
 -----------------------------------------------------
 #	Project	Practical System
 
-221	ipc_logger
+221	ipc_202061023_logger
 - Central logging process
 
-222	ipc_monitor
+222	ipc_202061023_monitor
 - System monitoring
 
-223	ipc_sensorService
+223	ipc_202061023_sensorService
 - Sensor service
 
-224	ipc_dataCollector
+224	ipc_202061023_dataCollector
 - Data collector
 
-225	ipc_databaseService
+225	ipc_202061023_databaseService
 - Database service
 
-226	ipc_commandService
+226	ipc_202061023_commandService
 - Command service
 
-227	ipc_configService
+227	ipc_202061023_configService
 - Configuration service
 
-228	ipc_notificationService
+228	ipc_202061023_notificationService
 - Notification service
 
-229	ipc_taskManager
+229	ipc_202061023_taskManager
 - Task manager
 
-230	ipc_processManage
+230	ipc_202061023_processManage
 - Process manager
 
 -----------------------------------------------------
@@ -850,34 +850,34 @@ what you're already learning.
 
 #	Project	Combination
 
-231	ipc_raspberryPi
+231	ipc_202061024_raspberryPi
 - IPC on Raspberry Pi
 
-232	ipc_gpioService
+232	ipc_202061024_gpioService
 - GPIO service
 
-233	ipc_i2cService
+233	ipc_202061024_i2cService
 - I²C service
 
-234	ipc_spiService
+234	ipc_202061024_spiService
 - SPI service
 
-235	ipc_uartService
+235	ipc_202061024_uartService
 - UART service
 
-236	ipc_sensorPipeline
+236	ipc_202061024_sensorPipeline
 - Sensor → IPC → application
 
-237	ipc_mqttBridge
+237	ipc_202061024_mqttBridge
 - IPC → MQTT
 
-238	ipc_databaseBridge
+238	ipc_202061024_databaseBridge
 - IPC → PostgreSQL
 
-239	ipc_qtBackend
+239	ipc_202061024_qtBackend
 - Qt ↔ backend process
 
-240	ipc_embeddedArchitecture
+240	ipc_202061024_embeddedArchitecture
 - Complete embedded IPC
 
 -----------------------------------------------------
@@ -887,34 +887,34 @@ Very relevant to your yantraSthiti architecture.
 
 #	Project	Concept
 
-241	ipc_qtProcess
+241	ipc_202061025_qtProcess
 - Qt process management
 
-242	ipc_qtLocalSocket
+242	ipc_202061025_qtLocalSocket
 - QLocalSocket
 
-243	ipc_qtLocalServer
+243	ipc_202061025_qtLocalServer
 - QLocalServer
 
-244	ipc_qtProcessCommunication
+244	ipc_202061025_qtProcessCommunication
 - Qt ↔ process
 
-245	ipc_qtBackendService
+245	ipc_202061025_qtBackendService
 - Qt frontend/backend
 
-246	ipc_qtWorkerProcess
+246	ipc_202061025_qtWorkerProcess
 - Worker process
 
-247	ipc_qtMultiProcess
+247	ipc_202061025_qtMultiProcess
 - Multiple Qt processes
 
-248	ipc_qtSharedMemory
+248	ipc_202061025_qtSharedMemory
 - Qt shared memory
 
-249	ipc_qtNetworkIPC
+249	ipc_202061025_qtNetworkIPC
 - Qt network IPC
 
-250	ipc_qtProductionArchitecture
+250	ipc_202061025_qtProductionArchitecture
 - Production Qt IPC
 
 -----------------------------------------------------
@@ -925,68 +925,69 @@ distributed communication becomes important.
 
 #	Project	Concept
 
-251	ipc_rpcBasic
+251	ipc_202061026_rpcBasic
 - RPC
 
-252	ipc_grpcBasic
+252	ipc_202061026_grpcBasic
 - gRPC
 
-253	ipc_grpcServer
+253	ipc_202061026_grpcServer
 - gRPC server
 
-254	ipc_grpcClient
+254	ipc_202061026_grpcClient
 - gRPC client
 
-255	ipc_grpcStreamin
+255	ipc_202061026_grpcStreamin
 - Streaming
 
-256	ipc_restServic
+256	ipc_202061026_restServic
 - REST service
 
-257	ipc_messageBroke
+257	ipc_202061026_messageBroke
 - Message broker
 
-258	ipc_mqttIP
+258	ipc_202061026_mqttIP
 - MQTT
 
-259	ipc_serviceToService
+259	ipc_202061026_serviceToService
 - Service communication
 
-260	ipc_distributedArchitecture	Distributed IPC
+260	ipc_202061026_distributedArchitecture
+- Distributed IPC
 
 -----------------------------------------------------
 261–270 — Advanced Linux IPC
 -----------------------------------------------------
 #	Project	Concept
 
-261	ipc_ioUring
+261	ipc_202061027_ioUring
 - io_uring
 
-262	ipc_ioUringIPC
+262	ipc_202061027_ioUringIPC
 - Async IPC
 
-263	ipc_asyncSocket
+263	ipc_202061027_asyncSocket
 - Async sockets
 
-264	ipc_asyncPipe
+264	ipc_202061027_asyncPipe
 - Async pipes
 
-265	ipc_asyncFile
+265	ipc_202061027_asyncFile
 - Async file operations
 
-266	ipc_signalSafe
+266	ipc_202061027_signalSafe
 - Async-signal-safe programming
 
-267	ipc_namespace
+267	ipc_202061027_namespace
 - IPC namespaces
 
-268	ipc_containerIPC
+268	ipc_202061027_containerIPC
 - Container IPC
 
-269	ipc_dockerIPC
+269	ipc_202061027_dockerIPC
 - Docker IPC
 
-270	ipc_linuxIPCArchitecture
+270	ipc_202061027_linuxIPCArchitecture
 - Linux IPC architecture
 
 -----------------------------------------------------
@@ -994,34 +995,34 @@ distributed communication becomes important.
 -----------------------------------------------------
 #	Project	Concept
 
-271	ipc_strace
+271	ipc_202061028_strace
 - strace
 
-272	ipc_lsof
+272	ipc_202061028_lsof
 - Open file descriptors
 
-273	ipc_procInspection
+273	ipc_202061028_procInspection
 - /proc
 
-274	ipc_ipcs
+274	ipc_202061028_ipcs
 - System V IPC inspection
 
-275	ipc_ss
+275	ipc_202061028_ss
 - Socket inspection
 
-276	ipc_netstat
+276	ipc_202061028_netstat
 - Network IPC inspection
 
-277	ipc_perf
+277	ipc_202061028_perf
 - Performance analysis
 
-278	ipc_ftrace
+278	ipc_202061028_ftrace
 - Kernel tracing
 
-279	ipc_bpf
+279	ipc_202061028_bpf
 - eBPF observation
 
-280	ipc_debugToolkit
+280	ipc_202061028_debugToolkit
 - IPC debugging toolkit
 
 -----------------------------------------------------
@@ -1029,34 +1030,34 @@ distributed communication becomes important.
 -----------------------------------------------------
 #	Project	System
 
-281	ipc_chatSystem
+281	ipc_202061029_chatSystem
 - Multi-process chat
 
-282	ipc_logSystem
+282	ipc_202061029_logSystem
 - Centralized logging
 
-283	ipc_sensorSystem
+283	ipc_202061029_sensorSystem
 - Sensor processing system
 
-284	ipc_monitoringSystem
+284	ipc_202061029_monitoringSystem
 - System monitoring
 
-285	ipc_jobScheduler
+285	ipc_202061029_jobScheduler
 - Job scheduler
 
-286	ipc_processSupervisor
+286	ipc_202061029_processSupervisor
 - Process supervisor
 
-287	ipc_databaseServer
+287	ipc_202061029_databaseServer
 - Database service
 
-288	ipc_embeddedServer
+288	ipc_202061029_embeddedServer
 - Embedded service architecture
 
-289	ipc_qtLinuxSystem
+289	ipc_202061029_qtLinuxSystem
 - Qt + Linux IPC
 
-290	ipc_completeIPCSystem
+290	ipc_202061029_completeIPCSystem
 - Complete IPC architecture
 
 -----------------------------------------------------
@@ -1131,6 +1132,11 @@ You now have three very useful parallel tracks:
                       ↓
               Real Products
 			  
+			  
+For your learning path, I would make IPC primarily 
+Linux/POSIX-based, because it will connect directly 
+to your upcoming Linux kernel, device-driver, Qt, 
+Raspberry Pi, and server work.
 			  
 -----------------------------------------------------
 

@@ -1,0 +1,985 @@
+-----------------------------------------------------
+
+------------------------------
+
+
+-----------------------------------------------------
+Phase 0 — Environment
+-----------------------------------------------------
+Start with:
+
+Ada
+ │
+ ├── GNAT
+ ├── GNAT Studio
+ ├── GPRbuild
+ ├── GCC
+ └── GDB
+
+------------------------------
+Set up:
+
+GNAT compiler
+GNAT Studio
+GPRbuild
+GDB
+Git
+VS Code/other editor if needed
+
+------------------------------
+First program:
+
+ada_20260924_hello
+
+------------------------------
+Learn:
+
+with Ada.Text_IO;
+
+procedure Hello is
+begin
+   Ada.Text_IO.Put_Line ("Hello from Ada");
+end Hello;
+
+-----------------------------------------------------
+Phase 1 — Ada Language Fundamentals
+-----------------------------------------------------
+Learn the basic building blocks.
+
+Types:
+
+Integer
+Float
+Boolean
+Character
+String
+
+------------------------------
+Then Ada-specific types:
+
+subtype
+type
+range
+enumeration
+record
+array
+
+------------------------------
+Important concept:
+
+Ada strongly encourages you to define meaningful 
+types instead of using everything as Integer.
+
+Example:
+
+type Temperature is range -40 .. 150;
+
+-----------------------------------------------------
+Phase 2 — Procedures and Functions
+-----------------------------------------------------
+Learn:
+
+procedure
+function
+parameter modes
+in
+out
+in out
+
+------------------------------
+Example:
+
+procedure Add
+(
+   A : in Integer;
+   B : in Integer;
+   Result : out Integer
+);
+
+------------------------------
+Understand:
+
+specification
+      ↓
+body
+
+-----------------------------------------------------
+Phase 3 — Packages
+-----------------------------------------------------
+This is one of the most important Ada concepts.
+
+Learn:
+
+package
+package specification
+package body
+private section
+
+------------------------------
+Structure:
+
+math.ads
+math.adb
+
+------------------------------
+Example:
+
+Math
+ ├── math.ads
+ └── math.adb
+
+------------------------------
+Think of:
+
+.ads → interface
+.adb → implementation
+
+This will feel familiar coming from 
+C++ header/source organization.
+
+-----------------------------------------------------
+Phase 4 — Records and Object-Oriented Ada
+-----------------------------------------------------
+Learn:
+
+record
+tagged record
+type extension
+primitive operations
+dispatching
+in
+terfaces
+
+------------------------------
+Example:
+
+type Device is tagged record
+   Id : Integer;
+end record;
+
+------------------------------
+Then:
+
+Device
+  │
+  ├── Sensor
+  ├── Motor
+  └── Display
+
+------------------------------
+This is where you can compare:
+
+C++ class
+       ↕
+Ada tagged type
+
+-----------------------------------------------------
+Phase 5 — Ada Containers
+-----------------------------------------------------
+Learn Ada's standard containers.
+
+Important ones:
+
+Ada.Containers.Vectors
+Ada.Containers.Doubly_Linked_Lists
+Ada.Containers.Hashed_Maps
+Ada.Containers.Ordered_Maps
+Ada.Containers.Sets
+
+Create small programs for each.
+
+------------------------------
+For example:
+
+ada_2026_vectors
+ada_2026_lists
+ada_2026_maps
+ada_2026_sets
+
+This matches your existing approach of 
+learning C++ STL practically.
+
+-----------------------------------------------------
+Phase 6 — Exceptions
+-----------------------------------------------------
+Learn:
+
+exception
+raise
+exception handlers
+others
+
+------------------------------
+Example:
+
+begin
+   ...
+exception
+   when Constraint_Error =>
+      ...
+end;
+
+Understand when to use exceptions versus 
+normal return/status handling.
+
+-----------------------------------------------------
+Phase 7 — Generics
+-----------------------------------------------------
+This is a major Ada feature.
+
+Learn:
+
+generic
+generic package
+generic procedure
+generic function
+
+------------------------------
+Conceptually:
+
+Generic
+   ↓
+Instantiate
+   ↓
+Concrete implementation
+
+------------------------------
+Compare it with:
+
+C++ templates
+
+-----------------------------------------------------
+Phase 8 — Access Types and Memory
+-----------------------------------------------------
+Now move toward systems programming.
+
+Learn:
+
+access types
+dynamic allocation
+new
+Unchecked_Deallocation
+storage pools
+
+------------------------------
+Understand:
+
+stack
+heap
+access value
+object lifetime
+
+This is especially useful given your C/C++ 
+and Linux background.
+
+-----------------------------------------------------
+Phase 9 — Representation and Low-Level Ada
+-----------------------------------------------------
+Now start using Ada for embedded/system-level work.
+
+Learn:
+
+representation clauses
+record representation
+size clauses
+alignment
+address clauses
+System
+Interfaces
+
+------------------------------
+Example concept:
+
+Hardware register
+       ↓
+Ada record
+       ↓
+representation clause
+       ↓
+memory-mapped register
+
+This is where Ada becomes particularly 
+interesting for your LDD/embedded learning path.
+
+-----------------------------------------------------
+Phase 10 — File and OS Programming
+-----------------------------------------------------
+Learn Ada interfaces to the operating system.
+
+Study:
+
+Ada.Text_IO
+Ada.Direct_IO
+Ada.Streams
+Ada.Directories
+Ada.Environment_Variables
+Ada.Command_Line
+
+------------------------------
+Build:
+
+file copier
+log system
+configuration parser
+directory scanner
+process utility
+
+Then explore POSIX bindings.
+
+-----------------------------------------------------
+Phase 11 — Concurrency / Tasking
+-----------------------------------------------------
+This should be a major milestone for you.
+
+Ada has built-in concurrency.
+
+Learn:
+
+task
+task type
+protected type
+entry
+accept
+select
+delay
+
+------------------------------
+Architecture:
+
+Task A
+   │
+   ├──────► Protected Object
+   │
+Task B
+   │
+   └──────► Protected Object
+
+Build:
+
+producer
+consumer
+thread pool
+logger
+sensor monitor
+
+-----------------------------------------------------
+Phase 12 — Ada Rendezvous
+-----------------------------------------------------
+Study the Ada rendezvous model.
+
+Task A
+   │
+   │ entry call
+   ▼
+Task B
+   │
+   │ accept
+   ▼
+execute
+
+------------------------------
+Compare:
+
+Ada rendezvous
+       ↕
+C++ condition_variable
+       ↕
+POSIX synchronization
+
+This will connect nicely with your IPC studies.
+
+-----------------------------------------------------
+Phase 13 — Protected Objects
+-----------------------------------------------------
+Learn protected objects deeply.
+
+Protected Object
+ ├── procedure
+ ├── function
+ └── entry
+
+------------------------------
+Use them to implement:
+
+queues
+shared state
+event systems
+resource managers
+
+This is one of the areas where Ada's 
+concurrency model becomes very powerful.
+
+-----------------------------------------------------
+Phase 14 — Ada + Linux
+-----------------------------------------------------
+Now combine Ada with your Linux knowledge.
+
+Build:
+
+Ada application
+      │
+      ▼
+Linux
+      │
+ ┌────┼────┐
+ ▼    ▼    ▼
+IPC  Files  Network
+
+------------------------------
+Learn bindings to:
+
+POSIX
+Linux APIs
+sockets
+signals
+pipes
+shared memory
+mutexes
+threads
+
+------------------------------
+Projects:
+
+ada_linux_process
+ada_linux_socket
+ada_linux_pipe
+ada_linux_sharedMemory
+ada_linux_signal
+
+-----------------------------------------------------
+Phase 15 — Ada IPC
+-----------------------------------------------------
+This is where your IPC project can connect directly.
+
+Implement:
+
+Ada process A
+      │
+      │ pipe
+      ▼
+Ada process B
+
+------------------------------
+Then:
+
+Ada process A
+      │
+      │ shared memory
+      ▼
+Ada process B
+
+------------------------------
+Then:
+
+Ada
+ │
+ ├── POSIX message queue
+ ├── socket
+ ├── shared memory
+ └── semaphore
+ 
+-----------------------------------------------------
+Phase 16 — Networking
+-----------------------------------------------------
+Learn:
+
+TCP
+UDP
+IPv4
+IPv6
+sockets
+
+------------------------------
+Build:
+
+Ada TCP server
+Ada TCP client
+Ada UDP server
+Ada UDP client
+
+------------------------------
+Then:
+
+Ada ↔ C++
+Ada ↔ Python
+Ada ↔ Java
+
+This is particularly useful for your 
+larger systems projects.
+
+-----------------------------------------------------
+Phase 17 — Interoperability with C/C++
+-----------------------------------------------------
+Very important for you.
+
+Learn:
+
+pragma Import
+pragma Export
+Interfaces.C
+Convention => C
+
+------------------------------
+Architecture:
+
+Ada
+ │
+ │ C ABI
+ ▼
+C library
+
+------------------------------
+Then:
+
+Ada
+ │
+ ▼
+C++
+
+------------------------------
+Build:
+
+Ada application
+      ↓
+C library
+      ↓
+Linux
+
+------------------------------
+and reverse:
+
+C++ application
+      ↓
+Ada library
+
+-----------------------------------------------------
+Phase 18 — GNAT Project System
+-----------------------------------------------------
+Become comfortable with:
+
+.gpr
+.gprbuild
+
+------------------------------
+Example:
+
+project.gpr
+src/
+    main.adb
+    device.ads
+    device.adb
+
+------------------------------
+Learn:
+
+source_dirs
+object_dir
+exec_dir
+for Main use
+external variables
+
+Then build multi-project systems.
+
+-----------------------------------------------------
+Phase 19 — Debugging
+-----------------------------------------------------
+Use:
+
+GDB
+GNAT Studio debugger
+
+------------------------------
+Learn:
+
+breakpoints
+watchpoints
+call stack
+variables
+tasks
+exceptions
+
+------------------------------
+Then:
+
+Ada
+ ↓
+GDB
+ ↓
+Linux
+
+-----------------------------------------------------
+Phase 20 — Testing
+-----------------------------------------------------
+Learn Ada testing frameworks.
+
+Build:
+
+Unit tests
+Integration tests
+System tests
+
+------------------------------
+Understand:
+
+test package
+test runner
+assertions
+coverage
+
+Then integrate testing into Git.
+
+-----------------------------------------------------
+Phase 21 — SPARK
+-----------------------------------------------------
+Now move from Ada programming into 
+formally verified software.
+
+Study:
+
+Ada
+ ↓
+SPARK
+ ↓
+contracts
+ ↓
+proof
+ ↓
+verified software
+
+------------------------------
+Learn:
+
+preconditions
+postconditions
+invariants
+contracts
+flow analysis
+formal proof
+
+------------------------------
+Example concept:
+
+function Divide (A, B : Integer)
+  return Integer
+with
+  Pre => B /= 0;
+
+Now the compiler/tooling can reason 
+about the contract.
+
+-----------------------------------------------------
+Phase 22 — Embedded Ada
+-----------------------------------------------------
+Now take Ada onto embedded hardware.
+
+Architecture:
+
+Ada
+ ↓
+GNAT
+ ↓
+Cross compiler
+ ↓
+ARM
+ ↓
+Microcontroller
+
+------------------------------
+Learn:
+
+bare metal
+interrupts
+registers
+memory maps
+startup code
+linker scripts
+HAL
+drivers
+
+------------------------------
+Good progression:
+
+ARM
+ ↓
+GPIO
+ ↓
+UART
+ ↓
+Timer
+ ↓
+Interrupt
+ ↓
+I2C
+ ↓
+SPI
+ ↓
+ADC
+
+-----------------------------------------------------
+Phase 23 — Ada + RTOS
+-----------------------------------------------------
+Then connect Ada with your FreeRTOS learning.
+
+Study:
+
+Ada task
+      ↕
+RTOS task
+
+------------------------------
+Understand:
+
+scheduling
+priority
+mutex
+semaphore
+interrupt
+timers
+
+------------------------------
+Compare:
+
+Ada tasking
+POSIX threads
+FreeRTOS tasks
+Linux threads
+
+-----------------------------------------------------
+Phase 24 — Ada + Linux Kernel / Drivers
+-----------------------------------------------------
+This is an advanced experiment rather than the 
+normal Ada application path.
+
+Your existing:
+
+LDD
+ │
+ ├── character driver
+ ├── block driver
+ ├── network driver
+ └── device tree
+
+can be used as the low-level C/kernel side, 
+while Ada runs in user space:
+
+Ada application
+      │
+      │ ioctl/read/write
+      ▼
+Linux Driver
+      │
+      ▼
+Hardware
+
+This is a very practical combination 
+for your learning.
+
+-----------------------------------------------------
+Phase 25 — Ada + Yocto
+-----------------------------------------------------
+This is where your three roadmaps converge.
+
+                    Yocto
+                      │
+              ┌───────┴───────┐
+              ▼               ▼
+          Linux kernel       RootFS
+                              │
+                              ▼
+                            Ada
+                              │
+                       GNAT compiler
+                              │
+                              ▼
+                       Ada application
+
+------------------------------
+Create a Yocto recipe:
+
+recipes-app/
+└── ada-app/
+    └── ada-app_1.0.bb
+
+------------------------------
+Then:
+
+Ada source
+   ↓
+Yocto recipe
+   ↓
+BitBake
+   ↓
+Cross compile
+   ↓
+Package
+   ↓
+RootFS
+   ↓
+Raspberry Pi
+
+-----------------------------------------------------
+Phase 26 — Production Ada System
+-----------------------------------------------------
+Final project:
+
+                    Embedded Device
+                           │
+          ┌────────────────┼────────────────┐
+          ▼                ▼                ▼
+       Bootloader        Kernel           Device Tree
+                           │
+                           ▼
+                         Yocto
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+           Driver         IPC          Ada App
+                                         │
+                             ┌───────────┼───────────┐
+                             ▼           ▼           ▼
+                           Tasks       Network      Files
+
+------------------------------
+Add:
+
+logging
+configuration
+monitoring
+watchdog
+security
+OTA
+unit testing
+SPARK verification
+CI/CD
+
+-----------------------------------------------------
+Your Ada Project Tree
+
+Following your existing IPC/LDD organization:
+
+Ada/
+│
+└── Ada_2026/
+    │
+    └── Ada_09_2026/
+        │
+        ├── ada_20260924_hello/
+        ├── ada_20260925_types/
+        ├── ada_20260926_procedure/
+        ├── ada_20260927_package/
+        ├── ada_20260928_record/
+        ├── ada_20260929_oop/
+        ├── ada_20260930_containers/
+        │
+        ├── ada_20261001_exception/
+        ├── ada_20261002_generic/
+        ├── ada_20261003_memory/
+        ├── ada_20261004_representation/
+        │
+        ├── ada_20261005_task/
+        ├── ada_20261006_rendezvous/
+        ├── ada_20261007_protectedObject/
+        │
+        ├── ada_20261008_linux/
+        ├── ada_20261009_posix/
+        ├── ada_20261010_ipc/
+        ├── ada_20261011_socket/
+        │
+        ├── ada_20261012_c_interop/
+        ├── ada_20261013_testing/
+        ├── ada_20261014_debugging/
+        │
+        ├── ada_20261015_spark/
+        ├── ada_20261016_embedded/
+        ├── ada_20261017_freertos/
+        │
+        ├── ada_20261018_yocto/
+        └── ada_20261019_production/
+		
+-----------------------------------------------------		
+The big picture
+
+Your learning ecosystem can eventually look like:
+
+                         C++
+                          │
+                          │
+                    ┌─────┴─────┐
+                    │           │
+                   IPC         LDD
+                    │           │
+                    └─────┬─────┘
+                          │
+                         Linux
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+           Yocto                      Ada
+             │                         │
+             └────────────┬────────────┘
+                          │
+                          ▼
+                   Embedded System
+                          │
+             ┌────────────┼────────────┐
+             ▼            ▼            ▼
+           Driver        IPC         Ada App
+             │                         │
+             └────────────┬────────────┘
+                          ▼
+                       Hardware
+					   
+					   
+-----------------------------------------------------
+For your particular learning path, 
+I would put the biggest emphasis on Ada packages → 
+types → generics → tasking/protected objects → 
+POSIX/Linux → C interoperability → SPARK → 
+embedded → Yocto. 
+
+That lets Ada become a systems-programming language 
+in your existing Linux/embedded work rather than 
+becoming a separate isolated language study.
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

@@ -1,0 +1,836 @@
+-----------------------------------------------------
+
+------------------------------
+
+
+-----------------------------------------------------
+Phase 0 — Prerequisites
+-----------------------------------------------------
+Before Yocto:
+
+Linux
+ ├── Bash
+ ├── Git
+ ├── SSH
+ ├── systemd
+ ├── Linux filesystem
+ ├── kernel basics
+ ├── cross compilation
+ ├── device tree basics
+ └── package management
+
+You are already covering a lot of this through 
+your LDD + Raspberry Pi work.
+
+Learn:
+
+Linux filesystem
+processes/services
+systemd
+environment variables
+shell scripting
+Git
+cross compilation
+kernel configuration
+device tree
+
+-----------------------------------------------------
+Phase 1 — Yocto "Hello World"
+-----------------------------------------------------
+Goal: Build your first Yocto image without 
+modifying anything.
+
+Learn:
+
+Yocto
+ └── OpenEmbedded
+      └── BitBake
+
+Understand:
+
+Poky
+BitBake
+metadata
+recipes
+layers
+configuration
+image
+machine
+distro
+
+First project:
+
+yocto_01_minimal
+
+Build:
+
+core-image-minimal
+
+Understand:
+
+conf/local.conf
+conf/bblayers.conf
+
+and:
+
+bitbake core-image-minimal
+Result
+
+You can build a bootable minimal Linux image.
+
+-----------------------------------------------------
+Phase 2 — Understand the Build System
+-----------------------------------------------------
+Goal: Stop treating Yocto as a black box.
+
+Study:
+
+build/
+├── conf/
+│   ├── local.conf
+│   └── bblayers.conf
+│
+├── tmp/
+├── sstate-cache/
+└── downloads/
+
+Understand:
+
+BitBake
+   ↓
+Recipe
+   ↓
+Task
+   ↓
+Source
+   ↓
+Compile
+   ↓
+Package
+   ↓
+Root filesystem
+   ↓
+Image
+
+Important tasks:
+
+do_fetch
+do_unpack
+do_patch
+do_configure
+do_compile
+do_install
+do_package
+do_rootfs
+do_image
+
+Practice:
+
+bitbake -c fetch <recipe>
+bitbake -c compile <recipe>
+bitbake -c install <recipe>
+bitbake -c clean <recipe>
+
+-----------------------------------------------------
+Phase 3 — Create Your Own Layer
+-----------------------------------------------------
+Now create:
+
+meta-exin
+
+Structure:
+
+meta-exin/
+├── conf/
+│   └── layer.conf
+│
+├── recipes-example/
+│
+└── README
+
+Add it to:
+
+bblayers.conf
+
+Then build again.
+
+Project
+yocto_02_meta_exin
+
+Goal:
+
+Understand how your own layer participates 
+in the Yocto build.
+
+-----------------------------------------------------
+Phase 4 — Your First Recipe
+-----------------------------------------------------
+Create:
+
+meta-exin/
+└── recipes-example/
+    └── hello/
+        └── hello_1.0.bb
+
+Build a simple application.
+
+For example:
+
+hello
+
+which prints:
+
+Hello from Exin Yocto
+
+Learn:
+
+SUMMARY
+DESCRIPTION
+LICENSE
+SRC_URI
+S
+do_compile
+do_install
+
+Then put the application into the image.
+
+-----------------------------------------------------
+Phase 5 — Custom Linux Application
+-----------------------------------------------------
+Now use a real C/C++ application.
+
+For example:
+
+yocto_03_cpp_application
+
+Build:
+
+IPC application
+
+inside Yocto.
+
+This connects nicely with your existing IPC project.
+
+Architecture:
+
+Your C++ source
+       ↓
+Yocto recipe
+       ↓
+BitBake
+       ↓
+Cross compiler
+       ↓
+Package
+       ↓
+Root filesystem
+       ↓
+Target device
+
+-----------------------------------------------------
+Phase 6 — systemd Service
+-----------------------------------------------------
+Now take one of your applications and turn it 
+into a service.
+
+For example:
+
+ipc_sensorService
+
+Boot:
+
+Linux
+ ↓
+systemd
+ ↓
+ipc_sensorService
+
+Learn:
+
+.service
+systemctl
+journalctl
+WantedBy
+After
+Requires
+
+This is an important milestone.
+
+-----------------------------------------------------
+Phase 7 — Custom Image
+-----------------------------------------------------
+Create your own image recipe:
+
+meta-exin/
+└── recipes-core/
+    └── images/
+        └── exin-image.bb
+
+Instead of:
+
+core-image-minimal
+
+you now have:
+
+exin-image
+
+Example:
+
+exin-image
+├── BusyBox
+├── systemd
+├── SSH
+├── your application
+├── your service
+└── configuration
+
+This becomes your first real embedded 
+Linux distribution image.
+
+-----------------------------------------------------
+Phase 8 — Raspberry Pi BSP
+-----------------------------------------------------
+Now move from generic Yocto to your actual hardware.
+
+Since you already have a Raspberry Pi:
+
+Raspberry Pi
+      ↓
+BSP
+      ↓
+Yocto
+      ↓
+Kernel
+      ↓
+Device Tree
+      ↓
+Root filesystem
+      ↓
+SD card
+
+Learn:
+
+BSP layers
+machine configuration
+Raspberry Pi configuration
+kernel configuration
+device tree
+boot files
+SD-card image
+
+Your target becomes:
+
+Yocto → Raspberry Pi → boot
+
+-----------------------------------------------------
+Phase 9 — Kernel Customization
+-----------------------------------------------------
+This fits directly with your LDD learning.
+
+Learn:
+
+Yocto
+  ↓
+Linux kernel
+  ├── .config
+  ├── drivers
+  ├── modules
+  └── device tree
+
+Practice:
+
+Kernel configuration
+
+Add/remove:
+
+CONFIG_*
+Kernel module
+
+Take one of your LDD modules:
+
+ldd_xxxxx_xxxxx.c
+
+and integrate it into Yocto.
+
+Now your learning chain becomes:
+
+LDD
+ ↓
+Kernel module
+ ↓
+Yocto recipe
+ ↓
+Yocto image
+ ↓
+Raspberry Pi
+ ↓
+insmod/modprobe
+
+That's a very valuable milestone.
+
+-----------------------------------------------------
+Phase 10 — Device Tree
+-----------------------------------------------------
+Now learn:
+
+DTS
+ ↓
+DTB
+ ↓
+Kernel
+ ↓
+Driver
+
+Start with a simple GPIO/I²C/SPI device.
+
+For example:
+
+Raspberry Pi
+     │
+     ├── GPIO
+     ├── I²C
+     └── SPI
+
+Then create a driver and corresponding 
+device-tree entry.
+
+This connects your:
+
+LDD + embedded Linux + Yocto.
+
+-----------------------------------------------------
+Phase 11 — Package Management
+-----------------------------------------------------
+Learn how Yocto produces packages:
+
+.deb
+.rpm
+.ipk
+
+Understand:
+
+PACKAGE_CLASSES
+
+Then learn installing/updating packages 
+on the target.
+
+-----------------------------------------------------
+Phase 12 — SDK / Application Development
+-----------------------------------------------------
+Now generate an SDK:
+
+bitbake <image> -c populate_sdk
+
+Understand:
+
+Host
+ │
+ ├── cross compiler
+ ├── sysroot
+ ├── headers
+ └── libraries
+        ↓
+Target application
+
+Then develop applications outside the Yocto build tree.
+
+This is where your Visual Studio 2026 
+remote-development work can become useful.
+
+-----------------------------------------------------
+Phase 13 — External Application Development
+-----------------------------------------------------
+Create:
+
+Yocto SDK
+      ↓
+C/C++ application
+      ↓
+Cross compile
+      ↓
+Deploy
+      ↓
+Yocto target
+
+Use:
+
+CMake
+C++
+gdb
+gdbserver
+SSH
+
+Eventually:
+
+Visual Studio 2026
+        ↓
+SSH
+        ↓
+Yocto target
+
+-----------------------------------------------------
+Phase 14 — Networking
+-----------------------------------------------------
+Build a complete embedded networking stack.
+
+Learn:
+
+Ethernet
+ ↓
+NetworkManager / systemd-networkd
+ ↓
+Static IP
+ ↓
+SSH
+ ↓
+TCP/UDP
+ ↓
+MQTT
+ ↓
+gRPC
+
+You can reuse ideas from your yantraSthiti 
+project here.
+
+-----------------------------------------------------
+Phase 15 — Storage
+-----------------------------------------------------
+Understand:
+
+SD
+eMMC
+USB
+NVMe
+
+and:
+
+boot partition
+root filesystem
+data partition
+
+Then learn:
+
+read-only rootfs
+overlayfs
+persistent data
+
+This becomes important for production devices.
+
+-----------------------------------------------------
+Phase 16 — Security
+-----------------------------------------------------
+Move toward production.
+
+Learn:
+
+SSH keys
+users/groups
+sudo
+file permissions
+firewall
+secure boot
+signed images
+signed packages
+read-only filesystem
+
+Then:
+
+OTA updates
+
+-----------------------------------------------------
+Phase 17 — Reproducible Builds
+-----------------------------------------------------
+This is where Yocto becomes much more interesting.
+
+Learn:
+
+DL_DIR
+SSTATE_DIR
+SOURCE_MIRROR
+
+Understand:
+
+source
+  ↓
+metadata
+  ↓
+BitBake
+  ↓
+sstate
+  ↓
+reproducible image
+
+You should be able to delete the 
+build directory and recreate the image.
+
+-----------------------------------------------------
+Phase 18 — Multiple Machines
+-----------------------------------------------------
+Now support more than one board.
+
+For example:
+
+meta-exin
+│
+├── machine-A
+├── Raspberry Pi
+└── machine-B
+
+Your application layer should remain mostly 
+independent of the hardware.
+
+Architecture:
+
+                meta-exin
+                    │
+          ┌─────────┴─────────┐
+          ↓                   ↓
+      Raspberry Pi         Other BSP
+          ↓                   ↓
+       Yocto image         Yocto image
+	   
+-----------------------------------------------------	   
+Phase 19 — Production Image
+-----------------------------------------------------
+Now build something resembling a 
+commercial embedded product.
+
+Exin Embedded Linux
+│
+├── Bootloader
+├── Linux kernel
+├── Device Tree
+├── systemd
+├── networking
+├── SSH
+├── application
+├── drivers
+├── logging
+├── monitoring
+├── security
+└── OTA
+
+-----------------------------------------------------
+Phase 20 — Advanced Yocto
+-----------------------------------------------------
+Finally:
+
+BitBake internals
+    ↓
+classes
+    ↓
+.bbclass
+    ↓
+.bbappend
+    ↓
+overrides
+    ↓
+PACKAGECONFIG
+    ↓
+multiconfig
+    ↓
+SDK
+    ↓
+eSDK
+    ↓
+CI/CD
+
+Then:
+
+GitHub
+   ↓
+CI
+   ↓
+Yocto build
+   ↓
+Image artifact
+   ↓
+Test
+   ↓
+Release
+Your Project Structure
+
+Since you're already organizing IPC and LDD 
+by date/project, I'd use the same approach:
+
+Yocto/
+│
+└── Yocto_2026/
+    │
+    └── Yocto_09_2026/
+        │
+        ├── yocto_20260924_hello/
+        │
+        ├── yocto_20260925_bitbake/
+        │
+        ├── yocto_20260926_metaLayer/
+        │
+        ├── yocto_20260927_recipe/
+        │
+        ├── yocto_20260928_cppApplication/
+        │
+        ├── yocto_20260929_systemd/
+        │
+        ├── yocto_20260930_customImage/
+        │
+        ├── yocto_20261001_raspberryPi/
+        │
+        ├── yocto_20261002_kernel/
+        │
+        ├── yocto_20261003_driver/
+        │
+        ├── yocto_20261004_deviceTree/
+        │
+        ├── yocto_20261005_sdk/
+        │
+        ├── yocto_20261006_network/
+        │
+        ├── yocto_20261007_storage/
+        │
+        ├── yocto_20261008_security/
+        │
+        ├── yocto_20261009_ota/
+        │
+        └── yocto_20261010_productionImage/
+		
+-----------------------------------------------------		
+The overall learning path
+                    YOCTO
+                      │
+                      ▼
+              ┌───────────────┐
+              │ Minimal Image │
+              └───────┬───────┘
+                      │
+                      ▼
+                   BitBake
+                      │
+                      ▼
+                   Recipes
+                      │
+                      ▼
+                    Layers
+                      │
+                      ▼
+               Custom Application
+                      │
+                      ▼
+                systemd Service
+                      │
+                      ▼
+                Custom Image
+                      │
+                      ▼
+                 Raspberry Pi
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+       Kernel       Driver     Device Tree
+          │           │           │
+          └───────────┼───────────┘
+                      ▼
+                     SDK
+                      │
+                      ▼
+                C/C++ Development
+                      │
+                      ▼
+                   Network
+                      │
+                      ▼
+                   Storage
+                      │
+                      ▼
+                  Security
+                      │
+                      ▼
+                     OTA
+                      │
+                      ▼
+               Production Linux
+                      │
+                      ▼
+                    CI/CD
+The three projects can eventually converge
+
+Your current learning projects actually 
+fit together very naturally:
+
+                    Yocto
+                      │
+          ┌───────────┼───────────┐
+          │           │           │
+         IPC         LDD       Embedded Linux
+          │           │           │
+          └───────────┼───────────┘
+                      │
+                      ▼
+               Custom Yocto Image
+                      │
+                      ▼
+                 Raspberry Pi
+                      │
+              ┌───────┼────────┐
+              ▼       ▼        ▼
+             IPC     Drivers   Services
+              │       │        │
+              └───────┼────────┘
+                      ▼
+                 Final Product
+
+I would make the first Yocto milestone 
+extremely small: 
+build core-image-minimal, 
+boot it in QEMU first, 
+understand the generated files, 
+
+then build the same progression 
+for your Raspberry Pi. 
+
+That gives you a clean minimum → application → 
+kernel → driver → BSP → production 
+path rather than jumping directly into a 
+complicated Yocto setup.
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

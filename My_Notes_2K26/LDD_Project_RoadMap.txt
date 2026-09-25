@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Linux Device Driver — Complete Project Roadmap
+Linux Device Driver — Complete Project Roadmap                                                                                                                                                                                    
 ------------------------------
 Linux kernel internals → LDD → Device Tree → 
 embedded Linux → Yocto/Buildroot
@@ -12,34 +12,34 @@ actual hardware.
 
 #	Project - Main concept
 
-01	ldd_helloModule
+01	ldd_20261001_helloModule
 - Basic kernel module
 
-02	ldd_moduleInitExit
+02	ldd_20261001_moduleInitExit
 - module_init() / module_exit()
 
-03	ldd_moduleParameters
+03	ldd_20261001_moduleParameters
 - Module parameters
 
-04	ldd_moduleLicense
+04	ldd_20261001_moduleLicense
 - MODULE_LICENSE() / metadata
 
-05	ldd_kernelLog
+05	ldd_20261001_kernelLog
 - printk() / pr_info()
 
-06	ldd_kernelBuild
+06	ldd_20261001_kernelBuild
 - Kernel module Makefile
 
-07	ldd_outOfTreeModule
+07	ldd_20261001_outOfTreeModule
 - External module build
 
-08	ldd_symbolExport
+08	ldd_20261001_symbolExport
 - EXPORT_SYMBOL()
 
-09	ldd_moduleDependency
+09	ldd_20261001_moduleDependency
 - Module dependencies
 
-10	ldd_moduleUnload
+10	ldd_20261001_moduleUnload
 - Safe module loading/unloading
 
 ------------------------------
@@ -58,49 +58,49 @@ This is the classic LDD foundation.
 
 #	Project - Main concept
 
-11	ldd_charDevice
+11	ldd_20261002_charDevice
 - Character device
 
-12	ldd_deviceNumber
+12	ldd_20261002_deviceNumber
 - Major / Minor numbers
 
-13	ldd_registerChrdev
+13	ldd_20261002_registerChrdev
 - Device registration
 
-14	ldd_cdev
+14	ldd_20261002_cdev
 - struct cdev
 
-15	ldd_fileOperations
+15	ldd_20261002_fileOperations
 - struct file_operations
 
-16	ldd_openRelease
+16	ldd_20261002_openRelease
 - open() / release()
 
-17	ldd_read
+17	ldd_20261002_read
 - read()
 
-18	ldd_write
+18	ldd_20261002_write
 - write()
 
-19	ldd_copyToUser
+19	ldd_20261002_copyToUser
 - copy_to_user()
 
-20	ldd_copyFromUser
+20	ldd_20261002_copyFromUser
 - copy_from_user()
 
-21	ldd_deviceCreate
+21	ldd_20261002_deviceCreate
 - /dev node creation
 
-22	ldd_classCreate
+22	ldd_20261002_classCreate
 - Kernel device class
 
-23	ldd_multipleDevices
+23	ldd_20261002_multipleDevices
 - Multiple minor devices
 
-24	ldd_dynamicMajor
+24	ldd_20261002_dynamicMajor
 - Dynamic device numbers
 
-25	ldd_charDriverComplete
+25	ldd_20261002_charDriverComplete
 - Complete character driver
 
 ------------------------------
@@ -123,43 +123,43 @@ User Application
 -----------------------------------------------------
 #	Project - Main concept
 
-26	ldd_ioctl
+26	ldd_20261003_ioctl
 - ioctl()
 
-27	ldd_ioctlCommands
+27	ldd_20261003_ioctlCommands
 - IOCTL command design
 
-28	ldd_ioctlStruct
+28	ldd_20261003_ioctlStruct
 - Passing structures
 
-29	ldd_nonBlockingIO
+29	ldd_20261003_nonBlockingIO
 - O_NONBLOCK
 
-30	ldd_poll
+30	ldd_20261003_poll
 - poll()
 
-31	ldd_select
+31	ldd_20261003_select
 - select()
 
-32	ldd_epoll
+32	ldd_20261003_epoll
 - epoll() interaction
 
-33	ldd_fasync
+33	ldd_20261003_fasync
 - Asynchronous notification
 
-34	ldd_mmap
+34	ldd_20261003_mmap
 - mmap()
 
-35	ldd_userKernelMemory
+35	ldd_20261003_userKernelMemory
 - User/kernel memory boundary
 
-36	ldd_sysfs
+36	ldd_20261003_sysfs
 - Sysfs interface
 
-37	ldd_procfs
+37	ldd_20261003_procfs
 - Proc filesystem
 
-38	ldd_debugfs
+38	ldd_20261003_debugfs
 - Debugfs
 
 ------------------------------
@@ -184,40 +184,40 @@ Memory is extremely important for driver development
 
 #	Project - Main concept
 
-39	ldd_kmalloc
+39	ldd_20261004_kmalloc
 - kmalloc()
 
-40	ldd_kzalloc
+40	ldd_20261004_kzalloc
 - kzalloc()
 
-41	ldd_kfree
+41	ldd_20261004_kfree
 - kfree()
 
-42	ldd_vmalloc
+42	ldd_20261004_vmalloc
 - vmalloc()
 
-43	ldd_pageAllocation
+43	ldd_20261004_pageAllocation
 - Page allocation
 
-44	ldd_getFreePages
+44	ldd_20261004_getFreePages
 - Page allocator
 
-45	ldd_slabCache
+45	ldd_20261004_slabCache
 - Slab allocation
 
-46	ldd_dmaMemory
+46	ldd_20261004_dmaMemory
 - DMA-capable memory
 
-47	ldd_dmaMapping
+47	ldd_20261004_dmaMapping
 - DMA mapping
 
-48	ldd_coherentDMA
+48	ldd_20261004_coherentDMA
 - Coherent DMA
 
-49	ldd_userMemory
+49	ldd_20261004_userMemory
 - User-space memory handling
 
-50	ldd_memoryDebug
+50	ldd_20261004_memoryDebug
 - Memory debugging
 
 -----------------------------------------------------
@@ -228,43 +228,43 @@ learning in FreeRTOS.
 
 #	Project - Main concept
 
-51	ldd_kernelThread
+51	ldd_20261005_kernelThread
 - Kernel threads
 
-52	ldd_kthreadWait
+52	ldd_20261005_kthreadWait
 - Waiting
 
-53	ldd_waitQueue
+53	ldd_20261005_waitQueue
 - Wait queues
 
-54	ldd_mutex
+54	ldd_20261005_mutex
 - Kernel mutex
 
-55	ldd_semaphore
+55	ldd_20261005_semaphore
 - Kernel semaphore
 
-56	ldd_spinlock
+56	ldd_20261005_spinlock
 - Spinlocks
 
-57	ldd_rwlock
+57	ldd_20261005_rwlock
 - Read/write locks
 
-58	ldd_atomic
+58	ldd_20261005_atomic
 - Atomic operations
 
-59	ldd_completion
+59	ldd_20261005_completion
 - Completions
 
-60	ldd_workqueue
+60	ldd_20261005_workqueue
 - Workqueues
 
-61	ldd_delayedWork
+61	ldd_20261005_delayedWork
 - Delayed work
 
-62	ldd_tasklet
+62	ldd_20261005_tasklet
 - Deferred execution / tasklets
 
-63	ldd_raceCondition
+63	ldd_20261005_raceCondition
 - Race-condition demonstration
 
 ------------------------------
@@ -287,40 +287,40 @@ toward hardware.
 
 #	Project - Main concept
 
-64	ldd_irqBasic
+64	ldd_20261006_irqBasic
 - Basic IRQ
 
-65	ldd_requestIRQ
+65	ldd_20261006_requestIRQ
 - request_irq()
 
-66	ldd_freeIRQ
+66	ldd_20261006_freeIRQ
 - IRQ cleanup
 
-67	ldd_irqHandler
+67	ldd_20261006_irqHandler
 - Interrupt handler
 
-68	ldd_sharedIRQ
+68	ldd_20261006_sharedIRQ
 - Shared interrupts
 
-69	ldd_irqThread
+69	ldd_20261006_irqThread
 - Threaded IRQ
 
-70	ldd_topHalfBottomHalf
+70	ldd_20261006_topHalfBottomHalf
 - Deferred interrupt work
 
-71	ldd_workqueueIRQ
+71	ldd_20261006_workqueueIRQ
 - IRQ + workqueue
 
-72	ldd_waitQueueIRQ
+72	ldd_20261006_waitQueueIRQ
 - IRQ + waiting task
 
-73	ldd_irqAffinity
+73	ldd_20261006_irqAffinity
 - IRQ CPU affinity
 
-74	ldd_irqTiming
+74	ldd_20261006_irqTiming
 - Interrupt latency
 
-75	ldd_hardwareIRQDriver
+75	ldd_20261006_hardwareIRQDriver
 - Complete interrupt-driven driver
 
 ------------------------------
@@ -349,43 +349,43 @@ modern LDD.
 
 #	Project - Main concept
 
-76	ldd_deviceModel
+76	ldd_20261007_deviceModel
 - Linux device model
 
-77	ldd_busDriver
+77	ldd_20261007_busDriver
 - Bus concept
 
-78	ldd_deviceDriver
+78	ldd_20261007_deviceDriver
 - Device/driver relationship
 
-79	ldd_platformDevice
+79	ldd_20261007_platformDevice
 - Platform device
 
-80	ldd_platformDriver
+80	ldd_20261007_platformDriver
 - Platform driver
 
-81	ldd_probeRemove
+81	ldd_20261007_probeRemove
 - probe() / remove()
 
-82	ldd_driverMatch
+82	ldd_20261007_driverMatch
 - Device-driver matching
 
-83	ldd_driverData
+83	ldd_20261007_driverData
 - Driver private data
 
-84	ldd_devres
+84	ldd_20261007_devres
 - Device-managed resources
 
-85	ldd_devGroups
+85	ldd_20261007_devGroups
 - Device attributes
 
-86	ldd_busSysfs
+86	ldd_20261007_busSysfs
 - Bus representation in sysfs
 
-87	ldd_deviceLinks
+87	ldd_20261007_deviceLinks
 - Device links
 
-88	ldd_completePlatformDriver
+88	ldd_20261007_completePlatformDriver
 - Complete platform driver
 
 ------------------------------
@@ -413,46 +413,46 @@ Device Tree deserves its own major section.
 
 #	Project	Main concept
 
-89	ldd_deviceTreeBasic
+89	ldd_20261008_deviceTreeBasic
 - Device Tree introduction
 
-90	ldd_dtsSyntax
+90	ldd_20261008_dtsSyntax
 - DTS syntax
 
-91	ldd_dtNode
+91	ldd_20261008_dtNode
 - Nodes
 
-92	ldd_dtProperty
+92	ldd_20261008_dtProperty
 - Properties
 
-93	ldd_dtCompatible
+93	ldd_20261008_dtCompatible
 - compatible
 
-94	ldd_dtReg
+94	ldd_20261008_dtReg
 - reg property
 
-95	ldd_dtInterrupt
+95	ldd_20261008_dtInterrupt
 - Interrupt property
 
-96	ldd_dtGPIO
+96	ldd_20261008_dtGPIO
 - GPIO property
 
-97	ldd_dtClock
+97	ldd_20261008_dtClock
 - Clock property
 
-98	ldd_dtReset
+98	ldd_20261008_dtReset
 - Reset controller
 
-99	ldd_dtPhandle
+99	ldd_20261008_dtPhandle
 - Phandles
 
-100	ldd_ofAPI
+100	ldd_20261008_ofAPI
 - Device Tree APIs
 
-101	ldd_dtPlatformDriver
+101	ldd_20261008_dtPlatformDriver
 - DT + platform driver
 
-102	ldd_dtCompleteDriver
+102	ldd_20261008_dtCompleteDriver
 - Complete DT-based driver
 
 ------------------------------
@@ -477,34 +477,34 @@ Now we start writing drivers for actual peripherals.
 
 #	Project - Main concept
 
-103	ldd_gpioOutput
+103	ldd_20261009_gpioOutput
 - GPIO output
 
-104	ldd_gpioInput
+104	ldd_20261009_gpioInput
 - GPIO input
 
-105	ldd_gpioLED
+105	ldd_20261009_gpioLED
 - LED driver
 
-106	ldd_gpioButton
+106	ldd_20261009_gpioButton
 - Button driver
 
-107	ldd_gpioInterrupt
+107	ldd_20261009_gpioInterrupt
 - GPIO interrupt
 
-108	ldd_gpioDebounce
+108	ldd_20261009_gpioDebounce
 - Button debounce
 
-109	ldd_gpioSysfs
+109	ldd_20261009_gpioSysfs
 - GPIO userspace interface
 
-110	ldd_gpiodAPI
+110	ldd_20261009_gpiodAPI
 - GPIO descriptor API
 
-111	ldd_gpioDeviceTree
+111	ldd_20261009_gpioDeviceTree
 - GPIO + DT
 
-112	ldd_gpioComplete
+112	ldd_20261009_gpioComplete
 - Complete GPIO driver
 
 -----------------------------------------------------
@@ -515,37 +515,37 @@ OLED / sensor / Raspberry Pi work.
 
 #	Project - Main concept
 
-113	ldd_i2cBasic
+113	ldd_20261010_i2cBasic
 - I²C subsystem
 
-114	ldd_i2cClient
+114	ldd_20261010_i2cClient
 - I²C client
 
-115	ldd_i2cDriver
+115	ldd_20261010_i2cDriver
 - I²C driver
 
-116	ldd_i2cProbe
+116	ldd_20261010_i2cProbe
 - I²C probe
 
-117	ldd_i2cRead
+117	ldd_20261010_i2cRead
 - I²C read
 
-118	ldd_i2cWrite
+118	ldd_20261010_i2cWrite
 - I²C write
 
-119	ldd_i2cRegister
+119	ldd_20261010_i2cRegister
 - Register-based device
 
-120	ldd_i2cDeviceTree
+120	ldd_20261010_i2cDeviceTree
 - I²C + DT
 
-121	ldd_i2cSensor
+121	ldd_20261010_i2cSensor
 - Sensor driver
 
-122	ldd_i2cOLED
+122	ldd_20261010_i2cOLED
 - OLED driver
 
-123	ldd_i2cComplete
+123	ldd_20261010_i2cComplete
 - Complete I²C driver
 
 -----------------------------------------------------
@@ -553,37 +553,37 @@ OLED / sensor / Raspberry Pi work.
 -----------------------------------------------------
 #	Project - Main concept
 
-124	ldd_spiBasic
+124	ldd_20261011_spiBasic
 - SPI subsystem
 
-125	ldd_spiDevice
+125	ldd_20261011_spiDevice
 - SPI device
 
-126	ldd_spiDriver
+126	ldd_20261011_spiDriver
 - SPI driver
 
-127	ldd_spiTransfer
+127	ldd_20261011_spiTransfer
 - SPI transfers
 
-128	ldd_spiMessage
+128	ldd_20261011_spiMessage
 - SPI messages
 
-129	ldd_spiMode
+129	ldd_20261011_spiMode
 - SPI modes
 
-130	ldd_spiRegister
+130	ldd_20261011_spiRegister
 - SPI register device
 
-131	ldd_spiDeviceTree
+131	ldd_20261011_spiDeviceTree
 - SPI + DT
 
-132	ldd_spiSensor
+132	ldd_20261011_spiSensor
 - SPI sensor
 
-133	ldd_spiDisplay
+133	ldd_20261011_spiDisplay
 - SPI display
 
-134	ldd_spiComplete
+134	ldd_20261011_spiComplete
 - Complete SPI driver
 
 -----------------------------------------------------
@@ -591,31 +591,31 @@ OLED / sensor / Raspberry Pi work.
 -----------------------------------------------------
 #	Project - Main concept
 
-135	ldd_pwmBasic
+135	ldd_20261012_pwmBasic
 - PWM
 
-136	ldd_pwmDriver
+136	ldd_20261012_pwmDriver
 - PWM consumer
 
-137	ldd_pwmDeviceTree
+137	ldd_20261012_pwmDeviceTree
 - PWM + DT
 
-138	ldd_adcBasic
+138	ldd_20261012_adcBasic
 - ADC
 
-139	ldd_iioBasic
+139	ldd_20261012_iioBasic
 - Industrial I/O subsystem
 
-140	ldd_iioSensor
+140	ldd_20261012_iioSensor
 - IIO sensor
 
-141	ldd_dacBasic
+141	ldd_20261012_dacBasic
 - DAC
 
-142	ldd_hwmonBasic
+142	ldd_20261012_hwmonBasic
 - Hardware monitoring
 
-143	ldd_hwmonSensor
+143	ldd_20261012_hwmonSensor
 - hwmon driver
 
 -----------------------------------------------------
@@ -623,34 +623,34 @@ OLED / sensor / Raspberry Pi work.
 -----------------------------------------------------
 #	Project - Main concept
 
-144	ldd_usbBasic
+144	ldd_20261013_usbBasic
 - USB architecture
 
-145	ldd_usbDevice
+145	ldd_20261013_usbDevice
 - USB device
 
-146	ldd_usbDriver
+146	ldd_20261013_usbDriver
 - USB driver
 
-147	ldd_usbProbeDisconnect
+147	ldd_20261013_usbProbeDisconnect
 - Probe/disconnect
 
-148	ldd_usbEndpoints
+148	ldd_20261013_usbEndpoints
 - Endpoints
 
-149	ldd_usbControlTransfer
+149	ldd_20261013_usbControlTransfer
 - Control transfers
 
-150	ldd_usbBulkTransfer
+150	ldd_20261013_usbBulkTransfer
 - Bulk transfers
 
-151	ldd_usbInterruptTransfer
+151	ldd_20261013_usbInterruptTransfer
 - Interrupt transfers
 
-152	ldd_usbURB
+152	ldd_20261013_usbURB
 - URBs
 
-153	ldd_usbComplete
+153	ldd_20261013_usbComplete
 - Complete USB driver
 
 -----------------------------------------------------
@@ -658,34 +658,34 @@ OLED / sensor / Raspberry Pi work.
 -----------------------------------------------------
 #	Project - Main concept
 
-154	ldd_pciBasic
+154	ldd_20261014_pciBasic
 - PCI subsystem
 
-155	ldd_pciDevice
+155	ldd_20261014_pciDevice
 - PCI device
 
-156	ldd_pciDriver
+156	ldd_20261014_pciDriver
 - PCI driver
 
-157	ldd_pciProbeRemove
+157	ldd_20261014_pciProbeRemove
 - Probe/remove
 
-158	ldd_pciConfigSpace
+158	ldd_20261014_pciConfigSpace
 - PCI configuration space
 
-159	ldd_pciBAR
+159	ldd_20261014_pciBAR
 - BARs
 
-160	ldd_pciMMIO
+160	ldd_20261014_pciMMIO
 - MMIO
 
-161	ldd_pciIRQ
+161	ldd_20261014_pciIRQ
 - PCI interrupts
 
-162	ldd_pciDMA
+162	ldd_20261014_pciDMA
 - PCI DMA
 
-163	ldd_pciComplete
+163	ldd_20261014_pciComplete
 - Complete PCI driver
 
 -----------------------------------------------------
@@ -693,34 +693,34 @@ OLED / sensor / Raspberry Pi work.
 -----------------------------------------------------
 #	Project - Main concept
 
-164	ldd_dmaBasic
+164	ldd_20261015_dmaBasic
 - DMA architecture
 
-165	ldd_dmaAlloc
+165	ldd_20261015_dmaAlloc
 - DMA allocation
 
-166	ldd_dmaMap
+166	ldd_20261015_dmaMap
 - DMA mapping
 
-167	ldd_dmaUnmap
+167	ldd_20261015_dmaUnmap
 - DMA unmapping
 
-168	ldd_dmaCoherent
+168	ldd_20261015_dmaCoherent
 - Coherent DMA
 
-169	ldd_dmaStreaming
+169	ldd_20261015_dmaStreaming
 - Streaming DMA
 
-170	ldd_dmaScatterGather
+170	ldd_20261015_dmaScatterGather
 - Scatter-gather
 
-171	ldd_dmaInterrupt
+171	ldd_20261015_dmaInterrupt
 - DMA completion IRQ
 
-172	ldd_dmaRingBuffer
+172	ldd_20261015_dmaRingBuffer
 - DMA ring buffer
 
-173	ldd_dmaComplete
+173	ldd_20261015_dmaComplete
 - Complete DMA driver
 
 -----------------------------------------------------
@@ -730,37 +730,37 @@ This takes us beyond character devices.
 
 #	Project - Main concept
 
-174	ldd_blockBasic	
+174	ldd_20261016_blockBasic	
 - Block device
 
-175	ldd_blockRegistration
+175	ldd_20261016_blockRegistration
 - Block registration
 
-176	ldd_blockRequest
+176	ldd_20261016_blockRequest
 - Request handling
 
-177	ldd_blockBIO
+177	ldd_20261016_blockBIO
 - BIO
 
-178	ldd_blockQueue
+178	ldd_20261016_blockQueue
 - Request queue
 
-179	ldd_blockReadWrite
+179	ldd_20261016_blockReadWrite
 - Block I/O
 
-180	ldd_ramBlockDevice
+180	ldd_20261016_ramBlockDevice
 - RAM block device
 
-181	ldd_virtualBlockDevice
+181	ldd_20261016_virtualBlockDevice
 - Virtual block device
 
-182	ldd_blockIOCTL
+182	ldd_20261016_blockIOCTL
 - Block ioctl
 
-183	ldd_blockPartition
+183	ldd_20261016_blockPartition
 - Partitions
 
-184	ldd_blockComplete
+184	ldd_20261016_blockComplete
 - Complete block driver
 
 -----------------------------------------------------
@@ -768,34 +768,34 @@ This takes us beyond character devices.
 -----------------------------------------------------
 #	Project - Main concept
 
-185	ldd_netdevBasic
+185	ldd_202061017_netdevBasic
 - Network device
 
-186	ldd_netdevRegistration
+186	ldd_202061017_netdevRegistration
 - net_device
 
-187	ldd_netdevOpenClose
+187	ldd_202061017_netdevOpenClose
 - Network open/close
 
-188	ldd_netdevTX
+188	ldd_202061017_netdevTX
 - Packet transmission
 
-189	ldd_netdevRX
+189	ldd_202061017_netdevRX
 - Packet reception
 
-190	ldd_netdevNAPI
+190	ldd_202061017_netdevNAPI
 - NAPI
 
-191	ldd_netdevIRQ
+191	ldd_202061017_netdevIRQ
 - Network IRQ
 
-192	ldd_netdevDMA
+192	ldd_202061017_netdevDMA
 - Network DMA
 
-193	ldd_netdevStatistics
+193	ldd_202061017_netdevStatistics
 - Network statistics
 
-194	ldd_netdevComplete
+194	ldd_202061017_netdevComplete
 - Complete network driver
 
 -----------------------------------------------------
@@ -803,34 +803,34 @@ This takes us beyond character devices.
 -----------------------------------------------------
 #	Project - Main concept
 
-195	ldd_inputBasic
+195	ldd_202061018_inputBasic
 - Input subsystem
 
-196	ldd_inputKeyboard
+196	ldd_202061018_inputKeyboard
 - Keyboard
 
-197	ldd_inputButton
+197	ldd_202061018_inputButton
 - Button
 
-198	ldd_inputMouse
+198	ldd_202061018_inputMouse
 - Mouse
 
-199	ldd_inputEvent
+199	ldd_202061018_inputEvent
 - Input events
 
-200	ldd_inputInterrupt
+200	ldd_202061018_inputInterrupt
 - Input + IRQ
 
-201	ldd_inputDeviceTree
+201	ldd_202061018_inputDeviceTree
 - Input + DT
 
-202	ldd_inputDebounce
+202	ldd_202061018_inputDebounce
 - Debouncing
 
-203	ldd_inputGPIO
+203	ldd_202061018_inputGPIO
 - GPIO input
 
-204	ldd_inputComplete
+204	ldd_202061018_inputComplete
 - Complete input driver
 
 -----------------------------------------------------
@@ -838,34 +838,34 @@ This takes us beyond character devices.
 -----------------------------------------------------
 #	Project - Main concept
 
-205	ldd_ttyBasi
+205	ldd_202061019_ttyBasi
 - TTY subsystem
 
-206	ldd_ttyDriver
+206	ldd_202061019_ttyDriver
 - TTY driver
 
-207	ldd_uartBasic
+207	ldd_202061019_uartBasic
 - UART
 
-208	ldd_uartDriver
+208	ldd_202061019_uartDriver
 - UART driver
 
-209	ldd_uartInterrupt
+209	ldd_202061019_uartInterrupt
 - UART IRQ
 
-210	ldd_uartDMA
+210	ldd_202061019_uartDMA
 - UART DMA
 
-211	ldd_uartFlowControl
+211	ldd_202061019_uartFlowControl
 - Flow control
 
-212	ldd_uartDeviceTree
+212	ldd_202061019_uartDeviceTree
 - UART + DT
 
-213	ldd_serialConsole
+213	ldd_202061019_serialConsole
 - Serial console
 
-214	ldd_uartComplete
+214	ldd_202061019_uartComplete
 - Complete UART driver
 
 -----------------------------------------------------
@@ -875,34 +875,34 @@ Very important for embedded Linux.
 
 #	Project - Main concept
 
-215	ldd_pmBasic
+215	ldd_202061020_pmBasic
 - Linux PM
 
-216	ldd_runtimePM
+216	ldd_202061020_runtimePM
 - Runtime PM
 
-217	ldd_systemSuspend
+217	ldd_202061020_systemSuspend
 - System suspend
 
-218	ldd_systemResume
+218	ldd_202061020_systemResume
 - Resume
 
-219	ldd_pmCallbacks
+219	ldd_202061020_pmCallbacks
 - PM callbacks
 
-220	ldd_pmRuntime
+220	ldd_202061020_pmRuntime
 - Runtime PM APIs
 
-221	ldd_wakeupSource
+221	ldd_202061020_wakeupSource
 - Wakeup sources
 
-222	ldd_regulator
+222	ldd_202061020_regulator
 - Regulators
 
-223	ldd_clockFramework
+223	ldd_202061020_clockFramework
 - Common Clock Framework
 
-224	ldd_powerComplete
+224	ldd_202061020_powerComplete
 - Complete PM-aware driver
 
 -----------------------------------------------------
@@ -910,34 +910,34 @@ Very important for embedded Linux.
 -----------------------------------------------------
 #	Project - Main concept
 
-225	ldd_dynamicDebug
+225	ldd_202061021_dynamicDebug
 - Dynamic debug
 
-226	ldd_debugfsDriver
+226	ldd_202061021_debugfsDriver
 - Driver debugfs
 
-227	ldd_ftrace
+227	ldd_202061021_ftrace
 - ftrace
 
-228	ldd_tracepoints
+228	ldd_202061021_tracepoints
 - Tracepoints
 
-229	ldd_kprobe
+229	ldd_202061021_kprobe
 - kprobes
 
-230	ldd_kgdb
+230	ldd_202061021_kgdb
 - KGDB
 
-231	ldd_kernelOops
+231	ldd_202061021_kernelOops
 - Oops analysis
 
-232	ldd_kernelPanic
+232	ldd_202061021_kernelPanic
 - Panic analysis
 
-233	ldd_lockdep
+233	ldd_202061021_lockdep
 - Lock debugging
 
-234	ldd_sanitizers
+234	ldd_202061021_sanitizers
 - Kernel sanitizers
 
 -----------------------------------------------------
@@ -945,34 +945,34 @@ Very important for embedded Linux.
 -----------------------------------------------------
 #	Project - Main concept
 
-235	ldd_errorHandling
+235	ldd_202061022_errorHandling
 - Error paths
 
-236	ldd_probeFailure
+236	ldd_202061022_probeFailure
 - Probe failure
 
-237	ldd_deferredProbe
+237	ldd_202061022_deferredProbe
 - Deferred probing
 
-238	ldd_resourceManagement
+238	ldd_202061022_resourceManagement
 - Resource management
 
-239	ldd_devres
+239	ldd_202061022_devres
 - Device-managed resources
 
-240	ldd_cleanup
+240	ldd_202061022_cleanup
 - Cleanup patterns
 
-241	ldd_moduleRefcount
+241	ldd_202061022_moduleRefcount
 - Module reference counting
 
-242	ldd_raceProtection
+242	ldd_202061022_raceProtection
 - Race protection
 
-243	ldd_failureInjection
+243	ldd_202061022_failureInjection
 - Failure injection
 
-244	ldd_robustDriver
+244	ldd_202061022_robustDriver
 - Robust driver architecture
 
 -----------------------------------------------------
@@ -980,34 +980,34 @@ Very important for embedded Linux.
 -----------------------------------------------------
 #	Project - Main concept
 
-245	ldd_syscallInterface
+245	ldd_202061023_syscallInterface
 - Driver vs syscall interface
 
-246	ldd_netlink
+246	ldd_202061023_netlink
 - Netlink
 
-247	ldd_genericNetlink
+247	ldd_202061023_genericNetlink
 - Generic Netlink
 
-248	ldd_uevent
+248	ldd_202061023_uevent
 - Kernel uevents
 
-249	ldd_udevInteraction
+249	ldd_202061023_udevInteraction
 - udev/device nodes
 
-250	ldd_configfs
+250	ldd_202061023_configfs
 - Configfs
 
-251	ldd_sysfsAdvanced
+251	ldd_202061023_sysfsAdvanced
 - Advanced sysfs
 
-252	ldd_debugfsAdvanced
+252	ldd_202061023_debugfsAdvanced
 - Advanced debugfs
 
-253	ldd_kernelNotifier
+253	ldd_202061023_kernelNotifier
 - Notifier chains
 
-254	ldd_kernelInterface
+254	ldd_202061023_kernelInterface
 - Kernel interface design
 
 -----------------------------------------------------
@@ -1017,34 +1017,34 @@ Now we combine everything.
 
 #	Project - Main concept
 
-255	ldd_embeddedGPIO
+255	ldd_202061024_embeddedGPIO
 - Embedded GPIO driver
 
-256	ldd_embeddedI2C
+256	ldd_202061024_embeddedI2C
 - Embedded I²C driver
 
-257	ldd_embeddedSPI
+257	ldd_202061024_embeddedSPI
 - Embedded SPI driver
 
-258	ldd_embeddedUART
+258	ldd_202061024_embeddedUART
 - Embedded UART driver
 
-259	ldd_embeddedIRQ
+259	ldd_202061024_embeddedIRQ
 - Embedded IRQ
 
-260	ldd_embeddedDMA
+260	ldd_202061024_embeddedDMA
 - Embedded DMA
 
-261	ldd_embeddedDT
+261	ldd_202061024_embeddedDT
 - DT-based architecture
 
-262	ldd_embeddedPM
+262	ldd_202061024_embeddedPM
 - Power-aware driver
 
-263	ldd_embeddedMultiPeripheral
+263	ldd_202061024_embeddedMultiPeripheral
 - Multiple peripherals
 
-264	ldd_embeddedComplete
+264	ldd_202061024_embeddedComplete
 - Complete embedded driver
 
 -----------------------------------------------------
@@ -1055,34 +1055,34 @@ embedded Linux system-building side.
 
 #	Project - Main concept
 
-265	ldd_kernelSourceBuild
+265	ldd_202061025_kernelSourceBuild
 - Build Linux kernel
 
-266	ldd_externalModuleBuild
+266	ldd_202061025_externalModuleBuild
 - External module
 
-267	ldd_kernelConfig
+267	ldd_202061025_kernelConfig
 - Kernel configuration
 
-268	ldd_moduleConfig
+268	ldd_202061025_moduleConfig
 - CONFIG_*
 
-269	ldd_buildrootDriver
+269	ldd_202061025_buildrootDriver
 - Buildroot integration
 
-270	ldd_buildrootModule	
+270	ldd_202061025_buildrootModule	
 - Kernel module in Buildroot
 
-271	ldd_yoctoDriver	
+271	ldd_202061025_yoctoDriver	
 - Yocto driver integration
 
-272	ldd_yoctoRecipe
+272	ldd_202061025_yoctoRecipe
 - BitBake recipe
 
-273	ldd_yoctoDTS
+273	ldd_202061025_yoctoDTS
 - DT + Yocto
 
-274	ldd_embeddedImage
+274	ldd_202061025_embeddedImage
 - Complete embedded Linux image
 
 -----------------------------------------------------
@@ -1093,34 +1093,34 @@ become actual products.
 
 #	Project - Hardware / concept
 
-275	ldd_rpiLEDDriver
+275	ldd_202061026_rpiLEDDriver
 - Raspberry Pi GPIO
 
-276	ldd_rpiButtonDriver
+276	ldd_202061026_rpiButtonDriver
 - GPIO + IRQ
 
-277	ldd_rpiOLEDDriver
+277	ldd_202061026_rpiOLEDDriver
 - I²C OLED
 
-278	ldd_rpiTemperatureDriver
+278	ldd_202061026_rpiTemperatureDriver
 - I²C sensor
 
-279	ldd_rpiIMUDriver
+279	ldd_202061026_rpiIMUDriver
 - IMU
 
-280	ldd_rpiSPIDisplay
+280	ldd_202061026_rpiSPIDisplay
 - SPI display
 
-281	ldd_rpiUARTDevice
+281	ldd_202061026_rpiUARTDevice
 - UART peripheral
 
-282	ldd_rpiDMADevice
+282	ldd_202061026_rpiDMADevice
 - DMA
 
-283	ldd_rpiDeviceTree
+283	ldd_202061026_rpiDeviceTree
 - Custom DT overlay
 
-284	ldd_rpiCompleteDevice
+284	ldd_202061026_rpiCompleteDevice
 - Full custom device
 
 -----------------------------------------------------
@@ -1130,34 +1130,34 @@ Finally, we combine the architecture.
 
 #	Project - Main concept
 
-285	ldd_virtualSensor
+285	ldd_202061027_virtualSensor
 - Virtual sensor driver
 
-286	ldd_characterSensor
+286	ldd_202061027_characterSensor
 - Character + sensor
 
-287	ldd_i2cSensorIRQ
+287	ldd_202061027_i2cSensorIRQ
 - I²C + IRQ
 
-288	ldd_i2cSensorDMA
+288	ldd_202061027_i2cSensorDMA
 - I²C + DMA
 
-289	ldd_spiSensorIRQ
+289	ldd_202061027_spiSensorIRQ
 - SPI + IRQ
 
-290	ldd_spiSensorDMA
+290	ldd_202061027_spiSensorDMA
 - SPI + DMA
 
-291	ldd_multiDeviceDriver
+291	ldd_202061027_multiDeviceDriver
 - Multiple devices
 
-292	ldd_completePlatformDriver
+292	ldd_202061027_completePlatformDriver
 - Platform + DT + IRQ
 
-293	ldd_completeEmbeddedDriver
+293	ldd_202061027_completeEmbeddedDriver
 - DT + bus + IRQ + DMA + PM
 
-294	ldd_productionDriver
+294	ldd_202061027_productionDriver
 - Production-style driver architecture
 
 -----------------------------------------------------
@@ -1282,6 +1282,8 @@ Three layers of knowledge:
 
 
 -----------------------------------------------------
+
+
 
 
 

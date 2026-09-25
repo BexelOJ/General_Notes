@@ -1,4 +1,4 @@
-------------------------------------------------------------
+-----------------------------------------------------
 Ada (root namespace)
 │
 ├── Text_IO              ← Handles text input/output
@@ -13,8 +13,8 @@ Ada (root namespace)
 └── Calendar
     └── Formatting
 
+-----------------------------------------------------
 
-------------------------------------------------------------
 🔍 Now, the complete list of important subprograms 
 in Ada.Text_IO:
 
@@ -50,7 +50,7 @@ Name			Gets the name of the file
 
 Is_Open			Checks if file is open
 
-------------------------------------------------------------
+-----------------------------------------------------
 Similar attributes:
 
 Attribute		Description
@@ -60,7 +60,7 @@ Attribute		Description
 'Pos / 'Val		Gets position in enumeration / value at pos
 'First / 'Last	Bounds of a type or array
 
-------------------------------------------------------------
+-----------------------------------------------------
 'Image attributes are defined for all scalar types.
 
 Integer'Image(-5)  -- Integer types
@@ -70,19 +70,19 @@ Character'Image('A')  -- Character
 Color'Image(Red)  -- Enumeration types
 Byte'Image(255)  -- Modular types
 
-------------------------------------------------------------
+-----------------------------------------------------
 T'Value(S) is the inverse of T'Image(X).
 
 It converts a string back into a value of type T.
 
-------------------------------------------------------------
+-----------------------------------------------------
 Why is there a space?
 
 It's part of the Ada standard — 'Image always includes a 
 leading space (or - sign for negative numbers), 
 to maintain alignment and fixed-width formatting
 
-------------------------------------------------------------
+-----------------------------------------------------
 Ada Class Summary
 
 Feature	 		Ada Keyword			Similar to (C++/Java)
@@ -101,7 +101,7 @@ Polymorphism	'Class and dynamic  runtime
 				dispatch		    polymorphism
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 Yes! ✅ Ada 95 introduced full support for 
 Object-Oriented Programming (OOP) concepts — including:
 
@@ -116,7 +116,7 @@ Dynamic dispatch (via class-wide types and 'Class)
 Abstract types and interfaces (from Ada 2005)
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 What is a “class” in Ada?
 
 In Ada, a class is represented using a tagged record.
@@ -124,7 +124,7 @@ In Ada, a class is represented using a tagged record.
 You define a class-like structure using tagged, 
 and use type extension for inheritance.
 
-------------------------------------------------------------
+-----------------------------------------------------
 Q.) What is a subtype exactly?
 A subtype defines a subset of values of an 
 existing (base) type with optional constraints.
@@ -151,12 +151,12 @@ subtype Age_Type is Integer range 0 .. 150;
 Here, Age_Type is a subtype of Integer but restricted 
 to values between 0 and 150.
 
-------------------------------------------------------------
+-----------------------------------------------------
 range 0 .. 150
 is inclusive of both ends—that means it allows all values 
 from 0 through 150, including 0 and 150.
 
-------------------------------------------------------------
+-----------------------------------------------------
 record is a composite data type used to group related 
 values (called components or fields) under a single 
 name—similar to a struct in C/C++.
@@ -176,7 +176,7 @@ Age of type Integer
 Alive of type Boolean
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 &	Concatenates strings
 
 Put_Line("Name: " & P.Name);
@@ -184,7 +184,7 @@ Put_Line("Name: " & P.Name);
 This joins the string "Name: " with the value of P.Name, 
 which is a fixed-length String.
 
-------------------------------------------------------------
+-----------------------------------------------------
 Heap allocation:
 
 P : Person := (others => <>);      -- on stack
@@ -194,7 +194,7 @@ Ptr.Age := Ptr.Age + 1;
 So you control stack vs heap using new and 
 access types (Ada's version of pointers).
 
-------------------------------------------------------------
+-----------------------------------------------------
 Deallocating memory manually:
 
 You need the Unchecked_Deallocation generic:
@@ -205,10 +205,10 @@ procedure Free is new Ada.
 
 Free(Ptr);  -- Frees memory
 
-------------------------------------------------------------
+-----------------------------------------------------
 "unbounded" means not fixed in size at compile time.
 
-------------------------------------------------------------
+-----------------------------------------------------
 Ada automatically dereferences access types for you. 
 So you don't need -> or *.
 
@@ -218,13 +218,13 @@ and access (pointer) types.
 access declares a pointer type; 
 new allocates heap memory
 
-------------------------------------------------------------
+-----------------------------------------------------
 controlled types (like in Ada.Finalization) 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 'Image attributes Not supported for:
 
 Records
@@ -235,7 +235,7 @@ Access types (pointers)
 
 Strings (already strings — just use them directly)
 
-------------------------------------------------------------
+-----------------------------------------------------
 rendezvous refers to a synchronized communication between 
 two tasks (lightweight threads), specifically:
 
@@ -248,12 +248,12 @@ Data exchange
 Synchronization
 Controlled task interaction
 
-------------------------------------------------------------
+-----------------------------------------------------
 access
 access all
 access const
 
-------------------------------------------------------------
+-----------------------------------------------------
 General Purpose of 'Image
 It is used to convert strongly-typed values into String.
 
@@ -278,7 +278,7 @@ Put_Line only accepts String
 'Image gives you a String representation
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 Alternative to 'Image: Typed I/O Packages
 If you want more control or direct output without 
 converting to String, use:
@@ -287,7 +287,7 @@ Type		Package					Procedure Example
 
 Integer		Ada.Integer_Text_IO		Put(123)
 
-------------------------------------------------------------
+-----------------------------------------------------
 Ada Visibility Control:
 
 ❌ NO public/private/protected keywords
@@ -295,7 +295,7 @@ Ada Visibility Control:
 ✅ Private types/parts = "private" data
 ✅ Child packages = "protected" inheritance
 
-------------------------------------------------------------
+-----------------------------------------------------
 File	Purpose
 b__main.adb/.ads
 GNAT Binder - Auto-generated wrapper that calls your main()
@@ -324,7 +324,7 @@ Compiler errors/warnings log
 main.adb.stdout
 Compiler output log
 
-------------------------------------------------------------
+-----------------------------------------------------
 -- New Float TYPE (not subtype):
 type My_Float is digits 8 range -1.0 .. 1.0;  
 -- 8 decimal digits precision
@@ -337,7 +337,7 @@ subtype High_Prec is Float digits 10;
 -- Precision constraint
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 Integer subtype:  
 type Age is range 0 .. 150;           
 -- range = Integer
@@ -349,13 +349,13 @@ subtype Temp is Float range 20.0 .. 100.0;
 OR type My_Float is digits 6 range 0.0 .. 1.0;
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 subtype Temperature is Float range -50.0 .. 150.0;
 Temp : Temperature := 25.7;  -- OK
 Temp := 200.0;               -- ❌ Constraint_Error!
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 SCALAR Types (predefined):
 ├── Integer subtypes (Natural, Positive)
 ├── Float subtypes  
@@ -370,7 +370,7 @@ COMPOSITE Types:
 └── Access (pointers)
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 Core Containers Hierarchy:
 
 Ada.Containers.*
@@ -382,7 +382,7 @@ Ada.Containers.*
 └── Hashed_Sets    ← Hash unique elements
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 -- Ada has 4 main loop types:
 
 -- 1. FOR loop (discrete range)
@@ -406,19 +406,19 @@ for E of My_Vector loop  -- E = each element
    Process(E);
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 Complete Attribute Categories:
 
-TYPE attributes:     Integer'First, Float'Digits,Float'Max
-ARRAY attributes:    Int_List'Range, Int_List'Length  
-OBJECT attributes:   My_Var'Address, My_Var'Size
-SUBPROGRAM attrs:    Func'Access, Proc'Unrestricted_Access
-PACKAGE attributes:  Pkg'Body_Version
-ENUMERATION attrs:   Color'Enum_Rep, Day'Pos(Friday)
-EXCEPTION attrs:     Exc'Identity
-LOOP attributes:     Loop_Name'Loop_Range (named loops)
+TYPE attributes:   Integer'First, Float'Digits,Float'Max
+ARRAY attributes:  Int_List'Range, Int_List'Length  
+OBJECT attributes: My_Var'Address, My_Var'Size
+SUBPROGRAM attrs:  Func'Access, Proc'Unrestricted_Access
+PACKAGE attributes:Pkg'Body_Version
+ENUMERATION attrs: Color'Enum_Rep, Day'Pos(Friday)
+EXCEPTION attrs:   Exc'Identity
+LOOP attributes:   Loop_Name'Loop_Range (named loops)
 
-------------------------------------------------------------
+-----------------------------------------------------
 Yes! Both array(5..55) and array(-5..5) are perfectly 
 valid in Ada.
 
@@ -433,24 +433,25 @@ type Offset_Array is array (-5 .. 5) of Float;
 -- Even negative-only ranges work!
 type Neg_Array is array (-10 .. -1) of Character;
 
-------------------------------------------------------------
+-----------------------------------------------------
 Type (type)	            Subtype (subtype)
-New distinct type	    Constrained view of existing type
+New distinct type	constrained view of existing type
 Type incompatible	    Assignment compatible
 Creates 'First, 'Last	Inherits from base type
 
-------------------------------------------------------------
+-----------------------------------------------------
 -- TYPE = Completely new type
-type Age is range 0 .. 150;      -- NEW type (not Integer!)
+type Age is range 0 .. 150;  
+    -- NEW type (not Integer!)
 Age_Var : Age := 25;
--- Integer_Var := Age_Var;           ❌ Type mismatch!
+-- Integer_Var := Age_Var;       ❌ Type mismatch!
 
 -- SUBTYPE = Constrained Integer
 subtype Temp is Float range 20.0 .. 100.0;  
 Temp_Var : Temp := 37.5;
-Float_Var : Float := Temp_Var;        ✅ Assignment OK!
+Float_Var : Float := Temp_Var;    ✅ Assignment OK!
 
-------------------------------------------------------------
+-----------------------------------------------------
 => (arrow operator) is used in 4 main places in Ada:
 
 ------------------------------
@@ -501,7 +502,7 @@ Arr : array(1..5) of Integer := (2|3 => 99, others => 0);
 => always means "PUT this value INTO that position"
 Index/Field/Param => Value
 
-------------------------------------------------------------
+-----------------------------------------------------
 type Grade is range 0 .. 100;
 type Business_Day is new Day range Monday .. Friday;
 type Weekend_Day is new Day range Saturday .. Sunday;
@@ -510,13 +511,13 @@ subtype Business_Day is Day range Monday .. Friday;
 subtype Weekend_Day is Day range Saturday .. Sunday;
 subtype Dice_Throw is Integer range 1 .. 6;
 
-------------------------------------------------------------
+-----------------------------------------------------
 'Pos (Position) - Get position
 'Val (Value) - 	Position → value
 'Succ (Successor) - Next value
 'Pred (predecessor) - Previous value
 
-------------------------------------------------------------  
+-----------------------------------------------------
 arrays have 4 primary attributes:
 
 'First(N)	Lower bound of dimension N	
@@ -531,7 +532,7 @@ S'Length(1) → 10
 'Range(N)	Index range of dimension N	
 S'Range(1) → 1 .. 10
 
-------------------------------------------------------------
+-----------------------------------------------------
 Ada subtypes support 6 major constraint types
 Range is the most common
 
@@ -578,7 +579,8 @@ Applies To:
 Records
 
 Syntax Example:
-type Rect(X, Y: Positive); subtype Square is Rect(Z, Z);
+type Rect(X, Y: Positive); 
+subtype Square is Rect(Z, Z);
 
 ------------------------------
 6.) predicate:
@@ -602,36 +604,37 @@ subtype Short_String is String(1 .. 10);
 subtype Even_Nums is Integer with 
    predicate Even_Nums(X) => X mod 2 = 0;
 
-------------------------------------------------------------
+-----------------------------------------------------
 .adb → Ada Body ✅
-Usually contains the implementation/body of a procedure, 
-function, or package.
+Usually contains the implementation/body 
+of a procedure, function, or package.
 
 .ads → Ada Specification ✅
-Contains the public declarations/interface of a package, 
-procedure, etc.
+Contains the public declarations/interface 
+of a package, procedure, etc.
 
 .ali → Ada Library Information ❌ “Ada Link”
-GNAT generates it as a compiler metadata file containing 
-information about the compiled unit and its dependencies, 
-used during compilation/building.
+GNAT generates it as a compiler metadata 
+file containing information about the compiled unit 
+and its dependencies, used during 
+compilation/building.
 
-------------------------------------------------------------
-
-
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
 
 
-------------------------------------------------------------
+-----------------------------------------------------
+
+
+-----------------------------------------------------

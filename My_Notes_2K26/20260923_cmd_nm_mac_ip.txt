@@ -1,0 +1,326 @@
+-----------------------------------------------------
+# 1. Set the cloned MAC
+sudo nmcli connection modify netplan-eth0 \
+    802-3-ethernet.cloned-mac-address DA:A6:32:51:9E:59
+
+-----------------------------------------------------
+# 2. Set the static IP
+sudo nmcli connection modify netplan-eth0 \
+    ipv4.addresses 192.168.0.130/24
+
+-----------------------------------------------------
+# 3. Set gateway
+sudo nmcli connection modify netplan-eth0 \
+    ipv4.gateway 192.168.0.1
+
+-----------------------------------------------------
+# 4. Make it a static IPv4 configuration
+sudo nmcli connection modify netplan-eth0 \
+    ipv4.method manual
+
+-----------------------------------------------------
+# 5. Enable automatic connection
+sudo nmcli connection modify netplan-eth0 \
+    connection.autoconnect yes
+
+-----------------------------------------------------
+# 6. Verify the profile
+nmcli connection show netplan-eth0 | \
+grep -E 'cloned-mac-address|ipv4.method|ipv4.addresses|ipv4.gateway|autoconnect'
+
+-----------------------------------------------------
+ip link show eth0
+-----------------------------------------------------
+sudo nmcli connection modify netplan-eth0 ipv4.addresses 192.168.0.122/24
+
+sudo nmcli connection modify netplan-eth0 ipv4.gateway 192.168.0.1
+
+sudo nmcli connection modify netplan-eth0 ipv4.method manual
+
+
+
+nmcli connection show netplan-eth0 | grep -E 'ipv4.method|ipv4.addresses|ipv4.gateway'
+
+nmcli connection show netplan-eth0 | grep -E 'cloned-mac-address|ipv4.method|ipv4.addresses|ipv4.gateway|connection.autoconnect'
+
+-----------------------------------------------------
+
+scp "D:\My_Files_2026\My_Notes\My_Notes_2K26\20260923_cmd_nm_mac_ip.txt" exin@192.168.0.122:/home/exin/Workspace
+
+
+nmcli connection show netplan-eth0 | grep cloned-mac
+
+sudo nmcli connection modify netplan-eth0 \
+    802-3-ethernet.cloned-mac-address DA:A6:32:51:9E:59
+	
+nmcli connection show netplan-eth0 | grep cloned-mac
+	
+sudo nmcli connection down netplan-eth0
+sudo nmcli connection up netplan-eth0
+
+ip link show eth0
+
+cat /sys/class/net/eth0/carrier
+
+-----------------------------------------------------
+	
+nmcli connection show netplan-eth0 | grep -E 'cloned-mac-address|ipv4.addresses'	
+
+
+nmcli device show eth0 | grep -E 'GENERAL.HWADDR|GENERAL.STATE|IP4.ADDRESS'
+
+
+sudo nmcli connection modify netplan-eth0 \
+    802-3-ethernet.cloned-mac-address DA:A6:32:51:9E:59 \
+    ipv4.addresses 192.168.0.130/24
+	
+	
+sudo nmcli connection modify netplan-eth0 ipv4.gateway 192.168.0.1
+
+sudo nmcli connection modify netplan-eth0 ipv4.method manual
+
+nmcli connection show netplan-eth0 | grep -E 'cloned-mac-address|ipv4.method|ipv4.addresses|ipv4.gateway'
+
+-----------------------------------------------------
+
+systemctl is-active NetworkManager
+
+systemctl is-active systemd-networkd
+  
+-----------------------------------------------------
+
+grep -R "renderer:" /etc/netplan/
+
+cat /etc/netplan/*.yaml
+
+nmcli connection show netplan-eth0
+
+-----------------------------------------------------
+
+scp /path/to/file bexel@BexelPavilion:D:\My_Files_2026\My_Notes\My_Notes_2K26
+
+scp /path/to/file bexel@BexelPavilion:D:\My_Files_2026\My_Notes\My_Notes_2K26
+
+D:\My_Files_2026\My_Notes\My_Notes_2K26
+
+scp /path/to/file bexel@BexelPavilion:/D:/My_Files_2026/My_Notes/My_Notes_2K26/
+
+-----------------------------------------------------
+
+sudo nmcli connection modify netplan-eth0 \
+802-3-ethernet.cloned-mac-address DA:A6:32:51:9E:59
+
+nmcli connection show netplan-eth0 | grep cloned-mac
+
+-----------------------------------------------------
+
+sudo nmcli connection modify netplan-eth0 \
+ipv4.method manual \
+ipv4.addresses 192.168.0.130/24 \
+ipv4.gateway 192.168.0.1 \
+ipv4.dns 192.168.0.1 \
+802-3-ethernet.cloned-mac-address DA:A6:32:51:9E:59
+
+nmcli connection show netplan-eth0 | grep -E 'cloned-mac|ipv4.method|ipv4.addresses|ipv4.gateway|ipv4.dns'
+
+-----------------------------------------------------
+
+ssh-keygen -R 192.168.0.130
+
+
+-----------------------------------------------------
+
+                 Raspberry Pi
+┌──────────────────────────────────────────────┐
+│                                              │
+│  Netplan YAML                                │
+│       ↓                                      │
+│  NetworkManager                              │
+│       ↓                                      │
+│  Linux kernel networking                     │
+│       ↓                                      │
+│  eth0 driver / Ethernet PHY                  │
+│       ↓                                      │
+└──────────────┬───────────────────────────────┘
+               │
+            Ethernet
+               │
+               ↓
+        Switch / Router
+          192.168.0.1
+
+
+
+-----------------------------------------------------
+MAC, IP, route, DNS, and Internet connectivity 
+are not the same thing.
+
+MAC
+ ↓
+Ethernet link
+ ↓
+IP address
+ ↓
+Route
+ ↓
+Gateway
+ ↓
+Internet
+ ↓
+DNS
+
+
+A working IP doesn't guarantee a working Ethernet link.
+
+A working Ethernet link doesn't guarantee an IP.
+
+A working IP doesn't guarantee a route.
+
+A route doesn't guarantee Internet connectivity.
+
+And Internet connectivity doesn't guarantee DNS.
+
+-----------------------------------------------------
+Power ON
+   │
+   ▼
+┌──────────────────────┐
+│ 1. Firmware / Boot   │
+│    Raspberry Pi FW   │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 2. Linux Kernel      │
+│    CPU / RAM / MMU   │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 3. Device Drivers    │
+│    Ethernet / USB    │
+│    I2C / GPIO / etc. │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 4. Hardware devices  │
+│    eth0, disks, I2C  │
+│    become available  │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 5. systemd / init    │
+│    starts userspace  │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 6. Network manager   │
+│    NetworkManager    │
+│    configures eth0   │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 7. Network config    │
+│    MAC / IP / route  │
+│    DNS               │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ 8. Services          │
+│    SSH / PostgreSQL  │
+│    MQTT / your apps  │
+└──────────┬───────────┘
+           ▼
+       LOGIN / GUI
+
+-----------------------------------------------------
+
+
+
+
+-----------------------------------------------------
+Basic development tools:
+
+sudo apt install -y build-essential gcc g++ make cmake ninja-build git curl wget vim vim-gtk3 tree htop tmux unzip zip pkg-config ca-certificates gnupg software-properties-common
+
+------------------------------
+C/C++ development:
+
+sudo apt install -y gdb gdbserver clang clangd lld valgrind cppcheck clang-format
+
+------------------------------
+Linux kernel / driver development:
+
+sudo apt install -y linux-headers-$(uname -r) libelf-dev libssl-dev bc flex bison
+
+------------------------------
+Python:
+
+sudo apt install -y python3 python3-pip python3-venv python3-dev
+
+------------------------------
+Java:
+
+sudo apt install openjdk-21-jdk -y
+
+------------------------------
+Networking + system tools:
+
+sudo apt install -y iproute2 iputils-ping net-tools dnsutils openssh-client openssh-server tcpdump lsof strace usbutils pciutils i2c-tools
+
+
+
+-----------------------------------------------------
+sudo dmesg | grep -i eth0
+
+--------------------------------------------------
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      match:
+        macaddress: "aa:bb:cc:dd:ee:ff"
+      macaddress: "11:22:33:44:55:66"
+      addresses:
+        - 192.168.0.128/24
+      routes:
+        - to: default
+          via: 192.168.0.1  # <-- Change this to your actual router/gateway IP
+      nameservers:
+        addresses:
+          - 8.8.8.8        # <-- Added DNS so website names resolve
+          - 1.1.1.1
+      dhcp4: false
+
+
+-----------------------------------------------------
+sudo ip link set eth0 up
+
+-----------------------------------------------------
+scp -r D:\WorkSpace\Linux\IPC\* exin@192.168.0.130:/home/exin/Workspace/IPC/IPC_2026/IPC_10_2026/
+
+-----------------------------------------------------
+sed -i 's/\r$//' bash_sc.sh
+
+-----------------------------------------------------
+Documents\IMG_20260924_191838526_HDR.jpg
+/home/exin/Workspace
+
+-----------------------------------------------------
+sudo netplan generate
+sudo netplan try
+sudo netplan apply
+
+-----------------------------------------------------
+ssh-keygen -t ed25519 -C "bexelo.j@outlook.com"
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+
+
+
+
+
