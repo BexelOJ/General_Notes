@@ -4,14 +4,14 @@
 
 Project                                 Status  Duration
 -------                                 ------  --------
-frtos_20260525_blink_led                FAILED  00:00:17
-frtos_20260915_freertos_two_tasks       FAILED  00:00:02
+frtos_20260525_blink_led                SUCCESS 00:07:17
+frtos_20260915_freertos_two_tasks       SUCCESS 00:10:02
 frtos_20260921_binarySemaphore          SUCCESS 00:00:13
 frtos_20260921_countingSemaphore        SUCCESS 00:10:19
 frtos_20260921_eventGroup               SUCCESS 00:11:11
 frtos_20260921_messageBuffer            SUCCESS 00:00:11
 frtos_20260921_mutex                    SUCCESS 00:00:04
-frtos_20260921_streamBuffer             FAILED  00:08:50
+frtos_20260921_streamBuffer             SUCCESS 00:08:50
 frtos_20260921_taskNotification         SUCCESS 00:00:13
 frtos_20260921_taskPriority             SUCCESS 00:10:21
 
@@ -98,15 +98,15 @@ frtos_20260930_multipleTasks            SUCCESS 00:08:15
 frtos_20260930_notificationBits         SUCCESS 00:08:11
 frtos_20260930_queueSet                 SUCCESS 00:08:22
 frtos_20260930_recursiveMutex           SUCCESS 00:10:11
-frtos_20260930_runtimeStats             FAILED  00:09:09
+frtos_20260930_runtimeStats             SUCCESS 00:03:09
 frtos_20260930_systemMonitor            SUCCESS 00:08:51
 frtos_20260930_taskTrace                SUCCESS 00:08:41
 
 
 
 Total   : 89
-Success : 85
-Failed  : 4
+Success : 89
+Failed  : 0
 ===================================================
 PS D:\ProgramFiles\ESPIDF\WorkSpace>
 

@@ -24,7 +24,7 @@ idf.py -p COMx flash
 idf.py -p COM3 flash
 
 idf.py -p COM30 flash
-idf.py -p COM34 flash
+idf.py -p COM34 flash monitor
 
 -p means Port
 

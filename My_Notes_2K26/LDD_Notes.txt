@@ -1,0 +1,103 @@
+-----------------------------------------------------
+
+------------------------------
+
+
+-----------------------------------------------------
+make
+// Build the kernel module.
+// (compiles the driver .c file and generates the 
+required object files)
+
+sudo insmod ldd_20261001_helloModule.ko
+// Load the driver
+
+lsmod | grep ldd_20261001_helloModule
+// Check that it loaded
+
+dmesg | tail -20
+// Check kernel messages
+
+sudo rmmod ldd_20261001_helloModule
+// Remove the driver
+
+dmesg | tail -20
+// Check kernel messages
+
+make clean
+// Clean the project
+
+
+-----------------------------------------------------
+modinfo your_module.ko
+// to view module metadata
+
+-----------------------------------------------------
+Module registration macros:
+
+module_init(ldd_moduleInit);
+module_exit(ldd_moduleExit);
+
+These tell the kernel which functions are 
+the module's entry/exit functions.
+
+------------------------------
+Module metadata macros:
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Lr");
+MODULE_DESCRIPTION("...");
+
+-----------------------------------------------------
+                Your .c file
+                    │
+       ┌────────────┼─────────────┐
+       ↓            ↓             ↓
+   init.h       module.h      kernel.h
+       │            │             │
+       ↓            ↓             ↓
+    __init      module_init()   pr_info()
+    __exit      module_exit()
+                 MODULE_*
+				 
+
+-----------------------------------------------------
+Some names that look like functions are actually 
+Linux kernel APIs, for example:
+
+kmalloc(...)
+kfree(...)
+device_create(...)
+device_destroy(...)
+
+-----------------------------------------------------
+__init and __exit are compiler/linker annotations 
+implemented through macros.
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

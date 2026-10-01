@@ -1,0 +1,1229 @@
+------------------------------------------------------------
+
+Common Concurrency Tools in the Kernel:
+
+Spinlocks / Reader-Writer Spinlocks
+Mutexes / Semaphores
+Atomic Operations
+RCU (Read-Copy-Update)
+Barriers (Memory Barriers / Compiler Barriers)
+
+------------------------------------------------------------
+printk(KERN_EMERG  "Emergency\n");
+printk(KERN_ALERT  "Alert\n");
+printk(KERN_CRIT   "Critical\n");
+printk(KERN_ERR    "Error\n");
+printk(KERN_WARNING "Warning\n");
+printk(KERN_NOTICE "Notice\n");
+printk(KERN_INFO   "Information\n");
+printk(KERN_DEBUG   "Debug\n");
+
+------------------------------------------------------------
+pr_emerg("...");
+pr_alert("...");
+pr_crit("...");
+pr_err("...");
+pr_warn("...");
+pr_notice("...");
+pr_info("...");
+pr_debug("...");
+
+------------------------------------------------------------
+dmesg | tail -10
+dmesg | tail -20
+dmesg | tail -50
+
+------------------------------------------------------------
+insmod file.ko
+
+lsmod 
+
+modprobe module_name
+rmmod module_name
+modinfo module_name
+
+
+------------------------------------------------------------
+.c
+ ↓
+Makefile
+ ↓
+make
+ ↓
+.ko
+ ↓
+insmod       ← directly load .ko
+ ↓
+lsmod        ← see loaded modules
+ ↓
+dmesg        ← see kernel messages
+ ↓
+rmmod        ← remove module
+ ↓
+modinfo      ← inspect module metadata
+ ↓
+depmod       ← build module dependency database
+ ↓
+modprobe     ← load module by name + dependencies
+
+------------------------------------------------------------
+static int value = 10;
+static int debug = 0;
+static int buffer_size = 1024;
+
+module_param(value, int, 0644);
+module_param(debug, int, 0644);
+module_param(buffer_size, int, 0644);
+
+MODULE_PARM_DESC(
+    value,
+    "Integer value passed to the kernel module"
+);
+
+MODULE_PARM_DESC(
+    debug,
+    "Enable or disable debug messages"
+);
+
+MODULE_PARM_DESC(
+    buffer_size,
+    "Buffer size used by the kernel module"
+);
+
+------------------------------
+module_param() actually registers a parameter 
+with the kernel.
+
+cat /sys/module/<module_name>/parameters/value
+
+------------------------------------------------------------
+EXPORT_SYMBOL() 
+does not mean it can be used by normal user-space programs.
+
+It means:
+
+Provider kernel module
+        │
+        │ EXPORT_SYMBOL()
+        ▼
+Kernel symbol table
+        │
+        ▼
+Consumer kernel module
+        │
+        │ extern declaration
+        ▼
+ldd_addNumbers()
+
+------------------------------------------------------------
+sudo depmod -a
+
+------------------------------
+sudo modprobe ldd_20261001_dependencyConsumer
+
+// modprobe is designed around module names and the 
+installed module tree.
+// "Find this module and load it, 
+including modules it depends on."
+
+------------------------------
+modprobe -r
+
+// removes a module and can handle dependency relationships
+
+------------------------------------------------------------
+consumer uses:
+
+extern int ldd_addNumbers(int a, int b);
+
+------------------------------------------------------------
+provider exporting:
+
+EXPORT_SYMBOL(ldd_addNumbers);
+
+------------------------------------------------------------
+find . -maxdepth 1 -type d -name 'ldd_20261001*' | wc -l
+
+------------------------------------------------------------
+Examples of things a driver might expose through ioctl():
+
+RESET_DEVICE
+SET_BAUD_RATE
+SET_MODE
+START
+STOP
+GET_STATUS
+CONFIGURE_DEVICE
+
+------------------------------------------------------------
+CONCURRENCY
+│
+├── Kernel execution
+│   ├── kernelThread
+│   ├── kthreadWait
+│   ├── workqueue
+│   ├── delayedWork
+│   └── tasklet
+│
+├── Race / synchronization
+│   ├── raceCondition
+│   ├── atomic
+│   ├── spinlock
+│   ├── mutex
+│   ├── semaphore
+│   └── rwlock
+│
+└── Waiting / notification
+    ├── waitQueue
+    └── completion
+
+------------------------------------------------------------
+atomic
+    → protect simple atomic operations
+
+spinlock
+    → protect short critical sections
+    → don't sleep while holding it
+
+mutex
+    → protect critical sections
+    → can sleep
+
+semaphore
+    → counting/resource synchronization
+
+rwlock
+    → multiple readers OR one writer
+
+wait queue
+    → sleep until a condition becomes true
+
+completion
+    → wait for a specific operation/event to finish
+
+workqueue
+    → defer work to kernel worker threads
+
+kthread
+    → create your own kernel thread
+
+delayed work
+    → execute work later
+
+tasklet
+    → older deferred-execution mechanism
+
+------------------------------------------------------------
+
+Device Tree / ACPI
+       |
+       | IRQ information
+       v
+platform_device
+       |
+       v
+platform_driver
+       |
+       v
+probe()
+       |
+       | platform_get_irq()
+       v
+request IRQ
+       |
+       v
+Hardware
+       |
+       | interrupt
+       v
+IRQ handler
+
+------------------------------------------------------------
+
+                         HARDWARE
+                            |
+                            | IRQ
+                            v
+                    +---------------+
+                    | IRQ subsystem |
+                    +---------------+
+                            |
+          +-----------------+------------------+
+          |                 |                  |
+          v                 v                  v
+     IRQ handler       threaded IRQ       shared IRQ
+          |                 |                  |
+          |                 |                  |
+          v                 v                  v
+      Top half        IRQ thread        device handler
+          |
+          v
+    Deferred work
+          |
+     +----+----+
+     |         |
+     v         v
+ workqueue   other
+ 
+
+------------------------------------------------------------
+And the key APIs you're learning are:
+
+Concept	- 				Main API
+
+Register IRQ -			request_irq()
+Release IRQ -			free_irq()
+Shared IRQ - 			IRQF_SHARED
+Threaded IRQ -			request_threaded_irq()
+Wait for IRQ -			wait_event...()
+Wake waiting process -	wake_up...()
+Defer work -			schedule_work()
+Delayed work -			schedule_delayed_work()
+CPU affinity -			irq_set_affinity()
+Get platform IRQ -		platform_get_irq()
+Managed IRQ -			devm_request_irq()
+
+------------------------------------------------------------
+You are now moving from individual kernel APIs into the 
+Linux Device Mode
+
+                         Linux Device Model
+                                │
+             ┌──────────────────┼──────────────────┐
+             │                  │                  │
+            BUS              DEVICE             DRIVER
+             │                  │                  │
+             │                  │                  │
+             └────────── matching ─────────────────┘
+                                │
+                                ↓
+                              probe()
+                                │
+                                ↓
+                         initialize hardware
+                                │
+                                ↓
+                              remove()
+							  
+------------------------------------------------------------
+For a platform driver:
+
+Device Tree / ACPI / platform_device
+                 │
+                 ↓
+          platform_device
+                 │
+                 │ matching
+                 ↓
+          platform_driver
+                 │
+                 ↓
+              probe()
+                 │
+        ┌────────┼─────────┐
+        ↓        ↓         ↓
+      devm_    IRQ       MMIO
+      kzalloc  request   ioremap
+                 │
+                 ↓
+             Hardware
+			 
+			 
+------------------------------------------------------------
+The key APIs you've now encountered
+
+Concept -	Main API
+
+Register device - 	device_register() / 
+					platform_device_register()
+
+Register driver -		driver_register()
+Platform driver - 		platform_driver_register()
+Platform driver helper - module_platform_driver()
+Driver probe - 			.probe
+Driver removal -		.remove
+Private driver data - 	platform_set_drvdata()
+Retrieve private data - platform_get_drvdata()
+Managed allocation - 	devm_kzalloc()
+Device link -			device_link_add()
+Bus registration -		bus_register()
+Bus removal -			bus_unregister()
+Sysfs attributes - 		struct attribute_group
+Driver matching -		Device Model matching
+
+------------------------------------------------------------
+Device Tree (DT) → 
+Open Firmware (OF) APIs → 
+platform driver resources
+
+------------------------------------------------------------
+
+                 Device Tree
+                     │
+          ┌──────────┼──────────┐
+          │          │          │
+       GPIO         IRQ       Clock
+          │          │          │
+          └──────────┼──────────┘
+                     │
+                     ↓
+              platform_device
+                     │
+                     │ compatible
+                     ↓
+              platform_driver
+                     │
+                     ↓
+                   probe()
+                     │
+        ┌────────────┼─────────────┐
+        ↓            ↓             ↓
+     GPIO API      IRQ API      Clock API
+        │            │             │
+        └────────────┼─────────────┘
+                     ↓
+                  Hardware
+				  
+
+------------------------------------------------------------
+OLD
+-------------------------------------------
+platform_device
+        +
+platform_driver
+        +
+name matching
+        ↓
+probe()
+
+
+NEW
+-------------------------------------------
+Device Tree node
+        +
+compatible
+        ↓
+OF matching
+        ↓
+platform_driver
+        ↓
+probe()
+        ↓
+read resources from DT
+        ├── GPIO
+        ├── IRQ
+        ├── clock
+        ├── reset
+        ├── reg
+        └── phandle
+
+------------------------------------------------------------
+The APIs I would remember from this section
+
+Device Tree concept -	Main API
+
+Find node - 				of_find_node_by_path()
+Find node by name - 		of_find_node_by_name()
+Release node reference - 	of_node_put()
+Read u32 property - 		of_property_read_u32()
+Read string - 				of_property_read_string()
+Read phandle - 				of_parse_phandle()
+Check compatible - 			of_device_is_compatible()
+DT driver matching - 		of_match_table
+GPIO - 				devm_gpiod_get()
+IRQ - 				platform_get_irq()
+Clock - 			devm_clk_get()
+Reset - 			devm_reset_control_get_exclusive()
+Private driver data	- 	platform_set_drvdata()
+Retrieve driver data - 	platform_get_drvdata()
+
+------------------------------------------------------------
+
+                 Device Tree
+                      │
+              button-gpios
+              led-gpios
+                      │
+                      ↓
+               gpiod API
+                      │
+          ┌───────────┼────────────┐
+          ↓           ↓            ↓
+       INPUT        OUTPUT       IRQ
+          │           │            │
+          ↓           ↓            ↓
+       Button        LED        Interrupt
+          │                        │
+          └──────────┬─────────────┘
+                     ↓
+                  Driver
+				  
+				  
+------------------------------------------------------------
+Most important GPIO APIs
+
+Purpose	- API
+
+Get GPIO - 		devm_gpiod_get()
+Input - 		GPIOD_IN
+Output LOW - 	GPIOD_OUT_LOW
+Output HIGH - 	GPIOD_OUT_HIGH
+Set GPIO - 				gpiod_set_value_cansleep()
+Read GPIO - 			gpiod_get_value_cansleep()
+Convert GPIO → 			IRQ - gpiod_to_irq()
+Request IRQ - 			devm_request_irq()
+Delay/debounce - 		mod_delayed_work()
+Cancel debounce - 		cancel_delayed_work_sync()
+
+------------------------------------------------------------
+
+I²C Device Tree
+      ↓
+I²C Adapter
+      ↓
+I²C Client
+      ↓
+I²C Driver
+      ↓
+probe()
+      ↓
+i2c_transfer() / SMBus APIs
+      ↓
+I²C Hardware
+
+------------------------------------------------------------
+Complete I²C picture:
+
+                    Device Tree
+                         │
+                         │
+              reg = <0x50>
+              compatible = ...
+                         │
+                         ↓
+                  I²C Controller
+                  (I²C Adapter)
+                         │
+                         │
+                         ↓
+                   I²C Bus
+                         │
+                  ┌──────┴──────┐
+                  │             │
+               0x50          0x3C
+                  │             │
+                  ↓             ↓
+              EEPROM          OLED
+                  │
+                  ↓
+             i2c_client
+                  │
+                  │ matching
+                  ↓
+             i2c_driver
+                  │
+                  ↓
+               probe()
+                  │
+          ┌───────┴────────┐
+          ↓                ↓
+       READ/WRITE        SMBus
+          │                │
+          └───────┬────────┘
+                  ↓
+               Hardware
+
+------------------------------------------------------------
+
+struct i2c_adapter
+        ↓
+represents the I²C controller
+
+struct i2c_client
+        ↓
+represents one I²C slave/device
+
+struct i2c_driver
+        ↓
+represents the driver
+
+------------------------------------------------------------
+Main APIs from this section:
+
+Purpose	- API
+
+I²C driver - 		struct i2c_driver
+I²C device - 		struct i2c_client
+I²C controller - 	struct i2c_adapter
+Register driver - 	module_i2c_driver()
+
+Raw write - 		i2c_master_send()
+Raw read - 			i2c_master_recv()
+SMBus write - 		i2c_smbus_write_byte_data()
+SMBus read - 		i2c_smbus_read_byte_data()
+Store private data - 	i2c_set_clientdata()
+Retrieve private data - i2c_get_clientdata()
+
+DT matching - 		.of_match_table
+Device address - 	client->addr
+Adapter - 			client->adapter
+
+------------------------------------------------------------
+
+                    Device Tree
+                         |
+                         | compatible
+                         | reg = <CS>
+                         |
+                         v
+                SPI Controller
+                         |
+                         | struct spi_controller
+                         |
+                         v
+                     SPI Bus
+                         |
+              +----------+----------+
+              |                     |
+             CS0                   CS1
+              |                     |
+              v                     v
+        SPI Device A          SPI Device B
+              |                     |
+              |                     |
+       struct spi_device     struct spi_device
+              |                     |
+              v                     v
+       struct spi_driver     struct spi_driver
+              |
+              v
+           probe()
+              |
+              v
+     spi_write()
+     spi_read()
+     spi_write_then_read()
+     spi_sync()
+     spi_sync_transfer()
+
+
+------------------------------------------------------------
+The most important SPI APIs from these examples are:
+
+API	- Purpose
+
+spi_write()	- 			Transmit data
+spi_read() - 			Receive data
+
+spi_write_then_read() - Write followed by read
+spi_sync() -	 		Execute an SPI message synchronously
+spi_sync_transfer() - 	Execute transfer(s) synchronously
+
+spi_message_init() - 	Initialize an SPI message
+spi_message_add_tail() - Add transfer to message
+
+spi_setup() - 			Apply SPI device configuration
+spi_set_drvdata() - 	Store driver private data
+spi_get_drvdata() - 	Retrieve driver private data
+
+module_spi_driver() - 	Register/unregister SPI driver
+
+------------------------------------------------------------
+And the three core SPI objects are:
+
+struct spi_controller
+        ↓
+   represents
+        ↓
+SPI hardware controller
+
+
+struct spi_device
+        ↓
+   represents
+        ↓
+one SPI slave/device
+
+
+struct spi_driver
+        ↓
+   represents
+        ↓
+software driver
+
+------------------------------------------------------------
+
+                    Hardware
+                       │
+       ┌───────────────┼────────────────┐
+       │               │                │
+       ↓               ↓                ↓
+      PWM             ADC              DAC
+       │               │                │
+       │               └──────┬─────────┘
+       │                      │
+       │                      ↓
+       │                     IIO
+       │
+       ↓
+   PWM subsystem
+
+
+Sensors
+   │
+   ↓
+ hwmon
+
+------------------------------------------------------------
+
+Linux PWM subsystem
+        │
+        ↓
+struct pwm_device
+        │
+        ↓
+period + duty_cycle
+        │
+        ↓
+Hardware PWM
+
+------------------------------------------------------------
+
+                 IIO
+                  │
+        ┌─────────┴─────────┐
+        ↓                   ↓
+       ADC                 DAC
+        ↓                   ↓
+ Analog → Digital     Digital → Analog
+ 
+------------------------------------------------------------
+
+IIO provider
+     │
+     ├── ADC
+     ├── DAC
+     ├── accelerometer
+     ├── gyroscope
+     ├── light sensor
+     └── other measurement devices
+
+
+IIO consumer
+     │
+     └── asks the provider for
+         channel data
+
+------------------------------------------------------------
+
+Hardware sensor
+       ↓
+   hwmon driver
+       ↓
+Linux hwmon subsystem
+       ↓
+ /sys/class/hwmon/
+       ↓
+temp / voltage / fan / power
+
+------------------------------------------------------------
+For your LDD learning sequence,
+the important APIs from this batch are:
+
+PWM
+ ├── devm_pwm_get()
+ ├── pwm_init_state()
+ ├── pwm_apply_might_sleep()
+ └── pwm_get_state()
+
+IIO
+ ├── devm_iio_device_alloc()
+ ├── devm_iio_device_register()
+ ├── iio_read_channel_raw()
+ ├── iio_write_channel_raw()
+ └── struct iio_chan_spec
+
+hwmon
+ ├── devm_hwmon_device_register_with_groups()
+ └── hwmon sysfs attributes
+ 
+------------------------------------------------------------
+One conceptual point to keep very clear:
+
+20261010 I²C
+    ↓
+Bus / protocol driver
+
+
+20261011 SPI
+    ↓
+Bus / protocol driver
+
+
+20261012 PWM / ADC / DAC / IIO / hwmon
+    ↓
+Hardware subsystem drivers
+
+------------------------------------------------------------
+
+                    USB Host Controller
+                           │
+                         USB Bus
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+          USB Device                 USB Device
+             │                           │
+       struct usb_device          struct usb_device
+             │
+       struct usb_interface
+             │
+       struct usb_driver
+             │
+          probe()
+             │
+            URB
+             │
+       ┌─────┼──────────┐
+       ↓     ↓          ↓
+   Control  Bulk   Interrupt
+   Transfer Transfer Transfer
+   
+------------------------------------------------------------
+
+struct usb_device
+        │
+        │ represents
+        ↓
+physical USB device
+
+
+struct usb_interface
+        │
+        │ represents
+        ↓
+one USB interface/function
+
+
+struct usb_endpoint_descriptor
+        │
+        │ describes
+        ↓
+endpoint
+
+
+struct usb_driver
+        │
+        │ represents
+        ↓
+USB software driver
+
+
+struct urb
+        │
+        │ represents
+        ↓
+one USB transfer request
+
+------------------------------------------------------------
+
+                    USB Endpoint
+                         │
+          ┌──────────────┼──────────────┐
+          ↓              ↓              ↓
+       Control          Bulk        Interrupt
+          │              │              │
+    configuration     large data     periodic/
+                                     event data
+									 
+------------------------------------------------------------
+USB transfer flow:
+For an asynchronous URB:
+
+Driver
+  │
+  │ usb_alloc_urb()
+  ↓
+URB
+  │
+  │ configure
+  ↓
+usb_fill_*_urb()
+  │
+  │
+  ↓
+usb_submit_urb()
+  │
+  ↓
+USB Host Controller
+  │
+  ↓
+USB Device
+  │
+  ↓
+completion callback
+  │
+  ↓
+usb_*_complete()
+
+
+------------------------------------------------------------
+The most important APIs from this batch are:
+
+USB driver
+ ├── module_usb_driver()
+ ├── .probe()
+ ├── .disconnect()
+ └── USB_DEVICE()
+
+Device/interface
+ ├── interface_to_usbdev()
+ ├── usb_set_intfdata()
+ └── usb_get_intfdata()
+
+URB
+ ├── usb_alloc_urb()
+ ├── usb_fill_bulk_urb()
+ ├── usb_fill_int_urb()
+ ├── usb_submit_urb()
+ ├── usb_kill_urb()
+ └── usb_free_urb()
+
+Control
+ └── usb_control_msg()
+
+Bulk
+ ├── usb_sndbulkpipe()
+ └── usb_rcvbulkpipe()
+
+Interrupt
+ ├── usb_sndintpipe()
+ └── usb_rcvintpipe()
+ 
+------------------------------------------------------------
+The Linux USB model is more accurately:
+
+USB physical device
+       │
+       ↓
+struct usb_device
+       │
+       ├── interface 0
+       │      ↓
+       │   usb_driver A
+       │
+       ├── interface 1
+       │      ↓
+       │   usb_driver B
+       │
+       └── interface 2
+              ↓
+           usb_driver C
+		   
+------------------------------------------------------------
+
+PCI/PCIe Hardware
+       │
+       ↓
+PCI Bus
+       │
+       ↓
+struct pci_dev
+       │
+       │ PCI ID matching
+       ↓
+struct pci_driver
+       │
+       ↓
+probe()
+       │
+       ├── pci_enable_device()
+       ├── pci_request_region()
+       ├── pci_iomap()
+       ├── DMA setup
+       └── IRQ setup
+       │
+       ↓
+remove()
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+netdevBasic - 			struct net_device
+netdevRegistration - 	register_netdev()
+netdevOpenClose - 		ndo_open() / ndo_stop()
+
+netdevTX - 				TX / skb
+netdevRX - 				RX / skb
+
+netdevNAPI - 			NAPI polling
+netdevIRQ - 			Hardware interrupt
+netdevDMA - 			DMA mapping of packet
+
+netdevStatistics -	 	RX/TX statistics
+netdevComplete - 		Putting the pieces together
+
+------------------------------------------------------------
+
+Module 				- Main concept
+
+inputBasic 			- struct input_dev
+inputEvent 			- input_report_key() / input_sync()
+inputKeyboard 		- Keyboard events
+
+inputMouse 			- EV_REL, REL_X, REL_Y, mouse buttons
+inputButton 		- Button + delayed work
+inputDebounce 		- Software debounce
+
+inputGPIO 			- GPIO + input relationship
+inputInterrupt 		- IRQ → input event
+inputDeviceTree 	- Device Tree → GPIO → input
+inputComplete 		- GPIO + IRQ + debounce + input
+
+------------------------------------------------------------
+
+                 Device Tree
+                     │
+                     ▼
+              GPIO Controller
+                     │
+                     ▼
+                GPIO Button
+                     │
+                     ▼
+                    IRQ
+                     │
+                     ▼
+              IRQ Handler
+                     │
+                     ▼
+              Debounce Work
+                     │
+                     ▼
+              input_report_key()
+                     │
+                     ▼
+                 input_sync()
+                     │
+                     ▼
+            Linux Input Subsystem
+                     │
+                     ▼
+              /dev/input/eventX
+                     │
+                     ▼
+              User-space
+
+
+------------------------------------------------------------
+
+Module 			- Main concept
+
+uartBasic 		- UART/TTY fundamentals
+uartDeviceTree 	- UART + Device Tree + MMIO
+uartInterrupt 	- UART + IRQ
+uartDriver 		- TTY driver
+serialConsole 	- Linux console
+ttyBasi 		- Basic TTY operations
+uartComplete 	- UART + MMIO + IRQ + TTY
+uartDMA 		- DMAengine + UART
+uartFlowControl - RTS/CTS + XON/XOFF
+ttyDriver 		- TTY driver operations
+
+
+------------------------------------------------------------
+
+                    User Space
+                        │
+                   /dev/tty*
+                        │
+                        ▼
+                   ┌─────────┐
+                   │ TTY Core│
+                   └────┬────┘
+                        │
+                        ▼
+                 TTY Driver Layer
+                        │
+                        ▼
+                  UART Driver
+                        │
+             ┌──────────┼──────────┐
+             ▼          ▼          ▼
+           IRQ         DMA        MMIO
+             │          │          │
+             └──────────┼──────────┘
+                        ▼
+                   UART Hardware
+				   
+
+------------------------------------------------------------
+
+Linux Power Management
+│
+├── System Suspend / Resume
+│       ├── suspend()
+│       └── resume()
+│
+├── Runtime PM
+│       ├── runtime_suspend()
+│       └── runtime_resume()
+│
+├── Regulator Framework
+│       └── voltage/current supply
+│
+├── Common Clock Framework
+│       └── clock enable/disable/rate
+│
+└── Wakeup Sources
+        └── allow device to wake system
+		
+
+------------------------------------------------------------
+
+                         Linux Power Management
+                                  │
+          ┌───────────────────────┼───────────────────────┐
+          │                       │                       │
+          ▼                       ▼                       ▼
+   System Power             Runtime PM             Power Resources
+          │                       │                       │
+   suspend()                 runtime_suspend()           │
+   resume()                  runtime_resume()            │
+   prepare()                runtime_idle()         ┌─────┴─────┐
+   complete()                                      │           │
+                                                  ▼           ▼
+                                             Regulator      Clock
+                                                 │           │
+                                                 ▼           ▼
+                                                VDD         CLK
+                                                 │           │
+                                                 └─────┬─────┘
+                                                       │
+                                                       ▼
+                                                    Device
+                                                       │
+                                                       ▼
+                                                Wakeup Source
+												
+												
+------------------------------------------------------------
+
+Module - Main purpose
+
+dynamicDebug 	- Enable/disable pr_debug() dynamically
+lockdep 		- Find locking/deadlock problems
+debugfsDriver - Expose debug information/control through debugfs
+kernelPanic 	- Demonstrate catastrophic kernel failure
+kgdb 			- Interactive source-level kernel debugging
+kernelOops 		- Demonstrate kernel fault/Oops handling
+sanitizers 		- Automatically detect classes of bugs
+ftrace 			- Trace kernel functions/events
+tracepoints 	- Instrument predefined kernel events
+kprobe 			- Dynamically instrument a kernel function
+
+
+------------------------------------------------------------
+
+                    Linux Kernel Debugging
+                            │
+        ┌───────────────────┼────────────────────┐
+        │                   │                    │
+        ▼                   ▼                    ▼
+     Debugging           Tracing             Bug Detection
+        │                   │                    │
+   ┌────┴────┐       ┌──────┼──────┐       ┌─────┼─────┐
+   │         │       │      │      │       │     │     │
+  KGDB    debugfs   ftrace tracepoint kprobe KASAN KCSAN
+   │
+   ▼
+source-level
+debugging
+
+        Kernel failures
+             │
+        ┌────┴────┐
+        ▼         ▼
+       Oops      Panic
+	   
+	   
+------------------------------------------------------------
+
+Kprobe
+   ↓
+"Trace THIS existing kernel function."
+
+Tracepoint
+   ↓
+"Trace THIS predefined kernel event."
+
+ftrace
+   ↓
+"Trace kernel functions/events using the tracing framework."
+
+KGDB
+   ↓
+"STOP and DEBUG the kernel interactively."
+
+KASAN/KCSAN
+   ↓
+"Detect memory/concurrency bugs."
+
+Lockdep
+   ↓
+"Detect locking dependency problems."
+
+debugfs
+   ↓
+"Give me a debug interface to inspect/control the kernel."
+
+
+------------------------------------------------------------
+Driver Reliability
+│
+├── Resource Management
+│   ├── devres
+│   ├── cleanup
+│   └── module refcount
+│
+├── Error Handling
+│   ├── probe failure
+│   ├── deferred probe
+│   └── failure injection
+│
+└── Concurrency / Robustness
+    ├── race protection
+    └── robust driver
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

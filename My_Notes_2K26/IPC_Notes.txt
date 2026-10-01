@@ -1,0 +1,244 @@
+-----------------------------------------------------
+
+------------------------------
+
+
+-----------------------------------------------------
+All 10 concepts
+
+Program	- Concept
+
+pipeBasic 		- Basic pipe()
+
+pipeParentChild - Parent → Child
+
+pipeChildParent - Child → Parent
+
+pipeEOF 		- EOF / closing write end
+
+pipeBlocking 	- Blocking read()
+
+pipeNonBlocking - O_NONBLOCK, EAGAIN
+
+pipeBidirectional - 
+Two pipes for two-way communication
+
+pipeProducerConsumer - Producer-consumer
+
+pipeCapacity - Pipe buffer capacity
+
+pipeMultipleProcess - 
+Multiple processes sharing a pipe
+
+-----------------------------------------------------
+These 10 give you a good first layer. 
+The next IPC layer should naturally be 
+
+pipe → FIFO → sharedMemory → messageQueue → 
+semaphore → signal → socket → UnixDomainSocket, 
+
+because those introduce actual data/coordination 
+communication between processes.
+
+-----------------------------------------------------
+Your pipe set:
+
+Program	- 				Concept
+
+pipeBasic - 			Basic pipe()
+pipeParentChild - 		Parent → Child
+pipeChildParent - 		Child → Parent
+
+pipeEOF - 				EOF / closing write end
+
+pipeBlocking - 			Blocking read()
+pipeNonBlocking - 		O_NONBLOCK, EAGAIN
+
+pipeBidirectional - 
+Two pipes for two-way communication
+
+pipeProducerConsumer - 	Producer-consumer
+pipeCapacity - 			Pipe buffer capacity
+
+pipeMultipleProcess - 
+Multiple processes sharing a pipe
+
+-----------------------------------------------------
+Your FIFO set:
+
+Program	- 			Concept
+
+fifoBasic	Basic mkfifo()
+fifoReader	FIFO reader
+fifoWriter	FIFO writer
+fifoTwoProcess	Two independent processes
+fifoBlocking	Blocking open()
+fifoNonBlocking	O_NONBLOCK
+fifoClient	Client-side FIFO
+fifoServer	Server-side FIFO
+fifoMultipleWriter	Multiple writers
+fifoChat	Two-way communication
+
+-----------------------------------------------------
+Complete signal set
+
+Program	-  		Main concept
+
+signalBasic - 		Basic signal
+signalHandler - 	signal() handler
+signalUser - 		SIGUSR1 / SIGUSR2
+
+sigaction - 		sigaction()
+
+signalWait - 		sigwait()
+signalMask - 		Signal blocking/unblocking
+signalPending - 	Pending signals
+signalAlarm - 		alarm() / SIGALRM
+signalTimer - 		POSIX timers + signals
+
+signalProcessControl - SIGSTOP / SIGCONT / SIGTERM
+
+-----------------------------------------------------
+Pipe/FIFO
+    │
+    └── communicates DATA
+
+Signal
+    │
+    └── communicates EVENT / NOTIFICATION
+
+-----------------------------------------------------
+Process
+   ↓
+Pipe
+   ↓
+FIFO
+   ↓
+Signal
+   ↓
+Shared Memory
+   ↓
+Message Queue
+   ↓
+Semaphore
+   ↓
+Socket
+
+-----------------------------------------------------
+For the next shared-memory section, 
+the important progression would be 
+
+shm_open → mmap → sharedReadWrite → 
+synchronization → producerConsumer → 
+POSIX semaphore + shared memory, 
+
+because shared memory introduces the separate 
+problem of synchronizing access to shared data
+
+-----------------------------------------------------
+POSIX Message Queue IPC:
+
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

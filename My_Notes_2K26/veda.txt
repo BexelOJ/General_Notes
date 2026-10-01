@@ -1,0 +1,66 @@
+-----------------------------------------------------
+
+------------------------------
+
+
+-----------------------------------------------------
+xfwm4 --replace &
+
+-----------------------------------------------------
+└─$ curl ifconfig.me
+122.171.17.4                                                                                      
+┌──(karma㉿veda)-[~/Workspace/Kali/01_Linux/bash]
+└─$ curl -4 icanhazip.com
+122.171.17.4
+
+-----------------------------------------------------
+xset q | grep -A 6 -E 'Screen Saver|DPMS'
+
+-----------------------------------------------------
+REACHABLE	Recently confirmed reachable
+STALE	Mapping is known, but hasn't been recently confirmed
+DELAY	Waiting briefly before probing
+PROBE	Actively checking the neighbor
+FAILED	Neighbor could not be reached
+
+-----------------------------------------------------
+Tool/term - What is being dumped?
+
+tcpdump - 	Network packets
+Core dump - Process memory/state
+hexdump - 	Raw bytes
+objdump - 	Object/binary information
+dmesg - 	Kernel messages
+
+-----------------------------------------------------
+sudo apt install dos2unix
+
+dos2unix 07_arrays.sh
+
+-----------------------------------------------------
+sed -i 's/\r$//' 07_arrays.sh
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
