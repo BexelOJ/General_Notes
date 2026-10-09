@@ -23,7 +23,7 @@ idf.py build
 idf.py -p COMx flash
 idf.py -p COM3 flash
 
-idf.py -p COM30 flash
+idf.py -p COM30 flash monitor
 idf.py -p COM34 flash monitor
 
 -p means Port
@@ -205,7 +205,21 @@ the macro converts a time in milliseconds to ticks)
 MS → milliseconds
 
 -----------------------------------------------------
+And Tracealyzer can show much more:
 
+Task execution timeline
+Running / Ready / Blocked states
+Context switches
+CPU utilization
+Task priorities
+Semaphore give/take
+Interrupt activity
+Scheduler activity
+Task response times
+Blocking relationships
+Execution statistics
+Critical sections
+Event timing
 
 -----------------------------------------------------
 

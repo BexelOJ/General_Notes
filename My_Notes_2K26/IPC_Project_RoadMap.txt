@@ -1142,13 +1142,302 @@ Raspberry Pi, and server work.
 
 
 -----------------------------------------------------
-
+IPC_2026/
+│
+└── IPC_10_2026/
+    │
+    ├── ipc_20261010_tcpBlocking/
+    │   ├── tcpBlockingServer.c
+    │   ├── tcpBlockingClient.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_tcpServer/
+    │   ├── tcpServer.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_tcpClient/
+    │   ├── tcpClient.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_tcpMultiClient/
+    │   ├── tcpMultiClientServer.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_tcpNonBlocking/
+    │   ├── tcpNonBlockingServer.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_select/
+    │   ├── selectServer.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_poll/
+    │   ├── pollServer.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_epoll/
+    │   ├── epollServer.c
+    │   └── Makefile
+    │
+    ├── ipc_20261010_udpServer/
+    │   ├── udpServer.c
+    │   └── Makefile
+    │
+    └── ipc_20261010_udpClient/
+        ├── udpClient.c
+        └── Makefile
 
 -----------------------------------------------------
-
+01  epollBasic
+        │
+        ▼
+02  epollEvents
+        │
+        ▼
+03  epollLevelTriggered
+        │
+        ▼
+04  epollEdgeTriggered
+        │
+        ▼
+05  epollMultiClient
+        │
+        ▼
+06  epollServer
+        │
+        ▼
+07  eventDrivenServer
+        │
+        ├──────────────┐
+        ▼              ▼
+08  eventfd       09 signalfd
+        │              │
+        └──────┬───────┘
+               ▼
+          10 timerfd
 
 -----------------------------------------------------
+ipc_20261014_atomicFile
+ipc_20261014_fcntlLock
+ipc_20261014_fileExchange
+ipc_20261014_fileIPCServer
+ipc_20261014_fileLock
+ipc_20261014_fileQueue
+ipc_20261014_flock
+ipc_20261014_lockFile
+ipc_20261014_spoolDirectory
+ipc_20261014_tempFile
 
+-----------------------------------------------------
+ipc_20261015_cpuBenchmark
+ipc_20261015_fifoBenchmark
+ipc_20261015_latencyBenchmark
+ipc_20261015_memoryBenchmark
+ipc_20261015_mqBenchmark
+ipc_20261015_pipeBenchmark
+ipc_20261015_shmBenchmark
+ipc_20261015_tcpBenchmark
+ipc_20261015_throughputBenchmark
+ipc_20261015_unixSocketBenchmark
+
+-----------------------------------------------------
+ipc_20261016_highPerformanceIPC
+ipc_20261016_lockFreeQueue
+ipc_20261016_memfd
+ipc_20261016_memfdSharing
+ipc_20261016_mpmcQueue
+ipc_20261016_mpscQueue
+ipc_20261016_sharedRingBuffer
+ipc_20261016_spmcQueue
+ipc_20261016_spscQueue
+ipc_20261016_zeroCopyBasic
+
+-----------------------------------------------------
+ipc_20261017_fdArchitecture
+ipc_20261017_fdClient
+ipc_20261017_fdEventSystem
+ipc_20261017_fdPassing
+ipc_20261017_fdServer
+ipc_20261017_recvmsg
+ipc_20261017_scmRights
+ipc_20261017_sendmsg
+ipc_20261017_sharedFileDescriptor
+ipc_20261017_unixFdPassing
+
+-----------------------------------------------------
+ipc_20261018_hybridIPC
+ipc_20261018_processThreadPool
+ipc_20261018_threadCondition
+ipc_20261018_threadPipe
+ipc_20261018_threadPoolIPC
+ipc_20261018_threadQueue
+ipc_20261018_threadSemaphore
+ipc_20261018_threadSharedMemory
+ipc_20261018_threadSocket
+ipc_20261018_workerArchitecture
+
+-----------------------------------------------------
+ipc_20261019_capabilities
+ipc_20261019_credentials
+ipc_20261019_filePermissions
+ipc_20261019_peerCredentials
+ipc_20261019_permissions
+ipc_20261019_seccompIPC
+ipc_20261019_secureServer
+ipc_20261019_selinuxIPC
+ipc_20261019_socketPermissions
+ipc_20261019_uidGid
+
+-----------------------------------------------------
+ipc_20261020_kernelEpoll
+ipc_20261020_kernelEventfd
+ipc_20261020_kernelMq
+ipc_20261020_kernelPipe
+ipc_20261020_kernelShm
+ipc_20261020_kernelSignal
+ipc_20261020_kernelSocket
+ipc_20261020_procfs
+ipc_20261020_syscallIPC
+ipc_20261020_sysfs
+
+-----------------------------------------------------
+ipc_20261021_driverEpoll
+ipc_20261021_driverEventfd
+ipc_20261021_driverIoctl
+ipc_20261021_driverMmap
+ipc_20261021_driverPipe
+ipc_20261021_driverPoll
+ipc_20261021_driverSelect
+ipc_20261021_driverSharedMemory
+ipc_20261021_driverSignal
+ipc_20261021_driverUserspace
+
+-----------------------------------------------------
+ipc_20261022_clientServer
+ipc_20261022_eventDriven
+ipc_20261022_messageRouter
+ipc_20261022_pipeline
+ipc_20261022_producerConsumer
+ipc_20261022_pubSub
+ipc_20261022_requestResponse
+ipc_20261022_serviceManager
+ipc_20261022_supervisorWorker
+ipc_20261022_workerPool
+
+-----------------------------------------------------
+ipc_20261023_commandService
+ipc_20261023_configService
+ipc_20261023_dataCollector
+ipc_20261023_databaseService
+ipc_20261023_logger
+ipc_20261023_loggeripc_202061023_logger
+ipc_20261023_monitoripc_202061023_monitor
+ipc_20261023_notificationService
+ipc_20261023_processManage
+ipc_20261023_sensorService
+ipc_20261023_taskManager
+
+-----------------------------------------------------
+ipc_20261024_databaseBridge
+ipc_20261024_embeddedArchitecture
+ipc_20261024_gpioService
+ipc_20261024_i2cService
+ipc_20261024_mqttBridge
+ipc_20261024_qtBackend
+ipc_20261024_raspberryPi
+ipc_20261024_sensorPipeline
+ipc_20261024_spiService
+ipc_20261024_uartService
+
+-----------------------------------------------------
+ipc_20261025_qtBackendService
+ipc_20261025_qtLocalServer
+ipc_20261025_qtLocalSocket
+ipc_20261025_qtMultiProcess
+ipc_20261025_qtNetworkIPC
+ipc_20261025_qtProcess
+ipc_20261025_qtProcessCommunication
+ipc_20261025_qtProductionArchitecture
+ipc_20261025_qtSharedMemory
+ipc_20261025_qtWorkerProcess
+
+-----------------------------------------------------
+ipc_20261026_distributedArchitecture
+ipc_20261026_grpcBasic
+ipc_20261026_grpcClient
+ipc_20261026_grpcServer
+ipc_20261026_grpcStreamin
+ipc_20261026_messageBroke
+ipc_20261026_mqttIP
+ipc_20261026_restServic
+ipc_20261026_rpcBasic
+ipc_20261026_serviceToService
+
+-----------------------------------------------------
+ipc_20261027_asyncFile
+ipc_20261027_asyncPipe
+ipc_20261027_asyncSocket
+ipc_20261027_containerIPC
+ipc_20261027_dockerIPC
+ipc_20261027_ioUring
+ipc_20261027_ioUringIPC
+ipc_20261027_linuxIPCArchitecture
+ipc_20261027_namespace
+ipc_20261027_signalSafe
+
+-----------------------------------------------------
+ipc_20261028_bpf
+ipc_20261028_debugToolkit
+ipc_20261028_ftrace
+ipc_20261028_ipcs
+ipc_20261028_lsof
+ipc_20261028_netstat
+ipc_20261028_perf
+ipc_20261028_procInspection
+ipc_20261028_ss
+ipc_20261028_strace
+
+-----------------------------------------------------
+ipc_20261029_chatSystem
+ipc_20261029_completeIPCSystem
+ipc_20261029_databaseServer
+ipc_20261029_embeddedServer
+ipc_20261029_jobScheduler
+ipc_20261029_logSystem
+ipc_20261029_monitoringSystem
+ipc_20261029_processSupervisor
+ipc_20261029_qtLinuxSystem
+ipc_20261029_sensorSystem
+
+-----------------------------------------------------
+ipc_20261022_clientServer
+             |
+             v
+ipc_20261022_requestResponse
+             |
+             v
+ipc_20261022_eventDriven
+             |
+             v
+ipc_20261022_pipeline
+             |
+             v
+ipc_20261022_producerConsumer
+             |
+             v
+ipc_20261022_pubSub
+             |
+             v
+ipc_20261022_messageRouter
+             |
+             v
+ipc_20261022_serviceManager
+             |
+             v
+ipc_20261022_supervisorWorker
+             |
+             v
+ipc_20261022_workerPool
 
 -----------------------------------------------------
 
