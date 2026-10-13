@@ -187,7 +187,9 @@ makeDrink()
 
 Subclasses provide the varying steps.
 
+------------------------------
 Core idea
+------------------------------
 
 Template Method = algorithm skeleton in superclass, 
 variable steps in subclasses.
@@ -252,6 +254,7 @@ to the outside world.
 
 ------------------------------
 Core idea
+------------------------------
 
 Memento = save and restore an object's state.
 
@@ -311,6 +314,7 @@ The controller coordinates them.
 
 ------------------------------
 Core idea
+------------------------------
 
 Mediator = centralize communication between objects to 
 reduce their direct coupling.
@@ -361,7 +365,10 @@ Search expressions
 Configuration languages
 Rules engines
 Regular expressions
+
+------------------------------
 Core idea
+------------------------------
 
 Interpreter = represent grammar/rules as objects and 
 evaluate expressions in that language.
@@ -404,7 +411,11 @@ handle()
 If no:
 
 pass to next 
+
+------------------------------
 Structure
+------------------------------
+
 Client
   |
   v
@@ -413,6 +424,7 @@ Handler A → Handler B → Handler C → Handler D
 ------------------------------
 Core idea
 ------------------------------
+
 Chain of Responsibility = give multiple objects a chance 
 to handle a request without the sender knowing 
 which one will handle it.
@@ -475,7 +487,10 @@ without changing:
 File
 Directory
 Link
+
+------------------------------
 Core idea
+------------------------------
 
 Visitor = separate an operation from the object structure 
 on which it operates.
@@ -548,6 +563,7 @@ can evolve independently.
 
 ------------------------------
 Core idea
+------------------------------
 
 Bridge = separate abstraction from implementation so 
 both can vary independently.
@@ -592,16 +608,23 @@ But each individual tree keeps its unique information:
 position
 rotation
 size
+
+------------------------------
 Two types of data
+
 Intrinsic → shared
 Extrinsic  → individual
+
+------------------------------
 Core idea
+------------------------------
 
 Flyweight = share common immutable data between 
 many objects to reduce memory consumption.
 
 ------------------------------------------------------------
 9. Prototype
+------------------------------------------------------------
 What exactly does it do?
 
 Prototype creates new objects by cloning an existing object.
@@ -615,6 +638,7 @@ you have:
 
 existingObject.clone()
 
+------------------------------
 Imagine a game:
 
 Monster prototype
@@ -637,7 +661,9 @@ Why?
 Sometimes creating/configuring an object from scratch 
 is expensive or complicated.
 
+------------------------------
 Core idea
+------------------------------
 
 Prototype = create new objects by copying existing objects.
 
@@ -684,10 +710,14 @@ builder.buildWalls()
        .buildWindows()
        .buildRoof()
        .build();
+	   
+------------------------------
 Core idea
+------------------------------
 
 Builder = construct a complex object step-by-step.
 
+------------------------------------------------------------
 Now the Factory family
 
 This is particularly important because you were asking 
@@ -741,7 +771,10 @@ PizzaFactory
 Client:
 
 PizzaFactory.createPizza("cheese")
+
+------------------------------
 Core idea
+------------------------------
 
 Simple Factory = centralize object creation in one place.
 
@@ -790,7 +823,9 @@ orderPizza()
 
 while subclasses decide what gets created.
 
+------------------------------
 Core idea
+------------------------------
 
 Factory Method = define an object-creation method, 
 but let subclasses decide which concrete object to create.
@@ -844,7 +879,10 @@ MacFactory
      |
      +-- MacButton
      +-- MacCheckbox
+
+------------------------------
 Core idea
+------------------------------
 
 Abstract Factory = create families of related objects 
 without specifying their concrete classes.
@@ -853,7 +891,9 @@ The crucial Factory difference
 
 Think about how much you're creating.
 
+------------------------------
 Simple Factory
+
 ONE factory
     |
     +---- creates different products
@@ -865,7 +905,10 @@ PizzaFactory
    +-- CheesePizza
    +-- PepperoniPizza
    +-- VeggiePizza
+
+------------------------------
 Factory Method
+
 ONE creator hierarchy
        |
        +---- subclass decides product
@@ -877,7 +920,9 @@ PizzaStore
 
 The important feature is subclass-based creation.
 
+------------------------------
 Abstract Factory
+
 ONE factory
     |
     +-- creates Product A
