@@ -1,0 +1,476 @@
+-----------------------------------------------------
+
+------------------------------
+
+
+-----------------------------------------------------
+Array:
+------------------------------
+
+-----------------------------------------------------
+ArrayDeque:
+------------------------------
+add()
+addFirst()
+addLast()
+
+getFirst()
+getLast()
+
+remove()
+removeFirst()
+removeLast()
+
+offer()
+offerFirst()
+offerLast()
+
+peek()
+peekFirst()
+peekLast()
+
+poll()
+pollFirst()
+pollLast()
+
+push()
+pop()
+
+contains()
+size()
+isEmpty()
+clear()
+
+iterator()
+descendingIterator()
+
+forEach()
+toArray()
+
+-----------------------------------------------------
+element()
+Returns the first element; 
+throws an exception if empty
+
+peek()
+Returns the first element; 
+returns null if empty
+
+size()
+Returns the total number of elements
+
+isEmpty()
+Checks whether the deque is empty
+
+-----------------------------------------------------
+Method			Operation
+
+add(e)			Inserts at the tail
+offer(e)		Inserts at the tail
+
+addFirst(e)		Inserts at the head
+offerFirst(e)	Inserts at the head
+
+addLast(e)		Inserts at the tail
+offerLast(e)	Inserts at the tail
+
+-----------------------------------------------------
+add() → insert; 
+throws an exception if insertion fails.
+
+offer() → insert; 
+returns false if insertion fails.
+
+-----------------------------------------------------
+peek()
+First element (Returns)
+No (Removes element?)
+Returns null (If deque is empty)
+
+poll() 
+First element (Returns)
+Yes (Removes element?)
+Returns null (If deque is empty)
+
+getFirst()
+First element (Returns)
+No (Removes element?)
+Throws NoSuchElementException (If deque is empty)
+
+-----------------------------------------------------
+The main iterator types and related interfaces are
+------------------------------
+
+1.) Iterator
+2.) ListIterator
+3.) Spliterator
+4.) Enumeration
+
+-----------------------------------------------------
+1.) iterator:
+------------------------------
+hasNext()
+next()
+remove()
+forEachRemaining()
+
+------------------------------
+hasNext()
+checks whether an element is available.
+
+next()
+advances the iterator and returns the next element.
+
+remove()
+removes the last element returned by next(), 
+if removal is supported and the call is valid.
+
+forEachRemaining()
+
+
+-----------------------------------------------------
+2.) ListIterator:
+------------------------------
+
+hasNext()
+hasPrevious()
+
+next()
+previous()
+
+nextIndex()
+previousIndex()
+
+add()
+set()
+
+------------------------------
+hasPrevious()
+Checks whether a previous element exists
+
+previous()
+Returns the previous element
+
+nextIndex()
+Returns the index of the next element
+
+previousIndex()
+Returns the index of the previous element
+
+add(E)
+Inserts an element 
+at the iterator's current position
+
+set(E)
+Replaces the last element 
+returned by next() or previous()
+
+-----------------------------------------------------
+3.) Spliterator
+------------------------------
+
+tryAdvance()
+forEachRemaining()
+trySplit()
+estimateSize()
+characteristics()
+
+
+-----------------------------------------------------
+4.) Enumeration
+------------------------------
+hasMoreElements()
+nextElement()
+
+
+-----------------------------------------------------
+Import statement	Available?	Purpose
+
+import java.util.Iterator;
+✅ Yes
+Traverses elements in a collection
+
+import java.util.ListIterator;
+✅ Yes
+Traverses a list in both directions
+
+import java.util.Spliterator;
+✅ Yes
+Traverses and can split elements for
+parallel processing
+
+import java.util.Enumeration;
+✅ Yes
+Legacy interface for traversing elements
+
+-----------------------------------------------------
+List
+------------------------------
+List<Integer> a = new ArrayList<>();
+List<Integer> b = new LinkedList<>();
+
+This works because both classes implement the 
+List interface.
+
+-----------------------------------------------------
+Set:
+------------------------------
+Collection	Ordering behavior	Duplicates
+
+HashSet
+No guaranteed order
+Not allowed
+
+LinkedHashSet
+Maintains insertion order
+Not allowed
+
+TreeSet
+Sorted order by default
+Not allowed
+
+EnumSet
+Enum declaration order
+Not allowed
+
+-----------------------------------------------------
+Java has many interfaces and concrete classes
+
+- Interface — 
+defines what operations an object supports.
+
+- Concrete class — 
+provides the actual implementation of 
+those operations.
+
+- Implementation relationship — a concrete class 
+uses implements to implement an interface.
+
+- Reference type — the interface can appear on 
+the left side of an assignment, while the 
+concrete class is instantiated on the right.
+
+For example:
+Queue<Integer> queue = new LinkedList<>();
+
+Here, Queue is the interface and 
+LinkedList is the concrete class.
+
+------------------------------
+1. Java Collections interfaces and their concrete classes
+The following are the main interfaces and implementations you should learn first. The relationships follow Oracle's Java Collections Framework documentation. 
+
+Oracle Documentation
++1
+
+
+------------------------------
+A. List interface
+------------------------------
+A List maintains an ordered sequence, allows duplicate elements and supports index-based access.
+Concrete class	Internal structure / behavior
+ArrayList	Resizable array
+LinkedList	Doubly linked list
+Vector	Synchronized resizable array
+Stack	Legacy stack class extending Vector
+Examples:
+List<Integer> a = new ArrayList<>();
+List<Integer> b = new LinkedList<>();
+List<Integer> c = new Vector<>();
+
+------------------------------
+B. Set interface
+------------------------------
+A Set does not allow duplicate elements.
+Concrete class	Internal structure / behavior
+HashSet	Hash table; no guaranteed iteration order
+LinkedHashSet	Hash table + linked structure; preserves insertion order
+TreeSet	Red-Black Tree; sorts elements
+EnumSet	Specialized set for enum values
+Examples:
+Set<Integer> a = new HashSet<>();
+Set<Integer> b = new LinkedHashSet<>();
+Set<Integer> c = new TreeSet<>();
+
+------------------------------
+C. Queue interface
+------------------------------
+A Queue holds elements for processing. A typical queue uses FIFO order: first in, first out.
+Concrete class	Behavior
+LinkedList	Linked-list-based queue
+ArrayDeque	Resizable-array-based queue
+PriorityQueue	Processes elements according to priority/natural ordering
+Examples:
+Queue<Integer> a = new LinkedList<>();
+Queue<Integer> b = new ArrayDeque<>();
+Queue<Integer> c = new PriorityQueue<>();
+
+
+Note that PriorityQueue does not behave like a normal FIFO queue.
+
+------------------------------
+D. Deque interface
+------------------------------
+Deque means double-ended queue. You can insert and remove elements at both ends.
+Concrete class	Internal structure / behavior
+ArrayDeque	Resizable array
+LinkedList	Doubly linked list
+LinkedBlockingDeque	Thread-safe blocking deque
+Examples:
+Deque<Integer> a = new ArrayDeque<>();
+Deque<Integer> b = new LinkedList<>();
+Deque<Integer> c = new LinkedBlockingDeque<>();
+
+
+LinkedBlockingDeque belongs to java.util.concurrent, unlike the first two.
+
+------------------------------
+E. Map interface
+------------------------------
+A Map stores key-value pairs. Keys must be unique, but values can be duplicated.
+Concrete class	Internal structure / behavior
+HashMap	Hash table
+LinkedHashMap	Hash table + linked structure
+TreeMap	Red-Black Tree, sorted by key
+Hashtable	Legacy synchronized hash table
+ConcurrentHashMap	Concurrent hash table for multithreaded use
+WeakHashMap	Keys are weakly referenced
+Examples:
+Map<Integer, String> a = new HashMap<>();
+Map<Integer, String> b = new LinkedHashMap<>();
+Map<Integer, String> c = new TreeMap<>();
+
+
+Remember that Map is not a subtype of Collection. It is a separate part of the Collections Framework.
+
+-----------------------------------------------------
+1. Difference between add() and offer()
+
+Method - Successful insertion - If insertion fails
+
+add(e) - Inserts element - Throws an exception
+offer(e) - Inserts element - Returns false
+
+-----------------------------------------------------
+Method - Behavior
+
+peek() - Returns the front element, 
+or returns null if the queue is empty
+
+poll() - Removes and returns the front element
+Returns null if Queue is empty
+
+element() - Returns the front element, 
+or throws NoSuchElementException if empty
+
+getFirst() - Returns the first element of a 
+Deque/LinkedList, or throws an exception if empty
+
+remove() - Removes the front element, 
+throws NoSuchElementException if the queue is empty.
+
+-----------------------------------------------------
+get(index) - In List implementations such as 
+ArrayList and LinkedList, 
+retrieves the element at a specified index
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

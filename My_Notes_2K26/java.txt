@@ -30,10 +30,10 @@ But a class can implement multiple interfaces
 
 An interface has no constructor
 
-
 ------------------------------------------------------------
-Constructor delegation is when one constructor of the 
-same class calls another constructor of that same class
+Constructor delegation:
+is when one constructor of the same class calls 
+another constructor of that same class
 
 ------------------------------------------------------------
 
