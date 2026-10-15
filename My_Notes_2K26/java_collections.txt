@@ -257,92 +257,157 @@ Here, Queue is the interface and
 LinkedList is the concrete class.
 
 ------------------------------
-1. Java Collections interfaces and their concrete classes
-The following are the main interfaces and implementations you should learn first. The relationships follow Oracle's Java Collections Framework documentation. 
+1. Java Collections interfaces and 
+their concrete classes
 
-Oracle Documentation
-+1
+The following are the main interfaces and 
+implementations you should learn first. 
 
-
-------------------------------
+-----------------------------------------------------
 A. List interface
+-----------------------------------------------------
+A List maintains 
+- an ordered sequence, 
+- allows duplicate elements and 
+- supports index-based access.
+
 ------------------------------
-A List maintains an ordered sequence, allows duplicate elements and supports index-based access.
-Concrete class	Internal structure / behavior
-ArrayList	Resizable array
-LinkedList	Doubly linked list
-Vector	Synchronized resizable array
-Stack	Legacy stack class extending Vector
+Concrete class - Internal structure / behavior
+
+
+ArrayList - Resizable array
+
+LinkedList - Doubly linked list
+
+Vector - Synchronized resizable array
+
+Stack - Legacy stack class extending Vector
+
+------------------------------
 Examples:
+
 List<Integer> a = new ArrayList<>();
 List<Integer> b = new LinkedList<>();
 List<Integer> c = new Vector<>();
 
-------------------------------
+-----------------------------------------------------
 B. Set interface
-------------------------------
+-----------------------------------------------------
 A Set does not allow duplicate elements.
-Concrete class	Internal structure / behavior
-HashSet	Hash table; no guaranteed iteration order
-LinkedHashSet	Hash table + linked structure; preserves insertion order
-TreeSet	Red-Black Tree; sorts elements
-EnumSet	Specialized set for enum values
+
+------------------------------
+Concrete class - Internal structure / behavior
+
+
+HashSet - 
+Hash table; 
+no guaranteed iteration order
+
+LinkedHashSet - 
+Hash table + 
+linked structure; 
+preserves insertion order
+
+TreeSet - Red-Black Tree; sorts elements
+
+EnumSet - Specialized set for enum values
+
+------------------------------
 Examples:
+
 Set<Integer> a = new HashSet<>();
 Set<Integer> b = new LinkedHashSet<>();
 Set<Integer> c = new TreeSet<>();
 
-------------------------------
+-----------------------------------------------------
 C. Queue interface
+-----------------------------------------------------
+A Queue holds elements for processing. 
+A typical queue uses FIFO order: 
+first in, first out.
+
 ------------------------------
-A Queue holds elements for processing. A typical queue uses FIFO order: first in, first out.
-Concrete class	Behavior
-LinkedList	Linked-list-based queue
-ArrayDeque	Resizable-array-based queue
-PriorityQueue	Processes elements according to priority/natural ordering
+Concrete class - Behavior
+
+LinkedList - 
+Linked-list-based queue
+
+ArrayDeque - 
+Resizable-array-based queue
+
+PriorityQueue - 
+Processes elements according to 
+priority/natural ordering
+
+------------------------------
 Examples:
+
 Queue<Integer> a = new LinkedList<>();
 Queue<Integer> b = new ArrayDeque<>();
 Queue<Integer> c = new PriorityQueue<>();
 
 
-Note that PriorityQueue does not behave like a normal FIFO queue.
+Note that PriorityQueue does not behave 
+like a normal FIFO queue.
+
+-----------------------------------------------------
+D. Deque interface
+-----------------------------------------------------
+Deque means double-ended queue. 
+You can insert and remove elements at both ends.
 
 ------------------------------
-D. Deque interface
+Concrete class - Internal structure / behavior
+
+
+ArrayDeque - Resizable array
+
+LinkedList - Doubly linked list
+
+LinkedBlockingDeque - Thread-safe blocking deque
+
 ------------------------------
-Deque means double-ended queue. You can insert and remove elements at both ends.
-Concrete class	Internal structure / behavior
-ArrayDeque	Resizable array
-LinkedList	Doubly linked list
-LinkedBlockingDeque	Thread-safe blocking deque
 Examples:
+
 Deque<Integer> a = new ArrayDeque<>();
 Deque<Integer> b = new LinkedList<>();
 Deque<Integer> c = new LinkedBlockingDeque<>();
 
 
-LinkedBlockingDeque belongs to java.util.concurrent, unlike the first two.
+LinkedBlockingDeque belongs to java.util.concurrent, 
+unlike the first two.
+
+-----------------------------------------------------
+E. Map interface
+-----------------------------------------------------
+A Map stores key-value pairs. 
+Keys must be unique, but values can be duplicated.
 
 ------------------------------
-E. Map interface
+Concrete class - Internal structure / behavior
+
+
+HashMap - Hash table
+
+LinkedHashMap - Hash table + linked structure
+
+TreeMap - Red-Black Tree, sorted by key
+
+Hashtable - Legacy synchronized hash table
+
+ConcurrentHashMap - 
+Concurrent hash table for multithreaded use
+
+WeakHashMap - Keys are weakly referenced
+
 ------------------------------
-A Map stores key-value pairs. Keys must be unique, but values can be duplicated.
-Concrete class	Internal structure / behavior
-HashMap	Hash table
-LinkedHashMap	Hash table + linked structure
-TreeMap	Red-Black Tree, sorted by key
-Hashtable	Legacy synchronized hash table
-ConcurrentHashMap	Concurrent hash table for multithreaded use
-WeakHashMap	Keys are weakly referenced
 Examples:
+
 Map<Integer, String> a = new HashMap<>();
 Map<Integer, String> b = new LinkedHashMap<>();
 Map<Integer, String> c = new TreeMap<>();
 
-
-Remember that Map is not a subtype of Collection. It is a separate part of the Collections Framework.
-
+-----------------------------------------------------
 -----------------------------------------------------
 1. Difference between add() and offer()
 
