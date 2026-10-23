@@ -1,0 +1,270 @@
+------------------------------------------------------------
+
+------------------------------
+
+------------------------------------------------------------
+Java-element	Convention	Example
+
+Package		lowercase		java.util
+subPackage		lowercase		java.util
+
+Class		PascalCase		Arrays
+
+Method		camelCase		binarySearch()
+Variable	camelCase		myArray
+
+Constant	UPPER_CASE		MAX_VALUE
+
+------------------------------------------------------------
+java        → package
+  util      → subpackage
+    Arrays  → class
+      toString() → method
+
+------------------------------------------------------------
+java.lang.System.out.println("Hello");
+│         │      │    │
+│         │      │    └── method
+│         │      └─────── field
+│         └────────────── class
+└──────────────────────── package
+
+------------------------------------------------------------
+
+java.lang.System
+java.lang.String
+java.lang.Integer
+java.lang.Runnable
+
+java.util.Arrays.sort(arr);
+
+------------------------------------------------------------
+int[] arr = {10, 20, 30};
+String name = "Lr";
+
+------------------------------
+Code	What it is
+
+int		primitive type
+int[]	array type
+
+String	class
+
+arr		reference to an array object
+name	reference to a String object
+
+------------------------------------------------------------
+// Java
+
+void outer() {
+
+    Runnable inner = () -> {   // ✅ lambda
+        System.out.println("Inside inner");
+    };
+
+    inner.run();
+}
+
+------------------------------------------------------------
+// C++
+
+auto inner = []() {
+    std::cout << "Inside inner";
+};
+
+------------------------------------------------------------
+forEach
+
+------------------------------------------------------------
+Generics work with reference types, not primitive types.
+
+primitive       wrapper class
+
+int       →     Integer
+double    →     Double
+float     →     Float
+long      →     Long
+short     →     Short
+byte      →     Byte
+char      →     Character
+boolean   →     Boolean
+
+------------------------------------------------------------
+List             → interface
+String           → class
+Integer          → class
+<String>         → generic type argument
+<Integer>        → generic type argument
+names/numbers    → reference variables
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+Java array default values
+
+Array-type	Defaultvalue
+
+int[]		0
+long[]		0L
+float[]		0.0f
+double[]	0.0
+char[]		'\u0000'
+boolean[]	false
+byte[]		0
+short[]		0
+Object[]	null
+String[]	null
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+Arrays.toString()	
+Convert 1-D array to printable String	
+Arrays.toString(arr)
+
+Arrays.sort()	
+Sort array	
+Arrays.sort(arr)
+
+Arrays.binarySearch()	
+Search sorted array	
+Arrays.binarySearch(arr, 20)
+
+Arrays.copyOf()	
+Copy array	
+Arrays.copyOf(arr, 5)
+
+Arrays.copyOfRange()	
+Copy part of array	
+Arrays.copyOfRange(arr, 1, 4)
+
+Arrays.fill()	
+Fill array with value	
+Arrays.fill(arr, 0)
+
+Arrays.equals()	
+Compare arrays	
+Arrays.equals(a, b)
+
+Arrays.deepEquals()	
+Compare multidimensional arrays	
+Arrays.deepEquals(a, b)
+
+Arrays.deepToString()	
+Print multidimensional arrays	
+Arrays.deepToString(arr)
+
+Arrays.deepHashCode()	
+Hash for multidimensional arrays	
+Arrays.deepHashCode(arr)
+
+Arrays.hashCode()	
+Hash code of array	
+Arrays.hashCode(arr)
+
+Arrays.mismatch()
+Find first differing index	
+Arrays.mismatch(a, b)
+
+Arrays.compare()	
+Lexicographically compare arrays	
+Arrays.compare(a, b)
+
+Arrays.copyOf()	
+Create resized copy	
+Arrays.copyOf(arr, 10)
+
+Arrays.setAll()	
+Generate values using function	
+Arrays.setAll(arr, i -> i * 2)
+
+Arrays.parallelSort()	
+Parallel sorting	
+Arrays.parallelSort(arr)
+
+
+------------------------------------------------------------
+ArrayList<Integer> list = new ArrayList<>();
+
+LinkedList<Integer> list = new LinkedList<>();
+
+
+------------------------------------------------------------
+ArrayList:
+
+list.add(100);
+
+list.remove(2);
+list.remove(Integer.valueOf(2)); // remove value 2
+
+list.get(2);
+list.set(2, 100);
+list.size();
+list.contains(100);
+list.clear();
+
+------------------------------------------------------------
+
+import java.util.Collections;
+import java.util.Iterator;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+
+------------------------------------------------------------
+Java Algorithms:
+
+Collections.sort(list);
+Collections.reverse(list);
+Collections.shuffle(list);
+Collections.binarySearch(list, 30);
+Collections.min(list);
+Collections.max(list);
+Collections.frequency(list, 20);
+Collections.swap(list, 0, 2);
+
+
+------------------------------------------------------------
+Java Collections ecosystem
+│
+├── Interfaces
+│   ├── Collection
+│   ├── List
+│   ├── Set
+│   └── Map
+│
+├── Implementations
+│   ├── ArrayList
+│   ├── LinkedList
+│   ├── HashSet
+│   ├── TreeSet
+│   ├── HashMap
+│   └── ...
+│
+├── Iteration
+│   ├── Iterator
+│   └── ListIterator
+│
+├── Algorithms / utilities
+│   └── java.util.Collections
+│
+└── Functional processing
+    └── Stream API
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+

@@ -1,0 +1,95 @@
+xfconf-query -c xfce4-power-manager -lv
+//
+
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off
+// check the current display blanking and power-off values:
+
+
+echo "$XDG_CURRENT_DESKTOP"
+// check which desktop environment you're using:
+
+
+xfconf-query -c xfce4-session -p /shutdown/LockScreen -n -t bool -s false
+// Set screen blanking to 4 hours
+// That command disables the lock screen setting; it does not set the sleep timeout. 
+
+// For XFCE display blanking, use:
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -s 240
+
+// If the property doesn't exist, create it:
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -n -t int -s 240
+
+// 2. Set the display to turn off after 4 hours
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -n -t int -s 240
+// This sets the AC-powered display-off timeout to 240 minutes.
+
+// 3. Verify the settings
+xfconf-query -c xfce4-power-manager -lv
+
+
+-----------------------------------------------------
+// echo "$XDG_CURRENT_DESKTOP"
+ubuntu:GNOME
+// for ubuntu GNOME
+
+// 1. Check the screen blank timeout
+gsettings get org.gnome.desktop.session idle-delay
+// The result is in seconds. For example, uint32 300 means 5 minutes.
+
+// 2. Check automatic suspend on AC power
+gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type
+gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout
+
+// 3. Check automatic suspend on battery, if available
+gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type
+gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout
+
+
+-----------------------------------------------------
+// Change only the screen blank timeout to 4 hours
+gsettings set org.gnome.desktop.session idle-delay 14400
+
+// Verify both settings
+gsettings get org.gnome.desktop.session idle-delay
+gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

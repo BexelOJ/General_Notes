@@ -441,7 +441,15 @@ retrieves the element at a specified index
 
 
 -----------------------------------------------------
+Queue<Integer> queue =
+        new Queue<>(Arrays.asList(10, 20, 30)); 
+		// ❌ Compilation error
+		
+List<Integer> list = 
+		new List<>(); // ❌ Compilation error
 
+Set<Integer> set = 
+		new Set<>();   // ❌ Compilation error
 
 -----------------------------------------------------
 

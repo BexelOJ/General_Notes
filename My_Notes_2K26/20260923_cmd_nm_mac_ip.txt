@@ -298,6 +298,10 @@ sudo ip link set eth0 up
 -----------------------------------------------------
 scp -r D:\WorkSpace\Linux\IPC\* exin@192.168.0.130:/home/exin/Workspace/IPC/IPC_2026/IPC_10_2026/
 
+scp -r D:\WorkSpace\ArchLinux\ exin@192.168.0.126:/home/exin/Documents/
+
+scp -r D:\WorkSpace\ArchLinux exin@192.168.0.126:/home/exin/Documents/lsblk.txt
+
 -----------------------------------------------------
 sed -i 's/\r$//' bash_sc.sh
 
@@ -315,6 +319,8 @@ sudo netplan apply
 ssh-keygen -t ed25519 -C "bexelo.j@outlook.com"
 
 -----------------------------------------------------
+
+C:\Users\bexel\qnxprojects\helloBangalore
 
 
 -----------------------------------------------------
