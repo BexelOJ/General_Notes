@@ -4,10 +4,32 @@
 
 
 -----------------------------------------------------
+gcc -g -O0 -Wall -Wextra ipc_202610_parentChildGdb.c -o parent_child_gdb
 
+Option	Meaning
 
+-g
+Include debugging information for GDB
+
+-O0
+Disable compiler optimization
+
+-Wall
+Enable many common compiler warnings
+
+-Wextra
+Enable additional warnings
+
+-o parent_child_gdb
+Name the output executable
 -----------------------------------------------------
+Stay with the parent process
+(gdb) set follow-fork-mode parent
+(gdb) show follow-fork-mode
 
+Stay with the child process
+(gdb) set follow-fork-mode child
+(gdb) show follow-fork-mode
 
 -----------------------------------------------------
 
