@@ -72,6 +72,185 @@ pthread_key_t      etc.
 ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
 
 ------------------------------------------------------------
+Constant - File descriptor - Purpose
+
+STDIN_FILENO	0	Standard input
+STDOUT_FILENO	1	Standard output
+STDERR_FILENO	2	Standard error
+
+------------------------------------------------------------
+Function	Purpose
+
+fork() 
+- Creates the child process
+
+setsid() 
+- Creates a new session and detaches from the controlling terminal
+
+chdir("/") 
+- Changes the current working directory
+
+umask() 
+- Controls default permissions for newly created files
+
+close() 
+- Closes file descriptors
+
+sleep(5) 
+- Pauses execution for five seconds
+
+------------------------------------------------------------
+Header - Functions or definitions used
+
+stdio.h 
+- printf(), perror()
+
+stdlib.h 
+- EXIT_SUCCESS, EXIT_FAILURE
+
+unistd.h 
+- fork(), setsid(), chdir(), close(), sleep()
+
+fcntl.h 
+- File-control operations; not directly needed in this version
+
+sys/stat.h 
+- umask()
+
+------------------------------------------------------------
+For a pipe created using the POSIX pipe() function in C:
+
+- pipeFd[0] is always the read end.
+- pipeFd[1] is always the write end.
+
+------------------------------------------------------------
+Format specifier - Typical matching type - Purpose
+
+%d - int - Signed integer
+%u - unsigned int - Unsigned integer
+%zu - size_t - Unsigned size/count
+%zd - Signed counterpart of size_t (ssize_t in POSIX) - Signed size/count
+%ld - long - Signed long integer
+
+Remember for Linux system programming:
+- read() and write() return ssize_t → use %zd to print the result.
+- sizeof() returns size_t → use %zu to print the result.
+
+------------------------------------------------------------
+
+EAGAIN - Error: Try Again
+
+EWOULDBLOCK - Error: Operation Would Block
+
+------------------------------------------------------------
+------------------------------------------------------------
+POSIX message queues use functions such as:
+
+- mq_open() — open or create a queue
+- mq_send() — send a message
+- mq_receive() — receive a message
+- mq_close() — close the queue descriptor
+- mq_unlink() — remove the queue name
+
+------------------------------------------------------------
+Expression	Meaning
+
+F_SETFL - Set file status flags
+
+O_NONBLOCK - Request non-blocking I/O
+
+flags \| O_NONBLOCK 
+- Preserve the existing flags and add the non-blocking flag
+
+------------------------------------------------------------
+Argument	Meaning
+
+MQ_NAME	Queue name: /mq_basic
+O_CREAT	Create the queue if it does not exist
+O_RDWR	Open the queue for sending and receiving
+0666	Permission bits requested when creating the queue
+NULL	Use default queue attributes
+
+------------------------------------------------------------
+if (mq_send(mq, message, strlen(message) + 1, 0) == -1)
+ {
+     perror("mq_send");
+     mq_close(mq);
+     mq_unlink(MQ_NAME);
+     return EXIT_FAILURE;
+ }
+
+mq_send(mq, message, strlen(message) + 1, 0);
+mq_receive(mq, buffer, sizeof(buffer), NULL);
+
+------------------------------------------------------------
+EMSGSIZE - 
+
+------------------------------------------------------------
+mqd_t - message queue descriptor type 
+in POSIX message queue programming
+
+------------------------------------------------------------
+Signal	Meaning	Typical purpose
+
+SIGINT - Interrupt 
+- User presses Ctrl+C
+
+SIGTERM - Termination request 
+- Ask a process to shut down gracefully
+
+SIGKILL - Force termination 
+- Stop a process immediately
+
+SIGCHLD - Child status changed 
+- Notify a parent about a child process event
+
+SIGUSR1 - User-defined signal 1 
+- Application-defined notification
+
+SIGSEGV - Invalid memory access 
+- Commonly raised after a segmentation fault
+
+------------------------------------------------------------
+POLLOUT (ready for writing)
+POLLERR (error condition)
+POLLHUP (hangup)
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
 
 
 ------------------------------------------------------------
