@@ -158,6 +158,7 @@ Expression	Meaning
 F_SETFL - Set file status flags
 
 O_NONBLOCK - Request non-blocking I/O
+O_NONBLOCK - Open Non-Blocking
 
 flags \| O_NONBLOCK 
 - Preserve the existing flags and add the non-blocking flag
@@ -218,28 +219,74 @@ POLLHUP (hangup)
 
 
 ------------------------------------------------------------
+snprintf() - string formatted print
 
+Function	Where does the output go?	Buffer size limit?
+
+printf()	Terminal/standard output	Not applicable
+sprintf()	Character array				No
+snprintf()	Character array				Yes
+
+------------------------------------------------------------
+NONBLOCKING
+
+int flags = fcntl(pipeFd[0], F_GETFL);
+fcntl(pipeFd[0], F_SETFL, flags | O_NONBLOCK);
+
+ssize_t bytesRead = read(pipeFd[0], buffer, sizeof(buffer));
+	
+
+------------------------------------------------------------
+EOF - (End Of File)
+
+------------------------------------------------------------
+fasync - file asynchronous 
+notification mechanism in the Linux kernel
+
+------------------------------------------------------------
+kmalloc() — physical memory is contiguous.
+
+vmalloc() — virtual address space is contiguous, 
+but physical memory may not be.
+
+kzalloc() — like kmalloc(), but zero-initialized.
+
+kfree() — releases the allocated memory.
+
+------------------------------------------------------------
+Common IRQ-related functions in Linux device drivers
+
+Function/term - Meaning
+
+IRQ - Interrupt Request
+
+request_irq() - Registers an interrupt handler.
+
+free_irq() - Releases a previously registered 
+interrupt handler.
+
+irq_handler_t - Type used for an interrupt handler function.
+
+IRQ_HANDLED - Indicates that the interrupt was handled.
+
+IRQ_NONE - Indicates that the interrupt was not handled 
+by this device.
+
+IRQF_SHARED - Allows an IRQ line to be shared by 
+multiple devices, where supported.
+
+------------------------------------------------------------
+hwmon - hardware Monitor
+IIO - Industrial Input/Output
 
 ------------------------------------------------------------
 
+spiDevice 
+- describes the hardware device connected to the SPI bus.
 
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
-
-------------------------------------------------------------
-
+spiDriver 
+- contains the software that controls or 
+communicates with that device.
 
 ------------------------------------------------------------
 

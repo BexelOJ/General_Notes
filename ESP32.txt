@@ -21,7 +21,7 @@ idf.py fullclean
 idf.py build
 
 idf.py -p COMx flash
-idf.py -p COM3 flash
+idf.py -p COM34 flash
 
 idf.py -p COM30 flash monitor
 idf.py -p COM34 flash monitor
@@ -222,7 +222,12 @@ Critical sections
 Event timing
 
 -----------------------------------------------------
+Static is about memory allocation, 
+not counting behavior. 
 
+You can have a 
+static binary semaphore or a 
+static counting semaphore
 
 -----------------------------------------------------
 

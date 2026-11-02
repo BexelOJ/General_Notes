@@ -62,8 +62,10 @@ MODULE_DESCRIPTION("...");
 				 
 
 -----------------------------------------------------
-Some names that look like functions are actually 
-Linux kernel APIs, for example:
+Some names that look like functions 
+are actually Linux kernel APIs, 
+
+for example:
 
 kmalloc(...)
 kfree(...)
@@ -71,8 +73,251 @@ device_create(...)
 device_destroy(...)
 
 -----------------------------------------------------
-__init and __exit are compiler/linker annotations 
-implemented through macros.
+__init and __exit 
+are compiler/linker annotations implemented 
+through macros.
+
+-----------------------------------------------------
+SYMVER = Symbol Versioning
+
+Module.symvers = Module Symbol Versioning file 
+(commonly understood as the module symbol-version 
+information file)
+
+-----------------------------------------------------
+File - Purpose
+
+Module.symvers
+ - Exported kernel/module symbol information
+
+modules.order
+ - Order of modules built
+
+System.map
+ - Kernel symbol address map
+
+vmlinux
+ - Uncompressed kernel ELF image
+
+modinfo output
+ - Metadata about a compiled module
+
+-----------------------------------------------------
+1. procfs = Process File System (/proc)
+
+- Provides information about running processes 
+  and kernel information.
+
+- Each process has a directory identified by its PID.
+
+- Example: /proc/1234/ contains 
+  information about process ID 1234.
+
+- Common files:
+  - /proc/cpuinfo – CPU information
+  - /proc/meminfo – Memory information
+  - /proc/uptime – System uptime
+  - /proc/1234/status – Process status
+
+-----------------------------------------------------
+2. sysfs = System File System (/sys)
+
+- Provides information about 
+  kernel objects, devices, drivers, and buses.
+
+- Helps userspace inspect and sometimes 
+  configure kernel/device attributes.
+
+- Common directories:
+  - /sys/class/ – Device classes
+  - /sys/bus/ – Bus information 
+    (I2C, SPI, PCI, USB, etc.)
+  - /sys/devices/ – Device hierarchy
+  - /sys/module/ – Loaded kernel modules
+
+-----------------------------------------------------
+alloc_chrdev_region()
+ → Reserves a character device number with the kernel
+
+unregister_chrdev_region()
+ → Releases that reserved device number
+
+-----------------------------------------------------
+Argument - Meaning - Your value
+
+dev - Pointer to store the allocated device number
+ - &deviceNumber
+
+baseminor - Starting minor number
+ - 0
+
+count - Number of device numbers to allocate
+ - 1
+
+name - Device name registered with the kernel
+ - "ldd_charDevice"
+
+-----------------------------------------------------
+What are major and minor numbers?
+
+Linux identifies character devices using two numbers
+
+- Major number: 
+Identifies the device driver.
+
+- Minor number: 
+Identifies a particular device handled by that driver
+
+-----------------------------------------------------
+Linux kernel logging hierarchy:
+
+From highest priority to lowest priority:
+
+Level - Macro - Meaning
+
+0 - pr_emerg() - Emergency – system is unusable
+1 - pr_alert() - Alert – immediate action required
+2 - pr_crit()  - Critical condition
+3 - pr_err()   - Error condition
+4 - pr_warn()  - Warning condition
+5 - pr_notice()	- Normal but significant condition
+6 - pr_info()  - Informational message
+7 - pr_debug() - Debugging message
+
+pr_info("Device registered\n");
+
+printk(KERN_INFO "Device registered\n");
+
+-----------------------------------------------------
+Macro - printk() equivalent
+
+pr_emerg() - KERN_EMERG
+pr_alert() - KERN_ALERT
+pr_crit()  - KERN_CRIT
+pr_err()   - KERN_ERR
+pr_warn()  - KERN_WARNING
+pr_notice()- KERN_NOTICE
+pr_info()  - KERN_INFO
+pr_debug() - pr_debug()
+
+has special debug handling;
+it is not always simply equivalent
+to printk(KERN_DEBUG ...)
+
+-----------------------------------------------------
+// To continuously monitor kernel messages:
+sudo dmesg -w
+
+-----------------------------------------------------
+// To filter your driver's messages:
+sudo dmesg | grep ldd_20261002
+
+-----------------------------------------------------
+Header - Purpose
+
+linux/init.h
+ - __init, __exit, module_init(), module_exit()
+
+linux/module.h
+ - Kernel module definitions and metadata
+
+linux/kernel.h
+ - Kernel utilities, pr_info(), min()
+
+linux/fs.h
+ - File operations, dev_t, device-number functions
+
+linux/cdev.h
+ - Character device structure and functions
+
+linux/device.h
+ - Device class and device creation
+
+linux/uaccess.h
+ - Safely copies data between userspace and kernel space
+
+-----------------------------------------------------
+Variable - Type - Purpose
+
+deviceNumber - dev_t - Stores major and minor numbers
+
+ldd_cdev - struct cdev - Represents the character device inside the kernel
+
+ldd_class - struct class * - Represents the device class
+
+ldd_device - struct device * - Represents the created device
+
+kernelBuffer - char[256] - Stores data written by userspace
+
+dataLength - size_t - Number of valid bytes in the buffer
+
+-----------------------------------------------------
+ENOMEM - Error NO MEMory (out of memory)
+
+Error	Meaning
+
+ENOMEM - Out of memory
+EINVAL - Invalid argument
+EFAULT - Bad memory address
+EIO - Input/output error
+EBUSY - Device or resource busy
+
+-----------------------------------------------------
+Requirement - Suitable mechanism
+
+Protect a shared driver buffer - Mutex
+Protect a very short atomic-context critical section - Spinlock
+Control access to a pool of resources - Semaphore
+Multiple readers, occasional writer - RW semaphore
+Increment/decrement shared counter - Atomic operations
+Wait until hardware data arrives - Wait queue
+Wait for an operation to complete - Completion
+Read-mostly kernel data structures - RCU
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
 
 -----------------------------------------------------
 
