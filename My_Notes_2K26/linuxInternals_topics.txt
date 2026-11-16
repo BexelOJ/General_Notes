@@ -1,0 +1,372 @@
+-----------------------------------------------------
+1. Linux Architecture and Fundamentals
+
+No.	Topic - Practical work
+
+01	Linux Architecture - Kernel vs user space
+02	System Calls - syscall()
+03	glibc and System Calls - Library vs kernel interface
+04	Linux Boot Process - Boot stages
+05	Kernel Modules - Load/unload modules
+06	Kernel OOPS and Panic\ - Error analysis
+07	Kernel Logging - printk(), dmesg
+08	udev - Device management
+09	procfs - /proc interface
+10	sysfs - /sys interface
+
+-----------------------------------------------------
+2. Process Management Internals
+
+No.	Topic - Practical work
+
+11	Process and Thread - getpid(), gettid()
+12	Process Creation - fork()
+13	Process Replacement - exec()
+14	Process Termination - exit(), _exit()
+15	Process Synchronization - wait(), waitpid()
+16	Zombie Process - Create and inspect zombie
+17	Orphan Process - Parent termination
+18	Daemon Process - Daemon implementation
+19	Process Groups - setpgid()
+20	Sessions - setsid()
+21	Signals - sigaction()
+22	Process States - /proc/PID/stat
+23	Scheduling - sched_setscheduler()
+24	CPU Affinity - sched_setaffinity()
+25	Context Switching - Process/thread experiments
+
+-----------------------------------------------------
+3. Memory Management Internals
+
+No.	Topic - Practical work
+
+26	Virtual Memory - Address-space inspection
+27	Physical Memory - /proc/meminfo
+28	Stack Memory - Stack allocation
+29	Heap Memory - malloc(), free()
+30	Memory Mapping - mmap(), munmap()
+31	Page Faults - Minor and major faults
+32	Copy-on-Write - fork() memory experiment
+33	Shared Memory - shm_open()
+34	Memory Protection - mprotect()
+35	Memory Leaks - Valgrind
+36	OOM Killer - Out-of-memory analysis
+37	Slab Allocator - Kernel allocation concepts
+38	Buddy Allocator	- Physical page allocation
+
+-----------------------------------------------------
+4. Linux IPC – Inter-Process Communication
+
+No.	Topic - Practical work
+
+39	Unnamed Pipes - pipe()
+40	Named Pipes (FIFO) - mkfifo()
+41	Message Queues - POSIX message queues
+42	System V Message Queues - msgget()
+43	Shared Memory - shmget(), shmat()
+44	Semaphores - sem_init()
+45	System V Semaphores - semget()
+46	Unix Domain Sockets - Local communication
+47	TCP Sockets - Client/server
+48	UDP Sockets - Datagram communication
+49	Netlink Sockets - User/kernel communication
+50	Eventfd - Event notification
+51	Signalfd - Signal handling through FD
+52	Blocking vs Non-blocking I/O - Practical comparison
+53	select() - I/O multiplexing
+54	poll() - I/O multiplexing
+55	epoll() - Scalable I/O multiplexing
+
+-----------------------------------------------------
+5. Linux Multithreading and Synchronization
+
+No.	Topic - Practical work
+
+56	POSIX Threads - pthread_create()
+57	Thread Attributes - pthread_attr_t
+58	Thread Joining - pthread_join()
+59	Mutex - pthread_mutex_t
+60	Recursive Mutex - Recursive locking
+61	Read-Write Lock - pthread_rwlock_t
+62	Condition Variables - pthread_cond_wait()
+63	Semaphores - sem_wait()
+64	Spinlocks - pthread_spinlock_t
+65	Atomic Operations - C11 atomics
+66	Race Conditions - Shared counter
+67	Deadlocks - Deadlock demonstration
+68	Priority Inversion - Thread scheduling experiment
+69	Thread Scheduling - Real-time thread policies
+70	CPU Affinity - Pin threads to CPUs
+
+-----------------------------------------------------
+6. Linux File System Internals
+
+No.	Topic - Practical work
+
+71	File Descriptors - open(), close()
+72	File Operations - read(), write()
+73	File Metadata - stat()
+74	Inodes - Inode inspection
+75	Hard Links - link()
+76	Soft Links - symlink()
+77	Directory Operations - opendir(), readdir()
+78	File Permissions - chmod(), chown()
+79	File Locks - flock(), fcntl()
+80	Virtual File System - VFS architecture
+81	Mounting - mount(), umount()
+82	Filesystem Types - ext4, procfs, tmpfs
+83	Page Cache - File caching experiments
+84	Direct I/O - O_DIRECT
+
+-----------------------------------------------------
+7. Linux Kernel Internals
+
+No.	Topic - Practical work
+
+85	Kernel Architecture - Kernel subsystems
+86	Kernel Modules - .ko development
+87	Character Drivers - Character device
+88	Block Drivers - Block device concepts
+89	file_operations - Driver callbacks
+90	Kernel Memory Allocation - kmalloc(), kzalloc()
+91	vmalloc() - Virtual allocation
+92	Kernel Linked Lists - list_head
+93	Kernel Workqueues - Deferred work
+94	Kernel Timers - Timer callbacks
+95	Kernel Wait Queues - Blocking operations
+96	Kernel Mutex - struct mutex
+97	Kernel Spinlocks - spinlock_t
+98	Interrupt Handling - Top half and bottom half
+99	Tasklets - Deferred execution concepts
+100	Softirqs - Kernel deferred work
+101	RCU - Read-Copy-Update
+102	Kernel Threads - kthread
+103	Kernel Scheduler - Scheduling internals
+104	System Call Implementation - Custom syscall concepts
+105	Kernel Tracing - ftrace
+
+-----------------------------------------------------
+8. Hardware and Embedded Linux Internals
+
+No.	Topic - Practical work
+
+106	Device Tree - DTS/DTB
+107	Platform Drivers - Platform driver
+108	GPIO - GPIO driver
+109	I2C - I2C client driver
+110	SPI - SPI driver
+111	UART - Serial driver
+112	Interrupt Controller - IRQ handling
+113	DMA - DMA engine
+114	PCIe - PCI device discovery
+115	USB Internals - USB driver concepts
+116	Power Management - Suspend/resume
+117	Runtime PM - Runtime power management
+
+-----------------------------------------------------
+9. Linux Networking Internals
+
+No.	Topic - Practical work
+
+118	Network Stack - Linux network architecture
+119	Socket Internals - Socket lifecycle
+120	TCP Internals - TCP state machine
+121	UDP Internals - Datagram processing
+122	Routing - Routing table
+123	ARP - Address resolution
+124	Netfilter - Packet filtering
+125	iptables/nftables - Firewall experiments
+126	Network Namespaces - Network isolation
+127	Virtual Ethernet - veth pairs
+128	Packet Capture - libpcap
+
+-----------------------------------------------------
+10. Linux Debugging, Performance and Security
+
+No.	Topic - Practical work
+
+129	GDB - Debug C programs
+130	strace - System call tracing
+131	ltrace - Library call tracing
+132	perf - Performance profiling
+133	ftrace - Kernel function tracing
+134	tracepoints - Kernel events
+135	eBPF - Kernel observability
+136	KASAN - Kernel Address Sanitizer
+137	KCSAN - Kernel Concurrency Sanitizer
+138	KMSAN - Kernel Memory Sanitizer
+139	UBSAN - Undefined Behavior Sanitizer
+140	Lockdep - Lock dependency checking
+141	Core Dumps - Crash analysis
+142	Kernel OOPS Analysis - Stack trace debugging
+143	Linux Capabilities - Privilege management
+144	Seccomp - System call filtering
+145	Namespaces and cgroups - Container internals
+
+-----------------------------------------------------
+11. Linux Advanced Internals
+
+No.	Topic - Practical work
+
+146	Dynamic Linker - ld.so
+147	ELF Format - ELF inspection
+148	Static vs Dynamic Linking - Build experiments
+149	Shared Libraries - dlopen(), dlsym()
+150	Linux Security Modules - LSM architecture
+151	AppArmor - Application confinement
+152	SELinux - Mandatory access control
+153	Containers - Container implementation
+154	Docker Internals - Namespaces and cgroups
+155	Linux Real-Time - PREEMPT_RT
+156	Kernel Live Patching - Live kernel updates
+157	Kernel Crash Dump - kdump
+158	Linux Bootloader - GRUB
+159	Init Systems - systemd
+160	Kernel Configuration - Kconfig and .config
+
+-----------------------------------------------------
+Our coding methodology
+Every topic will follow the same format.
+
+1. Concept: What it is and why Linux needs it.
+2. Internals: How Linux implements it.
+3. Architecture: User space, kernel space and execution flow.
+4. APIs: Functions, parameters and return values.
+5. C implementation: Complete standalone program.
+6. Kernel implementation: When applicable, kernel module or driver example.
+7. Compilation: Exact GCC or kernel build command.
+8. Execution: Commands to run on Ubuntu/Raspberry Pi.
+9. Expected output: Sample terminal output.
+10. Debugging: Common errors and troubleshooting.
+11. Interview questions: Important technical questions.
+Development environment
+
+We'll use your existing systems:
+Environment	Purpose
+Ubuntu desktop	C programming and experiments
+Raspberry Pi 4B+ (4 GB)	Kernel modules and embedded Linux
+GCC	User-space compilation
+Makefile	Build automation
+GDB	Debugging
+GDB + strace + perf	Advanced analysis
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+

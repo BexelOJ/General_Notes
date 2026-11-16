@@ -1,0 +1,140 @@
+-----------------------------------------------------
+1. Code navigation:
+
+These are your most important shortcuts.
+
+Shortcut : Action
+
+F12 	   : Go to Definition
+Alt + F12  : Peek Definition
+Ctrl + F12 : Go to Implementation
+Shift + F12 : Find All References
+Alt + Left : Navigate Back
+Alt + Right : Navigate Forward
+Ctrl + Shift + O : Go to Symbol in File
+Ctrl + T   : Go to Symbol in Workspace
+Ctrl + G   : Go to Line
+F8 		   : Next Problem
+Shift + F8 : Previous Problem
+
+-----------------------------------------------------
+2. File navigation:
+
+Shortcut : Action
+
+Ctrl + P	Quick Open File
+Ctrl + Tab	Switch between open files
+Ctrl + Shift + Tab	Switch to previous file
+Ctrl + W	Close current editor
+Ctrl + Shift + T	Reopen closed editor
+Ctrl + K, Ctrl + O	Open Folder
+Ctrl + \	Split Editor
+Ctrl + 1	Focus first editor
+Ctrl + 2	Focus second editor
+
+-----------------------------------------------------
+3. Search navigation:
+
+Shortcut : Action
+
+Ctrl + F	Find in current file
+Ctrl + H	Replace in current file
+Ctrl + Shift + F	Search entire workspace
+Ctrl + Shift + H	Replace across workspace
+F3	Find next
+Shift + F3	Find previous
+Alt + Enter	Select all search matches
+
+For example, to find every occurrence of kmalloc throughout the Linux kernel:
+
+kmalloc
+
+Press Ctrl + Shift + F.
+-----------------------------------------------------
+4. Editor navigation:
+
+Shortcut : Action
+
+Home	Beginning of line
+End	End of line
+Ctrl + Home	Beginning of file
+Ctrl + End	End of file
+Ctrl + Up	Scroll up
+Ctrl + Down	Scroll down
+Ctrl + ]	Indent
+Ctrl + [	Outdent
+Ctrl + /	Toggle comment
+
+-----------------------------------------------------
+5. Navigation specifically for kernel exploration
+These are particularly useful when understanding how kernel subsystems interact.
+Requirement	Shortcut
+
+Jump to function definition : F12
+Inspect function without leaving current file : Alt + F12
+Find who calls a function : Shift + F12
+Search a structure name : Ctrl + Shift + F
+Find a symbol in the workspace : Ctrl + T
+Return to previous function location : Alt + Left
+Revisit next location : Alt + Right
+
+-----------------------------------------------------
+6. Your navigation workflow:
+
+For example, while studying Linux memory management:
+Example: Following kmalloc()
+
+1. Open a driver source file
+   
+   Ctrl + P → Search for a .c file under drivers/.
+2. Find kmalloc()
+   
+   Ctrl + F → kmalloc
+3. Jump to definition
+   
+   Place cursor on kmalloc → F12.
+4. Inspect the implementation
+   
+   Alt + F12 for Peek Definition.
+5. Find callers
+   
+   Shift + F12.
+6. Return to previous location
+   
+   Alt + Left.
+
+-----------------------------------------------------
+7. My recommendation:
+
+Since you are studying Linux kernel internals, learn these five first:
+F12
+Essential
+
+Go to Definition
+
+Shift + F12
+
+Find All References
+
+Alt + Left / Right
+
+Navigate Back / Forward
+
+Ctrl + T
+
+Workspace Symbol Search
+
+Ctrl + Shift + F
+
+Global Source Search
+
+-----------------------------------------------------
+One additional recommendation: because you use Vim, you can retain Vim's hjkl, gg, G, /pattern, and n/N navigation while using these VS Code shortcuts for cross-file navigation.
+
+Next, I'd recommend configuring Call Hierarchy so you can inspect both incoming and outgoing function calls in the Linux kernel. This is extremely useful for understanding kernel execution flow.
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
