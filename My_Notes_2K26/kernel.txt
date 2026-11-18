@@ -1,4 +1,4 @@
------------------------------------------------------
+----------------------------------------------------
 
 Common Concurrency Tools in the Kernel:
 
@@ -8,7 +8,7 @@ Atomic Operations
 RCU (Read-Copy-Update)
 Barriers (Memory Barriers / Compiler Barriers)
 
------------------------------------------------------
+----------------------------------------------------
 printk(KERN_EMERG  "Emergency\n");
 printk(KERN_ALERT  "Alert\n");
 printk(KERN_CRIT   "Critical\n");
@@ -18,7 +18,7 @@ printk(KERN_NOTICE "Notice\n");
 printk(KERN_INFO   "Information\n");
 printk(KERN_DEBUG   "Debug\n");
 
------------------------------------------------------
+----------------------------------------------------
 pr_emerg("...");
 pr_alert("...");
 pr_crit("...");
@@ -28,12 +28,12 @@ pr_notice("...");
 pr_info("...");
 pr_debug("...");
 
------------------------------------------------------
+----------------------------------------------------
 dmesg | tail -10
 dmesg | tail -20
 dmesg | tail -50
 
------------------------------------------------------
+----------------------------------------------------
 insmod file.ko
 
 lsmod 
@@ -43,7 +43,7 @@ rmmod module_name
 modinfo module_name
 
 
------------------------------------------------------
+----------------------------------------------------
 .c
  ↓
 Makefile
@@ -66,7 +66,7 @@ depmod       ← build module dependency database
  ↓
 modprobe     ← load module by name + dependencies
 
------------------------------------------------------
+----------------------------------------------------
 static int value = 10;
 static int debug = 0;
 static int buffer_size = 1024;
@@ -96,7 +96,7 @@ with the kernel.
 
 cat /sys/module/<module_name>/parameters/value
 
------------------------------------------------------
+----------------------------------------------------
 EXPORT_SYMBOL() 
 does not mean it can be used by normal user-space programs.
 
@@ -115,7 +115,7 @@ Consumer kernel module
         ▼
 ldd_addNumbers()
 
------------------------------------------------------
+----------------------------------------------------
 sudo depmod -a
 
 ------------------------------
@@ -131,20 +131,20 @@ modprobe -r
 
 // removes a module and can handle dependency relationships
 
------------------------------------------------------
+----------------------------------------------------
 consumer uses:
 
 extern int ldd_addNumbers(int a, int b);
 
------------------------------------------------------
+----------------------------------------------------
 provider exporting:
 
 EXPORT_SYMBOL(ldd_addNumbers);
 
------------------------------------------------------
+----------------------------------------------------
 find . -maxdepth 1 -type d -name 'ldd_20261001*' | wc -l
 
------------------------------------------------------
+----------------------------------------------------
 Examples of things a driver might expose through ioctl():
 
 RESET_DEVICE
@@ -155,7 +155,7 @@ STOP
 GET_STATUS
 CONFIGURE_DEVICE
 
------------------------------------------------------
+----------------------------------------------------
 CONCURRENCY
 │
 ├── Kernel execution
@@ -177,7 +177,7 @@ CONCURRENCY
     ├── waitQueue
     └── completion
 
------------------------------------------------------
+----------------------------------------------------
 atomic
     → protect simple atomic operations
 
@@ -213,7 +213,7 @@ delayed work
 tasklet
     → older deferred-execution mechanism
 
------------------------------------------------------
+----------------------------------------------------
 
 Device Tree / ACPI
        |
@@ -238,7 +238,7 @@ Hardware
        v
 IRQ handler
 
------------------------------------------------------
+----------------------------------------------------
 
                          HARDWARE
                             |
@@ -266,7 +266,7 @@ IRQ handler
  workqueue   other
  
 
------------------------------------------------------
+----------------------------------------------------
 And the key APIs you're learning are:
 
 Concept	- 				Main API
@@ -283,7 +283,7 @@ CPU affinity -			irq_set_affinity()
 Get platform IRQ -		platform_get_irq()
 Managed IRQ -			devm_request_irq()
 
------------------------------------------------------
+----------------------------------------------------
 You are now moving from individual kernel APIs into the 
 Linux Device Mode
 
@@ -305,7 +305,7 @@ Linux Device Mode
                                 ↓
                               remove()
 							  
------------------------------------------------------
+----------------------------------------------------
 For a platform driver:
 
 Device Tree / ACPI / platform_device
@@ -329,7 +329,7 @@ Device Tree / ACPI / platform_device
              Hardware
 			 
 			 
------------------------------------------------------
+----------------------------------------------------
 The key APIs you've now encountered
 
 Concept -	Main API
@@ -351,12 +351,12 @@ Bus removal -			bus_unregister()
 Sysfs attributes - 		struct attribute_group
 Driver matching -		Device Model matching
 
------------------------------------------------------
+----------------------------------------------------
 Device Tree (DT) → 
 Open Firmware (OF) APIs → 
 platform driver resources
 
------------------------------------------------------
+----------------------------------------------------
 
                  Device Tree
                      │
@@ -385,7 +385,7 @@ platform driver resources
                   Hardware
 				  
 
------------------------------------------------------
+----------------------------------------------------
 OLD
 -------------------------------------------
 platform_device
@@ -417,7 +417,7 @@ read resources from DT
         ├── reg
         └── phandle
 
------------------------------------------------------
+----------------------------------------------------
 The APIs I would remember from this section
 
 Device Tree concept -	Main API
@@ -437,7 +437,7 @@ Reset - 			devm_reset_control_get_exclusive()
 Private driver data	- 	platform_set_drvdata()
 Retrieve driver data - 	platform_get_drvdata()
 
------------------------------------------------------
+----------------------------------------------------
 
                  Device Tree
                       │
@@ -459,7 +459,7 @@ Retrieve driver data - 	platform_get_drvdata()
                   Driver
 				  
 				  
------------------------------------------------------
+----------------------------------------------------
 Most important GPIO APIs
 
 Purpose	- API
@@ -475,7 +475,7 @@ Request IRQ - 			devm_request_irq()
 Delay/debounce - 		mod_delayed_work()
 Cancel debounce - 		cancel_delayed_work_sync()
 
------------------------------------------------------
+----------------------------------------------------
 
 I²C Device Tree
       ↓
@@ -491,7 +491,7 @@ i2c_transfer() / SMBus APIs
       ↓
 I²C Hardware
 
------------------------------------------------------
+----------------------------------------------------
 Complete I²C picture:
 
                     Device Tree
@@ -533,7 +533,7 @@ Complete I²C picture:
                   ↓
                Hardware
 
------------------------------------------------------
+----------------------------------------------------
 
 struct i2c_adapter
         ↓
@@ -547,7 +547,7 @@ struct i2c_driver
         ↓
 represents the driver
 
------------------------------------------------------
+----------------------------------------------------
 Main APIs from this section:
 
 Purpose	- API
@@ -568,7 +568,7 @@ DT matching - 		.of_match_table
 Device address - 	client->addr
 Adapter - 			client->adapter
 
------------------------------------------------------
+----------------------------------------------------
 
                     Device Tree
                          |
@@ -607,7 +607,7 @@ Adapter - 			client->adapter
      spi_sync_transfer()
 
 
------------------------------------------------------
+----------------------------------------------------
 The most important SPI APIs from these examples are:
 
 API	- Purpose
@@ -628,7 +628,7 @@ spi_get_drvdata() - 	Retrieve driver private data
 
 module_spi_driver() - 	Register/unregister SPI driver
 
------------------------------------------------------
+----------------------------------------------------
 And the three core SPI objects are:
 
 struct spi_controller
@@ -651,7 +651,7 @@ struct spi_driver
         ↓
 software driver
 
------------------------------------------------------
+----------------------------------------------------
 
                     Hardware
                        │
@@ -674,7 +674,7 @@ Sensors
    ↓
  hwmon
 
------------------------------------------------------
+----------------------------------------------------
 
 Linux PWM subsystem
         │
@@ -687,7 +687,7 @@ period + duty_cycle
         ↓
 Hardware PWM
 
------------------------------------------------------
+----------------------------------------------------
 
                  IIO
                   │
@@ -697,7 +697,7 @@ Hardware PWM
         ↓                   ↓
  Analog → Digital     Digital → Analog
  
------------------------------------------------------
+----------------------------------------------------
 
 IIO provider
      │
@@ -714,7 +714,7 @@ IIO consumer
      └── asks the provider for
          channel data
 
------------------------------------------------------
+----------------------------------------------------
 
 Hardware sensor
        ↓
@@ -726,7 +726,7 @@ Linux hwmon subsystem
        ↓
 temp / voltage / fan / power
 
------------------------------------------------------
+----------------------------------------------------
 For your LDD learning sequence,
 the important APIs from this batch are:
 
@@ -747,7 +747,7 @@ hwmon
  ├── devm_hwmon_device_register_with_groups()
  └── hwmon sysfs attributes
  
------------------------------------------------------
+----------------------------------------------------
 One conceptual point to keep very clear:
 
 20261010 I²C
@@ -764,7 +764,7 @@ Bus / protocol driver
     ↓
 Hardware subsystem drivers
 
------------------------------------------------------
+----------------------------------------------------
 
                     USB Host Controller
                            │
@@ -789,7 +789,7 @@ Hardware subsystem drivers
    Control  Bulk   Interrupt
    Transfer Transfer Transfer
    
------------------------------------------------------
+----------------------------------------------------
 
 struct usb_device
         │
@@ -825,7 +825,7 @@ struct urb
         ↓
 one USB transfer request
 
------------------------------------------------------
+----------------------------------------------------
 
                     USB Endpoint
                          │
@@ -836,7 +836,7 @@ one USB transfer request
     configuration     large data     periodic/
                                      event data
 									 
------------------------------------------------------
+----------------------------------------------------
 USB transfer flow:
 For an asynchronous URB:
 
@@ -867,7 +867,7 @@ completion callback
 usb_*_complete()
 
 
------------------------------------------------------
+----------------------------------------------------
 The most important APIs from this batch are:
 
 USB driver
@@ -900,7 +900,7 @@ Interrupt
  ├── usb_sndintpipe()
  └── usb_rcvintpipe()
  
------------------------------------------------------
+----------------------------------------------------
 The Linux USB model is more accurately:
 
 USB physical device
@@ -920,7 +920,7 @@ struct usb_device
               ↓
            usb_driver C
 		   
------------------------------------------------------
+----------------------------------------------------
 
 PCI/PCIe Hardware
        │
@@ -946,10 +946,10 @@ probe()
        ↓
 remove()
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 netdevBasic - 			struct net_device
 netdevRegistration - 	register_netdev()
@@ -965,7 +965,7 @@ netdevDMA - 			DMA mapping of packet
 netdevStatistics -	 	RX/TX statistics
 netdevComplete - 		Putting the pieces together
 
------------------------------------------------------
+----------------------------------------------------
 
 Module 				- Main concept
 
@@ -982,7 +982,7 @@ inputInterrupt 		- IRQ → input event
 inputDeviceTree 	- Device Tree → GPIO → input
 inputComplete 		- GPIO + IRQ + debounce + input
 
------------------------------------------------------
+----------------------------------------------------
 
                  Device Tree
                      │
@@ -1017,7 +1017,7 @@ inputComplete 		- GPIO + IRQ + debounce + input
               User-space
 
 
------------------------------------------------------
+----------------------------------------------------
 
 Module 			- Main concept
 
@@ -1033,7 +1033,7 @@ uartFlowControl - RTS/CTS + XON/XOFF
 ttyDriver 		- TTY driver operations
 
 
------------------------------------------------------
+----------------------------------------------------
 
                     User Space
                         │
@@ -1059,7 +1059,7 @@ ttyDriver 		- TTY driver operations
                    UART Hardware
 				   
 
------------------------------------------------------
+----------------------------------------------------
 
 Linux Power Management
 │
@@ -1081,7 +1081,7 @@ Linux Power Management
         └── allow device to wake system
 		
 
------------------------------------------------------
+----------------------------------------------------
 
                          Linux Power Management
                                   │
@@ -1109,7 +1109,7 @@ Linux Power Management
                                                 Wakeup Source
 												
 												
------------------------------------------------------
+----------------------------------------------------
 
 Module - Main purpose
 
@@ -1125,7 +1125,7 @@ tracepoints 	- Instrument predefined kernel events
 kprobe 			- Dynamically instrument a kernel function
 
 
------------------------------------------------------
+----------------------------------------------------
 
                     Linux Kernel Debugging
                             │
@@ -1149,7 +1149,7 @@ debugging
        Oops      Panic
 	   
 	   
------------------------------------------------------
+----------------------------------------------------
 
 Kprobe
    ↓
@@ -1180,7 +1180,7 @@ debugfs
 "Give me a debug interface to inspect/control the kernel."
 
 
------------------------------------------------------
+----------------------------------------------------
 Driver Reliability
 │
 ├── Resource Management
@@ -1197,33 +1197,33 @@ Driver Reliability
     ├── race protection
     └── robust driver
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 

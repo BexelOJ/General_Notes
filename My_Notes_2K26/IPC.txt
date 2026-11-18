@@ -1,4 +1,4 @@
------------------------------------------------------
+----------------------------------------------------
 <sys/types.h> 
 defines portable integer types for system programming. 
 Here's each major type:
@@ -64,21 +64,21 @@ pthread_t          pthread_mutex_t
 pthread_attr_t     pthread_cond_t
 pthread_key_t      etc.
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 # Replace <PUBLIC_IP> with your instance's Public IP Address
 ssh -i $env:USERPROFILE\.ssh\oci_android_key opc@129.154.41.65
 
------------------------------------------------------
+----------------------------------------------------
 Constant - File descriptor - Purpose
 
 STDIN_FILENO	0	Standard input
 STDOUT_FILENO	1	Standard output
 STDERR_FILENO	2	Standard error
 
------------------------------------------------------
+----------------------------------------------------
 Function	Purpose
 
 fork() 
@@ -99,7 +99,7 @@ close()
 sleep(5) 
 - Pauses execution for five seconds
 
------------------------------------------------------
+----------------------------------------------------
 Header - Functions or definitions used
 
 stdio.h 
@@ -117,13 +117,13 @@ fcntl.h
 sys/stat.h 
 - umask()
 
------------------------------------------------------
+----------------------------------------------------
 For a pipe created using the POSIX pipe() function in C:
 
 - pipeFd[0] is always the read end.
 - pipeFd[1] is always the write end.
 
------------------------------------------------------
+----------------------------------------------------
 Format specifier - Typical matching type - Purpose
 
 %d - int - Signed integer
@@ -136,14 +136,14 @@ Remember for Linux system programming:
 - read() and write() return ssize_t → use %zd to print the result.
 - sizeof() returns size_t → use %zu to print the result.
 
------------------------------------------------------
+----------------------------------------------------
 
 EAGAIN - Error: Try Again
 
 EWOULDBLOCK - Error: Operation Would Block
 
------------------------------------------------------
------------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
 POSIX message queues use functions such as:
 
 - mq_open() — open or create a queue
@@ -152,7 +152,7 @@ POSIX message queues use functions such as:
 - mq_close() — close the queue descriptor
 - mq_unlink() — remove the queue name
 
------------------------------------------------------
+----------------------------------------------------
 Expression	Meaning
 
 F_SETFL - Set file status flags
@@ -163,7 +163,7 @@ O_NONBLOCK - Open Non-Blocking
 flags \| O_NONBLOCK 
 - Preserve the existing flags and add the non-blocking flag
 
------------------------------------------------------
+----------------------------------------------------
 Argument	Meaning
 
 MQ_NAME	Queue name: /mq_basic
@@ -172,7 +172,7 @@ O_RDWR	Open the queue for sending and receiving
 0666	Permission bits requested when creating the queue
 NULL	Use default queue attributes
 
------------------------------------------------------
+----------------------------------------------------
 if (mq_send(mq, message, strlen(message) + 1, 0) == -1)
  {
      perror("mq_send");
@@ -184,14 +184,14 @@ if (mq_send(mq, message, strlen(message) + 1, 0) == -1)
 mq_send(mq, message, strlen(message) + 1, 0);
 mq_receive(mq, buffer, sizeof(buffer), NULL);
 
------------------------------------------------------
+----------------------------------------------------
 EMSGSIZE - 
 
------------------------------------------------------
+----------------------------------------------------
 mqd_t - message queue descriptor type 
 in POSIX message queue programming
 
------------------------------------------------------
+----------------------------------------------------
 Signal	Meaning	Typical purpose
 
 SIGINT - Interrupt 
@@ -212,14 +212,14 @@ SIGUSR1 - User-defined signal 1
 SIGSEGV - Invalid memory access 
 - Commonly raised after a segmentation fault
 
------------------------------------------------------
+----------------------------------------------------
 POLLOUT (ready for writing)
 POLLERR (error condition)
 POLLHUP (hangup)
 
------------------------------------------------------
+----------------------------------------------------
 
------------------------------------------------------
+----------------------------------------------------
 snprintf() - string formatted print
 
 Function	Where does the output go?	Buffer size limit?
@@ -228,7 +228,7 @@ printf()	Terminal/standard output	Not applicable
 sprintf()	Character array				No
 snprintf()	Character array				Yes
 
------------------------------------------------------
+----------------------------------------------------
 NONBLOCKING
 
 int flags = fcntl(pipeFd[0], F_GETFL);
@@ -237,14 +237,14 @@ fcntl(pipeFd[0], F_SETFL, flags | O_NONBLOCK);
 ssize_t bytesRead = read(pipeFd[0], buffer, sizeof(buffer));
 	
 
------------------------------------------------------
+----------------------------------------------------
 EOF - (End Of File)
 
------------------------------------------------------
+----------------------------------------------------
 fasync - file asynchronous 
 notification mechanism in the Linux kernel
 
------------------------------------------------------
+----------------------------------------------------
 kmalloc() — physical memory is contiguous.
 
 vmalloc() — virtual address space is contiguous, 
@@ -254,7 +254,7 @@ kzalloc() — like kmalloc(), but zero-initialized.
 
 kfree() — releases the allocated memory.
 
------------------------------------------------------
+----------------------------------------------------
 Common IRQ-related functions in Linux device drivers
 
 Function/term - Meaning
@@ -276,11 +276,11 @@ by this device.
 IRQF_SHARED - Allows an IRQ line to be shared by 
 multiple devices, where supported.
 
------------------------------------------------------
+----------------------------------------------------
 hwmon - hardware Monitor
 IIO - Industrial Input/Output
 
------------------------------------------------------
+----------------------------------------------------
 
 spiDevice 
 - describes the hardware device connected to the SPI bus.
@@ -289,52 +289,52 @@ spiDriver
 - contains the software that controls or 
 communicates with that device.
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
 

@@ -1,11 +1,11 @@
------------------------------------------------------
+----------------------------------------------------
 IPC — Complete Project Roadmap
 ------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 01–10 — IPC Fundamentals
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 01	ipc_202061001_helloProcess
@@ -38,9 +38,9 @@ IPC — Complete Project Roadmap
 10	ipc_202061001_daemonProcess
 - Daemon/background process
 
------------------------------------------------------
+----------------------------------------------------
 11–20 — Pipes
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 11	ipc_202061002_pipeBasic
@@ -73,9 +73,9 @@ IPC — Complete Project Roadmap
 20	ipc_202061002_pipeProducerConsumer
 - Producer/consumer
 
------------------------------------------------------
+----------------------------------------------------
 21–30 — Named Pipes / FIFO
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 21	ipc_202061003_fifoBasic
@@ -108,9 +108,9 @@ IPC — Complete Project Roadmap
 30	ipc_202061003_fifoChat
 - Simple IPC chat
 
------------------------------------------------------
+----------------------------------------------------
 31–40 — Signals
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 31	ipc_202061004_signalBasic
@@ -143,9 +143,9 @@ IPC — Complete Project Roadmap
 40	ipc_202061004_signalProcessControl
 - Process control with signals
 
------------------------------------------------------
+----------------------------------------------------
 41–50 — POSIX Message Queues
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 41	ipc_202061005_mqBasic
@@ -178,9 +178,9 @@ IPC — Complete Project Roadmap
 50	ipc_202061005_mqClientServer
 - Message-queue client/server
 
------------------------------------------------------
+----------------------------------------------------
 51–60 — Shared Memory
------------------------------------------------------
+----------------------------------------------------
 This is one of the most important IPC sections.
 
 #	Project - Concept
@@ -215,9 +215,9 @@ This is one of the most important IPC sections.
 60	ipc_202061006_shmDataExchange
 - High-speed IPC
 
------------------------------------------------------
+----------------------------------------------------
 61–70 — Shared Memory Synchronization
------------------------------------------------------
+----------------------------------------------------
 Shared memory by itself creates race conditions, 
 so this section combines IPC with synchronization.
 
@@ -253,9 +253,9 @@ so this section combines IPC with synchronization.
 70	ipc_202061007_shmHighPerformance
 - High-performance IPC
 
------------------------------------------------------
+----------------------------------------------------
 71–80 — System V IPC
------------------------------------------------------
+----------------------------------------------------
 Important because you'll encounter it in 
 older Linux systems and existing software.
 
@@ -291,9 +291,9 @@ older Linux systems and existing software.
 80	ipc_202061008_sysvCleanup
 - IPC resource management
 
------------------------------------------------------
+----------------------------------------------------
 81–90 — UNIX Domain Sockets
------------------------------------------------------
+----------------------------------------------------
 Very important for Linux applications.
 
 #	Project - Concept
@@ -328,9 +328,9 @@ Very important for Linux applications.
 90	ipc_202061009_unixClientServer
 - Production-style IPC
 
------------------------------------------------------
+----------------------------------------------------
 91–100 — Network IPC
------------------------------------------------------
+----------------------------------------------------
 Now IPC extends beyond one machine.
 
 #	Project - Concept
@@ -365,9 +365,9 @@ Now IPC extends beyond one machine.
 100	ipc_202061010_epoll
 - epoll()
 
------------------------------------------------------
+----------------------------------------------------
 101–110 — Event-Driven IPC
------------------------------------------------------
+----------------------------------------------------
 This is where IPC starts becoming much closer to 
 real Linux server architecture.
 
@@ -403,9 +403,9 @@ real Linux server architecture.
 110	ipc_202061011_eventDrivenServer
 - Complete event-driven IPC
 
------------------------------------------------------
+----------------------------------------------------
 111–120 — Process Synchronization
------------------------------------------------------
+----------------------------------------------------
 IPC and synchronization overlap heavily.
 
 #	Project - Concept
@@ -440,9 +440,9 @@ IPC and synchronization overlap heavily.
 120	ipc_202061012_raceCondition
 - Race condition
 
------------------------------------------------------
+----------------------------------------------------
 121–130 — Advanced Process Management
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 121	ipc_202061013_processGroup
@@ -475,9 +475,9 @@ IPC and synchronization overlap heavily.
 130	ipc_202061013_processSupervisor
 - Process supervisor
 
------------------------------------------------------
+----------------------------------------------------
 131–140 — File-Based IPC
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 131	ipc_202061014_fileExchange
@@ -510,9 +510,9 @@ IPC and synchronization overlap heavily.
 140	ipc_202061014_fileIPCServer
 - File-based IPC server
 
------------------------------------------------------
+----------------------------------------------------
 141–150 — IPC Performance
------------------------------------------------------
+----------------------------------------------------
 Now measure the different mechanisms.
 
 #	Project - Concept
@@ -547,9 +547,9 @@ Now measure the different mechanisms.
 150	ipc_202061015_memoryBenchmark
 - Memory overhead
 
------------------------------------------------------
+----------------------------------------------------
 151–160 — Zero-Copy / High Performance IPC
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 151	ipc_202061016_zeroCopyBasic
@@ -582,9 +582,9 @@ Now measure the different mechanisms.
 160	ipc_202061016_highPerformanceIPC
 - Complete high-speed IPC
 
------------------------------------------------------
+----------------------------------------------------
 161–170 — File Descriptor Based IPC
------------------------------------------------------
+----------------------------------------------------
 Modern Linux relies heavily on file descriptors.
 
 #	Project - Concept
@@ -619,9 +619,9 @@ Modern Linux relies heavily on file descriptors.
 170	ipc_202061017_fdArchitecture
 - FD-oriented IPC
 
------------------------------------------------------
+----------------------------------------------------
 171–180 — IPC + Threads
------------------------------------------------------
+----------------------------------------------------
 Important distinction:
 
 Thread communication ≠ process communication, 
@@ -659,9 +659,9 @@ but real applications often combine both.
 180	ipc_202061018_hybridIPC
 - Hybrid IPC
 
------------------------------------------------------
+----------------------------------------------------
 181–190 — IPC Security
------------------------------------------------------
+----------------------------------------------------
 #	Project - Concept
 
 181	ipc_202061019_permissions
@@ -694,9 +694,9 @@ but real applications often combine both.
 190	ipc_202061019_secureServer
 - Secure IPC server
 
------------------------------------------------------
+----------------------------------------------------
 191–200 — IPC + Linux Kernel
------------------------------------------------------
+----------------------------------------------------
 This connects your IPC learning to your 
 Linux Device Driver / Kernel roadmap.
 
@@ -732,9 +732,9 @@ Linux Device Driver / Kernel roadmap.
 200	ipc_202061020_syscallIPC
 - IPC system calls
 
------------------------------------------------------
+----------------------------------------------------
 201–210 — IPC with Device Drivers
------------------------------------------------------
+----------------------------------------------------
 This is particularly relevant to your 
 Linux driver work.
 
@@ -770,9 +770,9 @@ Linux driver work.
 210	ipc_202061021_driverUserspace
 - Complete driver/user IPC
 
------------------------------------------------------
+----------------------------------------------------
 211–220 — IPC Architectures
------------------------------------------------------
+----------------------------------------------------
 Now start combining mechanisms.
 
 #	Project	Architecture
@@ -807,9 +807,9 @@ Now start combining mechanisms.
 220	ipc_202061022_supervisorWorker
 - Supervisor/worker
 
------------------------------------------------------
+----------------------------------------------------
 221–230 — Real-World IPC Projects
------------------------------------------------------
+----------------------------------------------------
 #	Project	Practical System
 
 221	ipc_202061023_logger
@@ -842,9 +842,9 @@ Now start combining mechanisms.
 230	ipc_202061023_processManage
 - Process manager
 
------------------------------------------------------
+----------------------------------------------------
 231–240 — IPC + Your Embedded/Linux Stack
------------------------------------------------------
+----------------------------------------------------
 This is where the roadmap connects directly to 
 what you're already learning.
 
@@ -880,9 +880,9 @@ what you're already learning.
 240	ipc_202061024_embeddedArchitecture
 - Complete embedded IPC
 
------------------------------------------------------
+----------------------------------------------------
 241–250 — IPC + Qt
------------------------------------------------------
+----------------------------------------------------
 Very relevant to your yantraSthiti architecture.
 
 #	Project	Concept
@@ -917,9 +917,9 @@ Very relevant to your yantraSthiti architecture.
 250	ipc_202061025_qtProductionArchitecture
 - Production Qt IPC
 
------------------------------------------------------
+----------------------------------------------------
 251–260 — IPC + Distributed Systems
------------------------------------------------------
+----------------------------------------------------
 At this point the boundary between IPC and 
 distributed communication becomes important.
 
@@ -955,9 +955,9 @@ distributed communication becomes important.
 260	ipc_202061026_distributedArchitecture
 - Distributed IPC
 
------------------------------------------------------
+----------------------------------------------------
 261–270 — Advanced Linux IPC
------------------------------------------------------
+----------------------------------------------------
 #	Project	Concept
 
 261	ipc_202061027_ioUring
@@ -990,9 +990,9 @@ distributed communication becomes important.
 270	ipc_202061027_linuxIPCArchitecture
 - Linux IPC architecture
 
------------------------------------------------------
+----------------------------------------------------
 271–280 — Debugging & Observability
------------------------------------------------------
+----------------------------------------------------
 #	Project	Concept
 
 271	ipc_202061028_strace
@@ -1025,9 +1025,9 @@ distributed communication becomes important.
 280	ipc_202061028_debugToolkit
 - IPC debugging toolkit
 
------------------------------------------------------
+----------------------------------------------------
 281–290 — Capstone Projects
------------------------------------------------------
+----------------------------------------------------
 #	Project	System
 
 281	ipc_202061029_chatSystem
@@ -1060,8 +1060,8 @@ distributed communication becomes important.
 290	ipc_202061029_completeIPCSystem
 - Complete IPC architecture
 
------------------------------------------------------
------------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
 The learning progression
 
 The important thing is not to memorize 290 APIs. 
@@ -1107,7 +1107,7 @@ Containers / Namespaces
    ↓
 Production IPC Architecture
 
------------------------------------------------------
+----------------------------------------------------
 How this fits your other learning tracks
 
 You now have three very useful parallel tracks:
@@ -1138,10 +1138,10 @@ Linux/POSIX-based, because it will connect directly
 to your upcoming Linux kernel, device-driver, Qt, 
 Raspberry Pi, and server work.
 			  
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 IPC_2026/
 │
 └── IPC_10_2026/
@@ -1187,7 +1187,7 @@ IPC_2026/
         ├── udpClient.c
         └── Makefile
 
------------------------------------------------------
+----------------------------------------------------
 01  epollBasic
         │
         ▼
@@ -1216,7 +1216,7 @@ IPC_2026/
                ▼
           10 timerfd
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261014_atomicFile
 ipc_20261014_fcntlLock
 ipc_20261014_fileExchange
@@ -1228,7 +1228,7 @@ ipc_20261014_lockFile
 ipc_20261014_spoolDirectory
 ipc_20261014_tempFile
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261015_cpuBenchmark
 ipc_20261015_fifoBenchmark
 ipc_20261015_latencyBenchmark
@@ -1240,7 +1240,7 @@ ipc_20261015_tcpBenchmark
 ipc_20261015_throughputBenchmark
 ipc_20261015_unixSocketBenchmark
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261016_highPerformanceIPC
 ipc_20261016_lockFreeQueue
 ipc_20261016_memfd
@@ -1252,7 +1252,7 @@ ipc_20261016_spmcQueue
 ipc_20261016_spscQueue
 ipc_20261016_zeroCopyBasic
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261017_fdArchitecture
 ipc_20261017_fdClient
 ipc_20261017_fdEventSystem
@@ -1264,7 +1264,7 @@ ipc_20261017_sendmsg
 ipc_20261017_sharedFileDescriptor
 ipc_20261017_unixFdPassing
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261018_hybridIPC
 ipc_20261018_processThreadPool
 ipc_20261018_threadCondition
@@ -1276,7 +1276,7 @@ ipc_20261018_threadSharedMemory
 ipc_20261018_threadSocket
 ipc_20261018_workerArchitecture
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261019_capabilities
 ipc_20261019_credentials
 ipc_20261019_filePermissions
@@ -1288,7 +1288,7 @@ ipc_20261019_selinuxIPC
 ipc_20261019_socketPermissions
 ipc_20261019_uidGid
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261020_kernelEpoll
 ipc_20261020_kernelEventfd
 ipc_20261020_kernelMq
@@ -1300,7 +1300,7 @@ ipc_20261020_procfs
 ipc_20261020_syscallIPC
 ipc_20261020_sysfs
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261021_driverEpoll
 ipc_20261021_driverEventfd
 ipc_20261021_driverIoctl
@@ -1312,7 +1312,7 @@ ipc_20261021_driverSharedMemory
 ipc_20261021_driverSignal
 ipc_20261021_driverUserspace
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261022_clientServer
 ipc_20261022_eventDriven
 ipc_20261022_messageRouter
@@ -1324,7 +1324,7 @@ ipc_20261022_serviceManager
 ipc_20261022_supervisorWorker
 ipc_20261022_workerPool
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261023_commandService
 ipc_20261023_configService
 ipc_20261023_dataCollector
@@ -1337,7 +1337,7 @@ ipc_20261023_processManage
 ipc_20261023_sensorService
 ipc_20261023_taskManager
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261024_databaseBridge
 ipc_20261024_embeddedArchitecture
 ipc_20261024_gpioService
@@ -1349,7 +1349,7 @@ ipc_20261024_sensorPipeline
 ipc_20261024_spiService
 ipc_20261024_uartService
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261025_qtBackendService
 ipc_20261025_qtLocalServer
 ipc_20261025_qtLocalSocket
@@ -1361,7 +1361,7 @@ ipc_20261025_qtProductionArchitecture
 ipc_20261025_qtSharedMemory
 ipc_20261025_qtWorkerProcess
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261026_distributedArchitecture
 ipc_20261026_grpcBasic
 ipc_20261026_grpcClient
@@ -1373,7 +1373,7 @@ ipc_20261026_restServic
 ipc_20261026_rpcBasic
 ipc_20261026_serviceToService
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261027_asyncFile
 ipc_20261027_asyncPipe
 ipc_20261027_asyncSocket
@@ -1385,7 +1385,7 @@ ipc_20261027_linuxIPCArchitecture
 ipc_20261027_namespace
 ipc_20261027_signalSafe
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261028_bpf
 ipc_20261028_debugToolkit
 ipc_20261028_ftrace
@@ -1397,7 +1397,7 @@ ipc_20261028_procInspection
 ipc_20261028_ss
 ipc_20261028_strace
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261029_chatSystem
 ipc_20261029_completeIPCSystem
 ipc_20261029_databaseServer
@@ -1409,7 +1409,7 @@ ipc_20261029_processSupervisor
 ipc_20261029_qtLinuxSystem
 ipc_20261029_sensorSystem
 
------------------------------------------------------
+----------------------------------------------------
 ipc_20261022_clientServer
              |
              v
@@ -1439,28 +1439,28 @@ ipc_20261022_supervisorWorker
              v
 ipc_20261022_workerPool
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
------------------------------------------------------
+----------------------------------------------------
 
 
 
