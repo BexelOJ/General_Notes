@@ -129,7 +129,8 @@ Ctrl + Shift + F
 Global Source Search
 
 -----------------------------------------------------
-One additional recommendation: because you use Vim, you can retain Vim's hjkl, gg, G, /pattern, and n/N navigation while using these VS Code shortcuts for cross-file navigation.
+One additional recommendation: because you use Vim, 
+you can retain Vim's hjkl, gg, G, /pattern, and n/N navigation while using these VS Code shortcuts for cross-file navigation.
 
 Next, I'd recommend configuring Call Hierarchy so you can inspect both incoming and outgoing function calls in the Linux kernel. This is extremely useful for understanding kernel execution flow.
 
